@@ -13,11 +13,11 @@
 
             <div class="flex items-center gap-3">
                 <?php if (auth()->loggedIn()): ?>
-                    <a href="<?= url_to('admin.dashboard') ?>" class="hidden sm:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
+                    <a href="<?= url_to('admin.dashboard') ?>" class="hidden md:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
                         <span class="text-xs uppercase tracking-wider">Dashboard</span>
                     </a>
                 <?php else: ?>
-                    <a href="<?= url_to('login') ?>" class="hidden sm:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
+                    <a href="<?= url_to('login') ?>" class="hidden md:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
                         <span class="text-xs uppercase tracking-wider">Masuk</span>
                     </a>
                 <?php endif; ?>
@@ -42,11 +42,11 @@
             <!-- <a class="<?= isActiveRoute('bandingkan') ?> transition-colors text-xs uppercase tracking-wider py-2" href="<?= url_to('bandingkan') ?>">Bandingkan</a> -->
 
             <?php if (auth()->loggedIn()): ?>
-                <a href="<?= url_to('admin.dashboard') ?>" class="sm:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
+                <a href="<?= url_to('admin.dashboard') ?>" class="md:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
                     <span class="text-xs uppercase tracking-wider">Dashboard</span>
                 </a>
             <?php else: ?>
-                <a href="<?= url_to('login') ?>" class="sm:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
+                <a href="<?= url_to('login') ?>" class="md:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
                     <span class="text-xs uppercase tracking-wider">Masuk</span>
                 </a>
             <?php endif; ?>
