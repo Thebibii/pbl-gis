@@ -1,0 +1,1472 @@
+CRITICAL - 2026-06-09 02:51:31 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 02:51:43 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 02:51:46 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 02:52:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:52:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-06-09 02:52:10 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pages\sekolah.php on line 94.
+ 1 APPPATH\Views\pages\sekolah.php(94): number_format(null)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 02:52:10 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 02:53:52 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780973532.861519, 100.0843, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 02:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 02:54:47 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780973634.112967, 53.6922, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 02:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 02:56:30 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+WARNING - 2026-06-09 02:56:44 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pages\sekolah.php on line 94.
+ 1 APPPATH\Views\pages\sekolah.php(94): number_format(null)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 02:56:44 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(371): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(139): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 02:58:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 02:58:53 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780973917.896589, 15.618, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:01:15 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(373): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:01:47 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(373): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:01:52 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(373): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:03:40 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(373): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+WARNING - 2026-06-09 03:04:18 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pages\sekolah.php on line 94.
+ 1 APPPATH\Views\pages\sekolah.php(94): number_format(null)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:04:18 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(373): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+WARNING - 2026-06-09 03:09:17 --> [DEPRECATED] number_format(): Passing null to parameter #1 ($num) of type float is deprecated in APPPATH\Views\pages\sekolah.php on line 94.
+ 1 APPPATH\Views\pages\sekolah.php(94): number_format(null)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:09:17 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 03:09:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 03:15:32 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780974558.982234, 373.4218, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 03:16:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 03:18:01 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:18:09 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:27:25 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:27:26 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:27:27 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 03:27:34 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: sekolah/smpn1]
+in SYSTEMPATH\HTTP\SiteURI.php on line 419.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(393): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\pages\sekolah.php(375): base_url(null)
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 7 APPPATH\Controllers\Home.php(141): view('pages/sekolah', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('smpn1')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 05:40:50 --> ParseError: syntax error, unexpected token "<", expecting "function" or "const"
+[Method: GET, Route: admin/sekolah]
+in APPPATH\Controllers\Admin\SekolahController.php on line 274.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin\\SekolahController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin\\SekolahController')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Admin\\SekolahController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:19:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:19:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:21:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:22:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:24:38 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 06:24:42 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 06:24:57 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:25:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:27:07 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 06:27:07 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:29:53 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780986428.423088, 164.8619, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 06:29:53 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:29:53 --> CodeIgniter\Filters\Exceptions\FilterException: "toolbar" filter must have a matching alias defined.
+[Method: GET, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in SYSTEMPATH\Filters\Filters.php on line 402.
+ 1 SYSTEMPATH\Filters\Filters.php(402): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('toolbar')
+ 2 SYSTEMPATH\View\View.php(257): CodeIgniter\Filters\Filters->getRequiredFilters('after')
+ 3 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('components/panel-control/sidebar.php', null, true)
+ 4 APPPATH\Views\layouts\admin-dashboard.php(17): CodeIgniter\View\View->include('components/panel-control/sidebar.php')
+ 5 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\layouts\\admin-dashboard.php')
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/admin-dashboard', [], true)
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/sekolah/edit', [], true)
+ 9 APPPATH\Controllers\Admin\SekolahController.php(330): view('pages/admin/sekolah/edit', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->edit('smp-negeri-1-batusangkarq')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:29:53 --> CodeIgniter\Filters\Exceptions\FilterException: "toolbar" filter must have a matching alias defined.
+[Method: GET, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in SYSTEMPATH\Filters\Filters.php on line 402.
+ 1 SYSTEMPATH\Filters\Filters.php(402): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('toolbar')
+ 2 SYSTEMPATH\View\View.php(257): CodeIgniter\Filters\Filters->getRequiredFilters('after')
+ 3 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('components/panel-control/sidebar.php', null, true)
+ 4 APPPATH\Views\layouts\admin-dashboard.php(17): CodeIgniter\View\View->include('components/panel-control/sidebar.php')
+ 5 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\layouts\\admin-dashboard.php')
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/admin-dashboard', [], true)
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/sekolah/edit', [], true)
+ 9 APPPATH\Controllers\Admin\SekolahController.php(330): view('pages/admin/sekolah/edit', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->edit('smp-negeri-1-batusangkarq')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:30:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:30:49 --> CodeIgniter\Filters\Exceptions\FilterException: "toolbar" filter must have a matching alias defined.
+[Method: GET, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in SYSTEMPATH\Filters\Filters.php on line 402.
+ 1 SYSTEMPATH\Filters\Filters.php(402): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('toolbar')
+ 2 SYSTEMPATH\View\View.php(257): CodeIgniter\Filters\Filters->getRequiredFilters('after')
+ 3 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('components/panel-control/sidebar.php', null, true)
+ 4 APPPATH\Views\layouts\admin-dashboard.php(17): CodeIgniter\View\View->include('components/panel-control/sidebar.php')
+ 5 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\layouts\\admin-dashboard.php')
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/admin-dashboard', [], true)
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/sekolah/edit', [], true)
+ 9 APPPATH\Controllers\Admin\SekolahController.php(330): view('pages/admin/sekolah/edit', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->edit('smp-negeri-1-batusangkarq')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:30:51 --> CodeIgniter\Filters\Exceptions\FilterException: "toolbar" filter must have a matching alias defined.
+[Method: GET, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in SYSTEMPATH\Filters\Filters.php on line 402.
+ 1 SYSTEMPATH\Filters\Filters.php(402): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('toolbar')
+ 2 SYSTEMPATH\View\View.php(257): CodeIgniter\Filters\Filters->getRequiredFilters('after')
+ 3 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('components/panel-control/sidebar.php', null, true)
+ 4 APPPATH\Views\layouts\admin-dashboard.php(17): CodeIgniter\View\View->include('components/panel-control/sidebar.php')
+ 5 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\layouts\\admin-dashboard.php')
+ 6 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('layouts/admin-dashboard', [], true)
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/sekolah/edit', [], true)
+ 9 APPPATH\Controllers\Admin\SekolahController.php(330): view('pages/admin/sekolah/edit', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->edit('smp-negeri-1-batusangkarq')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:31:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:31:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:31:25 --> ErrorException: Undefined array key "foto"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:33:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:33:31 --> ErrorException: Undefined array key "foto_sekolah"
+[Method: POST, Route: admin/sekolah/smp-negeri-1-batusangkarq/edit]
+in APPPATH\Controllers\Admin\SekolahController.php on line 471.
+ 1 APPPATH\Controllers\Admin\SekolahController.php(471): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto_sekolah"', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\SekolahController.php', 471)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->update('smp-negeri-1-batusangkarq')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:34:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:34:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 06:36:52 --> ErrorException: ini_set(): Session ini settings cannot be changed after headers have already been sent
+[Method: GET, Route: __hot-reload]
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'D:\\CodeIgniter4-4.6.4\\system\\Session\\Handlers\\FileHandler.php', 74)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(74): ini_set('session.save_path', 'D:\\CodeIgniter4-4.6.4\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(702): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\Session), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 5 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 SYSTEMPATH\Common.php(1027): CodeIgniter\Config\BaseService::get('session')
+10 SYSTEMPATH\Common.php(1000): service('session')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(682): session('user')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(700): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+13 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(387): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+14 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(371): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+15 VENDORPATH\codeigniter4\shield\src\Auth.php(189): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+16 VENDORPATH\codeigniter4\shield\src\Collectors\Auth.php(76): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+17 SYSTEMPATH\Debug\Toolbar\Collectors\BaseCollector.php(228): CodeIgniter\Shield\Collectors\Auth->display()
+18 SYSTEMPATH\Debug\Toolbar.php(95): CodeIgniter\Debug\Toolbar\Collectors\BaseCollector->getAsArray()
+19 SYSTEMPATH\Debug\Toolbar.php(390): CodeIgniter\Debug\Toolbar->run(1780986950.247954, 62.1215, Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+20 SYSTEMPATH\Filters\DebugToolbar.php(44): CodeIgniter\Debug\Toolbar->prepare(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response))
+21 SYSTEMPATH\Filters\Filters.php(278): CodeIgniter\Filters\DebugToolbar->after(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), null)
+22 SYSTEMPATH\Filters\Filters.php(364): CodeIgniter\Filters\Filters->runAfter([...])
+23 SYSTEMPATH\CodeIgniter.php(407): CodeIgniter\Filters\Filters->runRequired('after')
+24 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->runRequiredAfterFilters(Object(CodeIgniter\Filters\Filters))
+25 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+26 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+27 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+28 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 06:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:38:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:39:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:39:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:40:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:41:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:42:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 06:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:01:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:01:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:05:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:27:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:27:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:31:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:31:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:36:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:36:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 07:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:29:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:33:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:33:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:37:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:37:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:39:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 08:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:53:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:54:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:54:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 12:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 13:12:16 --> ErrorException: Undefined array key "jenis"
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\pages\admin\dashboard.php on line 204.
+ 1 APPPATH\Views\pages\admin\dashboard.php(204): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jenis"', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php', 204)
+ 2 [internal function]: CodeIgniter\View\View->{closure}([...])
+ 3 APPPATH\Views\pages\admin\dashboard.php(201): array_map(Object(Closure), [...])
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/dashboard', [], true)
+ 7 APPPATH\Controllers\Admin\DashboardController.php(60): view('pages/admin/dashboard', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 13:13:25 --> ErrorException: Undefined array key "foto"
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\pages\admin\dashboard.php on line 210.
+ 1 APPPATH\Views\pages\admin\dashboard.php(210): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php', 210)
+ 2 [internal function]: CodeIgniter\View\View->{closure}([...])
+ 3 APPPATH\Views\pages\admin\dashboard.php(201): array_map(Object(Closure), [...])
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/dashboard', [], true)
+ 7 APPPATH\Controllers\Admin\DashboardController.php(60): view('pages/admin/dashboard', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 13:13:33 --> ErrorException: Undefined array key "foto"
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\pages\admin\dashboard.php on line 210.
+ 1 APPPATH\Views\pages\admin\dashboard.php(210): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto"', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php', 210)
+ 2 [internal function]: CodeIgniter\View\View->{closure}([...])
+ 3 APPPATH\Views\pages\admin\dashboard.php(201): array_map(Object(Closure), [...])
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/dashboard', [], true)
+ 7 APPPATH\Controllers\Admin\DashboardController.php(60): view('pages/admin/dashboard', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 13:16:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:19:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:19:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:19:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:23:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:23:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:23:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:23:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:24:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:26:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:28:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:28:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:29:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-06-09 13:30:05 --> mysqli_sql_exception: Duplicate entry 'smp-negeri-1-batusangkar' for key 'sekolah.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `se...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\CodeIgniter4-4.6.4\app\Controllers\Admin\SekolahController.php(229): CodeIgniter\Model->insert(Array, true)
+#8 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->store()
+#9 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+#10 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#15 {main}
+CRITICAL - 2026-06-09 13:30:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'smp-negeri-1-batusangkar' for key 'sekolah.slug'
+[Method: POST, Route: admin/sekolah/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (:npsn:, :nss:, :nama_sekolah:, :jenjang:, :status:, :akreditasi:, :kurikulum:, :tahun_berdiri:, :alamat:, :latitude:, :longitude:, :kecamatan_id:, :telepon:, :email:, :website:, :is_active:, :created_at:, :updated_at:, :slug:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Admin\SekolahController.php(229): CodeIgniter\Model->insert([...], true)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 13:30:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'smp-negeri-1-batusangkar' for key 'sekolah.slug'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (\'41028490\', NULL, \'SMP Negeri 1 Batusangkar\', \'SD\', \'Negeri\', \'A\', \'Merdeka\', \'1994\', \'JLna\', \'-0.483393\', \'100.549622\', \'9\', NULL, NULL, NULL, 1, \'2026-06-09 13:30:05\', \'2026-06-09 13:30:05\', \'smp-negeri-1-batusangkar\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (\'41028490\', NULL, \'SMP Negeri 1 Batusangkar\', \'SD\', \'Negeri\', \'A\', \'Merdeka\', \'1994\', \'JLna\', \'-0.483393\', \'100.549622\', \'9\', NULL, NULL, NULL, 1, \'2026-06-09 13:30:05\', \'2026-06-09 13:30:05\', \'smp-negeri-1-batusangkar\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (:npsn:, :nss:, :nama_sekolah:, :jenjang:, :status:, :akreditasi:, :kurikulum:, :tahun_berdiri:, :alamat:, :latitude:, :longitude:, :kecamatan_id:, :telepon:, :email:, :website:, :is_active:, :created_at:, :updated_at:, :slug:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Admin\SekolahController.php(229): CodeIgniter\Model->insert([...], true)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 13:30:05 --> [Caused by] mysqli_sql_exception: Duplicate entry 'smp-negeri-1-batusangkar' for key 'sekolah.slug'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (\'41028490\', NULL, \'SMP Negeri 1 Batusangkar\', \'SD\', \'Negeri\', \'A\', \'Merdeka\', \'1994\', \'JLna\', \'-0.483393\', \'100.549622\', \'9\', NULL, NULL, NULL, 1, \'2026-06-09 13:30:05\', \'2026-06-09 13:30:05\', \'smp-negeri-1-batusangkar\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (\'41028490\', NULL, \'SMP Negeri 1 Batusangkar\', \'SD\', \'Negeri\', \'A\', \'Merdeka\', \'1994\', \'JLna\', \'-0.483393\', \'100.549622\', \'9\', NULL, NULL, NULL, 1, \'2026-06-09 13:30:05\', \'2026-06-09 13:30:05\', \'smp-negeri-1-batusangkar\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (\'41028490\', NULL, \'SMP Negeri 1 Batusangkar\', \'SD\', \'Negeri\', \'A\', \'Merdeka\', \'1994\', \'JLna\', \'-0.483393\', \'100.549622\', \'9\', NULL, NULL, NULL, 1, \'2026-06-09 13:30:05\', \'2026-06-09 13:30:05\', \'smp-negeri-1-batusangkar\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sekolah` (`npsn`, `nss`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `kurikulum`, `tahun_berdiri`, `alamat`, `latitude`, `longitude`, `kecamatan_id`, `telepon`, `email`, `website`, `is_active`, `created_at`, `updated_at`, `slug`) VALUES (:npsn:, :nss:, :nama_sekolah:, :jenjang:, :status:, :akreditasi:, :kurikulum:, :tahun_berdiri:, :alamat:, :latitude:, :longitude:, :kecamatan_id:, :telepon:, :email:, :website:, :is_active:, :created_at:, :updated_at:, :slug:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Admin\SekolahController.php(229): CodeIgniter\Model->insert([...], true)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\SekolahController->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\SekolahController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 13:41:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:47:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:49:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:49:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:49:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:56:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 13:58:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:40:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:41:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:44:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:46:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 14:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 15:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 15:06:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-06-09 15:29:07 --> mysqli_sql_exception: Column 'latitude' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\CodeIgniter4-4.6.4\app\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+#7 D:\CodeIgniter4-4.6.4\app\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+#8 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+#9 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+#10 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#15 {main}
+CRITICAL - 2026-06-09 15:29:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:07 --> [Caused by] mysqli_sql_exception: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-09 15:29:10 --> mysqli_sql_exception: Column 'latitude' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\CodeIgniter4-4.6.4\app\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+#7 D:\CodeIgniter4-4.6.4\app\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+#8 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+#9 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+#10 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#15 {main}
+CRITICAL - 2026-06-09 15:29:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:10 --> [Caused by] mysqli_sql_exception: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `latitude`, `longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-09 15:29:24 --> mysqli_sql_exception: Column 'slug' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\CodeIgniter4-4.6.4\app\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+#7 D:\CodeIgniter4-4.6.4\app\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+#8 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+#9 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+#10 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#15 {main}
+CRITICAL - 2026-06-09 15:29:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'slug' in field list is ambiguous
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'slug' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:29:24 --> [Caused by] mysqli_sql_exception: Column 'slug' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = 1
+AND `sekolah`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `nama_sekolah`, `jenjang`, `status`, `akreditasi`, `sekolah`.`latitude`, `sekolah`.`longitude`, `alamat`, `foto_utama`, `slug`, `sekolah`.`kecamatan_id`, `kecamatan`.`nama_kecamatan`, `statistik_sekolah`.`jumlah_siswa_l`, `statistik_sekolah`.`jumlah_siswa_p`, `statistik_sekolah`.`jumlah_guru_tetap`, `statistik_sekolah`.`jumlah_guru_honor`
+FROM `sekolah`
+LEFT JOIN `statistik_sekolah` ON `statistik_sekolah`.`sekolah_id` = `sekolah`.`id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `sekolah`.`kecamatan_id`
+WHERE `sekolah`.`is_active` = :sekolah.is_active:
+AND `sekolah`.`deleted_at` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\SekolahModel.php(77): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Admin\DashboardController.php(58): App\Models\SekolahModel->forPeta()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:31:00 --> ErrorException: Undefined variable $kecamatan_list
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\pages\admin\dashboard.php on line 329.
+ 1 APPPATH\Views\pages\admin\dashboard.php(329): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kecamatan_list', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php', 329)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/dashboard', [], true)
+ 5 APPPATH\Controllers\Admin\DashboardController.php(60): view('pages/admin/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:31:34 --> ErrorException: Undefined variable $kecamatan_list
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Views\pages\admin\dashboard.php on line 334.
+ 1 APPPATH\Views\pages\admin\dashboard.php(334): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kecamatan_list', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php', 334)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\admin\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/admin/dashboard', [], true)
+ 5 APPPATH\Controllers\Admin\DashboardController.php(60): view('pages/admin/dashboard', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:33:51 --> ErrorException: Undefined variable $kecamatanModel
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Controllers\Admin\DashboardController.php on line 67.
+ 1 APPPATH\Controllers\Admin\DashboardController.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kecamatanModel', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\DashboardController.php', 67)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-09 15:34:06 --> ErrorException: Undefined variable $kecamatanModel
+[Method: GET, Route: admin/dashboard]
+in APPPATH\Controllers\Admin\DashboardController.php on line 67.
+ 1 APPPATH\Controllers\Admin\DashboardController.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kecamatanModel', 'D:\\CodeIgniter4-4.6.4\\app\\Controllers\\Admin\\DashboardController.php', 67)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\DashboardController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\DashboardController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 15:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 15:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:15:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:15:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:16:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 16:16:07 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Sekolah\JenisFasilitasModel::getFiltered
+[Method: GET, Route: admin/jenis_fasilitas/data]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\JenisFasilitasController.php(30): CodeIgniter\Model->__call('getFiltered', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\JenisFasilitasController->getData()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\JenisFasilitasController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 16:16:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 16:16:09 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Sekolah\JenisFasilitasModel::getFiltered
+[Method: GET, Route: admin/jenis_fasilitas/data]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\JenisFasilitasController.php(30): CodeIgniter\Model->__call('getFiltered', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\JenisFasilitasController->getData()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\JenisFasilitasController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 16:16:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-06-09 16:16:49 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Sekolah\JenisFasilitasModel::getFiltered
+[Method: GET, Route: admin/jenis_fasilitas/data]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Admin\JenisFasilitasController.php(30): CodeIgniter\Model->__call('getFiltered', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin\JenisFasilitasController->getData()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\JenisFasilitasController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+DEBUG - 2026-06-09 16:20:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:20:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:23:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:24:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-09 16:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -1,0 +1,681 @@
+CRITICAL - 2026-06-04 03:19:29 --> CodeIgniter\Router\Exceptions\RouterException: A parameter does not match the expected type.
+[Method: GET, Route: peta]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1205): CodeIgniter\Router\RouteCollection->buildReverseRoute('sekolah/(:segment)', [...])
+ 3 SYSTEMPATH\Common.php(983): CodeIgniter\Router\RouteCollection->reverseRoute('sekolah', '')
+ 4 SYSTEMPATH\Helpers\url_helper.php(505): route_to('sekolah', '')
+ 5 APPPATH\Views\pages\peta.php(409): url_to('sekolah', '')
+ 6 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\peta.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/peta', [], true)
+ 9 APPPATH\Controllers\Home.php(14): view('pages/peta')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peta()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 03:21:34 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "${s.id}"
+[Method: GET, Route: sekolah/$%7Bs.id%7D]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('sekolah/${s.id}')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('sekolah/${s.id}')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 03:21:46 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "${s.id}"
+[Method: GET, Route: sekolah/$%7Bs.id%7D]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('sekolah/${s.id}')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('sekolah/${s.id}')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 03:21:51 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "${s.id}"
+[Method: GET, Route: sekolah/$%7Bs.id%7D]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('sekolah/${s.id}')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('sekolah/${s.id}')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 03:21:52 --> CodeIgniter\Router\Exceptions\RouterException: A parameter does not match the expected type.
+[Method: GET, Route: peta]
+in SYSTEMPATH\Router\RouteCollection.php on line 1395.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1395): CodeIgniter\Router\Exceptions\RouterException::forInvalidParameterType()
+ 2 SYSTEMPATH\Router\RouteCollection.php(1205): CodeIgniter\Router\RouteCollection->buildReverseRoute('sekolah/(:segment)', [...])
+ 3 SYSTEMPATH\Common.php(983): CodeIgniter\Router\RouteCollection->reverseRoute('sekolah', '')
+ 4 SYSTEMPATH\Helpers\url_helper.php(505): route_to('sekolah', '')
+ 5 APPPATH\Views\pages\peta.php(409): url_to('sekolah', '')
+ 6 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\peta.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/peta', [], true)
+ 9 APPPATH\Controllers\Home.php(14): view('pages/peta')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->peta()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-04 14:07:44 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'pemetaan_sekolah' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'pemetaan_sekola...', 3306, '', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#5 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(160): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 D:\CodeIgniter4-4.6.4\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'pemetaan_sekolah' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#4 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(160): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 D:\CodeIgniter4-4.6.4\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+ERROR - 2026-06-04 16:02:10 --> mysqli_sql_exception: Invalid default value for 'akreditasi' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `s...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 D:\CodeIgniter4-4.6.4\app\Database\Migrations\2026-06-04-160050_CreateSekolahTable.php(48): CodeIgniter\Database\Forge->createTable('sekolah')
+#5 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(874): App\Database\Migrations\CreateSekolahTable->up()
+#6 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(180): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 D:\CodeIgniter4-4.6.4\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\CodeIgniter4-4.6.4\system\CLI\BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\CodeIgniter4-4.6.4\system\Commands\Database\MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+ERROR - 2026-06-04 16:02:41 --> mysqli_sql_exception: Invalid default value for 'akreditasi' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `s...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `s...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `s...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `s...')
+#4 D:\CodeIgniter4-4.6.4\app\Database\Migrations\2026-06-04-160050_CreateSekolahTable.php(48): CodeIgniter\Database\Forge->createTable('sekolah')
+#5 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(874): App\Database\Migrations\CreateSekolahTable->up()
+#6 D:\CodeIgniter4-4.6.4\system\Database\MigrationRunner.php(180): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 D:\CodeIgniter4-4.6.4\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 D:\CodeIgniter4-4.6.4\system\CLI\BaseCommand.php(119): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 D:\CodeIgniter4-4.6.4\system\Commands\Database\MigrateRefresh.php(87): CodeIgniter\CLI\BaseCommand->call('migrate', Array)
+#11 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateRefresh->run(Array)
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:refresh', Array)
+#13 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+ERROR - 2026-06-04 16:11:48 --> mysqli_sql_exception: Duplicate entry 'tabek-patah' for key 'kelurahan.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ke...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\KelurahanSeeder.php(121): CodeIgniter\Model->insert(Array)
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\KelurahanSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(13): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#11 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#13 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#15 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#16 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#17 {main}
+ERROR - 2026-06-04 16:12:03 --> mysqli_sql_exception: Duplicate entry 'tabek-patah' for key 'kelurahan.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ke...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\KelurahanSeeder.php(121): CodeIgniter\Model->insert(Array)
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\KelurahanSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(13): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#11 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#13 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#15 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#16 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#17 {main}
+ERROR - 2026-06-04 16:14:02 --> mysqli_sql_exception: Duplicate entry 'x-koto' for key 'kecamatan.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ke...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', NULL, false)
+#4 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 D:\CodeIgniter4-4.6.4\app\Database\Seeds\KecamatanSeeder.php(98): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\KecamatanSeeder->run()
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(12): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#13 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+ERROR - 2026-06-04 16:14:06 --> mysqli_sql_exception: Duplicate entry 'tigo-jangko' for key 'kelurahan.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ke...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\KelurahanSeeder.php(121): CodeIgniter\Model->insert(Array)
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\KelurahanSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(13): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#11 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#13 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#15 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#16 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#17 {main}
+ERROR - 2026-06-04 16:14:59 --> mysqli_sql_exception: Duplicate entry 'koto-baru' for key 'kelurahan.slug' in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ke...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ke...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ke...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ke...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\CodeIgniter4-4.6.4\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\KelurahanSeeder.php(120): CodeIgniter\Model->insert(Array)
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\KelurahanSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(13): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#11 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#12 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#13 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#14 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#15 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#16 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#17 {main}
+ERROR - 2026-06-04 18:24:03 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pemetaan_sekolah`.`sekolah_fasilitas`, CONSTRAINT `sekolah_fasilitas_sekolah_id_foreign` FOREIGN KEY (`sekolah_id`) REFERENCES `sekolah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `se...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', NULL, false)
+#4 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 D:\CodeIgniter4-4.6.4\app\Database\Seeds\SekolahSeeder.php(140): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\SekolahSeeder->run()
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(14): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#13 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+ERROR - 2026-06-04 18:25:09 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`pemetaan_sekolah`.`sekolah_fasilitas`, CONSTRAINT `sekolah_fasilitas_sekolah_id_foreign` FOREIGN KEY (`sekolah_id`) REFERENCES `sekolah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `se...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', NULL, false)
+#4 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 D:\CodeIgniter4-4.6.4\app\Database\Seeds\SekolahSeeder.php(140): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\SekolahSeeder->run()
+#7 D:\CodeIgniter4-4.6.4\app\Database\Seeds\MasterSeeder.php(14): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 D:\CodeIgniter4-4.6.4\system\Database\Seeder.php(149): App\Database\Seeds\MasterSeeder->run()
+#9 D:\CodeIgniter4-4.6.4\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#10 D:\CodeIgniter4-4.6.4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#11 D:\CodeIgniter4-4.6.4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#12 D:\CodeIgniter4-4.6.4\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#13 D:\CodeIgniter4-4.6.4\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 D:\CodeIgniter4-4.6.4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+ERROR - 2026-06-04 18:49:57 --> mysqli_sql_exception: Column 'id' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `id`, `n...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `n...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `n...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\app\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusang...')
+#6 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#12 {main}
+CRITICAL - 2026-06-04 18:49:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 2 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:49:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 4 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:49:57 --> [Caused by] mysqli_sql_exception: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 5 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-04 18:50:09 --> mysqli_sql_exception: Column 'id' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `id`, `n...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `n...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `n...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\app\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusang...')
+#6 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#12 {main}
+CRITICAL - 2026-06-04 18:50:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 2 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 4 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:09 --> [Caused by] mysqli_sql_exception: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `npsn`, `nss`, `nama_sekolah`, `slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 5 APPPATH\Controllers\Home.php(58): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-04 18:50:32 --> mysqli_sql_exception: Column 'latitude' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\app\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusang...')
+#6 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#12 {main}
+CRITICAL - 2026-06-04 18:50:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 2 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 4 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:33 --> [Caused by] mysqli_sql_exception: Column 'latitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 5 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+ERROR - 2026-06-04 18:50:51 --> mysqli_sql_exception: Column 'longitude' in field list is ambiguous in D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\CodeIgniter4-4.6.4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah...', 0)
+#1 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah...')
+#2 D:\CodeIgniter4-4.6.4\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah...')
+#3 D:\CodeIgniter4-4.6.4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah...', Array, false)
+#4 D:\CodeIgniter4-4.6.4\app\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusang...')
+#6 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 D:\CodeIgniter4-4.6.4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\CodeIgniter4-4.6.4\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 D:\CodeIgniter4-4.6.4\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 D:\CodeIgniter4-4.6.4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 D:\CodeIgniter4-4.6.4\system\rewrite.php(44): require_once('D:\\CodeIgniter4...')
+#12 {main}
+CRITICAL - 2026-06-04 18:50:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'longitude' in field list is ambiguous
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 2 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'longitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 4 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:50:51 --> [Caused by] mysqli_sql_exception: Column 'longitude' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = \'sman-1-batusangkar\'
+AND `is_active` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `sekolah`.`id`, `npsn`, `nss`, `nama_sekolah`, `sekolah`.`slug`, `jenjang`, `status`, `akreditasi`, `alamat`, `sekolah`.`latitude`, `longitude`, `telepon`, `email`, `website`, `kurikulum`, `luas_lahan`, `foto_utama`, `kecamatan`.`geojson_file`
+FROM `sekolah`
+LEFT JOIN `kelurahan` ON `kelurahan`.`id` = `sekolah`.`kelurahan_id`
+LEFT JOIN `kecamatan` ON `kecamatan`.`id` = `kelurahan`.`kecamatan_id`
+WHERE `sekolah`.`slug` = :sekolah.slug:
+AND `is_active` = :is_active:', [...], false)
+ 5 APPPATH\Controllers\Home.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:51:54 --> ErrorException: Undefined array key "geojson"
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in APPPATH\Views\pages\sekolah.php on line 332.
+ 1 APPPATH\Views\pages\sekolah.php(332): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "geojson"', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php', 332)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(106): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
+CRITICAL - 2026-06-04 18:51:56 --> ErrorException: Undefined array key "geojson"
+[Method: GET, Route: sekolah/sman-1-batusangkar]
+in APPPATH\Views\pages\sekolah.php on line 332.
+ 1 APPPATH\Views\pages\sekolah.php(332): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "geojson"', 'D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php', 332)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CodeIgniter4-4.6.4\\app\\Views\\pages\\sekolah.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1199): CodeIgniter\View\View->render('pages/sekolah', [], true)
+ 5 APPPATH\Controllers\Home.php(106): view('pages/sekolah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->sekolah('sman-1-batusangkar')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\CodeIgniter4-4.6.4\\public\\index.php')
