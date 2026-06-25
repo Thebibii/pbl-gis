@@ -1,0 +1,29 @@
+# Konfigurasi Sensitif
+.env
+
+# Dependensi Composer
+vendor/
+
+# Folder Writable (Sisakan file .gitkeep agar struktur folder tetap terunggah)
+writable/cache/*
+writable/debugbar/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+!writable/cache/.gitkeep
+!writable/debugbar/.gitkeep
+!writable/logs/.gitkeep
+!writable/session/.gitkeep
+!writable/uploads/.gitkeep
+
+# Cache Pengujian
+.phpunit.result.cache
+
+# Folder Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
