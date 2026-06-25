@@ -3,6 +3,7 @@
 
 # Dependensi Composer
 vendor/
+node_modules/
 
 # Folder Writable (Sisakan file .gitkeep agar struktur folder tetap terunggah)
 writable/cache/*
