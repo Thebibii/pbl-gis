@@ -20,6 +20,27 @@
             </a>
         </header>
 
+        <!-- <section class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1 relative group">
+                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+                    <input id="search-input"
+                        class="w-full pl-12 pr-4 py-3 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
+                        placeholder="Cari berdasarkan NPSN atau Nama Sekolah..."
+                        type="text" />
+                </div>
+                <div class="relative min-w-[160px]">
+                    <select id="filter-jenjang"
+                        class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
+                        <option value="">Semua Jenjang</option>
+                        <option value="TK">TK</option>
+                        <option value="SD">SD</option>
+                        <option value="SMP">SMP</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+                </div>
+            </div>
+        </section> -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="flex-1 relative group">
@@ -33,14 +54,22 @@
                     <select id="filter-jenjang"
                         class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
                         <option value="">Semua Jenjang</option>
+                        <option value="TK">TK</option>
                         <option value="SD">SD</option>
                         <option value="SMP">SMP</option>
-                        <option value="SMA">SMA</option>
                     </select>
                     <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
                 </div>
+
+                <button onclick="document.getElementById('modal-import').classList.remove('hidden')"
+                    class="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-medium transition-colors whitespace-nowrap">
+                    <span class="material-symbols-outlined text-[18px]">upload_file</span>
+                    Import CSV
+                </button>
             </div>
         </section>
+
+
 
         <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">
             <div class="overflow-x-auto">
@@ -72,6 +101,40 @@
 
     </div>
 </section>
+
+<div id="modal-import" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md mx-4">
+        <h2 class="text-base font-semibold text-slate-800 mb-4">Import Data Sekolah</h2>
+        <form action="<?= route_to('admin.sekolah.import.store') ?>" method="post" enctype="multipart/form-data" id="form-import-csv">
+            <?= csrf_field() ?>
+            <div class="mb-4">
+                <label class="block text-sm text-slate-600 mb-2">Pilih file CSV</label>
+                <input type="file" name="csv_file" accept=".csv"
+                    class="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer">
+            </div>
+            <div class="flex gap-3 justify-end mt-6">
+                <button type="button" onclick="document.getElementById('modal-import').classList.add('hidden')"
+                    class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800 transition-colors">
+                    Batal
+                </button>
+                <button type="submit" id="btn-import"
+                    class="px-5 py-2 bg-primary text-white text-sm rounded-xl hover:bg-primary/90 transition-colors">
+                    Upload & Import
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="loading-import" class="hidden fixed inset-0 z-[60] flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center gap-4 w-64">
+        <div class="w-10 h-10 border-4 border-slate-200 border-t-primary rounded-full animate-spin"></div>
+        <div class="text-center">
+            <p class="text-sm font-medium text-slate-800">Mengimpor data...</p>
+            <p class="text-xs text-slate-500 mt-1">Mohon tunggu, jangan tutup halaman ini</p>
+        </div>
+    </div>
+</div>
 
 <div id="delete-modal"
     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm">
@@ -165,9 +228,9 @@
         }
 
         const jenjangColor = {
-            SD: 'bg-[#EF4444]/90 text-white',
-            SMP: 'bg-[#EAB308]/90 text-forground',
-            SMA: 'bg-[#3B82F6]/90 text-white',
+            SD: 'bg-error/90 text-white',
+            SMP: 'bg-warning/90 text-forground',
+            TK: 'bg-purple-600/90 text-white',
         };
         const statusColor = (s) => s.toLowerCase() === 'negeri' ? 'bg-primary text-white' : 'bg-secondary text-secondary-foreground';
 
@@ -192,7 +255,7 @@
             </td>
             <td class="px-6 py-5">
                 ${s.akreditasi
-                    ? `<div class="flex items-center gap-1 text-amber-600">
+                    ? `<div class="flex items-center gap-1 text-${s.akreditasi}">
                            <span class="font-bold text-sm">${escHtml(s.akreditasi)}</span>
                        </div>`
                     : `<span class="text-xs text-muted-foreground">—</span>`
@@ -346,5 +409,15 @@
     renderTable(INITIAL_DATA.data);
     renderPagination(INITIAL_DATA);
     renderInfo(INITIAL_DATA);
+</script>
+<script>
+    document.getElementById('form-import-csv').addEventListener('submit', function(e) {
+        const fileInput = this.querySelector('input[type="file"]');
+        if (!fileInput.files.length) return;
+
+        document.getElementById('modal-import').classList.add('hidden');
+        document.getElementById('loading-import').classList.remove('hidden');
+        document.getElementById('btn-import').disabled = true;
+    });
 </script>
 <?= $this->endSection() ?>

@@ -243,21 +243,22 @@
         </div>`;
         }
 
-        // ── Marker colors ──────────────────────────────────────────────
-        const markerColor = {
-            SD: '#EF4444',
-            SMP: '#EAB308',
-            SMA: '#3B82F6'
-        };
 
         function buildMarkers() {
             markerGroup.clearLayers();
             sekolahData.forEach(s => {
                 if (!s.lat || !s.lng) return;
-                const color = markerColor[s.jenis] ?? '#64748b';
                 const icon = L.divIcon({
                     className: '',
-                    html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,
+                    html: `
+                        <div class="
+                        w-2.5 h-2.5
+                        badge-${s.jenis}
+                        rounded-full
+                        border-2 border-white
+                        shadow-md
+                        "></div>
+                        `,
                     iconSize: [10, 10],
                     iconAnchor: [5, 5],
                 });

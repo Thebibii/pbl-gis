@@ -26,9 +26,9 @@
 
     // Badge warna jenjang
     $jenjangColor = match (strtoupper($sekolah['jenjang'] ?? '')) {
+        'TK'  => 'badge-TK',
         'SD'  => 'bg-[#EF4444]',
         'SMP' => 'bg-[#EAB308]',
-        'SMA' => 'bg-blue-500',
         default => 'bg-slate-500',
     };
 
@@ -171,7 +171,7 @@
                             </div>
                             <div>
                                 <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NSS</p>
-                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['nss'] ?? '—') ?></p>
+                                <!-- <p class="text-base font-bold text-foreground"><?= esc($sekolah['nss'] ?? '—') ?></p> -->
                             </div>
                             <div>
                                 <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">AKREDITASI</p>

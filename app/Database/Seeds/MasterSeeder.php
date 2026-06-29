@@ -12,7 +12,7 @@ class MasterSeeder extends Seeder
 
         $this->call('SuperAdminSeeder');
         $this->call('KecamatanSeeder');
-        $this->call('KelurahanSeeder');
-        $this->call('SekolahSeeder');
+        $this->call('NagariSeeder');
+        // $this->call('SekolahSeeder');
     }
 }

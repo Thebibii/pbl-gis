@@ -21,6 +21,10 @@
                     <span>Semua Jenjang</span>
                     <span class="material-symbols-outlined text-[18px] check-icon">check_circle</span>
                 </button>
+                <button type="button" data-value="TK" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent hover:border-border transition-all">
+                    <span>TK</span>
+                    <span class="material-symbols-outlined text-[18px] check-icon hidden">check_circle</span>
+                </button>
                 <button type="button" data-value="SD" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent hover:border-border transition-all">
                     <span>SD</span>
                     <span class="material-symbols-outlined text-[18px] check-icon hidden">check_circle</span>

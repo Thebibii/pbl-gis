@@ -62,7 +62,7 @@ class AuthGroups extends ShieldAuthGroups
         'sekolah.delete'   => 'Hapus/nonaktifkan sekolah',
         'sekolah.import'   => 'Import data via Excel',
         'sekolah.export'   => 'Export data ke Excel',
-        'wilayah.manage'   => 'Kelola kecamatan & kelurahan',
+        'wilayah.manage'   => 'Kelola kecamatan & nagari',
         'fasilitas.manage' => 'Kelola jenis fasilitas master',
         'users.manage'     => 'Kelola akun pengguna',
         'log.view'         => 'Lihat activity & import log',

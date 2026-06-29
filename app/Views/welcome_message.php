@@ -2,41 +2,41 @@
 <?= $this->section('content') ?>
 <main class="pt-24">
     <!-- Immersive Hero Section -->
-    <section class="relative min-h-screen flex items-center">
-        <div class="absolute inset-0 bg-gradient-to-br from-background via-muted to-primary/5 z-0"></div>
-        <div class="container mx-auto px-margin-desktop relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+    <section class="relative py-24 flex items-center">
+        <!-- <div class="absolute inset-0 bg-gradient-to-br from-background via-muted to-primary/5 z-0"></div> -->
+        <div class="container mx-auto px-2 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 space-y-10">
 
                 <h1 class="text-5xl md:text-7xl font-headline font-bold text-foreground leading-[1.1] tracking-tight">
-                    Masa Depan <br />
+                    Pemetaan <br />
                     <span class="text-primary relative inline-block">
-                        Pendidikan
+                        Sekolah
                         <svg class="absolute -bottom-2 left-0 w-full h-3 text-primary/20" preserveaspectratio="none" viewbox="0 0 100 12">
                             <path d="M0,10 Q50,0 100,10" fill="transparent" stroke="currentColor" stroke-width="4"></path>
                         </svg>
                     </span> <br />
-                    Indonesia
+                    TK, SD dan SMP
                 </h1>
                 <p class="text-lg text-muted-foreground max-w-lg leading-relaxed opacity-90">
-                    Ekosistem data terintegrasi untuk pemetaan, analisis, dan transparansi institusi pendidikan di seluruh nusantara.
+                    Menyajikan informasi persebaran sekolah pada tiga kecamatan secara interaktif untuk mendukung akses informasi yang akurat.
                 </p>
                 <div class="flex flex-wrap gap-6 pt-6">
                     <a href="<?= url_to('peta') ?>" class="group px-10 py-5 bg-primary text-primary-foreground rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all duration-300 uppercase text-xs tracking-wider">
                         Mulai Eksplorasi Peta
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">explore</span>
                     </a>
-                    <button class="px-10 py-5 bg-background text-primary border-2 border-primary/20 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-muted hover:border-primary transition-all duration-300 uppercase text-xs tracking-wider">
+                    <!-- <button class="px-10 py-5 bg-background text-primary border-2 border-primary/20 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-muted hover:border-primary transition-all duration-300 uppercase text-xs tracking-wider">
                         Lihat Statistik
                         <span class="material-symbols-outlined">analytics</span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="lg:col-span-5 relative hidden lg:block">
                 <div class="floating-3d relative">
                     <div class="absolute -inset-10 bg-primary/5 blur-[100px] rounded-full"></div>
                     <div class="relative glass-effect p-6 rounded-[40px] shadow-[0_32px_64px_-16px_rgba(var(--primary),0.2)] transform perspective-1000 rotate-y-12">
-                        <img alt="Map Data Visualization" class="rounded-[28px] w-full h-[540px] object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhYntSYsYQw8N0VTDyIC69MTWDLfdcqgXGFKocJZl5RDg0CmHmHJ3LKneDJSqXg7L2kKnHwk62VrOia-QXGkOpxCXF7N1i5ZRJJa_mXQnVYET4lXpSaCoUVzva4BW81jxhgQeKr0FqxZkP1x__PCaML_Po0qgWGrKMQrBzhjxy87mOi62brgtGTT1Qp4Sn2yAy9Bvk-PlLWMiactHf8K9RuN2q93owBzOQd5TnDkN7U-uNKqRMBZrcLjn__0yqBWmZkPiRy6tjD5E" />
-                        <div class="absolute -bottom-10 -left-12 glass-effect p-5 rounded-3xl shadow-2xl flex items-center gap-4">
+                        <img alt="Map Data Visualization" class="rounded-[28px] w-full object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhYntSYsYQw8N0VTDyIC69MTWDLfdcqgXGFKocJZl5RDg0CmHmHJ3LKneDJSqXg7L2kKnHwk62VrOia-QXGkOpxCXF7N1i5ZRJJa_mXQnVYET4lXpSaCoUVzva4BW81jxhgQeKr0FqxZkP1x__PCaML_Po0qgWGrKMQrBzhjxy87mOi62brgtGTT1Qp4Sn2yAy9Bvk-PlLWMiactHf8K9RuN2q93owBzOQd5TnDkN7U-uNKqRMBZrcLjn__0yqBWmZkPiRy6tjD5E" />
+                        <!-- <div class="absolute -bottom-10 -left-12 glass-effect p-5 rounded-3xl shadow-2xl flex items-center gap-4">
                             <div class="w-14 h-14 rounded-2xl bg-success/10 flex items-center justify-center text-success">
                                 <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
                             </div>
@@ -44,14 +44,14 @@
                                 <div class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-0.5">TINGKAT AKURASI</div>
                                 <div class="text-2xl font-stat font-bold text-foreground">98.5%</div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Bento Grid Stats -->
-    <section class="py-24 bg-background relative overflow-hidden">
+    <!-- <section class="py-24 bg-background relative overflow-hidden">
         <div class="absolute inset-0 topo-pattern opacity-30"></div>
         <div class="container mx-auto px-margin-desktop relative z-10">
             <div class="text-center mb-16 space-y-4">
@@ -100,14 +100,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Highlight Section - School Cards Updated to Match SCREEN_7 -->
     <section class="py-24 bg-background relative border-t border-border/30">
         <div class="container mx-auto px-margin-desktop">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div class="space-y-4">
-                    <h2 class="text-3xl font-headline font-bold text-foreground">Sekolah Unggulan Bulan Ini</h2>
-                    <p class="text-muted-foreground">Berdasarkan indikator kepuasan orang tua, fasilitas, dan prestasi siswa terbaru.</p>
+                    <h2 class="text-3xl font-headline font-bold text-foreground">Sekolah Yang Baru Bergabung</h2>
+                    <p class="text-muted-foreground">Jelajahi sekolah-sekolah terbaru yang telah bergabung dan tersedia dalam peta interaktif</p>
                 </div>
                 <button class="text-primary font-bold flex items-center gap-2 group text-xs uppercase tracking-wider">
                     Lihat Semua Sekolah
@@ -244,11 +244,11 @@
     <section class="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div class="absolute inset-0 topo-pattern opacity-10"></div>
         <div class="container mx-auto px-margin-desktop text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Siap Menentukan Pilihan Terbaik?</h2>
-            <p class="text-lg mb-10 max-w-2xl mx-auto opacity-90">Ribuan data sekolah sudah siap untuk Anda jelajahi. Mulai gunakan peta interaktif sekarang secara gratis.</p>
+            <h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Jelajahi Informasi Pendidikan Secara Interaktif</h2>
+            <p class="text-lg mb-10 max-w-2xl mx-auto opacity-90">Temukan lokasi, profil, dan informasi sekolah TK, SD, dan SMP melalui peta digital yang mudah diakses dan informatif.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
                 <a href="<?= url_to('peta') ?>" class="px-10 py-4 bg-background text-primary rounded-2xl font-bold hover:bg-muted transition-all shadow-2xl uppercase text-xs tracking-widest">Buka Peta Interaktif</a>
-                <button class="px-10 py-4 bg-white/10 border border-white/30 text-primary-foreground rounded-2xl font-bold hover:bg-white/20 transition-all uppercase text-xs tracking-widest">Hubungi Tim Ahli</button>
+                <!-- <button class="px-10 py-4 bg-white/10 border border-white/30 text-primary-foreground rounded-2xl font-bold hover:bg-white/20 transition-all uppercase text-xs tracking-widest">Hubungi Tim Ahli</button> -->
             </div>
         </div>
     </section>

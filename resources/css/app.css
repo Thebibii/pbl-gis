@@ -205,4 +205,28 @@
   .badge-C {
     @apply bg-error;
   }
+
+  .badge-TK {
+    @apply bg-purple-600;
+  }
+
+  .badge-SD {
+    @apply bg-error;
+  }
+
+  .badge-SMP {
+    @apply bg-warning;
+  }
+
+  .text-A {
+    @apply text-success;
+  }
+
+  .text-B {
+    @apply text-warning;
+  }
+
+  .text-C {
+    @apply text-error;
+  }
 }

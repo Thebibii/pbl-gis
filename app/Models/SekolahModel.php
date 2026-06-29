@@ -10,14 +10,14 @@ class SekolahModel extends Model
 
     protected $allowedFields = [
         'npsn',
-        'nss',
+        'nama_kepsek',
         'nama_sekolah',
         'slug',
         'jenjang',
         'status',
         'akreditasi',
         'kecamatan_id',
-        'kelurahan_id',
+        'nagari_id',
         'alamat',
         'latitude',
         'longitude',

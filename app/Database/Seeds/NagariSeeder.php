@@ -2,14 +2,14 @@
 
 namespace App\Database\Seeds;
 
-use App\Models\KelurahanModel;
+use App\Models\NagariModel;
 use CodeIgniter\Database\Seeder;
 
-class KelurahanSeeder extends Seeder
+class NagariSeeder extends Seeder
 {
     public function run()
     {
-        $model = new KelurahanModel();
+        $model = new NagariModel();
 
         $data = [
             // 1. X Koto (9 Nagari)
@@ -119,8 +119,8 @@ class KelurahanSeeder extends Seeder
         foreach ($data as $item) {
             $model->insert([
                 'kecamatan_id'   => $item[0],
-                'nama_kelurahan' => $item[1],
-                'kode_kelurahan' => $item[2],
+                'nama_nagari' => $item[1],
+                'kode_nagari' => $item[2],
             ]);
         }
     }

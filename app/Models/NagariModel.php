@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KelurahanModel extends Model
+class NagariModel extends Model
 {
-    protected $table = 'kelurahan';
+    protected $table = 'nagari';
 
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
         'kecamatan_id',
-        'nama_kelurahan',
+        'nama_nagari',
         'slug',
-        'kode_kelurahan',
+        'kode_nagari',
         'latitude',
         'longitude',
         'geojson_file',
@@ -29,12 +29,12 @@ class KelurahanModel extends Model
     {
         helper('text');
 
-        if (isset($data['data']['nama_kelurahan'], $data['data']['kode_kelurahan'])) {
+        if (isset($data['data']['nama_nagari'], $data['data']['kode_nagari'])) {
             $data['data']['slug'] = url_title(
-                $data['data']['nama_kelurahan'],
+                $data['data']['nama_nagari'],
                 '-',
                 true
-            ) . '-' . $data['data']['kode_kelurahan'];
+            ) . '-' . $data['data']['kode_nagari'];
         }
 
         return $data;

@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="flex justify-between items-center group">
                                     <span class="text-sm text-muted-foreground font-medium">NSS</span>
-                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['nss'] ?? '-') ?></span>
+                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['nama_kepsek'] ?? '-') ?></span>
                                 </div>
                                 <div class="flex justify-between items-center group">
                                     <span class="text-sm text-muted-foreground font-medium">Status</span>

@@ -86,7 +86,7 @@ class Home extends BaseController
             ->select('
             sekolah.id,
             npsn,
-            nss,
+            nama_kepsek,
             nama_sekolah,
             sekolah.slug,
             jenjang,
@@ -103,7 +103,7 @@ class Home extends BaseController
             foto_utama,
             kecamatan.geojson_file
         ')
-            ->join('kelurahan', 'kelurahan.id = sekolah.kelurahan_id', 'left')
+            ->join('nagari', 'nagari.id = sekolah.nagari_id', 'left')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
             ->where('sekolah.slug', $slug)
             ->where('is_active', 1)

@@ -11,14 +11,13 @@ class SekolahSeeder extends Seeder
     {
         $data = [
             'npsn'          => '10302476', // Data Resmi Pusdatin
-            'nss'           => null,       // Dapat diisi jika ada informasi NSS resmi
             'nama_sekolah'  => 'SMAN 1 Batusangkar',
             'slug'          => 'sman-1-batusangkar',
-            'jenjang'       => 'SMA',
+            'jenjang'       => 'SD',
             'status'        => 'Negeri',
             'akreditasi'    => 'A',
             'kecamatan_id'  => 4, // CATATAN: Sesuaikan dengan ID Kecamatan Lima Kaum di tabel kecamatan Anda
-            'kelurahan_id'  => 25, // CATATAN: Sesuaikan dengan ID Kelurahan Baringin di tabel kelurahan Anda
+            'nagari_id'  => 25, // CATATAN: Sesuaikan dengan ID Nagari Baringin di tabel nagari Anda
             'alamat'        => 'JL. SULTAN ALAM BAGAGARSYAH NO. 41, Kampung Baru, Kel. Baringin, Kec. Lima Kaum, Kab. Tanah Datar, Sumatera Barat',
             'latitude'      => -0.46142100, // Koordinat perkiraan area Batusangkar
             'longitude'     => 100.59723100,

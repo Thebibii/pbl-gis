@@ -20,10 +20,10 @@ $routes->group('admin', ['filter' => 'session'], function ($routes) {
 
 $routes->group('admin', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('sekolah', 'Admin\SekolahController::index', ['as' => 'admin.sekolah']);
-    // data untuk api
     $routes->get('sekolah/data',         'Admin\SekolahController::getData', ['as' => 'admin.sekolah.data']);
     $routes->get('sekolah/create', 'Admin\SekolahController::create', ['as' => 'admin.sekolah.create']);
     $routes->post('sekolah/store', 'Admin\SekolahController::store', ['as' => 'admin.sekolah.store']);
+    $routes->post('sekolah/import', 'Admin\SekolahController::importStore', ['as' => 'admin.sekolah.import.store']);
 
     // routes.php — sesuaikan jika berbeda
     $routes->get('sekolah/(:segment)/detail', 'Admin\SekolahController::show/$1',   ['as' => 'admin.sekolah.show']);

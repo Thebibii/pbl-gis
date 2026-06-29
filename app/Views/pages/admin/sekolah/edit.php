@@ -77,16 +77,16 @@
 
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NSS (12 DIGIT)</label>
-                    <input name="nss"
-                        value="<?= old('nss', $sekolah['nss']) ?>"
+                    <input name="nama_kepsek"
+                        value="<?= old('nama_kepsek', $sekolah['nama_kepsek']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
-                        placeholder="Contoh: 123456789012" type="number" />
+                        placeholder="Contoh: Budiono Siregar" type="text" />
                 </div>
 
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENJANG <span class="text-red-500 text-xs">*</span></label>
                     <select name="jenjang" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
-                        <?php foreach (['SD', 'SMP', 'SMA'] as $j): ?>
+                        <?php foreach (['TK', 'SD', 'SMP'] as $j): ?>
                             <option value="<?= $j ?>" <?= old('jenjang', $sekolah['jenjang']) === $j ? 'selected' : '' ?>><?= $j ?></option>
                         <?php endforeach; ?>
                     </select>

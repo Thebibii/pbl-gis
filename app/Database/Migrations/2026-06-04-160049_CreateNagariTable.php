@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateKelurahanTable extends Migration
+class CreateNagariTable extends Migration
 {
     public function up()
     {
@@ -18,7 +18,7 @@ class CreateKelurahanTable extends Migration
                 'type' => 'INT',
                 'unsigned' => true,
             ],
-            'nama_kelurahan' => [
+            'nama_nagari' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
@@ -26,7 +26,7 @@ class CreateKelurahanTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 120,
             ],
-            'kode_kelurahan' => [
+            'kode_nagari' => [
                 'type' => 'VARCHAR',
                 'constraint' => 20,
             ],
@@ -57,10 +57,10 @@ class CreateKelurahanTable extends Migration
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('slug');
         $this->forge->addForeignKey('kecamatan_id', 'kecamatan', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('kelurahan');
+        $this->forge->createTable('nagari');
     }
     public function down()
     {
-        $this->forge->dropTable('kelurahan');
+        $this->forge->dropTable('nagari');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use League\Csv\Reader;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Shield\Entities\User;
 
@@ -91,8 +92,8 @@ class SekolahController extends BaseController
         $rules = [
             'nama_sekolah' => 'required|min_length[3]|max_length[255]|is_unique[sekolah.nama_sekolah]', // ← Diperbarui
             'npsn'         => 'required|exact_length[8]|is_unique[sekolah.npsn]',
-            'nss'          => 'permit_empty|exact_length[12]',
-            'jenjang'      => 'required|in_list[SD,SMP,SMA]',
+            'nama_kepsek'  => 'required|min_length[5]|max_length[100]',
+            'jenjang'      => 'required|in_list[TK,SD,SMP]',
             'status'       => 'required|in_list[Negeri,Swasta]',
             'alamat'       => 'required',
             'luas_lahan'   => 'required',
@@ -115,8 +116,10 @@ class SekolahController extends BaseController
                 'exact_length' => 'NPSN harus berukuran tepat 8 karakter.',
                 'is_unique'    => 'NPSN sudah terdaftar di sistem.',
             ],
-            'nss' => [
-                'exact_length' => 'NSS harus berukuran tepat 12 karakter.',
+            'nama_kepsek' => [
+                'required'   => 'Nama Kepala sekolah wajib diisi.',
+                'min_length' => 'Nama Kepala sekolah minimal harus 5 karakter.',
+                'max_length' => 'Nama Kepala sekolah maksimal 100 karakter.',
             ],
             'jenjang' => [
                 'required' => 'Jenjang sekolah wajib dipilih.',
@@ -222,7 +225,7 @@ class SekolahController extends BaseController
 
         $data = [
             'npsn'          => $this->request->getPost('npsn'),
-            'nss'           => $this->request->getPost('nss') ?: null,
+            'nama_kepsek'           => $this->request->getPost('nama_kepsek'),
             'nama_sekolah'  => $this->request->getPost('nama_sekolah'),
             'jenjang'       => $this->request->getPost('jenjang'),
             'status'        => $this->request->getPost('status'),
@@ -244,17 +247,15 @@ class SekolahController extends BaseController
         // --- Insert sekolah utama ---
         $sekolahId = $this->sekolahModel->insert($data, true);
 
-        $slug     = url_title($data['nama_sekolah'], '_', true);
-        $username = 'op_' . $slug;
-        $email    = $username . '@sigis.local';
+        $npsn        = $data['npsn'];
+        $username    = 'op_' . $npsn;          // contoh: op_10308727
+        $email       = $username . '@sigis.local';
+        $rawPassword = $npsn;
 
-        // Password awal = NPSN sekolah
-        $rawPassword = $data['npsn'];
-
-        // Pastikan username & email unik
+        // Safety net: pastikan username unik
         $suffix = 1;
         while ($this->userModel->where('username', $username)->first()) {
-            $username = 'op_' . $slug . '_' . $suffix;
+            $username = 'op_' . $npsn . '_' . $suffix;
             $email    = $username . '@sigis.local';
             $suffix++;
         }
@@ -397,8 +398,8 @@ class SekolahController extends BaseController
             'nama_sekolah'  => "required|min_length[3]|max_length[255]|is_unique[sekolah.nama_sekolah,id,{$sekolahId}]",
             // is_unique dikecualikan untuk record sekolah itu sendiri
             'npsn'          => "required|exact_length[8]|is_unique[sekolah.npsn,id,{$sekolahId}]",
-            'nss'           => 'permit_empty|exact_length[12]',
-            'jenjang'       => 'required|in_list[SD,SMP,SMA]',
+            'nama_kepsek'  => 'required|min_length[5]|max_length[100]',
+            'jenjang'       => 'required|in_list[TK,SD,SMP]',
             'status'        => 'required|in_list[Negeri,Swasta]',
             'alamat'        => 'required',
             'luas_lahan'    => 'required',
@@ -421,8 +422,10 @@ class SekolahController extends BaseController
                 'exact_length' => 'NPSN harus berukuran tepat 8 karakter.',
                 'is_unique'    => 'NPSN sudah terdaftar di sistem.',
             ],
-            'nss' => [
-                'exact_length' => 'NSS harus berukuran tepat 12 karakter.',
+            'nama_kepsek' => [
+                'required'   => 'Nama Kepala sekolah wajib diisi.',
+                'min_length' => 'Nama Kepala sekolah minimal harus 5 karakter.',
+                'max_length' => 'Nama Kepala sekolah maksimal 100 karakter.',
             ],
             'jenjang' => [
                 'required' => 'Jenjang sekolah wajib dipilih.',
@@ -533,7 +536,7 @@ class SekolahController extends BaseController
         // ── 5. Update data sekolah utama ─────────────────────────────────────────
         $data = [
             'npsn'          => $this->request->getPost('npsn'),
-            'nss'           => $this->request->getPost('nss') ?: null,
+            'nama_kepsek'   => $this->request->getPost('nama_kepsek') ?: null,
             'nama_sekolah'  => $this->request->getPost('nama_sekolah'),
             'jenjang'       => $this->request->getPost('jenjang'),
             'status'        => $this->request->getPost('status'),
@@ -693,5 +696,117 @@ class SekolahController extends BaseController
                 'currentPage' => $page,
                 'lastPage'    => $result['pager']->getLastPage(),
             ]);
+    }
+
+
+
+    public function importStore()
+    {
+        $file = $this->request->getFile('csv_file');
+
+        if (!$file || !$file->isValid()) {
+            return redirect()->back()->with('error', 'File tidak valid.');
+        }
+
+        if ($file->getClientExtension() !== 'csv') {
+            return redirect()->back()->with('error', 'Hanya file .csv yang diperbolehkan.');
+        }
+
+        $file->move(WRITEPATH . 'uploads/import');
+        $path = WRITEPATH . 'uploads/import/' . $file->getName();
+
+        $csv = Reader::createFromPath($path, 'r');
+        $csv->setHeaderOffset(0);
+
+        helper('text');
+
+        $inserted = 0;
+        $skipped  = 0;
+
+        foreach ($csv->getRecords() as $row) {
+            $namaSekolah = trim($row['nama_sekolah'] ?? '');
+
+            if (empty($namaSekolah)) {
+                $skipped++;
+                continue;
+            }
+
+            $slug = !empty(trim($row['slug'] ?? ''))
+                ? trim($row['slug'])
+                : url_title($namaSekolah, '-', true);
+
+            $data = [
+                'npsn'          => trim($row['npsn'] ?? '') ?: null,
+                'nama_sekolah'  => $namaSekolah,
+                'slug'          => $slug,
+                'jenjang'       => trim($row['jenjang'] ?? '') ?: null,
+                'status'        => trim($row['status'] ?? '') ?: null,
+                'akreditasi'    => trim($row['akreditasi'] ?? '') ?: null,
+                'kecamatan_id'  => !empty($row['kecamatan_id']) ? (int) $row['kecamatan_id'] : null,
+                'nagari_id'     => !empty($row['nagari_id'])    ? (int) $row['nagari_id']    : null,
+                'alamat'        => trim($row['alamat'] ?? '') ?: null,
+                'latitude'      => trim($row['latitude'] ?? '') ?: null,
+                'longitude'     => trim($row['longitude'] ?? '') ?: null,
+                'nama_kepsek'   => trim($row['nama_kepsek'] ?? '') ?: null,
+                'telepon'       => trim($row['telepon'] ?? '') ?: null,
+                'email'         => trim($row['email'] ?? '') ?: null,
+                'website'       => trim($row['website'] ?? '') ?: null,
+                'foto_utama'    => trim($row['foto_utama'] ?? '') ?: null,
+                'kurikulum'     => trim($row['kurikulum'] ?? '') ?: null,
+                'tahun_berdiri' => !empty($row['tahun_berdiri']) ? (int) $row['tahun_berdiri'] : null,
+                'luas_lahan'    => trim($row['luas_lahan'] ?? '') ?: null,
+                'is_active'     => isset($row['is_active']) && $row['is_active'] !== '' ? (int) $row['is_active'] : 1,
+            ];
+
+            // Insert sekolah — dapat ID-nya
+            $sekolahId = $this->sekolahModel->insert($data, true);
+
+            if (!$sekolahId) {
+                $skipped++;
+                continue;
+            }
+
+            // --- Buat operator_sekolah ---
+            $npsn        = $data['npsn'] ?? uniqid('op');
+            $username    = 'op_' . $npsn;          // contoh: op_10308727
+            $email       = $username . '@sigis.local';
+            $rawPassword = $npsn;
+
+            // Safety net: pastikan username unik
+            $suffix = 1;
+            while ($this->userModel->where('username', $username)->first()) {
+                $username = 'op_' . $npsn . '_' . $suffix;
+                $email    = $username . '@sigis.local';
+                $suffix++;
+            }
+
+            $userEntity = new User([
+                'username'   => $username,
+                'email'      => $email,
+                'password'   => $rawPassword,
+                'sekolah_id' => $sekolahId,
+            ]);
+
+            $this->userModel->save($userEntity);
+            $newUser = $this->userModel->findById($this->userModel->getInsertID());
+
+            $newUser->addGroup('operator_sekolah');
+            $newUser->activate();
+
+            $inserted++;
+        }
+
+        unlink($path);
+
+        if ($inserted === 0) {
+            return redirect()->back()->with('error', 'Tidak ada data valid untuk diimport.');
+        }
+
+        $msg = "Berhasil import {$inserted} sekolah beserta akun operator.";
+        if ($skipped > 0) {
+            $msg .= " {$skipped} baris dilewati.";
+        }
+
+        return redirect()->route('admin.sekolah')->with('success', $msg);
     }
 }

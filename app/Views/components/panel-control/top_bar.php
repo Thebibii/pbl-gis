@@ -1,12 +1,12 @@
 <!-- Header -->
-<header class="h-16 bg-white/70 backdrop-blur-md border-b border-border px-8 flex items-center justify-between sticky top-0 z-40">
-    <div class="flex items-center gap-4 flex-1 max-w-lg">
+<header class="h-16 bg-white/70 backdrop-blur-md border-b border-border rounded-2xl px-8 py-4 flex items-center sticky top-4 z-40">
+    <!-- <div class="flex items-center gap-4 flex-1 max-w-lg">
         <div class="relative w-full">
             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xl">search</span>
             <input class="w-full bg-secondary/70 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/30 transition-all outline-none placeholder:text-muted-foreground/60" placeholder="Cari data, wilayah, atau pengguna..." type="text" />
         </div>
-    </div>
-    <div class="flex items-center gap-4">
+    </div> -->
+    <div class="flex items-center gap-4 justify-end">
         <button class="p-2 text-muted-foreground hover:bg-secondary rounded-lg transition-colors relative">
             <span class="material-symbols-outlined">notifications</span>
             <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>

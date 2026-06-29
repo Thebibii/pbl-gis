@@ -27,8 +27,8 @@
             </div>
 
             <!-- Collapsible Body -->
-            <div id="side-panel-body" class="grid transition-[grid-template-rows] duration-300 ease-in-out" style="grid-template-rows: 1fr;">
-                <div class="overflow-hidden min-h-0 flex flex-col px-6">
+            <div id="side-panel-body" class="grid transition-[grid-template-rows] duration-300 ease-in-out min-h-0 flex-1" style="grid-template-rows: 1fr;">
+                <div class="overflow-hidden min-h-0 flex flex-col flex-1 px-6">
 
                     <!-- Search Input -->
                     <div class="relative mb-4">
@@ -43,6 +43,7 @@
                     <!-- Filter Tabs -->
                     <div class="flex p-1 bg-secondary rounded-xl gap-1 mb-2">
                         <button data-filter="SEMUA" class="filter-tab flex-1 py-2 rounded-lg bg-primary text-primary-foreground text-[10px] font-bold shadow-sm transition-all">SEMUA</button>
+                        <button data-filter="TK" class="filter-tab flex-1 py-2 rounded-lg text-muted-foreground hover:bg-background transition-all text-[10px] font-bold">TK</button>
                         <button data-filter="SD" class="filter-tab flex-1 py-2 rounded-lg text-muted-foreground hover:bg-background transition-all text-[10px] font-bold">SD</button>
                         <button data-filter="SMP" class="filter-tab flex-1 py-2 rounded-lg text-muted-foreground hover:bg-background transition-all text-[10px] font-bold">SMP</button>
                     </div>
@@ -92,6 +93,10 @@
                 <h1 class="font-bold text-foreground text-sm">Legenda</h1>
                 <div class="">
 
+                    <div class="flex items-center">
+                        <span class="w-2 h-2 badge-TK rounded-full inline-block mr-2"></span>
+                        <span class="text-xs font-bold text-muted-foreground">Taman Kanak-Kanak (TK)</span>
+                    </div>
                     <div class="flex items-center">
                         <span class="w-2 h-2 badge-C rounded-full inline-block mr-2"></span>
                         <span class="text-xs font-bold text-muted-foreground">Sekolah Dasar (SD)</span>
@@ -264,19 +269,22 @@
                 });
             })
             .catch(err => console.error('GeoJSON gagal dimuat:', err));
-        const markerColor = {
-            SD: '#EF4444', // Merah cerah modern
-            SMP: '#EAB308', // Kuning/Emas modern
-            SMA: '#3B82F6' // Biru (sudah benar)
 
-        };
         // ─── CUSTOM MARKER ICON FACTORY ───────────────────────────────────────────
         function createMarkerIcon(sekolah) {
             const isHighlighted = false;
-            const color = markerColor[sekolah.jenis] ?? '#64748b';
             return L.divIcon({
                 className: '',
-                html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,
+                // html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,
+                html: `
+                <div class="
+                w-2.5 h-2.5
+                badge-${sekolah.jenis}
+                rounded-full
+                border-2 border-white
+                shadow-md
+            "></div>
+                `,
                 iconSize: [10, 10],
                 iconAnchor: [5, 5],
                 popupAnchor: [0, -36]
@@ -403,7 +411,8 @@
             list.forEach(s => {
 
                 const badgeCls = `badge-${s.akreditasi}`;
-                const statusLabel = s.jenis === 'SD' ? 'badge-C text-primary-foreground' : 'badge-B text-foreground';
+                // const statusLabel = s.jenis === 'SD' ? 'badge-C text-primary-foreground' : 'badge-B text-foreground';
+                const statusLabel = `badge-${s.jenis} text-white`;
                 const card = document.createElement('div');
                 card.id = `card-${s.id}`;
                 card.className = 'school-card school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group transition-all';
