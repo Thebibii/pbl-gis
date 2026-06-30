@@ -14,11 +14,13 @@ $routes->get('/sekolah/(:segment)', 'Home::sekolah/$1', ['as' => 'sekolah']);
 
 service('auth')->routes($routes);
 
-$routes->group('admin', ['filter' => 'session'], function ($routes) {
-    $routes->get('dashboard', 'Admin\DashboardController::index', ['as' => 'admin.dashboard']);
+$routes->group('', ['filter' => 'session'], function ($routes) {
+    $routes->get('account-settings', 'AccountSettingController::index', ['as' => 'account.settings']);
+    $routes->post('account-settings/update', 'AccountSettingController::update', ['as' => 'account.settings.update']);
 });
 
 $routes->group('admin', ['filter' => 'group:superadmin'], function ($routes) {
+    $routes->get('dashboard', 'Admin\DashboardController::index', ['as' => 'admin.dashboard']);
     $routes->get('sekolah', 'Admin\SekolahController::index', ['as' => 'admin.sekolah']);
     $routes->get('sekolah/data',         'Admin\SekolahController::getData', ['as' => 'admin.sekolah.data']);
     $routes->get('sekolah/create', 'Admin\SekolahController::create', ['as' => 'admin.sekolah.create']);

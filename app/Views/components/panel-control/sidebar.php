@@ -40,9 +40,9 @@
             <span class="material-symbols-outlined text-xl">history_edu</span>
             Log Aktivitas
         </a>
-        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-all group" href="#">
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-all group <?= isActiveSidebarRoute('account.settings') ?>" href="<?= url_to('account.settings') ?>">
             <span class="material-symbols-outlined text-xl">settings</span>
-            Pengaturan
+            Pengaturan Akun
         </a>
     </nav>
     <!-- Bottom CTA -->
