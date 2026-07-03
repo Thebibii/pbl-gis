@@ -5,7 +5,7 @@
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Admin</span><span>/</span>
                     <span class="text-primary">Manajemen Pengguna</span>
                 </nav>
@@ -42,7 +42,7 @@
             </div>
         </section>
 
-        <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">
+        <!-- <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full table-fixed text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
@@ -68,8 +68,34 @@
                 <p id="info-page" class="text-xs font-medium text-muted-foreground">—</p>
                 <div id="pagination-container" class="flex items-center gap-2"></div>
             </div>
+        </div> -->
+        <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full xl:table-fixed text-left border-collapse">
+                    <thead class="bg-slate-50/50 border-b border-border">
+                        <tr>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</th>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Status</th>
+                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body" class="divide-y divide-border">
+                        <tr id="loading-row">
+                            <td colspan="6" class="px-4 sm:px-6 py-12 text-center text-sm text-muted-foreground">
+                                <span class="material-symbols-outlined animate-spin text-primary">progress_activity</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="px-4 sm:px-6 py-4 bg-white/50 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p id="info-page" class="text-xs font-medium text-muted-foreground">—</p>
+                <div id="pagination-container" class="flex items-center gap-2"></div>
+            </div>
         </div>
-
     </div>
 </section>
 
@@ -213,47 +239,57 @@
 
             return `
                     <tr class="hover:bg-slate-50/60 transition-colors">
-                        <td class="px-6 py-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-primary text-base">person</span>
-                                </div>
-                                <span class="text-sm font-semibold text-foreground truncate max-w-[160px]" title="${escHtml(user.username ?? '—')}">${escHtml(user.username ?? '—')}</span>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-muted-foreground">
-                            <span class="block truncate" title="${escHtml(user.email)}">${escHtml(user.email)}</span>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-foreground">
-                            ${user.group === 'operator_sekolah' && user.nama_sekolah
-                                ? `<a href="${DETAIL_SEKOLAH_URL}/${user.sekolah_slug}/detail" class="font-medium text-primary hover:underline block truncate" title="${escHtml(user.nama_sekolah)}">${escHtml(user.nama_sekolah)}</a>`
-                                : `<span class="text-slate-400">—</span>`}
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${grp.cls}">
-                                ${grp.label}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${statusCls}">
-                                ${statusLabel}
-                            </span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <div class="flex items-center justify-end gap-2">
-                                <a href="${EDIT_URL}/${user.id}/edit"
-                                    class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-primary/10 hover:text-primary text-slate-600 text-xs font-bold transition-colors">
-                                    <span class="material-symbols-outlined text-base">edit</span>
-                                    Edit
-                                </a>
-                                <button onclick="openDeleteModal(${user.id}, '${escHtml(user.username ?? user.email)}')"
-                                    class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-500 text-slate-600 text-xs font-bold transition-colors">
-                                    <span class="material-symbols-outlined text-base">delete</span>
-                                    Hapus
-                                </button>
-                            </div>
-                        </td>
-                    </tr>`;
+    <td class="px-6 py-4">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary text-base">person</span>
+            </div>
+            <span
+                class="text-sm font-semibold text-foreground truncate max-w-[160px] cursor-pointer hover:text-primary transition-colors"
+                title="Klik untuk salin: ${escHtml(user.username ?? '—')}"
+                onclick="copyToClipboard('${escJs(user.username ?? '')}', this)">
+                ${escHtml(user.username ?? '—')}
+            </span>
+        </div>
+    </td>
+    <td class="px-6 py-4 text-sm text-muted-foreground">
+        <span
+            class="block truncate cursor-pointer hover:text-primary transition-colors"
+            title="Klik untuk salin: ${escHtml(user.email)}"
+            onclick="copyToClipboard('${escJs(user.email)}', this)">
+            ${escHtml(user.email)}
+        </span>
+    </td>
+    <td class="px-6 py-4 text-sm text-foreground">
+        ${user.group === 'operator_sekolah' && user.nama_sekolah
+            ? `<a href="${DETAIL_SEKOLAH_URL}/${user.sekolah_slug}/detail" class="font-medium text-primary hover:underline block truncate" title="${escHtml(user.nama_sekolah)}">${escHtml(user.nama_sekolah)}</a>`
+            : `<span class="text-slate-400">—</span>`}
+    </td>
+    <td class="px-6 py-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${grp.cls}">
+            ${grp.label}
+        </span>
+    </td>
+    <td class="px-6 py-4">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${statusCls}">
+            ${statusLabel}
+        </span>
+    </td>
+    <td class="px-6 py-4 text-right">
+        <div class="flex items-center justify-end gap-2">
+            <a href="${EDIT_URL}/${user.id}/edit"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-primary/10 hover:text-primary text-slate-600 text-xs font-bold transition-colors">
+                <span class="material-symbols-outlined text-base">edit</span>
+                Edit
+            </a>
+            <button onclick="openDeleteModal(${user.id}, '${escJs(user.username ?? user.email)}')"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-500 text-slate-600 text-xs font-bold transition-colors">
+                <span class="material-symbols-outlined text-base">delete</span>
+                Hapus
+            </button>
+        </div>
+    </td>
+</tr>`;
         }).join('');
     }
 
@@ -274,7 +310,7 @@
             return;
         }
 
-        const btnCls = 'w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold transition-colors';
+        const btnCls = 'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold transition-colors';
         const active = `${btnCls} bg-primary text-white shadow-sm shadow-primary/30`;
         const normal = `${btnCls} bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary`;
         const navBtn = (page, icon, disabled) =>
@@ -288,7 +324,7 @@
             if (i === 1 || i === lastPage || (i >= cur - 1 && i <= cur + 1)) {
                 pages += `<button onclick="goTo(${i})" class="${i === cur ? active : normal}">${i}</button>`;
             } else if (i === cur - 2 || i === cur + 2) {
-                pages += `<span class="w-8 h-8 flex items-center justify-center text-xs text-slate-400">…</span>`;
+                pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
             }
         }
 
@@ -310,6 +346,58 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
+    }
+
+    function escJs(str) {
+        return String(str ?? '')
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'")
+            .replace(/\n/g, '\\n');
+    }
+
+    function copyToClipboard(text, el) {
+        if (!text) return;
+
+        const doCopy = () => {
+            navigator.clipboard.writeText(text).then(() => {
+                showCopyFeedback(el);
+            }).catch(() => {
+                fallbackCopy(text, el);
+            });
+        };
+
+        if (navigator.clipboard && window.isSecureContext) {
+            doCopy();
+        } else {
+            fallbackCopy(text, el);
+        }
+    }
+
+    function fallbackCopy(text, el) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+            document.execCommand('copy');
+            showCopyFeedback(el);
+        } catch (err) {
+            console.error('Gagal menyalin:', err);
+        }
+        document.body.removeChild(ta);
+    }
+
+    function showCopyFeedback(el) {
+        if (!el) return;
+        const originalTitle = el.getAttribute('title');
+        el.setAttribute('title', 'Disalin!');
+        el.classList.add('text-emerald-500');
+        setTimeout(() => {
+            el.setAttribute('title', originalTitle);
+            el.classList.remove('text-emerald-500');
+        }, 1000);
     }
 
     // Delete modal

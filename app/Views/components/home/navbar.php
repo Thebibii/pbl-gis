@@ -1,4 +1,4 @@
-<div class="fixed top-6 left-0 w-full z-[100] px-6 md:px-10">
+<div class="fixed top-6 left-0 w-full z-[100] px-4 md:px-10">
     <nav class="max-w-7xl mx-auto glass-effect rounded-2xl shadow-lg shadow-primary/5">
         <div class="flex justify-between items-center h-16 px-6">
             <div class="flex items-center gap-8">

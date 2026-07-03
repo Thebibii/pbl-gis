@@ -90,7 +90,7 @@
                 </div>
             </section>
 
-            <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- <section class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="bg-white/80 backdrop-blur-md border border-white/30 p-6 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] hover:scale-[1.02] transition-transform">
                     <div class="flex items-center justify-between mb-4">
                         <span class="p-2 bg-primary/10 text-primary rounded-lg">
@@ -154,7 +154,7 @@
                         <?= !empty($sekolah['luas_lahan']) ? number_format($sekolah['luas_lahan'], 0, ',', '.') : '—' ?>
                     </p>
                 </div>
-            </section>
+            </section> -->
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 space-y-8">
@@ -199,83 +199,6 @@
                         </div>
                     </div>
 
-                    <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
-                        <div class="flex items-center gap-3 mb-6 border-b border-border pb-4">
-                            <span class="material-symbols-outlined text-primary">architecture</span>
-                            <h3 class="text-xl font-bold tracking-tight">Fasilitas</h3>
-                            <?php if (!empty($fasilitas)): ?>
-                                <span class="ml-auto text-[10px] font-bold text-muted-foreground"><?= count($fasilitas) ?> item</span>
-                            <?php endif; ?>
-                        </div>
-
-                        <?php if (empty($fasilitas)): ?>
-                            <p class="text-sm text-muted-foreground text-center py-6">Belum ada data fasilitas.</p>
-                        <?php else: ?>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <?php foreach ($fasilitas as $f): ?>
-                                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all group">
-                                        <?php
-                                        // Lakukan pengecekan apakah ikon merupakan SVG (mengandung karakter '<')
-                                        $isSvg = !empty($f['ikon']) && str_contains($f['ikon'], '<');
-                                        ?>
-                                        <?php if ($isSvg): ?>
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                width="22" height="22" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="text-primary flex-shrink-0">
-                                                <?= $f['ikon'] /* SVG path — sudah dari DB, tidak di-escape */ ?>
-                                            </svg>
-                                        <?php else: ?>
-                                            <span class="material-symbols-outlined text-primary text-xl flex-shrink-0"> <?= esc($f['ikon']) ?></span>
-                                        <?php endif; ?>
-                                        <div class="min-w-0">
-                                            <span class="text-sm font-bold block truncate"><?= esc($f['nama_fasilitas']) ?></span>
-                                            <?php if (!empty($f['jumlah']) && $f['jumlah'] > 1): ?>
-                                                <span class="text-[10px] text-muted-foreground"><?= $f['jumlah'] ?> unit</span>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
-                        <div class="flex items-center gap-3 mb-6 border-b border-border pb-4">
-                            <span class="material-symbols-outlined text-primary">emoji_events</span>
-                            <h3 class="text-xl font-bold tracking-tight">Prestasi Sekolah</h3>
-                            <?php if (!empty($prestasi)): ?>
-                                <span class="ml-auto text-[10px] font-bold text-muted-foreground"><?= count($prestasi) ?> item</span>
-                            <?php endif; ?>
-                        </div>
-
-                        <?php if (empty($prestasi)): ?>
-                            <div class="space-y-4 flex flex-col">
-                                <p class="text-sm text-muted-foreground text-center py-6">Belum ada data prestasi.</p>
-                            </div>
-                        <?php else: ?>
-                            <div class="space-y-4 flex flex-col">
-                                <?php foreach ($prestasi as $p): ?>
-                                    <div class="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-50 rounded-xl border border-border/50 hover:bg-white hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] transition-all gap-4">
-                                        <div class="flex items-start gap-4">
-                                            <div class="text-lg font-bold text-primary shrink-0 py-2"><?= $p['tahun'] ?></div>
-                                            <div>
-                                                <h4 class="text-base font-bold text-primary"><?= $p['nama_prestasi'] ?></h4>
-                                                <p class="text-xs text-slate-500 mt-1"><?= $p['keterangan'] ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-wrap items-center gap-2">
-                                            <span class="px-2 py-1 bg-blue-50 text-primary text-[9px] font-bold rounded-full uppercase ">Nasional</span>
-                                            <span class="px-2 py-1 bg-slate-200 text-slate-600 text-[9px] font-bold rounded-full uppercase ">Akademik</span>
-
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-
-                    </div>
 
                 </div>
                 <div class="space-y-8 lg:col-span-1">
@@ -321,15 +244,6 @@
                                 </div>
                             <?php endif; ?>
                         </div>
-                    </div>
-
-                    <div class="bg-foreground p-8 rounded-2xl shadow-xl text-white space-y-3">
-                        <button class="w-full bg-white/10 hover:bg-white/20 py-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2">
-                            <span class="material-symbols-outlined text-lg">download</span> Unduh Laporan Lengkap
-                        </button>
-                        <button class="w-full bg-white/10 hover:bg-white/20 py-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2">
-                            <span class="material-symbols-outlined text-lg">share</span> Bagikan Profil
-                        </button>
                     </div>
                 </div>
             </div>

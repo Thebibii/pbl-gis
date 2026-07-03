@@ -6,7 +6,7 @@
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Admin</span><span>/</span>
                     <span class="text-primary">Pengaturan</span>
                 </nav>
@@ -172,7 +172,8 @@
 
     </div>
 </section>
-
+<?= $this->endSection() ?>
+<?= $this->section('scripts') ?>
 <script>
     function togglePassword(inputId, btn) {
         const input = document.getElementById(inputId);
@@ -186,38 +187,6 @@
             icon.textContent = 'visibility';
         }
     }
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Toggle Password Visibility
-        document.querySelectorAll('.relative button').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const input = this.closest('.relative').querySelector('input');
-                if (input) {
-                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-                    input.setAttribute('type', type);
-                    this.querySelector('span').textContent = type === 'password' ? 'visibility' : 'visibility_off';
-                }
-            });
-        });
-
-        // Save Button Animation
-        const saveBtn = document.getElementById('save-btn');
-        if (saveBtn) {
-            saveBtn.addEventListener('click', function(e) {
-                const originalContent = this.innerHTML;
-                this.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span>Menyimpan...</span>
-                `;
-                this.disabled = true;
-            });
-        }
-    });
 </script>
 
 <?= $this->endSection() ?>

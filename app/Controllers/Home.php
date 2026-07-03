@@ -2,18 +2,59 @@
 
 namespace App\Controllers;
 
+use App\Models\KecamatanModel;
 use App\Models\SekolahModel;
 
 class Home extends BaseController
 {
+    protected $kecamatanModel;
+
+    public function __construct()
+    {
+        $this->kecamatanModel = new KecamatanModel();
+    }
     public function index(): string
     {
-        return view('welcome_message');
+        $sekolahModel = new SekolahModel();
+
+        // Mengambil 6 data terbaru berdasarkan kolom 'created_at' atau 'id'
+        $data['sekolah'] = $sekolahModel->orderBy('created_at', 'DESC')->findAll(8);
+
+        // Mengirim data ke view 'welcome_message'
+        return view('welcome_message', $data);
     }
+
 
     public function peta(): string
     {
         $sekolahModel = new \App\Models\SekolahModel();
+        $kecamatan_list = $this->kecamatanModel->select('id, nama_kecamatan, geojson_file, warna')->findAll();
+
+        $kecamatan_geojson = []; // <- inisialisasi, sebelumnya tidak ada
+
+        foreach ($kecamatan_list as $kec) {
+            $path = FCPATH . $kec['geojson_file'];
+
+            if (!is_file($path)) {
+                log_message('error', 'GeoJSON kecamatan tidak ditemukan: ' . $path);
+                continue;
+            }
+
+            $decoded = json_decode(file_get_contents($path), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                log_message('error', 'GeoJSON kecamatan gagal decode (' . $kec['geojson_file'] . '): ' . json_last_error_msg());
+                continue;
+            }
+
+            $kecamatan_geojson[] = [
+                'id'             => $kec['id'],
+                'nama_kecamatan' => $kec['nama_kecamatan'],
+                'warna'          => $kec['warna'],
+                'geojson'        => $decoded,
+            ];
+        }
+
         $total_sekolah = $sekolahModel->countAllResults(false);
         $sekolah = array_map(function ($s) {
             $siswa = $s['jumlah_siswa_l'] + $s['jumlah_siswa_p'];
@@ -37,8 +78,9 @@ class Home extends BaseController
         }, $sekolahModel->forPeta());
 
         return view('pages/peta', [
-            'sekolahData' => json_encode($sekolah, JSON_UNESCAPED_UNICODE),
-            'totalSekolah' => $total_sekolah,
+            'sekolahData'      => json_encode($sekolah, JSON_UNESCAPED_UNICODE),
+            'kecamatanGeojson' => json_encode($kecamatan_geojson, JSON_UNESCAPED_UNICODE), // <- baru
+            'totalSekolah'     => $total_sekolah,
         ]);
     }
 
@@ -47,7 +89,6 @@ class Home extends BaseController
     {
         $model       = new SekolahModel();
         $initialData = $model->cariSekolah([], 1, 12);
-
         return view('pages/cari', compact('initialData'));
     }
 

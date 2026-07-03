@@ -122,8 +122,8 @@ class UserController extends BaseController
 
             if ($sekolah) {
                 helper('text');
-                $slug         = url_title($sekolah['nama_sekolah'], '_', true);
-                $defaultEmail = 'op_' . $slug . '@sigis.local';
+                // $slug         = url_title($sekolah['nama_sekolah'], '_', true);
+                $defaultEmail = 'op_' . $sekolah['npsn'] . '@sigis.local';
             }
         }
 

@@ -5,7 +5,7 @@
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Admin</span><span>/</span>
                     <span class="text-primary">Wilayah</span>
                 </nav>

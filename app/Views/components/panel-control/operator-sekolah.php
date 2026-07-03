@@ -36,9 +36,9 @@
             Prestasi Sekolah
         </a>
         <div class="px-3 py-5 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">Sistem</div>
-        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm <?= isActiveSidebarRoute('operator.pengaturan') ?> transition-all group" href="<?= url_to('operator.pengaturan') ?>">
-            <span class="material-symbols-outlined text-xl">manage_accounts</span>
-            Pengaturan
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-all group <?= isActiveSidebarRoute('account.settings') ?>" href="<?= url_to('account.settings') ?>">
+            <span class="material-symbols-outlined text-xl">settings</span>
+            Pengaturan Akun
         </a>
     </nav>
     <!-- Bottom CTA -->

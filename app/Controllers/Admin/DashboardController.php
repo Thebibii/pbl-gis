@@ -21,6 +21,10 @@ class DashboardController extends BaseController
     {
         $model = new SekolahModel();
         $db    = \Config\Database::connect();
+        $totalSekolah = $model->countAllResults(false);
+        $totalNegeri  = $model->where('status', 'Negeri')->countAllResults();
+
+
 
         // Total sekolah aktif
         $total_sekolah = $model->where('is_active', 1)->countAllResults();
@@ -63,6 +67,8 @@ class DashboardController extends BaseController
             'akreditasi'         => $akreditasi_rows,
             'total_akreditasi'   => $total_akreditasi,
         ];
+        $stats['total_negeri']   = $totalNegeri;
+        $stats['persen_negeri']  = $totalSekolah > 0 ? ($totalNegeri / $totalSekolah * 100) : 0;
 
         $sekolah_list   = $model->forPeta();
         $kecamatan_list = $this->kecamatanModel->select('id, nama_kecamatan, geojson_file, warna')->findAll();

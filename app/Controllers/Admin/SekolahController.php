@@ -96,8 +96,8 @@ class SekolahController extends BaseController
             'jenjang'      => 'required|in_list[TK,SD,SMP]',
             'status'       => 'required|in_list[Negeri,Swasta]',
             'alamat'       => 'required',
-            'luas_lahan'   => 'required',
-            'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
+            // 'luas_lahan'   => 'permit_empty',
+            // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
             'latitude'     => 'required|decimal',
             'longitude'    => 'required|decimal',
             'foto'         => 'uploaded[foto]|is_image[foto]|max_size[foto,2048]',
@@ -140,14 +140,11 @@ class SekolahController extends BaseController
                 'required' => 'Longitude wajib diisi.',
                 'decimal'  => 'Format longitude harus berupa angka desimal.',
             ],
-            'luas_lahan' => [
-                'required'  => 'Luas lahan wajib diisi.',
-            ],
-            'tahun_berdiri' => [
+            /* 'tahun_berdiri' => [
                 'numeric'           => 'Tahun berdiri harus berupa angka.',
                 'greater_than'      => 'Tahun berdiri harus lebih besar dari 1900.',
                 'less_than_equal_to' => 'Tahun berdiri harus kurang dari atau sama dengan tahun saat ini.',
-            ],
+            ], */
 
             'foto' => [                                          // ← tambah ini
                 'uploaded' => 'Foto sekolah wajib diunggah.',
@@ -231,7 +228,7 @@ class SekolahController extends BaseController
             'status'        => $this->request->getPost('status'),
             'akreditasi'    => $this->request->getPost('akreditasi'),
             'kurikulum'     => $this->request->getPost('kurikulum'),
-            'tahun_berdiri' => $this->request->getPost('tahun_berdiri') ?: null,
+            // 'tahun_berdiri' => $this->request->getPost('tahun_berdiri') ?: null,
             'alamat'        => $this->request->getPost('alamat'),
             'latitude'      => $this->request->getPost('latitude'),
             'longitude'     => $this->request->getPost('longitude'),
@@ -239,7 +236,7 @@ class SekolahController extends BaseController
             'telepon'       => $this->request->getPost('telepon') ?: null,
             'email'         => $this->request->getPost('email') ?: null,
             'website'       => $this->request->getPost('website') ?: null,
-            'luas_lahan'       => $this->request->getPost('luas_lahan') ?: null,
+            // 'luas_lahan'       => $this->request->getPost('luas_lahan') ?: null,
             'is_active'     => $this->request->getPost('is_active') ? 1 : 0,
             'foto_utama'         => $fotoName,
         ];
@@ -402,8 +399,8 @@ class SekolahController extends BaseController
             'jenjang'       => 'required|in_list[TK,SD,SMP]',
             'status'        => 'required|in_list[Negeri,Swasta]',
             'alamat'        => 'required',
-            'luas_lahan'    => 'required',
-            'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
+            // 'luas_lahan'    => 'required',
+            // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
             'latitude'      => 'required|decimal',
             'longitude'     => 'required|decimal',
             // Foto opsional saat update (hanya divalidasi jika ada file baru)
@@ -446,14 +443,14 @@ class SekolahController extends BaseController
                 'required' => 'Longitude wajib diisi.',
                 'decimal'  => 'Format longitude harus berupa angka desimal.',
             ],
-            'luas_lahan' => [
-                'required' => 'Luas lahan wajib diisi.',
-            ],
-            'tahun_berdiri' => [
-                'numeric'            => 'Tahun berdiri harus berupa angka.',
-                'greater_than'       => 'Tahun berdiri harus lebih besar dari 1900.',
-                'less_than_equal_to' => 'Tahun berdiri harus kurang dari atau sama dengan tahun saat ini.',
-            ],
+            // 'luas_lahan' => [
+            //     'required' => 'Luas lahan wajib diisi.',
+            // ],
+            // 'tahun_berdiri' => [
+            //     'numeric'            => 'Tahun berdiri harus berupa angka.',
+            //     'greater_than'       => 'Tahun berdiri harus lebih besar dari 1900.',
+            //     'less_than_equal_to' => 'Tahun berdiri harus kurang dari atau sama dengan tahun saat ini.',
+            // ],
             'foto' => [
                 'is_image' => 'File harus berupa gambar (jpg, png, gif, webp).',
                 'max_size' => 'Ukuran foto maksimal 2MB.',

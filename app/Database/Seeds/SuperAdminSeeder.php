@@ -15,7 +15,7 @@ class SuperAdminSeeder extends Seeder
         $user = new User([
             'username' => 'superadmin',
             'email'    => 'admin@gissekolah.id',
-            'password' => 'G1sAdm!n2025',  // Ganti setelah login!
+            'password' => 'admin@gissekolah.id',  // Ganti setelah login!
         ]);
         $users->save($user);
 

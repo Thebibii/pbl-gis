@@ -3,26 +3,164 @@
 namespace App\Controllers\Operator;
 
 use App\Controllers\BaseController;
+use App\Models\KecamatanModel;
+use App\Models\SekolahModel;
 
 class SekolahController extends BaseController
 {
+    protected SekolahModel $sekolahModel;
+
+    public function __construct()
+    {
+        $this->sekolahModel = new SekolahModel();
+        $this->kecamatanModel = new KecamatanModel();
+    }
+
     public function index()
     {
+        // Cek login
         if (!auth()->loggedIn()) {
             return redirect()->to('/login');
         }
 
         $user = auth()->user();
-        
+
+        // Cek role
         if (!$user->inGroup('operator_sekolah')) {
-            return redirect()->to('/operator/dashboard')->with('error', 'Akses ditolak!');
+            return redirect()->to('/operator/dashboard')
+                ->with('error', 'Akses ditolak!');
         }
 
+        // Pastikan user memiliki sekolah
+        if (empty($user->sekolah_id)) {
+            return redirect()->back()
+                ->with('error', 'Akun Anda belum terhubung dengan sekolah.');
+        }
+
+        // Ambil data sekolah
+        $sekolah = $this->sekolahModel->find($user->sekolah_id);
+
+        if (!$sekolah) {
+            return redirect()->back()
+                ->with('error', 'Data sekolah tidak ditemukan.');
+        }
+
+
+        $kecamatan_list = $this->kecamatanModel
+            ->select('id, nama_kecamatan, geojson_file, warna')
+            ->findAll();
+
+        $kecamatan_geojson = [];
+
+        foreach ($kecamatan_list as $kec) {
+
+            $path = FCPATH . $kec['geojson_file'];
+
+            if (!is_file($path)) {
+                continue;
+            }
+
+            $decoded = json_decode(file_get_contents($path), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                continue;
+            }
+
+            $kecamatan_geojson[] = [
+                'id'             => $kec['id'],
+                'nama_kecamatan' => $kec['nama_kecamatan'],
+                'warna'          => $kec['warna'],
+                'geojson'        => $decoded,
+            ];
+        }
+
+
+
         $data = [
-            'title' => 'Data Sekolah',
-            'user' => $user,
+            'title'    => 'Data Sekolah',
+            'user'     => $user,
+            'sekolah'  => $sekolah,
+            'kecamatan_geojson' => $kecamatan_geojson,
+            'validation' => \Config\Services::validation(),
         ];
 
         return view('pages/operator/sekolah/index', $data);
+    }
+
+    public function update()
+    {
+        // Cek login
+        if (!auth()->loggedIn()) {
+            return redirect()->to('/login');
+        }
+
+        $user = auth()->user();
+
+        // Cek role
+        if (!$user->inGroup('operator_sekolah')) {
+            return redirect()->to('/operator/dashboard')
+                ->with('error', 'Akses ditolak!');
+        }
+
+        // Validasi
+        $rules = [
+            'nama_kepsek' => 'required|max_length[150]',
+            'akreditasi'  => 'permit_empty|in_list[A,B,C,NA]',
+            'telepon'     => 'permit_empty|max_length[30]',
+            'email'       => 'permit_empty|valid_email|max_length[100]',
+            'website'     => 'permit_empty|valid_url_strict',
+            'kurikulum'   => 'permit_empty|max_length[100]',
+            'alamat'      => 'permit_empty',
+            'latitude'    => 'permit_empty|decimal',
+            'longitude'   => 'permit_empty|decimal',
+            'foto_utama'  => 'permit_empty|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]',
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()
+                ->withInput()
+                ->with('validation', $this->validator);
+        }
+
+        $sekolah = $this->sekolahModel->find($user->sekolah_id);
+
+        if (!$sekolah) {
+            return redirect()->back()
+                ->with('error', 'Data sekolah tidak ditemukan.');
+        }
+
+        $data = [
+            'nama_kepsek' => $this->request->getPost('nama_kepsek'),
+            'akreditasi'  => $this->request->getPost('akreditasi'),
+            'telepon'     => $this->request->getPost('telepon'),
+            'email'       => $this->request->getPost('email'),
+            'website'     => $this->request->getPost('website'),
+            'kurikulum'   => $this->request->getPost('kurikulum'),
+            'alamat'      => $this->request->getPost('alamat'),
+            'latitude'    => $this->request->getPost('latitude'),
+            'longitude'   => $this->request->getPost('longitude'),
+        ];
+
+        // Upload foto jika ada
+        $foto = $this->request->getFile('foto_utama');
+
+        if ($foto && $foto->isValid() && !$foto->hasMoved()) {
+
+            $namaFoto = $foto->getRandomName();
+
+            $foto->move(FCPATH . 'uploads/sekolah', $namaFoto);
+
+            // Hapus foto lama
+            if (!empty($sekolah['foto_utama']) && file_exists(FCPATH . 'uploads/sekolah/' . $sekolah['foto_utama'])) {
+                unlink(FCPATH . 'uploads/sekolah/' . $sekolah['foto_utama']);
+            }
+
+            $data['foto_utama'] = $namaFoto;
+        }
+
+        $this->sekolahModel->update($user->sekolah_id, $data);
+
+        return redirect()->to('/operator/sekolah')
+            ->with('success', 'Profil sekolah berhasil diperbarui.');
     }
 }

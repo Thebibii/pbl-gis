@@ -1,37 +1,46 @@
 <?= $this->extend('layouts/main-home') ?>
 <?= $this->section('content') ?>
 
-<main class="pt-24 grid grid-cols-12 min-h-screen">
+<main class="pt-20 lg:pt-24 grid grid-cols-1 lg:grid-cols-12 min-h-screen">
     <!-- CSRF carrier (CI4 rotates token tiap request) -->
     <input type="hidden" id="csrf-name" value="<?= csrf_token() ?>">
     <input type="hidden" id="csrf-hash" value="<?= csrf_hash() ?>">
 
-    <!-- Refined Sidebar Filter -->
-    <aside class="col-span-3 p-10 overflow-y-auto border-r border-border custom-scrollbar">
+    <!-- Backdrop drawer filter (mobile only) -->
+    <div id="filter-backdrop" class="hidden fixed inset-0 bg-black/40 z-40 lg:hidden"></div>
+
+    <!-- Refined Sidebar Filter: drawer di mobile, kolom statis di desktop -->
+    <aside id="filter-panel" class="fixed inset-y-0 left-0 z-99999 w-[85%] max-w-sm -translate-x-full transition-transform duration-300 ease-in-out bg-background shadow-2xl p-6 overflow-y-auto border-r border-border custom-scrollbar lg:static lg:inset-auto lg:z-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:col-span-3 lg:p-10 lg:shadow-none">
         <div class="flex items-center justify-between mb-10">
             <h2 class="text-lg font-headline font-bold text-foreground">Filter</h2>
-            <button id="reset-filters" class="text-primary font-bold text-[10px] tracking-widest uppercase hover:underline">Reset Semua</button>
+            <div class="flex items-center gap-3">
+                <button id="reset-filters" class="text-primary font-bold text-[10px] tracking-widest uppercase hover:underline">Reset Semua</button>
+                <!-- Tutup drawer (mobile only) -->
+                <button id="filter-panel-close" class="lg:hidden shrink-0 w-7 h-7 flex items-center justify-center rounded-lg bg-secondary hover:bg-background transition-all">
+                    <span class="material-symbols-outlined text-[18px]!">close</span>
+                </button>
+            </div>
         </div>
 
         <!-- School Type (jenjang) -->
         <div class="mb-10">
             <label class="block font-bold text-[10px] tracking-widest text-muted-foreground uppercase mb-4">Jenjang Pendidikan</label>
             <div class="flex flex-col gap-2" id="jenjang-group">
-                <button type="button" data-value="" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold border bg-primary/5 text-primary border-primary/20 transition-all">
+                <button type="button" data-value="" class="jenjang-btn hover:border-primary/30 cursor-pointer flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold border bg-primary/5 text-primary border-primary/20 transition-all">
                     <span>Semua Jenjang</span>
-                    <span class="material-symbols-outlined text-[18px] check-icon">check_circle</span>
+                    <span class="material-symbols-outlined text-[18px]! check-icon">check_circle</span>
                 </button>
-                <button type="button" data-value="TK" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent hover:border-border transition-all">
+                <button type="button" data-value="TK" class="jenjang-btn hover:border-primary/30 cursor-pointer flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent transition-all">
                     <span>TK</span>
-                    <span class="material-symbols-outlined text-[18px] check-icon hidden">check_circle</span>
+                    <span class="material-symbols-outlined text-[18px]! check-icon hidden">check_circle</span>
                 </button>
-                <button type="button" data-value="SD" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent hover:border-border transition-all">
+                <button type="button" data-value="SD" class="jenjang-btn hover:border-primary/30 cursor-pointer flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent transition-all">
                     <span>SD</span>
-                    <span class="material-symbols-outlined text-[18px] check-icon hidden">check_circle</span>
+                    <span class="material-symbols-outlined text-[18px]! check-icon hidden">check_circle</span>
                 </button>
-                <button type="button" data-value="SMP" class="jenjang-btn flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent hover:border-border transition-all">
+                <button type="button" data-value="SMP" class="jenjang-btn hover:border-primary/30 cursor-pointer flex items-center justify-between px-4 py-3 rounded-xl text-xs font-medium border bg-muted/50 text-muted-foreground border-transparent transition-all">
                     <span>SMP</span>
-                    <span class="material-symbols-outlined text-[18px] check-icon hidden">check_circle</span>
+                    <span class="material-symbols-outlined text-[18px]! check-icon hidden">check_circle</span>
                 </button>
             </div>
         </div>
@@ -55,27 +64,27 @@
         <div class="mb-10">
             <label class="block font-bold text-[10px] tracking-widest text-muted-foreground uppercase mb-4">Akreditasi</label>
             <div class="grid grid-cols-2 gap-2" id="akreditasi-group">
-                <button type="button" data-value="A" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs flex items-center justify-center gap-2 transition-all bg-muted/50 text-muted-foreground border-border">
+                <button type="button" data-value="A" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs flex items-center justify-center gap-2 transition-all hover:border-primary/30 cursor-pointer bg-muted/50 text-muted-foreground border-border">
                     <span class="w-1.5 h-1.5 rounded-full dot bg-muted-foreground"></span> A
                 </button>
-                <button type="button" data-value="B" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all bg-muted/50 text-muted-foreground border-border">B</button>
-                <button type="button" data-value="C" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all bg-muted/50 text-muted-foreground border-border">C</button>
-                <button type="button" data-value="Baru" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all bg-muted/50 text-muted-foreground border-border">Baru</button>
+                <button type="button" data-value="B" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all hover:border-primary/30 cursor-pointer bg-muted/50 text-muted-foreground border-border">B</button>
+                <button type="button" data-value="C" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all hover:border-primary/30 cursor-pointer bg-muted/50 text-muted-foreground border-border">C</button>
+                <button type="button" data-value="Baru" class="akreditasi-btn p-3 rounded-xl border font-bold text-xs transition-all hover:border-primary/30 cursor-pointer bg-muted/50 text-muted-foreground border-border">Baru</button>
             </div>
         </div>
     </aside>
 
     <!-- Main Content Area -->
-    <section class="flex-1 p-8 col-span-9 md:p-12">
+    <section class="p-4 sm:p-6 md:p-8 lg:p-12 col-span-1 lg:col-span-9">
         <!-- Header & Controls -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 lg:gap-8 mb-8 lg:mb-12">
             <div>
-                <h1 class="text-4xl font-headline font-bold text-foreground mb-3 tracking-tight">Eksplorasi <span class="text-primary">Sekolah</span></h1>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-headline font-bold text-foreground mb-3 tracking-tight">Eksplorasi <span class="text-primary">Sekolah</span></h1>
                 <p class="text-muted-foreground text-sm font-medium">
                     Menampilkan <span class="text-foreground font-bold" id="total-count"><?= (int) $initialData['total'] ?></span> institusi pendidikan terbaik di zona Anda.
                 </p>
             </div>
-            <div class="relative min-w-[160px]">
+            <div class="relative w-full sm:w-auto sm:min-w-[160px]">
 
                 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none ">sort</span>
                 <select id="sort-select" class="w-full appearance-none pl-10 pr-4 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
@@ -97,18 +106,18 @@
             </div>
 
             <!-- Results Grid -->
-            <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <?php foreach ($initialData['data'] as $sekolah): ?>
                     <a href="<?= base_url('sekolah') ?>/<?= esc($sekolah['slug']) ?>" class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group block">
-                        <div class="relative h-44">
-                            <?php if (!empty($s['foto_utama'])): ?>
+                        <div class="relative h-44 overflow-hidden">
+                            <?php if (!empty($sekolah['foto_utama'])): ?>
                                 <img
                                     alt="<?= esc($sekolah['nama_sekolah']) ?>"
                                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    src="<?= base_url('uploads/sekolah') . '/' . esc($sekolah['foto_utama']) ?>">
+                                    src="<?= base_url('uploads/sekolah/' . esc($sekolah['foto_utama'])) ?>">
                             <?php else: ?>
                                 <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                                    <span class="material-symbols-outlined text-4xl text-slate-400">school</span>
+                                    <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                                 </div>
                             <?php endif; ?>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -117,9 +126,6 @@
                                     <?= esc($sekolah['status']) ?>
                                 </span>
                             </div>
-                            <button class="absolute top-3 right-3 w-8 h-8 glass-effect rounded-full flex items-center justify-center text-foreground hover:text-destructive transition-colors">
-                                <span class="material-symbols-outlined text-[18px]">favorite</span>
-                            </button>
                             <div class="absolute bottom-3 right-3">
                                 <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg <?= $sekolah['akreditasi'] === 'A' ? 'bg-success' : 'bg-muted-foreground' ?>">
                                     <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
@@ -129,8 +135,9 @@
                         </div>
                         <div class="p-5">
                             <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors mb-1"><?= esc($sekolah['nama_sekolah']) ?></h3>
-                            <div class="flex items-center gap-1.5 text-muted-foreground mb-4">
-                                <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+                            <h3 class=" group-hover:text-primary transition-colors mb-2">NPSN <?= esc($sekolah['npsn']) ?></h3>
+                            <div class="flex items-center gap-1.5 text-muted-foreground">
+                                <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                                 <span class="text-[13px] line-clamp-1">
                                     <?= esc($sekolah['alamat']) ?><?= !empty($sekolah['nama_kecamatan']) ? ', Kec. ' . esc($sekolah['nama_kecamatan']) : '' ?>
                                 </span>
@@ -142,11 +149,11 @@
         </div>
 
         <!-- Modern Pagination -->
-        <div id="pagination" class="<?= $initialData['total_pages'] <= 1 ? 'hidden' : '' ?> flex justify-center items-center gap-3 mt-20 pb-20"></div>
+        <div id="pagination" class="<?= (int)$initialData['total_pages'] <= 1 ? 'hidden' : '' ?> flex justify-center items-center gap-3 mt-20 pb-20"></div>
     </section>
 </main>
 
-<button class="lg:hidden fixed bottom-8 right-8 h-14 px-6 bg-primary text-primary-foreground rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 active:scale-95 transition-all">
+<button id="filter-open-btn" type="button" class="lg:hidden fixed bottom-8 right-8 h-14 px-6 bg-primary text-primary-foreground rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 active:scale-95 transition-all z-30">
     <span class="material-symbols-outlined">tune</span>
     <span class="font-bold text-xs uppercase tracking-wider">Filter</span>
 </button>
@@ -175,6 +182,38 @@
         const pagination = document.getElementById('pagination');
         const sortSelect = document.getElementById('sort-select');
 
+        // --- Drawer Filter (mobile) ---
+        const filterPanel = document.getElementById('filter-panel');
+        const filterBackdrop = document.getElementById('filter-backdrop');
+        const filterOpenBtn = document.getElementById('filter-open-btn');
+        const filterCloseBtn = document.getElementById('filter-panel-close');
+        const mqDesktop = window.matchMedia('(min-width: 1024px)'); // breakpoint lg Tailwind
+
+        function openFilterPanel() {
+            filterPanel.classList.remove('-translate-x-full');
+            filterBackdrop.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeFilterPanel() {
+            filterPanel.classList.add('-translate-x-full');
+            filterBackdrop.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        filterOpenBtn?.addEventListener('click', openFilterPanel);
+        filterCloseBtn?.addEventListener('click', closeFilterPanel);
+        filterBackdrop?.addEventListener('click', closeFilterPanel);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFilterPanel();
+        });
+
+        // Kalau layar di-resize ke ukuran desktop (lg) saat drawer sedang terbuka,
+        // reset state supaya tidak "nyangkut" saat kembali ke ukuran mobile
+        mqDesktop.addEventListener('change', (e) => {
+            if (e.matches) closeFilterPanel();
+        });
 
         function escapeHtml(str) {
             if (str === null || str === undefined) return '';
@@ -202,8 +241,8 @@
 
             return `
             <a href="<?= base_url('sekolah') ?>/${encodeURIComponent(school.slug)}" class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group block">
-                <div class="relative h-44">
-                 ${school.img ? `
+                <div class="relative h-44 overflow-hidden">
+                 ${school.foto_utama ? `
                     <img
                         alt="${escapeHtml(school.nama_sekolah)}"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -211,16 +250,13 @@
                     >
                     ` : `
                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-8xl text-slate-400">school</span>
+                        <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                     </div>
                 `}
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent  to-transparent"></div>
                     <div class="absolute top-3 left-3 flex gap-2">
                         <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest ${statusBadgeClass}">${escapeHtml(school.status)}</span>
                     </div>
-                    <button class="absolute top-3 right-3 w-8 h-8 glass-effect rounded-full flex items-center justify-center text-foreground hover:text-destructive transition-colors">
-                        <span class="material-symbols-outlined text-[18px]">favorite</span>
-                    </button>
                     <div class="absolute bottom-3 right-3">
                         <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg ${akreditasiDotClass}">
                             <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
@@ -230,8 +266,9 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors mb-1">${escapeHtml(school.nama_sekolah)}</h3>
-                    <div class="flex items-center gap-1.5 text-muted-foreground mb-4">
-                        <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+                   <h3 class=" group-hover:text-primary transition-colors mb-2">NPSN ${escapeHtml(school.npsn)}</h3>
+                    <div class="flex items-center gap-1.5 text-muted-foreground ">
+                        <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                         <span class="text-[13px] line-clamp-1">${alamat}${kecamatan}</span>
                     </div>
                 </div>
@@ -277,7 +314,7 @@
 
             let html = `
             <button data-page="${page - 1}" ${page <= 1 ? 'disabled' : ''} class="page-btn w-10 h-10 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition-all flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed">
-                <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                <span class="material-symbols-outlined text-[20px]!">chevron_left</span>
             </button>
         `;
 
@@ -298,7 +335,7 @@
 
             html += `
             <button data-page="${page + 1}" ${page >= totalPages ? 'disabled' : ''} class="page-btn w-10 h-10 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition-all flex items-center justify-center disabled:opacity-40 disabled:cursor-not-allowed">
-                <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                <span class="material-symbols-outlined text-[20px]!">chevron_right</span>
             </button>
         `;
 
@@ -430,9 +467,9 @@
             if (active) state.akreditasi.push(value);
             else state.akreditasi.splice(idx, 1);
 
-            btn.classList.toggle('bg-success/10', active);
-            btn.classList.toggle('text-success', active);
-            btn.classList.toggle('border-success/20', active);
+            btn.classList.toggle('bg-primary/10', active);
+            btn.classList.toggle('text-primary', active);
+            btn.classList.toggle('border-primary/20', active);
             btn.classList.toggle('bg-muted/50', !active);
             btn.classList.toggle('text-muted-foreground', !active);
             btn.classList.toggle('border-border', !active);
@@ -505,7 +542,13 @@
             if (!targetPage || targetPage < 1 || targetPage > state.totalPages || targetPage === state.page) return;
 
             fetchData(targetPage);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
+
+        renderPagination();
     })();
 </script>
 <?= $this->endSection() ?>

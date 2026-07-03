@@ -1,13 +1,13 @@
 <?= $this->extend('layouts/main-home') ?>
 <?= $this->section('content') ?>
-<main class="pt-24">
+<main class="pt-20 lg:pt-24">
     <!-- Immersive Hero Section -->
-    <section class="relative py-24 flex items-center">
+    <section class="relative py-16 sm:py-20 lg:py-24 flex items-center">
         <!-- <div class="absolute inset-0 bg-gradient-to-br from-background via-muted to-primary/5 z-0"></div> -->
-        <div class="container mx-auto px-2 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-            <div class="lg:col-span-7 space-y-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 sm:space-y-8 lg:space-y-10">
 
-                <h1 class="text-5xl md:text-7xl font-headline font-bold text-foreground leading-[1.1] tracking-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline font-bold text-foreground leading-[1.1] tracking-tight">
                     Pemetaan <br />
                     <span class="text-primary relative inline-block">
                         Sekolah
@@ -17,11 +17,11 @@
                     </span> <br />
                     TK, SD dan SMP
                 </h1>
-                <p class="text-lg text-muted-foreground max-w-lg leading-relaxed opacity-90">
+                <p class="text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed opacity-90">
                     Menyajikan informasi persebaran sekolah pada tiga kecamatan secara interaktif untuk mendukung akses informasi yang akurat.
                 </p>
-                <div class="flex flex-wrap gap-6 pt-6">
-                    <a href="<?= url_to('peta') ?>" class="group px-10 py-5 bg-primary text-primary-foreground rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all duration-300 uppercase text-xs tracking-wider">
+                <div class="flex flex-wrap gap-4 sm:gap-6 pt-2 sm:pt-4 lg:pt-6">
+                    <a href="<?= url_to('peta') ?>" class="group px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-primary text-primary-foreground rounded-2xl font-bold flex items-center justify-center gap-3 shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all duration-300 uppercase text-xs tracking-wider">
                         Mulai Eksplorasi Peta
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">explore</span>
                     </a>
@@ -102,138 +102,120 @@
         </div>
     </section> -->
     <!-- Highlight Section - School Cards Updated to Match SCREEN_7 -->
-    <section class="py-24 bg-background relative border-t border-border/30">
-        <div class="container mx-auto px-margin-desktop">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                <div class="space-y-4">
-                    <h2 class="text-3xl font-headline font-bold text-foreground">Sekolah Yang Baru Bergabung</h2>
+    <section class="py-16 sm:py-20 lg:py-24 bg-background relative border-t border-border/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 lg:space-y-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6">
+                <div class="space-y-3 sm:space-y-4">
+                    <h2 class="text-2xl sm:text-3xl font-headline font-bold text-foreground">Sekolah Yang Baru Bergabung</h2>
                     <p class="text-muted-foreground">Jelajahi sekolah-sekolah terbaru yang telah bergabung dan tersedia dalam peta interaktif</p>
                 </div>
-                <button class="text-primary font-bold flex items-center gap-2 group text-xs uppercase tracking-wider">
+                <a href="<?= url_to('cari') ?>" class="text-primary font-bold flex items-center gap-2 group text-xs uppercase tracking-wider">
                     Lihat Semua Sekolah
                     <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </button>
+                </a>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
                 <!-- Card 1 -->
-                <div class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
-                    <div class="relative h-44">
-                        <img alt="SMA Negeri 8 Jakarta" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgo6javCPxIdPMSdG42bT3B3PL2t8VYDS3cRiFyNIv3z99yIqFxkXz9cO1QVLk6A5G2lzEnrdWk_Kp4v_fpJJr-Z5jMFsUXnvLGK67_nJup1Ut2NdIYbkKcdCvXcKS-fkjvZ_gFGSyvDrbdQOdo-HkIBe3T3ZoviCJT51t8EVodySk_XJSY1fGtCkqDJot1_WQp0viRIH_ulPKx3afdwWbItP8kgH8FtOpPENYzubR6ZdDtTSwImRHbLEN6FAB1wWHTgaGGrAuLaY" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span class="bg-primary text-primary-foreground text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest">SMA NEGERI</span>
-                        </div>
-                        <div class="absolute bottom-3 right-3">
-                            <span class="bg-success text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                                <span class="w-1.5 h-1.5 bg-white rounded-full"></span> A
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors mb-1">SMA Negeri 8 Jakarta</h3>
-                        <div class="flex items-center gap-1.5 text-muted-foreground mb-6">
-                            <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
-                            <span class="text-[13px]">Tebet, Jakarta Selatan</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-dashed border-border">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px] text-success">near_me</span>
-                                <span class="text-primary font-bold text-[12px]">0.8 km</span>
+                <?php if (!empty($sekolah)): ?>
+                    <?php
+
+                    ?>
+                    <?php foreach ($sekolah as $item):
+                        // 1. Logika Warna Jenjang menggunakan match
+                        $bgJenjang = match (strtoupper($item['jenjang'])) {
+                            'TK'          => 'badge-TK text-white',
+                            'SD'          => 'badge-SD text-white',
+                            'SMP'         => 'badge-SMP text-white',
+                            default       => 'bg-gray-500 text-white',
+                        };
+
+                        // 2. Logika Warna Akreditasi menggunakan match
+                        $bgAkreditasi = match (strtoupper($item['akreditasi'])) {
+                            'A'                     => 'badge-A',
+                            'B'                     => 'badge-B',
+                            'C'                     => 'badge-C',
+                            'BELUM TERAKREDITASI'   => 'bg-slate-700',
+                            default                 => 'bg-slate-500',
+                        };
+                    ?>
+                        <div class="school-card-vibrant bg-card text-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
+                            <div class="relative h-44 overflow-hidden">
+                                <?php if (!empty($s['foto_utama'])): ?>
+                                    <!-- Gambar Sekolah Dinamis -->
+                                    <img alt="<?= esc($item['nama_sekolah']) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?= base_url('uploads/sekolah') . '/' . esc($sekolah['foto_utama']) ?>" />
+                                <?php else: ?>
+                                    <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-4xl text-slate-400">school</span>
+                                    </div>
+                                <?php endif; ?>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div class="absolute top-3 left-3 flex gap-2">
+                                    <!-- Jenjang Sekolah Dinamis -->
+                                    <span class="<?= $bgJenjang ?> text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest">
+                                        <?= esc($item['jenjang']) ?> <?= esc($item['status']) ?></span>
+                                </div>
+                                <div class="absolute bottom-3 right-3">
+                                    <!-- Akreditasi Dinamis -->
+                                    <span class="<?= $bgAkreditasi ?> text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                                        <span class="w-1.5 h-1.5 bg-white rounded-full"></span> <?= esc($item['akreditasi']) ?>
+                                    </span>
+                                </div>
                             </div>
-                            <button class="text-primary hover:opacity-80 text-[10px] font-bold flex items-center gap-1 group/btn">
-                                DETAIL <span class="material-symbols-outlined text-[14px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
-                    <div class="relative h-44">
-                        <img alt="SMP Global Mandiri" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2D2u9hLmjRLdejnHVJfa-q6kN8_Cl-3p6tQdrnKcADFWGhL7KRLyWlrSBW2MRwlHNc5aQfVkJEYMAF60w-xu-OafkQBR4LZbBT_i0Z8ycy5dracQg1FDONPloawic3yDzXT-LTLSPTXhs0DW44HjUA_Cw9cEMYprIc3GfGKYvEiucZEd5vozZZ-k2ptaJO8Y8WDScHo50WwYa6StP3CrLzi3BC91m1bSD1T7751tVsKrDfEY2wj-S8zXKtHneEVLUB9LTL9MZ0s" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span class="bg-secondary text-secondary-foreground text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest">SMP SWASTA</span>
-                        </div>
-                        <div class="absolute bottom-3 right-3">
-                            <span class="bg-success text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                                <span class="w-1.5 h-1.5 bg-white rounded-full"></span> A
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors mb-1">SMP Global Mandiri</h3>
-                        <div class="flex items-center gap-1.5 text-muted-foreground mb-6">
-                            <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
-                            <span class="text-[13px]">Bogor, Jawa Barat</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-dashed border-border">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px] text-success">near_me</span>
-                                <span class="text-primary font-bold text-[12px]">1.2 km</span>
+                            <div class="p-5 flex flex-col gap-4 sm:gap-6">
+                                <div class="flex flex-col gap-0.5">
+                                    <!-- Nama Sekolah Dinamis -->
+                                    <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors truncate"><?= esc($item['nama_sekolah']) ?></h3>
+                                    <h3 class="group-hover:text-primary transition-colors">NPSN <?= esc($item['npsn']) ?></h3>
+                                </div>
+                                <div class="flex items-center gap-1.5 text-muted-foreground">
+                                    <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+                                    <!-- Alamat Dinamis -->
+                                    <span class="text-[13px]"><?= esc($item['alamat']) ?></span>
+                                </div>
+                                <div class="flex justify-center items-center pt-4 border-t border-dashed border-border">
+
+                                    <!-- Link Detail menggunakan ID Dinamis -->
+                                    <a href="<?= site_url('sekolah') ?>/<?= $item['slug'] ?>" class="text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 group/btn">
+                                        DETAIL SEKOLAH <span class="material-symbols-outlined text-[16px]! group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                                    </a>
+                                </div>
                             </div>
-                            <button class="text-primary hover:opacity-80 text-[10px] font-bold flex items-center gap-1 group/btn">
-                                DETAIL <span class="material-symbols-outlined text-[14px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                            </button>
                         </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <!-- Tampilan pengganti jika data kosong (Kondisi @empty) -->
+                    <div class="col-span-full text-center py-12">
+                        <p class="text-muted-foreground text-sm">Tidak ada data sekolah terbaru yang ditemukan.</p>
                     </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
-                    <div class="relative h-44">
-                        <img alt="SMA Negeri 3 Bandung" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCseA0QFq_J4rtkpZt9h11G2WbGlCbl_h5mxI9QULuicuI7c9bumIf-qviF5uMcXprkUtmcnuiZzggdsHo-q8MSzUM0JlJrrDkAUTb9J5xvNS9WMLnNzd-SrmXI_G0uTsQ8XvYR8ctGN28CgsAeDNw2qG_L_hBpouHH3kBw-n1JyFW5cORsFhA3pXL6JvxoB9F2FrC-1gbG8UytDFK2oodI3-c9gYGrZ3rcuk1iFH9bdxU5DzmppftbnBhRq4XHgfGpbZpOVtEYTrE" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div class="absolute top-3 left-3 flex gap-2">
-                            <span class="bg-primary text-primary-foreground text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest">SMA NEGERI</span>
-                        </div>
-                        <div class="absolute bottom-3 right-3">
-                            <span class="bg-success text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                                <span class="w-1.5 h-1.5 bg-white rounded-full"></span> A
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors mb-1">SMA Negeri 3 Bandung</h3>
-                        <div class="flex items-center gap-1.5 text-muted-foreground mb-6">
-                            <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
-                            <span class="text-[13px]">Bandung, Jawa Barat</span>
-                        </div>
-                        <div class="flex justify-between items-center pt-4 border-t border-dashed border-border">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[16px] text-success">near_me</span>
-                                <span class="text-primary font-bold text-[12px]">2.1 km</span>
-                            </div>
-                            <button class="text-primary hover:opacity-80 text-[10px] font-bold flex items-center gap-1 group/btn">
-                                DETAIL <span class="material-symbols-outlined text-[14px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <?php endif; ?>
+
             </div>
         </div>
     </section>
     <!-- FAQ Section -->
-    <section class="py-24 bg-muted/20 relative">
-        <div class="container mx-auto px-margin-desktop max-w-4xl">
-            <div class="text-center mb-16 space-y-4">
-                <h2 class="text-3xl font-headline font-bold text-foreground">Pertanyaan Umum</h2>
+    <section class="py-16 sm:py-20 lg:py-24 bg-muted/20 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-10 sm:space-y-12 lg:space-y-16">
+            <div class="text-center space-y-3 sm:space-y-4">
+                <h2 class="text-2xl sm:text-3xl font-headline font-bold text-foreground">Pertanyaan Umum</h2>
                 <p class="text-muted-foreground">Segala hal yang perlu Anda ketahui tentang SiGIS Sekolah.</p>
             </div>
-            <div class="space-y-4">
+            <div class="space-y-3 sm:space-y-4">
                 <div class="accordion-item bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-all">
-                    <button class="w-full px-8 py-6 flex justify-between items-center text-left" onclick="toggleAccordion(this)">
+                    <button class="w-full px-5 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6 flex justify-between items-center text-left gap-4" onclick="toggleAccordion(this)">
                         <span class="font-bold text-foreground">Bagaimana cara kerja sistem zonasi di peta?</span>
                         <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
                     </button>
-                    <div class="accordion-content px-8 bg-muted/10">
+                    <div class="accordion-content px-5 sm:px-6 lg:px-8 bg-muted/10">
                         <p class="pb-6 text-sm text-muted-foreground leading-relaxed">Peta kami menggunakan API geospasial resmi untuk menghitung radius jarak dari lokasi rumah Anda ke sekolah-sekolah terdekat sesuai regulasi zonasi terbaru.</p>
                     </div>
                 </div>
                 <div class="accordion-item bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-all">
-                    <button class="w-full px-8 py-6 flex justify-between items-center text-left" onclick="toggleAccordion(this)">
+                    <button class="w-full px-5 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6 flex justify-between items-center text-left gap-4" onclick="toggleAccordion(this)">
                         <span class="font-bold text-foreground">Seberapa sering data akreditasi diperbarui?</span>
                         <span class="material-symbols-outlined accordion-icon transition-transform">expand_more</span>
                     </button>
-                    <div class="accordion-content px-8 bg-muted/10">
+                    <div class="accordion-content px-5 sm:px-6 lg:px-8 bg-muted/10">
                         <p class="pb-6 text-sm text-muted-foreground leading-relaxed">Data kami terhubung langsung dengan basis data nasional dan diperbarui secara otomatis setiap kali ada rilis resmi dari Badan Akreditasi Nasional.</p>
                     </div>
                 </div>
@@ -241,13 +223,13 @@
         </div>
     </section>
     <!-- CTA Section -->
-    <section class="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+    <section class="py-16 sm:py-20 lg:py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div class="absolute inset-0 topo-pattern opacity-10"></div>
-        <div class="container mx-auto px-margin-desktop text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-headline font-bold mb-6">Jelajahi Informasi Pendidikan Secara Interaktif</h2>
-            <p class="text-lg mb-10 max-w-2xl mx-auto opacity-90">Temukan lokasi, profil, dan informasi sekolah TK, SD, dan SMP melalui peta digital yang mudah diakses dan informatif.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="<?= url_to('peta') ?>" class="px-10 py-4 bg-background text-primary rounded-2xl font-bold hover:bg-muted transition-all shadow-2xl uppercase text-xs tracking-widest">Buka Peta Interaktif</a>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6 sm:space-y-8">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold">Jelajahi Informasi Pendidikan Secara Interaktif</h2>
+            <p class="text-base sm:text-lg max-w-2xl mx-auto opacity-90">Temukan lokasi, profil, dan informasi sekolah TK, SD, dan SMP melalui peta digital yang mudah diakses dan informatif.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                <a href="<?= url_to('peta') ?>" class="px-8 py-3 w-fit sm:px-10 sm:py-4 bg-background text-primary rounded-2xl font-bold hover:bg-muted transition-all shadow-2xl uppercase text-xs tracking-widest">Buka Peta Interaktif</a>
                 <!-- <button class="px-10 py-4 bg-white/10 border border-white/30 text-primary-foreground rounded-2xl font-bold hover:bg-white/20 transition-all uppercase text-xs tracking-widest">Hubungi Tim Ahli</button> -->
             </div>
         </div>

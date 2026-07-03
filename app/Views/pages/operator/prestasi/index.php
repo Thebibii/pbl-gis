@@ -7,7 +7,7 @@
         <!-- Page Header -->
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Operator</span><span>/</span>
                     <span class="text-primary">Manajemen Prestasi</span>
                 </nav>
@@ -43,105 +43,25 @@
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-16 text-center">No</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama Prestasi</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-32">Tingkat</th>
+                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-32">Jenis</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-24">Tahun</th>
                             <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-36 text-right">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-border">
-                        <!-- Row 1 -->
-                        <tr class="hover:bg-primary/5 transition-colors group">
-                            <td class="px-6 py-5 text-center text-sm text-muted-foreground">1</td>
-                            <td class="px-6 py-5 text-sm font-bold text-foreground">Juara 1 OSN Matematika</td>
-                            <td class="px-6 py-5">
-                                <span class="px-3 py-1 bg-[#3B82F6]/90 text-white rounded-full text-[10px] font-bold uppercase">Nasional</span>
-                            </td>
-                            <td class="px-6 py-5 text-sm font-medium text-muted-foreground">2024</td>
-                            <td class="px-6 py-5">
-                                <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all" title="Lihat Bukti">
-                                        <span class="material-symbols-outlined">visibility</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-slate-100 rounded-lg text-foreground transition-all" title="Edit">
-                                        <span class="material-symbols-outlined">edit</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all" title="Hapus">
-                                        <span class="material-symbols-outlined">delete</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 2 -->
-                        <tr class="hover:bg-primary/5 transition-colors group">
-                            <td class="px-6 py-5 text-center text-sm text-muted-foreground">2</td>
-                            <td class="px-6 py-5 text-sm font-bold text-foreground">Juara Harapan 1 Lomba Paduan Suara</td>
-                            <td class="px-6 py-5">
-                                <span class="px-3 py-1 bg-[#EAB308]/90 text-foreground rounded-full text-[10px] font-bold uppercase">Provinsi</span>
-                            </td>
-                            <td class="px-6 py-5 text-sm font-medium text-muted-foreground">2023</td>
-                            <td class="px-6 py-5">
-                                <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all" title="Lihat Bukti">
-                                        <span class="material-symbols-outlined">visibility</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-slate-100 rounded-lg text-foreground transition-all" title="Edit">
-                                        <span class="material-symbols-outlined">edit</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all" title="Hapus">
-                                        <span class="material-symbols-outlined">delete</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 3 -->
-                        <tr class="hover:bg-primary/5 transition-colors group">
-                            <td class="px-6 py-5 text-center text-sm text-muted-foreground">3</td>
-                            <td class="px-6 py-5 text-sm font-bold text-foreground">Sekolah Adiwiyata Mandiri</td>
-                            <td class="px-6 py-5">
-                                <span class="px-3 py-1 bg-emerald-500/90 text-white rounded-full text-[10px] font-bold uppercase">Nasional</span>
-                            </td>
-                            <td class="px-6 py-5 text-sm font-medium text-muted-foreground">2022</td>
-                            <td class="px-6 py-5">
-                                <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all" title="Lihat Bukti">
-                                        <span class="material-symbols-outlined">visibility</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-slate-100 rounded-lg text-foreground transition-all" title="Edit">
-                                        <span class="material-symbols-outlined">edit</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all" title="Hapus">
-                                        <span class="material-symbols-outlined">delete</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- Row 4 -->
-                        <tr class="hover:bg-primary/5 transition-colors group">
-                            <td class="px-6 py-5 text-center text-sm text-muted-foreground">4</td>
-                            <td class="px-6 py-5 text-sm font-bold text-foreground">Medali Emas Pencak Silat O2SN</td>
-                            <td class="px-6 py-5">
-                                <span class="px-3 py-1 bg-slate-200 text-slate-700 rounded-full text-[10px] font-bold uppercase">Kabupaten</span>
-                            </td>
-                            <td class="px-6 py-5 text-sm font-medium text-muted-foreground">2023</td>
-                            <td class="px-6 py-5">
-                                <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <button class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all" title="Lihat Bukti">
-                                        <span class="material-symbols-outlined">visibility</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-slate-100 rounded-lg text-foreground transition-all" title="Edit">
-                                        <span class="material-symbols-outlined">edit</span>
-                                    </button>
-                                    <button class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all" title="Hapus">
-                                        <span class="material-symbols-outlined">delete</span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+
+                    <tbody id="table-body" class="divide-y divide-border">
                     </tbody>
                 </table>
             </div>
             <div class="px-6 py-4 bg-white/50 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="text-xs font-medium text-muted-foreground">Menampilkan 1-4 dari 12 prestasi</p>
-                <div class="flex items-center gap-2">
+                <p id="info-page"
+                    class="text-xs font-medium text-muted-foreground">
+                </p>
+
+                <div id="pagination-container"
+                    class="flex items-center gap-2">
+                </div>
+                <!-- <div class="flex items-center gap-2">
                     <button class="w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold border border-border opacity-30 cursor-not-allowed" disabled>
                         <span class="material-symbols-outlined">chevron_left</span>
                     </button>
@@ -151,10 +71,274 @@
                     <button class="w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold border border-border hover:bg-slate-50 transition-all">
                         <span class="material-symbols-outlined">chevron_right</span>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
 
     </div>
 </section>
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script>
+    const DATA_URL = '<?= url_to('operator.prestasi.data') ?>';
+
+    const INITIAL_DATA = <?= json_encode($initialData) ?>;
+
+    let currentPage = 1;
+    let debounceTimer;
+
+    fetchData = (page = 1, retryCount = 0) => {
+
+        currentPage = page;
+
+        const search = document.getElementById('search-input').value.trim();
+
+        const params = new URLSearchParams({
+            search,
+            page
+        });
+
+        document.getElementById('table-body').innerHTML = `
+        <tr>
+            <td colspan="6"
+                class="py-10 text-center">
+                <span class="material-symbols-outlined animate-spin text-primary">
+                    progress_activity
+                </span>
+            </td>
+        </tr>`;
+
+        fetch(`${DATA_URL}?${params}`, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(r => r.json())
+            .then(res => {
+
+                renderTable(
+                    res.data,
+                    (page - 1) * res.perPage + 1
+                );
+
+                renderPagination(res);
+
+                renderInfo(res);
+
+            })
+            .catch(() => {
+
+                if (retryCount < 1) {
+                    setTimeout(() => fetchData(page, retryCount + 1), 400);
+                    return;
+                }
+
+                document.getElementById('table-body').innerHTML =
+                    `<tr>
+            <td colspan="6"
+                class="text-center py-10 text-rose-500">
+                Gagal memuat data.
+            </td>
+        </tr>`;
+
+            });
+
+    };
+
+    function renderTable(rows, startNumber) {
+
+        const tbody = document.getElementById('table-body');
+
+        if (!rows.length) {
+
+            tbody.innerHTML = `
+        <tr>
+            <td colspan="6"
+                class="py-10 text-center text-muted-foreground">
+                Tidak ada data prestasi.
+            </td>
+        </tr>`;
+
+            return;
+        }
+
+        tbody.innerHTML = rows.map((item, index) => `
+
+<tr class="hover:bg-primary/5 transition-colors group">
+
+<td class="px-6 py-5 text-center text-sm">
+${startNumber+index}
+</td>
+
+<td class="px-6 py-5 text-sm font-bold">
+${escHtml(item.nama_prestasi)}
+</td>
+
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-blue-500 text-white rounded-full text-[10px] font-bold uppercase">
+${escHtml(item.tingkat)}
+</span>
+</td>
+
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-slate-200 rounded-full text-[10px] font-bold uppercase">
+${escHtml(item.jenis)}
+</span>
+</td>
+
+<td class="px-6 py-5 text-sm">
+${escHtml(item.tahun)}
+</td>
+
+<td class="px-6 py-5">
+<div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100">
+
+<button class="p-2 hover:bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined">
+visibility
+</span>
+</button>
+
+<button class="p-2 hover:bg-slate-100 rounded-lg">
+<span class="material-symbols-outlined">
+edit
+</span>
+</button>
+
+<button class="p-2 hover:bg-rose-50 rounded-lg text-rose-600">
+<span class="material-symbols-outlined">
+delete
+</span>
+</button>
+
+</div>
+</td>
+
+</tr>
+
+`).join('');
+
+    }
+
+    function renderInfo(res) {
+
+        const from = res.total === 0 ?
+            0 :
+            (res.currentPage - 1) * res.perPage + 1;
+
+        const to = Math.min(
+            res.currentPage * res.perPage,
+            res.total
+        );
+
+        document.getElementById('info-page').textContent =
+            res.total === 0 ?
+            'Tidak ada data' :
+            `Menampilkan ${from} – ${to} dari ${res.total} prestasi`;
+
+    }
+
+    function renderPagination(res) {
+
+        const {
+            currentPage,
+            lastPage
+        } = res;
+
+        const container = document.getElementById('pagination-container');
+
+        if (lastPage <= 1) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const btnBase = 'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold transition-all';
+        const btnActive = `${btnBase} bg-primary text-white`;
+        const btnNormal = `${btnBase} border border-border hover:bg-slate-50`;
+        const btnDisabled = `${btnBase} border border-border opacity-30 cursor-not-allowed`;
+
+        let pages = buildPageList(currentPage, lastPage);
+
+        let html = '';
+
+        html += currentPage === 1 ?
+            `<button class="${btnDisabled}" disabled>
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>` :
+            `<button class="${btnNormal}" onclick="fetchData(${currentPage-1})">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>`;
+
+        pages.forEach(p => {
+
+            if (p === '...') {
+                html += `<span>...</span>`;
+            } else {
+
+                html += p === currentPage ?
+                    `<button class="${btnActive}">
+                ${p}
+              </button>` :
+                    `<button class="${btnNormal}"
+                onclick="fetchData(${p})">
+                ${p}
+              </button>`;
+
+            }
+
+        });
+
+        html += currentPage === lastPage ?
+            `<button class="${btnDisabled}" disabled>
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>` :
+            `<button class="${btnNormal}" onclick="fetchData(${currentPage+1})">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>`;
+
+        container.innerHTML = html;
+
+    }
+
+    function buildPageList(current, last) {
+
+        if (last <= 7)
+            return Array.from({
+                length: last
+            }, (_, i) => i + 1);
+
+        if (current <= 4)
+            return [1, 2, 3, 4, 5, '...', last];
+
+        if (current >= last - 3)
+            return [1, '...', last - 4, last - 3, last - 2, last - 1, last];
+
+        return [1, '...', current - 1, current, current + 1, '...', last];
+
+    }
+
+    document.getElementById('search-input')
+        .addEventListener('input', () => {
+
+            clearTimeout(debounceTimer);
+
+            debounceTimer = setTimeout(() => {
+                fetchData(1);
+            }, 400);
+
+        });
+
+    function escHtml(str) {
+        return String(str ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    renderTable(INITIAL_DATA.data, 1);
+    renderPagination(INITIAL_DATA);
+    renderInfo(INITIAL_DATA);
+</script>
 <?= $this->endSection() ?>

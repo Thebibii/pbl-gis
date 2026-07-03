@@ -7,13 +7,9 @@
         <div class="relative z-10 space-y-3">
             <h2 class="text-2xl font-bold text-white tracking-tight">Selamat Datang, Admin!</h2>
             <p class="text-slate-400 max-w-lg text-sm leading-relaxed">Panel kendali SiGIS Sekolah siap membantu Anda memantau distribusi pendidikan nasional secara real-time dan akurat.</p>
-            <!-- <div class="flex gap-3 pt-3">
-                <button class="bg-primary text-white px-5 py-2 rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">Update Data Peta</button>
-                <button class="bg-white/10 text-white border border-white/20 px-5 py-2 rounded-lg text-xs font-bold hover:bg-white/20 transition-all">Lihat Laporan Akhir</button>
-            </div> -->
         </div>
         <div class="absolute right-10 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
-            <span class="material-symbols-outlined text-[160px] text-white">public</span>
+            <span class="material-symbols-outlined text-[160px]! text-white">public</span>
         </div>
     </div>
 
@@ -31,16 +27,19 @@
                 <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Total Sekolah</p>
             </div>
         </div>
-        <!-- Total Siswa -->
+        <!-- Sekolah Negeri -->
         <div class="bg-white/80 backdrop-blur-md border border-white/30 p-6 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex flex-col gap-4">
             <div class="flex items-center justify-between">
-                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
                 </div>
+                <span class="text-xs font-bold text-slate-400 bg-slate-50 px-2 py-1 rounded-lg">
+                    <?= number_format($stats['persen_negeri'], 1) ?>%
+                </span>
             </div>
             <div>
-                <p class="text-2xl font-extrabold tracking-tight"><?= number_format($stats['total_siswa']) ?></p>
-                <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Total Siswa</p>
+                <p class="text-2xl font-extrabold tracking-tight"><?= number_format($stats['total_negeri']) ?></p>
+                <p class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Sekolah Negeri</p>
             </div>
         </div>
         <!-- Terakreditasi A -->
@@ -59,21 +58,13 @@
     </div>
 
     <!-- Main Content Grid: Map and Chart -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
         <!-- Map -->
-        <div class="lg:col-span-2 bg-white/80 backdrop-blur-md border border-white/30 rounded-[2rem] overflow-hidden shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex flex-col">
+        <div class="xl:col-span-2 bg-white/80 backdrop-blur-md border border-white/30 rounded-[2rem] overflow-hidden shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex flex-col">
             <div class="p-6 flex items-center justify-between">
                 <div>
                     <h3 class="text-lg font-bold">Peta Persebaran Sekolah</h3>
-                    <p class="text-xs text-muted-foreground font-medium">Visualisasi lokasi sekolah pada tiga kecamatan</p>
-                </div>
-                <div class="flex bg-slate-100 rounded-lg p-1">
-                    <button id="btn-tab-kabupaten" class="px-4 py-1.5 rounded-md text-xs font-bold bg-white shadow-sm">
-                        Kab. Tanah Datar
-                    </button>
-                    <button id="btn-tab-kecamatan" class="px-4 py-1.5 rounded-md text-xs font-bold text-muted-foreground">
-                        Kecamatan
-                    </button>
+                    <p class="text-xs text-muted-foreground font-medium">Visualisasi lokasi sekolah per kecamatan</p>
                 </div>
             </div>
             <div class="relative h-[380px] w-full bg-slate-200">
@@ -151,7 +142,7 @@
             preferCanvas: true,
             minZoom: 10,
             maxZoom: 18
-        }).setView([-0.4555, 100.5771], 12);
+        }).setView([-0.508223, 100.721233], 12);
 
         const tileLayers = {
             light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -187,11 +178,6 @@
                                     'warna'          => $k['warna'],
                                 ], $kecamatan_list), JSON_UNESCAPED_UNICODE) ?>;
 
-        // Data wilayah kabupaten — sudah diambil server-side, tanpa fetch
-        const wilayahGeojson = <?= $wilayah_geojson
-                                    ? json_encode($wilayah_geojson, JSON_UNESCAPED_UNICODE)
-                                    : 'null' ?>;
-
         const kecamatanGeojsonData = <?= json_encode($kecamatan_geojson, JSON_UNESCAPED_UNICODE) ?>;
 
         // ── Hitung sekolah per kecamatan (matching by nama_kecamatan) ──
@@ -202,16 +188,8 @@
         });
 
         // ── Layer groups ───────────────────────────────────────────────
-        let wilayahLayer = null; // Tab: Kab. Tanah Datar
-        let kecamatanGroup = null; // Tab: Kecamatan
+        let kecamatanGroup = null;
         let markerGroup = L.layerGroup().addTo(map);
-
-        // ── Tab state ─────────────────────────────────────────────────
-        let activeTab = 'kabupaten';
-        let kecLoaded = false;
-
-        const btnKab = document.getElementById('btn-tab-kabupaten');
-        const btnKec = document.getElementById('btn-tab-kecamatan');
 
         // ── Popup builder ──────────────────────────────────────────────
         function buildPopup(s) {
@@ -223,7 +201,7 @@
                     <img class="w-full h-full object-cover" src="${s.img}" alt="${s.nama}">
                 ` : `
                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-8xl text-slate-400">school</span>
+                        <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                     </div>
                 `}
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -236,7 +214,7 @@
             <div class="p-4">
                 <h3 class="font-bold text-[15px] mb-1 text-slate-800">${s.nama}</h3>
                 <div class="flex items-center gap-1 mb-3">
-                    <span class="material-symbols-outlined text-[14px] text-primary self-start">location_on</span>
+                    <span class="material-symbols-outlined text-[16px]! text-primary self-start">location_on</span>
                     <span class="text-[12px] text-slate-500">${s.alamat}</span>
                 </div>
             </div>
@@ -274,65 +252,8 @@
         }
         buildMarkers();
 
-        // ── Tab: Kabupaten ─────────────────────────────────────────────
-        function loadKabupaten() {
-            if (kecamatanGroup) {
-                kecamatanGroup.remove();
-            }
-
-            if (wilayahLayer) {
-                wilayahLayer.addTo(map);
-                map.fitBounds(wilayahLayer.getBounds(), {
-                    padding: [50, 50],
-                    maxZoom: 14
-                });
-                return;
-            }
-
-            if (!wilayahGeojson) {
-                console.error('Data GeoJSON kabupaten tidak tersedia dari server.');
-                return;
-            }
-
-            wilayahLayer = L.geoJSON(wilayahGeojson, {
-                style: {
-                    color: '#2563eb',
-                    weight: 1.8,
-                    opacity: 0.9,
-                    fillColor: '#3b82f6',
-                    fillOpacity: 0.06
-                },
-                onEachFeature(feature, layer) {
-                    layer.on('mouseover', function() {
-                        this.setStyle({
-                            weight: 3,
-                            color: '#1d4ed8',
-                            fillOpacity: 0.15
-                        });
-                        this.bringToFront();
-                    });
-                    layer.on('mouseout', function() {
-                        wilayahLayer.resetStyle(this);
-                    });
-                }
-            }).addTo(map);
-
-            map.fitBounds(wilayahLayer.getBounds(), {
-                padding: [50, 50],
-                maxZoom: 14
-            });
-            map.once('moveend', () => map.setMinZoom(map.getZoom()));
-        }
-
-        // ── Tab: Kecamatan ─────────────────────────────────────────────
+        // ── Layer kecamatan ────────────────────────────────────────────
         function loadKecamatan() {
-            if (wilayahLayer) wilayahLayer.remove();
-
-            if (kecLoaded && kecamatanGroup) {
-                kecamatanGroup.addTo(map);
-                return;
-            }
-
             kecamatanGroup = L.layerGroup();
 
             const tooltip = L.tooltip({
@@ -391,28 +312,18 @@
             });
 
             kecamatanGroup.addTo(map);
-            kecLoaded = true;
+
+            const bounds = kecamatanGroup.getBounds();
+            if (bounds.isValid()) {
+                map.fitBounds(bounds, {
+                    padding: [50, 50],
+                    maxZoom: 14
+                });
+            }
         }
 
-        // ── Init tab kabupaten ─────────────────────────────────────────
-        loadKabupaten();
-
-        // ── Tab button handlers ────────────────────────────────────────
-        function setActiveTab(tab) {
-            activeTab = tab;
-            const isKab = tab === 'kabupaten';
-            btnKab.classList.toggle('bg-white', isKab);
-            btnKab.classList.toggle('shadow-sm', isKab);
-            btnKab.classList.toggle('text-muted-foreground', !isKab);
-            btnKec.classList.toggle('bg-white', !isKab);
-            btnKec.classList.toggle('shadow-sm', !isKab);
-            btnKec.classList.toggle('text-muted-foreground', isKab);
-            if (isKab) loadKabupaten();
-            else loadKecamatan();
-        }
-
-        btnKab.addEventListener('click', () => setActiveTab('kabupaten'));
-        btnKec.addEventListener('click', () => setActiveTab('kecamatan'));
+        // ── Init peta ──────────────────────────────────────────────────
+        loadKecamatan();
 
         // ── Map controls ───────────────────────────────────────────────
         document.querySelector('[data-map-action="zoom-in"]').addEventListener('click', () => map.zoomIn());

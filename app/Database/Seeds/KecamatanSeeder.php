@@ -9,7 +9,7 @@ class KecamatanSeeder extends Seeder
     public function run()
     {
         $data = [
-            [
+            /*  [
                 'nama_kecamatan' => 'X Koto',
                 'kode_kecamatan' => '13.04.01',
                 'slug'           => 'x-koto',
@@ -36,36 +36,38 @@ class KecamatanSeeder extends Seeder
                 'slug'           => 'lima-kaum',
                 'geojson_file'   => 'id1305050_lima_kaum.geojson',
                 'warna'          => '#457b9d',
-            ],
+            ], */
             [
+                'id'            => 5,
                 'nama_kecamatan' => 'Lintau Buo',
                 'kode_kecamatan' => '13.04.06',
                 'slug'           => 'lintau-buo',
                 'geojson_file'   => 'id1305080_lintau_buo.geojson',
                 'warna'          => '#6a4c93',
             ],
-            [
+            /*  [
                 'nama_kecamatan' => 'Lintau Buo Utara',
                 'kode_kecamatan' => '13.04.13',
                 'slug'           => 'lintau-buo-utara',
                 'geojson_file'   => 'id1305081_lintau_buo_utara.geojson',
                 'warna'          => '#e9c46a',
-            ],
+            ], */
             [
+                'id'            => 7,
                 'nama_kecamatan' => 'Padang Ganting',
                 'kode_kecamatan' => '13.04.11',
                 'slug'           => 'padang-ganting',
                 'geojson_file'   => 'id1305070_padang_ganting.geojson',
                 'warna'          => '#264653',
             ],
-            [
+            /*  [
                 'nama_kecamatan' => 'Pariangan',
                 'kode_kecamatan' => '13.04.09',
                 'slug'           => 'pariangan',
                 'geojson_file'   => 'id1305030_pariangan.geojson',
                 'warna'          => '#f77f00',
-            ],
-            [
+            ], */
+            /*  [
                 'nama_kecamatan' => 'Rambatan',
                 'kode_kecamatan' => '13.04.03',
                 'slug'           => 'rambatan',
@@ -99,8 +101,9 @@ class KecamatanSeeder extends Seeder
                 'slug'           => 'tanjuang-baru',
                 'geojson_file'   => 'id1305111_tanjung_baru.geojson',
                 'warna'          => '#606c38',
-            ],
+            ], */
             [
+                'id'            => 14,
                 'nama_kecamatan' => 'Tanjung Emas',
                 'kode_kecamatan' => '13.04.05',
                 'slug'           => 'tanjung-emas',

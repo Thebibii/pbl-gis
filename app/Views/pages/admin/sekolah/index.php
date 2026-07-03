@@ -5,7 +5,7 @@
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Admin</span><span>/</span>
                     <span class="text-primary">Data Sekolah</span>
                 </nav>
@@ -237,9 +237,9 @@
         tbody.innerHTML = rows.map(s => `
         <tr class="hover:bg-primary/5 transition-colors group">
             <td class="px-6 py-5 text-sm font-bold text-primary">${escHtml(s.npsn ?? '—')}</td>
-            <td class="px-6 py-5">
-                <div class="flex flex-col">
-                    <span class="font-bold text-foreground text-sm">${escHtml(s.nama_sekolah)}</span>
+            <td class="px-6 py-5 w-fit">
+                <div class="flex flex-col min-w-fit">
+                    <span class="font-bold text-foreground text-sm min-w-full">${escHtml(s.nama_sekolah)}</span>
                     <span class="text-xs text-muted-foreground font-medium">${escHtml(s.alamat ?? '')}</span>
                 </div>
             </td>
@@ -292,44 +292,50 @@
 
     function renderPagination(res) {
         const {
-            currentPage,
-            lastPage
+            currentPage: cur,
+            lastPage,
+            total,
+            perPage
         } = res;
+
+        const start = total === 0 ? 0 : (cur - 1) * perPage + 1;
+        const end = Math.min(cur * perPage, total);
+        document.getElementById('info-page').textContent =
+            total === 0 ? 'Tidak ada data' : `Menampilkan ${start}–${end} dari ${total} pengguna`;
+
         const container = document.getElementById('pagination-container');
         if (lastPage <= 1) {
             container.innerHTML = '';
             return;
         }
 
-        const btnBase = 'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold transition-all';
-        const btnActive = `${btnBase} bg-primary text-white shadow-md shadow-primary/20`;
-        const btnNormal = `${btnBase} border border-border hover:bg-slate-50`;
-        const btnDisabled = `${btnBase} border border-border opacity-30 cursor-not-allowed`;
+        const btnCls = 'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-bold transition-colors';
+        const active = `${btnCls} bg-primary text-white shadow-sm shadow-primary/30`;
+        const normal = `${btnCls} bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary`;
+        const navBtn = (page, icon, disabled) =>
+            `<button ${disabled ? 'disabled' : `onclick="goTo(${page})"`}
+        class="${btnCls} ${disabled ? 'opacity-30 cursor-not-allowed bg-slate-100 text-slate-400' : normal}">
+        <span class="material-symbols-outlined text-base">${icon}</span>
+    </button>`;
 
-        let pages = buildPageList(currentPage, lastPage);
-        let html = '';
-
-        // Prev
-        html += currentPage === 1 ?
-            `<button class="${btnDisabled}" disabled><span class="material-symbols-outlined">chevron_left</span></button>` :
-            `<button class="${btnNormal}" onclick="fetchData(${currentPage - 1})"><span class="material-symbols-outlined">chevron_left</span></button>`;
-
-        pages.forEach(p => {
-            if (p === '...') {
-                html += `<span class="px-2 text-muted-foreground">...</span>`;
-            } else {
-                html += p === currentPage ?
-                    `<button class="${btnActive}">${p}</button>` :
-                    `<button class="${btnNormal}" onclick="fetchData(${p})">${p}</button>`;
+        let pages = '';
+        for (let i = 1; i <= lastPage; i++) {
+            if (i === 1 || i === lastPage || (i >= cur - 1 && i <= cur + 1)) {
+                pages += `<button onclick="goTo(${i})" class="${i === cur ? active : normal}">${i}</button>`;
+            } else if (i === cur - 2 || i === cur + 2) {
+                pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
             }
-        });
+        }
 
-        // Next
-        html += currentPage === lastPage ?
-            `<button class="${btnDisabled}" disabled><span class="material-symbols-outlined">chevron_right</span></button>` :
-            `<button class="${btnNormal}" onclick="fetchData(${currentPage + 1})"><span class="material-symbols-outlined">chevron_right</span></button>`;
+        container.innerHTML =
+            navBtn(cur - 1, 'chevron_left', cur === 1) +
+            pages +
+            navBtn(cur + 1, 'chevron_right', cur === lastPage);
+    }
 
-        container.innerHTML = html;
+    function goTo(page) {
+        currentPage = page;
+        fetchData(page);
     }
 
     // Buat list nomor halaman dengan ellipsis

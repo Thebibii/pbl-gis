@@ -215,7 +215,7 @@
   }
 
   .badge-SMP {
-    @apply bg-warning;
+    @apply bg-primary;
   }
 
   .text-A {

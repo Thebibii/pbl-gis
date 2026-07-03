@@ -7,7 +7,7 @@
         <!-- Page Header -->
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-50 mb-2">
+                <nav class="flex gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
                     <span class="hover:text-primary cursor-pointer">Operator</span><span>/</span>
                     <span class="text-primary">Statistik Sekolah</span>
                 </nav>
@@ -69,25 +69,25 @@
                             <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground" for="siswa_laki">
                                 Jumlah Siswa Laki-laki
                             </label>
-                            <input 
-                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all" 
-                                id="siswa_laki" 
-                                name="siswa_laki" 
-                                placeholder="0" 
-                                type="number" 
-                                value="620"/>
+                            <input
+                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
+                                id="siswa_laki"
+                                name="siswa_laki"
+                                placeholder="0"
+                                type="number"
+                                value="620" />
                         </div>
                         <div class="space-y-2">
                             <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground" for="siswa_perempuan">
                                 Jumlah Siswa Perempuan
                             </label>
-                            <input 
-                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all" 
-                                id="siswa_perempuan" 
-                                name="siswa_perempuan" 
-                                placeholder="0" 
-                                type="number" 
-                                value="625"/>
+                            <input
+                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
+                                id="siswa_perempuan"
+                                name="siswa_perempuan"
+                                placeholder="0"
+                                type="number"
+                                value="625" />
                         </div>
                     </div>
                 </div>
@@ -107,25 +107,25 @@
                             <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground" for="guru_tetap">
                                 Jumlah Guru Tetap
                             </label>
-                            <input 
-                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all" 
-                                id="guru_tetap" 
-                                name="guru_tetap" 
-                                placeholder="0" 
-                                type="number" 
-                                value="60"/>
+                            <input
+                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
+                                id="guru_tetap"
+                                name="guru_tetap"
+                                placeholder="0"
+                                type="number"
+                                value="60" />
                         </div>
                         <div class="space-y-2">
                             <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground" for="guru_honorer">
                                 Jumlah Guru Honorer
                             </label>
-                            <input 
-                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all" 
-                                id="guru_honorer" 
-                                name="guru_honorer" 
-                                placeholder="0" 
-                                type="number" 
-                                value="24"/>
+                            <input
+                                class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
+                                id="guru_honorer"
+                                name="guru_honorer"
+                                placeholder="0"
+                                type="number"
+                                value="24" />
                         </div>
                     </div>
                 </div>

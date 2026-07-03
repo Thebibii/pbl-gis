@@ -3,23 +3,35 @@
 
 <main class="flex h-screen overflow-hidden relative">
 
-    <!-- Floating Side Panel -->
-    <!-- Floating Side Panel -->
-    <aside id="side-panel" class="fixed left-6 top-24 bottom-6 w-1/4 z-40 flex flex-col pointer-events-none">
-        <div class="pointer-events-auto flex flex-col glass-effect rounded-2xl shadow-2xl overflow-hidden border-none max-h-full">
+    <!-- Backdrop (mobile only, muncul saat drawer terbuka) -->
+    <div id="panel-backdrop" class="hidden fixed inset-0 bg-black/40 z-40 lg:hidden"></div>
+
+    <!-- Tombol hamburger untuk buka drawer (mobile only) -->
+    <button id="mobile-panel-open" class="lg:hidden fixed left-4 top-24 z-30 w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+
+    <!-- Floating Side Panel / Drawer di mobile -->
+    <aside id="side-panel" class="fixed inset-y-0 left-0 z-99999 md:z-50 w-[85%] max-w-sm -translate-x-full transition-transform duration-300 ease-in-out pointer-events-none flex flex-col lg:translate-x-0 lg:z-40 lg:inset-y-auto lg:left-6 lg:top-24 lg:bottom-6 lg:w-1/3 xl:w-1/4 lg:max-w-none">
+        <div class="pointer-events-auto flex flex-col glass-effect shadow-2xl overflow-hidden border-none max-h-full h-full lg:h-auto lg:rounded-2xl">
 
             <!-- Header (selalu terlihat) -->
-            <div class="p-6 pb-4 shrink-0">
-                <div class="flex justify-between items-start mb-2">
+            <div class="p-6 pb-4 shrink-0 space-y-2">
+                <div class="flex justify-between items-start">
                     <h2 class="text-xl font-headline font-bold text-foreground">Eksplorasi</h2>
                     <div class="flex items-center gap-2">
-                        <span id="badge-count" class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold"><?= $totalSekolah ?> DATA</span>
+                        <span id="badge-count" class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold"><?= (int) $totalSekolah ?> DATA</span>
 
-                        <!-- Toggle Button -->
-                        <button id="panel-toggle" class="shrink-0 w-7 h-7 flex items-center justify-center rounded-lg bg-secondary hover:bg-background transition-all">
-                            <span id="panel-toggle-icon" class="material-symbols-outlined text-[18px] text-foreground transition-transform duration-300">
+                        <!-- Toggle Button (desktop: collapse body) -->
+                        <button id="panel-toggle" class="hidden lg:flex shrink-0 w-7 h-7 items-center justify-center rounded-lg bg-secondary hover:bg-background transition-all">
+                            <span id="panel-toggle-icon" class="material-symbols-outlined text-[18px]! text-foreground transition-transform duration-300">
                                 expand_more
                             </span>
+                        </button>
+
+                        <!-- Close Button (mobile: tutup drawer) -->
+                        <button id="mobile-panel-close" class="lg:hidden shrink-0 w-7 h-7 flex items-center justify-center rounded-lg bg-secondary hover:bg-background transition-all">
+                            <span class="material-symbols-outlined text-[18px]! text-foreground">close</span>
                         </button>
                     </div>
                 </div>
@@ -28,11 +40,11 @@
 
             <!-- Collapsible Body -->
             <div id="side-panel-body" class="grid transition-[grid-template-rows] duration-300 ease-in-out min-h-0 flex-1" style="grid-template-rows: 1fr;">
-                <div class="overflow-hidden min-h-0 flex flex-col flex-1 px-6">
+                <div class="overflow-hidden min-h-0 flex flex-col flex-1 px-6 gap-4">
 
                     <!-- Search Input -->
-                    <div class="relative mb-4">
-                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-muted-foreground">search</span>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px]! text-muted-foreground">search</span>
                         <input
                             id="search-input"
                             type="text"
@@ -41,7 +53,7 @@
                     </div>
 
                     <!-- Filter Tabs -->
-                    <div class="flex p-1 bg-secondary rounded-xl gap-1 mb-2">
+                    <div class="flex p-1 bg-secondary rounded-xl gap-1">
                         <button data-filter="SEMUA" class="filter-tab flex-1 py-2 rounded-lg bg-primary text-primary-foreground text-[10px] font-bold shadow-sm transition-all">SEMUA</button>
                         <button data-filter="TK" class="filter-tab flex-1 py-2 rounded-lg text-muted-foreground hover:bg-background transition-all text-[10px] font-bold">TK</button>
                         <button data-filter="SD" class="filter-tab flex-1 py-2 rounded-lg text-muted-foreground hover:bg-background transition-all text-[10px] font-bold">SD</button>
@@ -54,10 +66,10 @@
                     </div>
 
                     <!-- Empty State -->
-                    <div id="empty-state" class="hidden flex-1 flex flex-col items-center justify-center text-center py-10">
-                        <span class="material-symbols-outlined text-[48px] text-muted-foreground/30 mb-3">search_off</span>
+                    <div id="empty-state" class="hidden flex-1 flex flex-col items-center justify-center text-center py-10 gap-2">
+                        <span class="material-symbols-outlined text-[48px]! text-muted-foreground/30">search_off</span>
                         <p class="text-sm font-bold text-muted-foreground">Tidak ditemukan</p>
-                        <p class="text-xs text-muted-foreground/70 mt-1">Coba kata kunci yang berbeda</p>
+                        <p class="text-xs text-muted-foreground/70">Coba kata kunci yang berbeda</p>
                     </div>
 
                 </div>
@@ -73,8 +85,8 @@
         </div>
 
         <!-- Map Controls -->
-        <div class="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col items-end gap-3 z-10">
-            <div class="flex flex-col w-fit  glass-effect rounded-2xl shadow-2xl overflow-hidden">
+        <div class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 flex flex-col items-end gap-3 z-10">
+            <div class="flex flex-col w-fit glass-effect rounded-2xl shadow-2xl overflow-hidden">
                 <button data-map-action="zoom-in" class="w-12 h-12 flex items-center justify-center text-primary hover:bg-accent transition-colors border-b border-border/50" title="Zoom in">
                     <span class="material-symbols-outlined">add</span>
                 </button>
@@ -82,59 +94,66 @@
                     <span class="material-symbols-outlined">remove</span>
                 </button>
             </div>
-            <button id="btn-locate" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Lokasi saya">
+            <!-- <button id="btn-locate" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Lokasi saya">
                 <span class="material-symbols-outlined">my_location</span>
-            </button>
+            </button> -->
             <button id="btn-layers" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Ganti layer peta">
                 <span class="material-symbols-outlined">layers</span>
             </button>
 
-            <div class="w-fit p-3 space-y-1 flex-col glass-effect rounded-2xl shadow-xl flex  text-primary ">
+            <!-- Legenda & Kecamatan disembunyikan di mobile, fokus ke peta + panel -->
+            <div class="hidden lg:flex lg:w-full w-fit lg:min-w-70 py-3 px-3.5 space-y-1 flex-col glass-effect rounded-2xl shadow-xl text-primary">
                 <h1 class="font-bold text-foreground text-sm">Legenda</h1>
-                <div class="">
-
-                    <div class="flex items-center">
-                        <span class="w-2 h-2 badge-TK rounded-full inline-block mr-2"></span>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 badge-TK rounded-full inline-block"></span>
                         <span class="text-xs font-bold text-muted-foreground">Taman Kanak-Kanak (TK)</span>
                     </div>
-                    <div class="flex items-center">
-                        <span class="w-2 h-2 badge-C rounded-full inline-block mr-2"></span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 badge-SD rounded-full inline-block"></span>
                         <span class="text-xs font-bold text-muted-foreground">Sekolah Dasar (SD)</span>
                     </div>
-                    <div class="flex items-center">
-                        <span class="w-2 h-2 bg-primary rounded-full inline-block mr-2"></span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-primary rounded-full inline-block"></span>
                         <span class="text-xs font-bold text-muted-foreground">Sekolah Menangah Pertama (SMP)</span>
                     </div>
                 </div>
             </div>
+
+            <div id="kecamatan-legend" class="hidden lg:flex lg:w-full w-fit lg:min-w-70 py-3 px-3.5 space-y-1 flex-col glass-effect rounded-2xl shadow-xl text-primary">
+                <h1 class="font-bold text-foreground text-sm">Kecamatan</h1>
+                <div id="kecamatan-toggle-list" class="space-y-1">
+                    <!-- diisi oleh JS -->
+                </div>
+            </div>
         </div>
 
-        <!-- Bottom Stats Bar -->
-        <div class="absolute bottom-8 right-16 w-full max-w-4xl px-6 pointer-events-none z-50">
+        <!-- Bottom Stats Bar (disembunyikan di mobile) -->
+        <div class="hidden lg:block absolute bottom-8 right-16 w-full max-w-4xl px-6 pointer-events-none z-50">
             <div class="pointer-events-auto glass-effect rounded-2xl shadow-2xl px-10 h-20 border-none flex items-center justify-between">
                 <div class="flex items-center gap-10">
-                    <div class="flex flex-col">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Total Sekolah</p>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Total Sekolah</p>
                         <div class="flex items-baseline gap-1">
                             <span id="stat-total" class="text-2xl font-stat font-bold text-primary">0</span>
                             <span class="text-[10px] text-success font-bold">+12%</span>
                         </div>
                     </div>
                     <div class="w-[1px] h-10 bg-border"></div>
-                    <div class="flex flex-col">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Akreditasi A</p>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Akreditasi A</p>
                         <div class="flex items-baseline gap-1">
                             <span id="stat-akred-a" class="text-2xl font-stat font-bold text-foreground">0</span>
                             <span class="text-[10px] text-muted-foreground font-medium">UNIT</span>
                         </div>
                     </div>
                     <div class="w-[1px] h-10 bg-border"></div>
-                    <div class="flex flex-col">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Butuh Perhatian</p>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Butuh Perhatian</p>
                         <div class="flex items-baseline gap-1">
                             <span id="stat-perhatian" class="text-2xl font-stat font-bold text-destructive">0</span>
                             <span class="text-[10px] text-destructive font-bold flex items-center gap-0.5">
-                                <span class="material-symbols-outlined text-[12px]">warning</span>
+                                <span class="material-symbols-outlined text-[12px]!">warning</span>
                             </span>
                         </div>
                     </div>
@@ -150,42 +169,9 @@
 <?= $this->endSection() ?>
 <?= $this->section('scripts') ?>
 <style>
-    /* Custom Leaflet marker styles */
-    .school-marker {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50% 50% 50% 0;
-        transform: rotate(-45deg);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        border: 2px solid white;
-        transition: transform 0.2s ease;
-        cursor: pointer;
-    }
-
-    .school-marker:hover {
-        transform: rotate(-45deg) scale(1.15);
-    }
-
-    .school-marker .inner {
-        transform: rotate(45deg);
-        font-size: 14px;
-        font-weight: 700;
-        color: white;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-
-
-
-
-
-
     /* Sidebar card highlight */
     .school-card.active {
-        ring: 2px;
         border-color: hsl(221 83% 53%);
-        box-shadow: 0 0 0 2px hsl(221 83% 53% / 0.3);
     }
 </style>
 
@@ -194,14 +180,25 @@
 
         // ─── DATA SEKOLAH (Ganti dengan data dari controller nanti) ──────────────
         // Format: { id, nama, jenis, status, akreditasi, lat, lng, alamat, siswa, guru, img }
-        const sekolahData = <?= $sekolahData ?>;
+        const sekolahData = <?= json_encode(json_decode($sekolahData), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+
+        // ─── HTML ESCAPE HELPER (mencegah XSS dari data sekolah/kecamatan) ────────
+        function escapeHtml(value) {
+            if (value === null || value === undefined) return '';
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
 
         // ─── MAP INIT ─────────────────────────────────────────────────────────────
         const map = L.map('map', {
             zoomControl: false,
             preferCanvas: true,
             minZoom: 10,
-            maxZoom: 18
+            maxZoom: 14
         }).setView([-0.4555, 100.5771], 12);
 
         // Tile layers
@@ -233,8 +230,143 @@
             }, 300);
         });
 
+        // ─── DRAWER PANEL DI MOBILE ─────────────────────────────────────────────
+        const sidePanel = document.getElementById('side-panel');
+        const panelBackdrop = document.getElementById('panel-backdrop');
+        const mobilePanelOpen = document.getElementById('mobile-panel-open');
+        const mobilePanelClose = document.getElementById('mobile-panel-close');
+
+        function openMobilePanel() {
+            sidePanel.classList.remove('-translate-x-full');
+            panelBackdrop.classList.remove('hidden');
+        }
+
+        function closeMobilePanel() {
+            sidePanel.classList.add('-translate-x-full');
+            panelBackdrop.classList.add('hidden');
+        }
+
+        mobilePanelOpen?.addEventListener('click', openMobilePanel);
+        mobilePanelClose?.addEventListener('click', closeMobilePanel);
+        panelBackdrop?.addEventListener('click', closeMobilePanel);
+
+        // Tutup drawer otomatis saat resize ke layar besar (lg ke atas)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                closeMobilePanel();
+            }
+        });
+
+        // ─── DATA KECAMATAN (GeoJSON per kecamatan dari database) ────────────────
+        const kecamatanGeojsonData = <?= json_encode(json_decode($kecamatanGeojson), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+
+        // ─── GEOJSON WILAYAH (multi-kecamatan) ────────────────────────────────────
+        const kecamatanLayers = {}; // id -> L.GeoJSON layer
+        const boundsGroup = L.featureGroup();
+
+        kecamatanGeojsonData.forEach(kec => {
+            const color = kec.warna || '#2563eb';
+
+            const layer = L.geoJSON(kec.geojson, {
+                style: {
+                    color: color,
+                    weight: 1.8,
+                    opacity: 0.9,
+                    fillColor: color,
+                    fillOpacity: 0.12
+                },
+                onEachFeature(feature, featLayer) {
+                    featLayer.on('mouseover', function() {
+                        this.setStyle({
+                            weight: 3,
+                            fillOpacity: 0.25
+                        });
+                        this.bringToFront();
+                    });
+                    featLayer.on('mouseout', function() {
+                        layer.resetStyle(this);
+                    });
+                }
+            }).addTo(map);
+
+            kecamatanLayers[kec.id] = layer;
+            boundsGroup.addLayer(layer);
+        });
+
+        if (Object.keys(kecamatanLayers).length > 0) {
+            map.fitBounds(boundsGroup.getBounds(), {
+                padding: [50, 50],
+                maxZoom: 14
+            });
+
+            map.once('moveend', function() {
+                map.setMinZoom(map.getZoom());
+            });
+        } else {
+            log_message; // (hapus baris ini, hanya placeholder) — kalau kosong, minZoom biarkan default
+        }
+
+        // ─── TOGGLE PER KECAMATAN (sidebar checkbox) ──────────────────────────────
+        function renderKecamatanToggles() {
+            const container = document.getElementById('kecamatan-toggle-list');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            kecamatanGeojsonData.forEach(kec => {
+                const color = kec.warna || '#2563eb';
+                const row = document.createElement('button');
+                row.type = 'button';
+                row.className = 'kecamatan-toggle flex items-center justify-between gap-3 w-full cursor-pointer';
+                row.dataset.kecId = kec.id;
+                row.setAttribute('aria-pressed', 'true');
+                row.innerHTML = `
+            <span class="flex items-center gap-2">
+                <span class="kec-dot w-2 h-2 rounded-full inline-block ring-1 ring-black/10" style="background:${escapeHtml(color)}"></span>
+                <span class="kec-label text-xs font-bold text-muted-foreground">${escapeHtml(kec.nama_kecamatan)}</span>
+            </span>
+            <span class="kec-switch relative inline-flex h-4 w-7 shrink-0 items-center rounded-full transition-colors duration-200" style="background:${escapeHtml(color)}" data-color="${escapeHtml(color)}">
+                <span class="kec-thumb inline-block h-3 w-3 transform rounded-full bg-white shadow-sm transition-transform duration-200 translate-x-3.5"></span>
+            </span>
+        `;
+                container.appendChild(row);
+            });
+
+            container.querySelectorAll('.kecamatan-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.dataset.kecId;
+                    const layer = kecamatanLayers[id];
+                    if (!layer) return;
+
+                    const isActive = btn.getAttribute('aria-pressed') === 'true';
+                    const track = btn.querySelector('.kec-switch');
+                    const thumb = btn.querySelector('.kec-thumb');
+                    const label = btn.querySelector('.kec-label');
+
+                    if (isActive) {
+                        map.removeLayer(layer);
+                        btn.setAttribute('aria-pressed', 'false');
+                        track.style.background = '#cbd5e1'; // slate-300, track mati
+                        thumb.classList.remove('translate-x-3.5');
+                        thumb.classList.add('translate-x-0.5');
+                        label.classList.add('opacity-50');
+                    } else {
+                        map.addLayer(layer);
+                        btn.setAttribute('aria-pressed', 'true');
+                        track.style.background = track.dataset.color; // sekarang terisi dengan benar
+                        thumb.classList.remove('translate-x-0.5');
+                        thumb.classList.add('translate-x-3.5');
+                        label.classList.remove('opacity-50');
+                    }
+                });
+            });
+        }
+
+        renderKecamatanToggles();
+
         // ─── GEOJSON WILAYAH ──────────────────────────────────────────────────────
-        fetch("<?= base_url('id1305_tanah_datar.geojson') ?>")
+        <?php
+        /* fetch("<?= base_url('id1305_tanah_datar.geojson') ?>")
             .then(res => res.json())
             .then(data => {
                 const wilayahLayer = L.geoJSON(data, {
@@ -268,7 +400,7 @@
                     map.setMinZoom(map.getZoom());
                 });
             })
-            .catch(err => console.error('GeoJSON gagal dimuat:', err));
+            .catch(err => console.error('GeoJSON gagal dimuat:', err)); */ ?>
 
         // ─── CUSTOM MARKER ICON FACTORY ───────────────────────────────────────────
         function createMarkerIcon(sekolah) {
@@ -279,7 +411,7 @@
                 html: `
                 <div class="
                 w-2.5 h-2.5
-                badge-${sekolah.jenis}
+                badge-${escapeHtml(sekolah.jenis)}
                 rounded-full
                 border-2 border-white
                 shadow-md
@@ -293,52 +425,41 @@
 
         // ─── POPUP BUILDER ────────────────────────────────────────────────────────
         function buildPopup(s) {
-            const badgeClass = `badge-${s.akreditasi}`;
+            const badgeClass = `badge-${escapeHtml(s.akreditasi)}`;
             const statusColor = s.status === 'NEGERI' ? 'bg-primary text-primary' : 'bg-secondary text-secondary-foreground';
             return `
                 <div class="font-sans" style="font-family:'Plus Jakarta Sans',sans-serif; min-width:260px;">
                     <div class="relative h-32 overflow-hidden">
                      ${s.img ? `
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="${s.img}" alt="${s.nama || ''}">
+                        src="${encodeURI(s.img)}" alt="${escapeHtml(s.nama || '')}">
                 ` : `
                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-8xl text-slate-400">school</span>
+                        <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                     </div>
                 `}
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                         <div class="absolute top-3 left-3 flex gap-2">
                             <span class="text-white text-[9px] font-bold px-2 py-1 rounded uppercase tracking-widest shadow ${statusColor}">
-                                ${s.jenis} ${s.status}
+                                ${escapeHtml(s.jenis)} ${escapeHtml(s.status)}
                             </span>
                         </div>
                         <span class="${badgeClass} text-white text-[10px] font-bold px-2 py-1 rounded-full absolute bottom-3 right-3 flex items-center gap-1 shadow">
                             <span class="w-1.5 h-1.5 bg-white rounded-full inline-block"></span>
-                            ${s.akreditasi}
+                            ${escapeHtml(s.akreditasi)}
                         </span>
                     </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-[15px] mb-1 text-slate-800">${s.nama}</h3>
-                        <div class="flex items-center gap-1 text-muted-foreground mb-3">
-                            <span class="material-symbols-outlined text-[14px] text-primary self-start">location_on</span>
-                            <span class="text-[12px] text-slate-500">${s.alamat}</span>
+                    <div class="p-4 flex flex-col gap-3">
+                        <h3 class="font-bold text-[15px] text-slate-800">${escapeHtml(s.nama)}</h3>
+                        <div class="flex items-center gap-1 text-muted-foreground">
+                            <span class="material-symbols-outlined text-[14px]! text-primary self-start">location_on</span>
+                            <span class="text-[12px] text-slate-500">${escapeHtml(s.alamat)}</span>
                         </div>
-                        <div class="flex justify-between items-center pt-2.5 border-t border-dashed border-slate-200">
-                            <div class="flex items-center gap-3 text-[11px] text-slate-400">
-                                <div class="text-center">
-                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Siswa</p>
-                                    <p class="text-base font-bold text-primary">${s.siswa.toLocaleString()}</p>
-                                </div>
-                                <span class="w-px h-6 bg-slate-200"></span>
-                                <div class="text-center">
-                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Guru</p>
-                                    <p class="text-base font-bold text-slate-800">${s.guru}</p>
-                                </div>
-                            </div>
-                            <a href="<?= site_url('sekolah') ?>/${s.slug}"
-                            class="text-primary hover:opacity-80 text-[10px] font-bold flex items-center gap-1 no-underline group/btn">
-                                DETAIL
-                                <span class="material-symbols-outlined text-[14px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                        <div class="flex justify-center items-center pt-2.5 border-t border-dashed border-slate-200">
+                            <a href="<?= site_url('sekolah') ?>/${encodeURIComponent(s.slug)}"
+                            class="text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 no-underline group/btn">
+                                DETAIL SEKOLAH
+                                <span class="material-symbols-outlined text-[14px]! group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                             </a>
                         </div>
                     </div>
@@ -410,45 +531,40 @@
 
             list.forEach(s => {
 
-                const badgeCls = `badge-${s.akreditasi}`;
+                const badgeCls = `badge-${escapeHtml(s.akreditasi)}`;
                 // const statusLabel = s.jenis === 'SD' ? 'badge-C text-primary-foreground' : 'badge-B text-foreground';
-                const statusLabel = `badge-${s.jenis} text-white`;
+                const statusLabel = `badge-${escapeHtml(s.jenis)} text-white`;
                 const card = document.createElement('div');
                 card.id = `card-${s.id}`;
                 card.className = 'school-card school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group transition-all';
                 card.innerHTML = `
-                <div class="relative h-32">
+                <div class="relative h-32 overflow-hidden">
                 ${s.img ? `
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="${s.img}" alt="${s.nama || ''}">
+                        src="${encodeURI(s.img)}" alt="${escapeHtml(s.nama || '')}">
                 ` : `
                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-8xl text-slate-400">school</span>
+                        <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                     </div>
                 `}
 
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <span class="absolute top-3 left-3 ${statusLabel} text-[9px] font-bold px-2 py-1 rounded uppercase tracking-widest shadow">
-                        ${s.jenis} ${s.status}
+                        ${escapeHtml(s.jenis)} ${escapeHtml(s.status)}
                     </span>
                     <span class="${badgeCls} text-white text-[10px] font-bold px-2 py-1 rounded-full absolute bottom-3 right-3 flex items-center gap-1 shadow">
-                        <span class="w-1.5 h-1.5 bg-white rounded-full"></span> ${s.akreditasi}
+                        <span class="w-1.5 h-1.5 bg-white rounded-full"></span> ${escapeHtml(s.akreditasi)}
                     </span>
                 </div>
-                <div class="p-3">
-                    <h3 class="font-headline font-bold text-sm group-hover:text-primary transition-colors mb-1 leading-snug">${s.nama}</h3>
-                    <div class="flex items-center gap-1 text-muted-foreground mb-3">
-                        <span class="material-symbols-outlined text-[14px] text-primary">location_on</span>
-                        <span class="text-[12px] truncate">${s.alamat}</span>
+                <div class="p-3 flex flex-col gap-2">
+                    <h3 class="font-headline font-bold text-sm group-hover:text-primary transition-colors leading-snug">${escapeHtml(s.nama)}</h3>
+                    <div class="flex items-center gap-1 text-muted-foreground">
+                        <span class="material-symbols-outlined text-[14px]! text-primary">location_on</span>
+                        <span class="text-[12px] truncate">${escapeHtml(s.alamat)}</span>
                     </div>
-                    <div class="flex justify-between items-center pt-2 border-t border-dashed border-border">
-                        <div class="flex items-center gap-3 text-[11px] text-muted-foreground">
-                            <span><span class="font-bold text-primary">${s.siswa.toLocaleString()}</span> siswa</span>
-                            <span class="w-px h-3 bg-border"></span>
-                            <span><span class="font-bold text-foreground">${s.guru}</span> guru</span>
-                        </div>
-                        <button class="text-primary hover:opacity-80 text-[10px] font-bold flex items-center gap-1 group/btn">
-                            LIHAT <span class="material-symbols-outlined text-[13px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                    <div class="flex justify-center items-center pt-2 border-t border-dashed border-border">
+                        <button class="text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 group/btn">
+                            LIHAT SEKOLAH <span class="material-symbols-outlined text-[16px]! group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                         </button>
                     </div>
                 </div>`;
@@ -464,6 +580,7 @@
                         setTimeout(() => marker.openPopup(), 400);
                     }
                     highlightCard(s.id);
+                    closeMobilePanel();
                 });
 
                 container.appendChild(card);
@@ -484,8 +601,10 @@
         function getFiltered() {
             return sekolahData.filter(s => {
                 const matchJenis = currentFilter === 'SEMUA' || s.jenis === currentFilter;
-                const matchSearch = s.nama.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                    s.alamat.toLowerCase().includes(currentSearch.toLowerCase());
+                const nama = (s.nama || '').toLowerCase();
+                const alamat = (s.alamat || '').toLowerCase();
+                const matchSearch = nama.includes(currentSearch.toLowerCase()) ||
+                    alamat.includes(currentSearch.toLowerCase());
                 return matchJenis && matchSearch;
             });
         }
@@ -526,7 +645,7 @@
         document.querySelector('[data-map-action="zoom-out"]').addEventListener('click', () => map.zoomOut());
 
         // Locate me
-        document.getElementById('btn-locate').addEventListener('click', () => {
+        /* document.getElementById('btn-locate').addEventListener('click', () => {
             map.locate({
                 setView: true,
                 maxZoom: 15
@@ -541,7 +660,7 @@
                 weight: 2
             }).addTo(map).bindPopup('Lokasi Anda').openPopup();
         });
-        map.on('locationerror', () => alert('Lokasi tidak dapat ditemukan.'));
+        map.on('locationerror', () => alert('Lokasi tidak dapat ditemukan.')); */
 
         // Layer switcher
         document.getElementById('btn-layers').addEventListener('click', () => {

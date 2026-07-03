@@ -103,7 +103,7 @@ class SekolahModel extends Model
     public function cariSekolah(array $filters = [], int $page = 1, int $perPage = 12): array
     {
         $builder = $this
-            ->select('sekolah.id, sekolah.nama_sekolah, sekolah.slug, sekolah.jenjang,
+            ->select('sekolah.id, sekolah.npsn, sekolah.nama_sekolah, sekolah.slug, sekolah.jenjang,
                   sekolah.status, sekolah.akreditasi, sekolah.alamat, sekolah.foto_utama,
                   kecamatan.nama_kecamatan')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')

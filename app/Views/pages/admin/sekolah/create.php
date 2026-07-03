@@ -55,8 +55,11 @@
                     <?php endif; ?>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH</label>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH <span class="text-red-500 text-xs">*</span></label>
                     <input name="nama_kepsek" value="<?= old('nama_kepsek') ?>" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all" placeholder="Contoh: Budiono Siregar" type="text" />
+                    <?php if (session('errors.nama_kepsek')): ?>
+                        <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.nama_kepsek') ?></p>
+                    <?php endif; ?>
                 </div>
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENJANG <span class="text-red-500 text-xs">*</span></label>
@@ -103,6 +106,9 @@
                         <option value="K13" <?= old('kurikulum') === 'K13' ? 'selected' : '' ?>>K13</option>
                     </select>
                 </div>
+                <?php
+                /*
+                
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN BERDIRI</label>
                     <input name="tahun_berdiri" value="<?= old('tahun_berdiri') ?>" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all" placeholder="Contoh: 1995" type="number" />
@@ -117,7 +123,8 @@
                         <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.luas_lahan') ?></p>
                     <?php endif; ?>
                 </div>
-
+                    */
+                ?>
                 <!-- Foto Sekolah -->
                 <div class="lg:col-span-2">
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">
@@ -248,6 +255,7 @@
                 </div>
             </div>
         </section>
+        <?php /*
         <!-- Section 3: Data Statistik -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] h-fit" id="statistics">
             <div class="flex items-center gap-3 mb-8">
@@ -488,6 +496,7 @@
                 </button>
             </div>
         </section>
+         */ ?>
     </form>
     <div class="h-8"></div>
 </section>
@@ -565,7 +574,6 @@
             )
         ).then(results => {
             kecamatanIndex = results.filter(Boolean);
-            console.log(`✅ ${kecamatanIndex.length} kecamatan dimuat`);
         });
 
         // ── Ray-casting point-in-polygon ──────────────────────────────────────

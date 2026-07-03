@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Sekolah\JenisFasilitasModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class JenisFasilitasController extends BaseController
@@ -11,7 +12,7 @@ class JenisFasilitasController extends BaseController
 
     public function __construct()
     {
-        $this->jenisFasilitasModel = new \App\Models\Sekolah\JenisFasilitasModel();
+        $this->jenisFasilitasModel = new JenisFasilitasModel();
     }
 
     public function index()

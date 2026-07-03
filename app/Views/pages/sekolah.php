@@ -2,46 +2,84 @@
 <?= $this->section('content') ?>
 <main class="pt-24">
     <!-- Hero Section -->
-    <section class="relative w-full min-h-[600px] flex flex-col md:flex-row items-stretch overflow-hidden bg-card">
-        <div class="w-full md:w-[55%] relative overflow-hidden mask-slanted-exclusive">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDR61uXhX1V7atuZpCHgXZO4ALtyKeuf4EJheKi6pP8a2asI0bxaMJZGf9_drs1__VVsRNcrLYSCcMUMYKUMPwzF3QDk-jsQ4p2KpZy6qbClHk_8k6VpKVY_AXDsQAEAG1p8-c4Iw2pMcplr9imVr6aQ0lxtuu5Rf_qYjhRNZNlXCL_W6Ls6EYNZS6Gpfkw1sgPEU_QyF5lx1zSc4y0qpoNSPjgt8nbMuzpgwgqw2Vw0lSubba5OjI-WNcd8iSD-mUL6uv9TfwXUUU');"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
-        </div>
-        <div class="w-full md:w-[45%] flex flex-col justify-center p-8 md:p-16 lg:p-24 relative z-10">
-            <div class="space-y-8">
-                <div class="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full border border-primary/10">
-                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    <span class="text-[11px] font-bold uppercase tracking-widest">Terakreditasi <?= esc($sekolah['akreditasi']) ?> (Unggul) </span>
-                </div>
-                <div class="space-y-3">
-                    <h1 class="text-5xl md:text-6xl font-heading font-extrabold text-primary leading-tight">
-                        <?php
-                        $namaParts = explode(' ', $sekolah['nama_sekolah'], 3);
-                        $baris1 = implode(' ', array_slice($namaParts, 0, 2));
-                        $baris2 = $namaParts[2] ?? '';
-                        ?>
-                        <?= esc($baris1) ?> <br />
-                        <span class="text-foreground"><?= esc($baris2) ?></span>
-                    </h1>
-                </div>
-                <div class="flex items-start gap-4 p-5 bg-muted/30 rounded-2xl max-w-sm border border-border/50">
-                    <div class="bg-primary/10 p-3 rounded-xl">
-                        <span class="material-symbols-outlined text-primary">location_on</span>
-                    </div>
-                    <div>
-                        <p class="text-base font-bold text-foreground"><?= esc($sekolah['alamat']) ?></p>
-                    </div>
-                </div>
-                <div class="flex gap-4 pt-4">
-                    <button class="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
-                        <span class="material-symbols-outlined text-xl">map</span>
-                        Lihat di Peta
-                    </button>
+    <?php
+    $namaParts = explode(' ', $sekolah['nama_sekolah'], 3);
+    $baris1    = implode(' ', array_slice($namaParts, 0, 2));
+    $baris2    = $namaParts[2] ?? '';
+    $fotoUrl   = !empty($sekolah['foto_utama'])
+        ? base_url('uploads/sekolah/' . esc($sekolah['foto_utama']))
+        : null;
+    ?>
+    <section class="relative w-full overflow-hidden bg-card">
 
+        <!-- Hero Mobile: gambar full-bleed (aspect-video) jadi background, teks overlay di atasnya -->
+        <div class="md:hidden relative w-full aspect-video min-h-[340px] flex items-end overflow-hidden">
+            <?php if ($fotoUrl): ?>
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?= $fotoUrl ?>');"></div>
+            <?php else: ?>
+                <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-6xl! text-slate-400">school</span>
+                </div>
+            <?php endif; ?>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+
+            <div class="relative z-10 w-full p-6 pb-8 space-y-5 text-white">
+                <h1 class="text-3xl font-heading font-extrabold leading-tight">
+                    <?= esc($baris1) ?> <br />
+                    <span class="text-white/90"><?= esc($baris2) ?></span>
+                </h1>
+                <div class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                    <div class="bg-white/15 p-2.5 rounded-lg flex shrink-0">
+                        <span class="material-symbols-outlined text-white text-xl!">location_on</span>
+                    </div>
+                    <p class="text-sm font-bold leading-snug"><?= esc($sekolah['alamat'] ?? "Informasi alamat belum tersedia") ?></p>
+                </div>
+                <button class="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-black/30 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
+                    <span class="material-symbols-outlined text-xl!">map</span>
+                    Lihat di Peta
+                </button>
+            </div>
+        </div>
+
+        <!-- Hero Desktop: split diagonal kiri-kanan -->
+        <div class="hidden md:flex md:flex-row items-stretch min-h-[600px]">
+            <div class="md:w-[55%] relative overflow-hidden mask-slanted-exclusive">
+                <?php if ($fotoUrl): ?>
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?= $fotoUrl ?>');"></div>
+                <?php else: ?>
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-8xl! text-slate-400">school</span>
+                    </div>
+                <?php endif; ?>
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
+            </div>
+            <div class="md:w-[45%] flex flex-col justify-center p-8 md:p-16 lg:p-24 relative z-10">
+                <div class="space-y-8">
+                    <div class="space-y-3">
+                        <h1 class="text-5xl md:text-6xl font-heading font-extrabold text-primary leading-tight">
+                            <?= esc($baris1) ?> <br />
+                            <span class="text-foreground"><?= esc($baris2) ?></span>
+                        </h1>
+                    </div>
+                    <div class="flex items-center gap-4 p-5 bg-muted/30 rounded-2xl max-w-sm border border-border/50">
+                        <div class="bg-primary/10 p-3 rounded-xl flex">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                        </div>
+                        <div>
+                            <p class="text-base font-bold text-foreground"><?= esc($sekolah['alamat'] ?? "Informasi alamat belum tersedia") ?></p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 pt-4">
+                        <button class="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
+                            <span class="material-symbols-outlined text-xl!">map</span>
+                            Lihat di Peta
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <?php /*
     <!-- Stats Section -->
     <section class="max-w-7xl mx-auto px-6 py-20">
         <?php
@@ -100,24 +138,25 @@
             </div>
         </div>
     </section>
+    */ ?>
     <!-- Detailed Content -->
-    <section class="max-w-7xl mx-auto px-6 py-12 mb-20" id="tab">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16">
-            <div class="space-y-12">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-20" id="tab">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
+            <div class="space-y-12 bg-card p-8 h-fit rounded-2xl">
                 <!-- Tabs Navigation -->
                 <div class="flex flex-wrap gap-10 border-b border-border pb-px">
                     <button class="group relative pb-6" onclick="switchTab('profil')">
                         <span class="font-bold text-primary transition-all" id="tab-profil-text">Profil</span>
                         <div class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full transition-all" id="tab-profil-line"></div>
                     </button>
-                    <button class="group relative pb-6" onclick="switchTab('fasilitas')">
+                    <!-- <button class="group relative pb-6" onclick="switchTab('fasilitas')">
                         <span class="font-bold text-muted-foreground hover:text-foreground transition-all" id="tab-fasilitas-text">Fasilitas</span>
                         <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary rounded-full transition-all duration-300" id="tab-fasilitas-line"></div>
-                    </button>
-                    <button class="group relative pb-6" onclick="switchTab('prestasi')">
+                    </button> -->
+                    <!-- <button class="group relative pb-6" onclick="switchTab('prestasi')">
                         <span class="font-bold text-muted-foreground hover:text-foreground transition-all" id="tab-prestasi-text">Prestasi</span>
                         <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary rounded-full transition-all duration-300" id="tab-prestasi-line"></div>
-                    </button>
+                    </button> -->
                     <button class="group relative pb-6" onclick="switchTab('lokasi')">
                         <span class="font-bold text-muted-foreground hover:text-foreground transition-all" id="tab-lokasi-text">Lokasi</span>
                         <div class="absolute bottom-0 left-0 w-0 h-1 bg-primary rounded-full transition-all duration-300" id="tab-lokasi-line"></div>
@@ -136,7 +175,7 @@
                                     <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['npsn']) ?></span>
                                 </div>
                                 <div class="flex justify-between items-center group">
-                                    <span class="text-sm text-muted-foreground font-medium">NSS</span>
+                                    <span class="text-sm text-muted-foreground font-medium">Kepala Sekolah</span>
                                     <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['nama_kepsek'] ?? '-') ?></span>
                                 </div>
                                 <div class="flex justify-between items-center group">
@@ -152,27 +191,28 @@
                             <div class="space-y-6">
                                 <div class="flex justify-between items-center group">
                                     <span class="text-sm text-muted-foreground font-medium">Kurikulum</span>
-                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['kurikulum']) ?></span>
+                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['kurikulum']) ?? '-' ?></span>
                                 </div>
                                 <div class="flex justify-between items-center group">
-                                    <span class="text-sm text-muted-foreground font-medium">Waktu Belajar</span>
-                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors">Pagi (Full Day)</span>
+                                    <span class="text-sm text-muted-foreground font-medium">Akreditasi</span>
+                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['akreditasi']) ?></span>
                                 </div>
                                 <div class="flex justify-between items-center group">
-                                    <span class="text-sm text-muted-foreground font-medium">Penyelenggaraan</span>
-                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors">Harian</span>
+                                    <span class="text-sm text-muted-foreground font-medium">Jenjang</span>
+                                    <span class="text-base text-foreground font-bold group-hover:text-primary transition-colors"><?= esc($sekolah['jenjang']) ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
-                        <span class="material-symbols-outlined text-[140px] text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
+                        <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
                         <h3 class="text-[10px] font-bold text-primary mb-6 uppercase tracking-[0.2em]">Visi Utama</h3>
                         <p class="text-2xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
                             "Mewujudkan insan yang religius, berkarakter, unggul dalam prestasi, dan berwawasan lingkungan menuju persaingan global."
                         </p>
                     </div>
                 </div>
+                <?php /*
                 <!-- Tab Content: Fasilitas -->
                 <div class="tab-panel hidden grid grid-cols-2 md:grid-cols-3 gap-6" id="panel-fasilitas">
                     <?php foreach ($fasilitas as $f): ?>
@@ -201,6 +241,7 @@
                     <?php endforeach; ?>
 
                 </div>
+
                 <!-- Tab Content: Prestasi -->
                 <div class="tab-panel hidden space-y-10" id="panel-prestasi">
                     <?php foreach ($prestasi as $p): ?>
@@ -219,6 +260,7 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
+                */ ?>
                 <!-- Tab Content: Lokasi -->
                 <div class="tab-panel hidden" id="panel-lokasi">
                     <div class="relative w-full h-[480px] rounded-3xl overflow-hidden border border-border/50 bg-muted">
@@ -240,7 +282,7 @@
                 </div>
             </div>
             <!-- Sidebar -->
-            <aside class="space-y-12">
+            <aside class="space-y-12 bg-card p-8 h-fit rounded-2xl">
                 <!-- Contact Card -->
                 <div class="bg-primary text-primary-foreground p-10 rounded-[2rem] shadow-2xl shadow-primary/20 space-y-10 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20 blur-2xl"></div>
@@ -252,11 +294,11 @@
                             <!-- PERBAIKAN: Ditambahkan shrink-0 agar kotak 12x12 selalu konsisten -->
                             <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur-md border border-white/20 shrink-0">
                                 <!-- PERBAIKAN: Ditambahkan flex, items-center, justify-center, dan w-full h-full pada ikon -->
-                                <span class="material-symbols-outlined text-xl  flex items-center justify-center">call</span>
+                                <span class="material-symbols-outlined text-xl! flex items-center justify-center">call</span>
                             </div>
                             <div class="flex-1 min-w-0"> <!-- Ditambahkan flex-1 agar teks mengambil sisa ruang -->
                                 <p class="text-[10px] font-bold opacity-70 tracking-widest uppercase">Telepon</p>
-                                <p class="font-bold text-lg"><?= esc($sekolah['telepon']) ?></p>
+                                <p class="font-bold text-lg"><?= esc($sekolah['telepon'] ?? "-") ?></p>
                             </div>
                         </div>
 
@@ -265,11 +307,11 @@
                             <!-- PERBAIKAN: Ditambahkan shrink-0 agar kotak 12x12 selalu konsisten -->
                             <div class="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur-md border border-white/20 shrink-0">
                                 <!-- PERBAIKAN: Ditambahkan flex, items-center, justify-center, dan w-full h-full pada ikon -->
-                                <span class="material-symbols-outlined text-xl flex items-center justify-center">mail</span>
+                                <span class="material-symbols-outlined text-xl! flex items-center justify-center">mail</span>
                             </div>
                             <div class="flex-1 min-w-0"> <!-- Ditambahkan flex-1 dan min-w-0 agar break-all bekerja sempurna -->
                                 <p class="text-[10px] font-bold opacity-70 tracking-widest uppercase">Email</p>
-                                <p class="font-bold text-lg break-all"><?= esc($sekolah['email']) ?></p>
+                                <p class="font-bold text-lg break-all"><?= esc($sekolah['email'] ?? "-") ?></p>
                             </div>
                         </div>
                     </div>
@@ -315,7 +357,7 @@
                                             src="<?= base_url('uploads/sekolah/' . esc($s['foto_utama'])) ?>" alt="">
                                     <?php else: ?>
                                         <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                                            <span class="material-symbols-outlined text-4xl text-slate-400">school</span>
+                                            <span class="material-symbols-outlined text-3xl! text-slate-400">school</span>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -358,7 +400,8 @@
 
         document.getElementById('panel-' + tabName).classList.remove('hidden');
 
-        const tabs = ['profil', 'fasilitas', 'prestasi', 'lokasi'];
+        const tabs = ['profil', 'lokasi'];
+        // const tabs = ['profil', 'fasilitas', 'prestasi', 'lokasi'];
         tabs.forEach(t => {
             const text = document.getElementById(`tab-${t}-text`);
             const line = document.getElementById(`tab-${t}-line`);
@@ -484,10 +527,10 @@
                     <div class="relative h-32 overflow-hidden">
                     <?php if (!empty($sekolah['foto_utama'])) : ?>
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            src="<?= $sekolah['foto_utama'] ?>" alt="<?= $sekolah['nama_sekolah'] ?? '' ?>">
+                            src="<?= base_url('uploads/sekolah/' . esc($sekolah['foto_utama'])) ?>" alt="<?= $sekolah['nama_sekolah'] ?? '' ?>">
                     <?php else : ?>
                         <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                            <span class="material-symbols-outlined text-8xl text-slate-400">school</span>
+                            <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                         </div>
                     <?php endif; ?>
 
@@ -501,15 +544,7 @@
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-[15px] mb-1 text-slate-800"><?= $sekolah['nama_sekolah'] ?></h3>
-                        <div class="flex justify-between items-center pt-2.5 border-t border-dashed border-slate-200">
-                            <div class="flex items-center gap-3 text-[11px] text-slate-400">
-                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Siswa</p>
-                                    <p class="text-sm font-bold text-primary"><?= $totalSiswa ?></p>
-                                <span class="w-px h-6 bg-slate-200"></span>
-                                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">Guru</p>
-                                    <p class="text-sm font-bold text-slate-800"><?= $totalGuru ?></p>
-                            </div>                           
-                        </div>
+                       
                     </div>
                 </div>
                 `, {

@@ -76,11 +76,14 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NSS (12 DIGIT)</label>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Kepala Sekolah</label>
                     <input name="nama_kepsek"
                         value="<?= old('nama_kepsek', $sekolah['nama_kepsek']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
                         placeholder="Contoh: Budiono Siregar" type="text" />
+                    <?php if (session('errors.nama_kepsek')): ?>
+                        <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.nama_kepsek') ?></p>
+                    <?php endif; ?>
                 </div>
 
                 <div>
@@ -124,7 +127,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-
+                <?php /*
                 <div>
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN BERDIRI</label>
                     <input name="tahun_berdiri"
@@ -146,7 +149,7 @@
                         <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.luas_lahan') ?></p>
                     <?php endif; ?>
                 </div>
-
+                 */ ?>
                 <!-- Foto Sekolah -->
                 <div class="lg:col-span-2">
                     <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">FOTO SEKOLAH</label>
@@ -283,7 +286,7 @@
 
             </div>
         </section>
-
+        <?php /*
         <!-- ── Section 3: Data Statistik ─────────────────────────────────── -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="statistics">
             <div class="flex items-center gap-3 mb-8">
@@ -516,6 +519,7 @@
                 </button>
             </div>
         </section>
+         */ ?>
 
     </form>
     <div class="h-8"></div>
@@ -644,19 +648,53 @@
         }
 
         // ── Marker pin ────────────────────────────────────────────────────────────
-        const pinIcon = L.divIcon({
-            className: '',
-            html: `<div class="flex flex-col items-center" style="transform: translate(-50%, -100%);">
-            <span class="material-symbols-outlined text-red-500"
-                  style="font-size:3rem; font-variation-settings:'FILL' 1;
-                         filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">location_on</span>
-            <div style="width:1rem; height:4px; background:rgba(0,0,0,0.1);
-                        border-radius:9999px; filter:blur(2px); margin-top:2px;"></div>
-        </div>`,
-            iconSize: [0, 0],
-            iconAnchor: [0, 0],
-        });
+        // const pinIcon = L.divIcon({
+        //     className: '',
+        //     html: `<div class="flex flex-col items-center" style="transform: translate(-50%, -100%);">
+        //     <span class="material-symbols-outlined text-red-500"
+        //           style="font-size:3rem; font-variation-settings:'FILL' 1;
+        //                  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">location_on</span>
+        //     <div style="width:1rem; height:4px; background:rgba(0,0,0,0.1);
+        //                 border-radius:9999px; filter:blur(2px); margin-top:2px;"></div>
+        // </div>`,
+        //     iconSize: [0, 0],
+        //     iconAnchor: [0, 0],
+        // });
 
+        const pinIcon = L.divIcon({
+            className: 'custom-pin',
+
+            html: `
+        <div class="relative flex flex-col items-center">
+
+            <span
+                class="material-symbols-outlined text-red-500"
+                style="
+                    font-size:42px;
+                    font-variation-settings:'FILL' 1;
+                    line-height:1;
+                    filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));
+                ">
+                location_on
+            </span>
+
+            <div
+                class="absolute rounded-full"
+                style="
+                    width:14px;
+                    height:14px;
+                    bottom:-2px;
+                    background:rgba(0,0,0,.18);
+                    filter:blur(3px);
+                ">
+            </div>
+
+        </div>
+    `,
+
+            iconSize: [42, 42],
+            iconAnchor: [21, 42]
+        });
         // Tampilkan marker di koordinat sekolah yang sudah ada
         let marker = null;
         if (hasCoord) {

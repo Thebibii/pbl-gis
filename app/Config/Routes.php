@@ -37,10 +37,14 @@ $routes->group('admin', ['filter' => 'session'], function ($routes) {
 $routes->group('operator', ['filter' => 'group:operator_sekolah'], function ($routes) {
     $routes->get('dashboard', 'Operator\DashboardController::index', ['as' => 'operator.dashboard']);
     $routes->get('sekolah', 'Operator\SekolahController::index', ['as' => 'operator.sekolah']);
-    $routes->get('prestasi', 'Operator\PrestasiController::index', ['as' => 'operator.prestasi']);
-    $routes->get('fasilitas', 'Operator\FasilitasController::index', ['as' => 'operator.fasilitas']);
-    $routes->get('statistik', 'Operator\StatistikController::index', ['as' => 'operator.statistik']);
-    $routes->get('pengaturan', 'Operator\PengaturanController::index', ['as' => 'operator.pengaturan']);
+    $routes->post('sekolah/update', 'Operator\SekolahController::update', [
+        'as' => 'operator.sekolah.update'
+    ]);
+    // $routes->get('prestasi', 'Operator\PrestasiController::index', ['as' => 'operator.prestasi']);
+    // $routes->get('prestasi/data', 'Operator\PrestasiController::getData', ['as' => 'operator.prestasi.data']);
+    // $routes->get('fasilitas', 'Operator\FasilitasController::index', ['as' => 'operator.fasilitas']);
+    // $routes->get('statistik', 'Operator\StatistikController::index', ['as' => 'operator.statistik']);
+    // $routes->get('pengaturan', 'Operator\PengaturanController::index', ['as' => 'operator.pengaturan']);
 });
 
 // ========== ADMIN SUPERADMIN ROUTES ==========
