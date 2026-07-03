@@ -30,7 +30,7 @@
         <div class="bg-white/80 backdrop-blur-md border border-white/30 p-6 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground opacity-60 leading-none mb-1">KONFIGURASI AWAL</p>
+                    <p class="text-xs font-bold uppercase tracking-widest text-muted-foreground opacity-60 leading-none mb-1">KONFIGURASI AWAL</p>
                     <h2 class="text-lg font-bold">Status Keaktifan Sekolah</h2>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <div class="lg:col-span-2">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA SEKOLAH <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA SEKOLAH <span class="text-red-500 text-xs">*</span></label>
                     <input name="nama_sekolah"
                         value="<?= old('nama_sekolah', $sekolah['nama_sekolah']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -65,7 +65,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NPSN (8 DIGIT) <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NPSN (8 DIGIT) <span class="text-red-500 text-xs">*</span></label>
                     <input name="npsn"
                         value="<?= old('npsn', $sekolah['npsn']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -76,7 +76,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">Kepala Sekolah</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">Kepala Sekolah</label>
                     <input name="nama_kepsek"
                         value="<?= old('nama_kepsek', $sekolah['nama_kepsek']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -87,7 +87,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENJANG <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">JENJANG <span class="text-red-500 text-xs">*</span></label>
                     <select name="jenjang" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <?php foreach (['TK', 'SD', 'SMP'] as $j): ?>
                             <option value="<?= $j ?>" <?= old('jenjang', $sekolah['jenjang']) === $j ? 'selected' : '' ?>><?= $j ?></option>
@@ -99,7 +99,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">STATUS <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">STATUS <span class="text-red-500 text-xs">*</span></label>
                     <select name="status" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <?php foreach (['Negeri', 'Swasta'] as $s): ?>
                             <option value="<?= $s ?>" <?= old('status', $sekolah['status']) === $s ? 'selected' : '' ?>><?= $s ?></option>
@@ -111,7 +111,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">AKREDITASI</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">AKREDITASI</label>
                     <select name="akreditasi" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <?php foreach (['A', 'B', 'C', 'Belum Terakreditasi'] as $ak): ?>
                             <option value="<?= $ak ?>" <?= old('akreditasi', $sekolah['akreditasi']) === $ak ? 'selected' : '' ?>><?= $ak ?></option>
@@ -120,7 +120,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KURIKULUM</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KURIKULUM</label>
                     <select name="kurikulum" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <?php foreach (['Merdeka', 'K13'] as $kur): ?>
                             <option value="<?= $kur ?>" <?= old('kurikulum', $sekolah['kurikulum']) === $kur ? 'selected' : '' ?>><?= $kur ?></option>
@@ -129,7 +129,7 @@
                 </div>
                 <?php /*
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN BERDIRI</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN BERDIRI</label>
                     <input name="tahun_berdiri"
                         value="<?= old('tahun_berdiri', $sekolah['tahun_berdiri']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -140,7 +140,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">LUAS LAHAN <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">LUAS LAHAN <span class="text-red-500 text-xs">*</span></label>
                     <input name="luas_lahan"
                         value="<?= old('luas_lahan', $sekolah['luas_lahan']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -152,7 +152,7 @@
                  */ ?>
                 <!-- Foto Sekolah -->
                 <div class="lg:col-span-2">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">FOTO SEKOLAH</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">FOTO SEKOLAH</label>
 
                     <?php if (!empty($sekolah['foto'])): ?>
                         <!-- Preview foto saat ini -->
@@ -183,7 +183,58 @@
 
             </div>
         </section>
+        <!-- Section 3: Profil Sekolah -->
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
+            <div class="flex items-center gap-3 mb-8">
+                <h2 class="text-xl font-bold">Profil Sekolah</h2>
+            </div>
 
+            <div class="grid grid-cols-1 gap-6">
+
+                <!-- Visi -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                        VISI
+                    </label>
+
+                    <textarea
+                        name="visi"
+                        rows="4"
+                        class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
+                focus:ring-2 focus:ring-primary/20 focus:bg-white
+                focus:border-primary transition-all"
+                        placeholder="Masukkan visi sekolah"><?= old('visi', esc($sekolah['visi'])) ?></textarea>
+
+                    <?php if (session('errors.visi')): ?>
+                        <p class="mt-1 text-xs text-red-500 font-medium">
+                            <?= session('errors.visi') ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Misi -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                        MISI
+                    </label>
+
+                    <textarea
+                        name="misi"
+                        rows="7"
+                        class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
+                focus:ring-2 focus:ring-primary/20 focus:bg-white
+                focus:border-primary transition-all"
+                        placeholder="Masukkan misi sekolah"><?= old('misi', esc($sekolah['misi'])) ?></textarea>
+
+                    <?php if (session('errors.misi')): ?>
+                        <p class="mt-1 text-xs text-red-500 font-medium">
+                            <?= session('errors.misi') ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+
+            </div>
+        </section>
         <!-- ── Section 2: Lokasi & Kontak ────────────────────────────────── -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="location">
             <div class="flex items-center gap-3 mb-8">
@@ -192,7 +243,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <div class="md:col-span-2">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">ALAMAT LENGKAP <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">ALAMAT LENGKAP <span class="text-red-500 text-xs">*</span></label>
                     <textarea name="alamat"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
                         placeholder="Jl. Raya Pendidikan No. 123..."
@@ -203,12 +254,12 @@
                 </div>
 
                 <div class="md:col-span-2 space-y-3">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
                     <div class="relative w-full h-96 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden">
                         <div id="map" class="w-full h-full"></div>
                         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[999] cursor-pointer" id="btn-pinpoint">
                             <p class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50
-                                      text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all
+                                      text-xs font-bold text-slate-600 flex items-center gap-2 transition-all
                                       hover:bg-primary hover:text-white hover:border-primary select-none">
                                 <span class="material-symbols-outlined text-sm">ads_click</span>
                                 KLIK UNTUK PIN POINT
@@ -219,7 +270,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">LATITUDE <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">LATITUDE <span class="text-red-500 text-xs">*</span></label>
                     <input name="latitude" id="lat-input"
                         value="<?= old('latitude', $sekolah['latitude']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -230,7 +281,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">LONGITUDE <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">LONGITUDE <span class="text-red-500 text-xs">*</span></label>
                     <input name="longitude" id="lng-input"
                         value="<?= old('longitude', $sekolah['longitude']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -241,7 +292,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KECAMATAN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KECAMATAN</label>
                     <select name="kecamatan_id" id="kecamatan-select"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
                                    focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
@@ -258,7 +309,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NOMOR TELEPON</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NOMOR TELEPON</label>
                     <input name="telepon"
                         value="<?= old('telepon', $sekolah['telepon']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -266,7 +317,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">EMAIL SEKOLAH</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">EMAIL SEKOLAH</label>
                     <input name="email"
                         value="<?= old('email', $sekolah['email']) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -274,7 +325,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">WEBSITE</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">WEBSITE</label>
                     <div class="relative flex items-center">
                         <span class="absolute left-3 text-slate-400 text-sm font-medium">https://</span>
                         <input name="website"
@@ -286,6 +337,8 @@
 
             </div>
         </section>
+
+
         <?php /*
         <!-- ── Section 3: Data Statistik ─────────────────────────────────── -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="statistics">
@@ -298,7 +351,7 @@
             ?>
             <div class="grid grid-cols-2 gap-6">
                 <div class="col-span-2">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN AJARAN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN AJARAN</label>
                     <input name="tahun_ajaran"
                         value="<?= old('tahun_ajaran', $st['tahun_ajaran'] ?? '') ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
@@ -308,42 +361,42 @@
                     <?php endif; ?>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">SISWA LAKI-LAKI</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">SISWA LAKI-LAKI</label>
                     <input name="jumlah_siswa_l"
                         value="<?= old('jumlah_siswa_l', $st['jumlah_siswa_l'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
                         type="number" min="0" />
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">SISWA PEREMPUAN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">SISWA PEREMPUAN</label>
                     <input name="jumlah_siswa_p"
                         value="<?= old('jumlah_siswa_p', $st['jumlah_siswa_p'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
                         type="number" min="0" />
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">GURU TETAP</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">GURU TETAP</label>
                     <input name="jumlah_guru_tetap"
                         value="<?= old('jumlah_guru_tetap', $st['jumlah_guru_tetap'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
                         type="number" min="0" />
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">GURU HONOR</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">GURU HONOR</label>
                     <input name="jumlah_guru_honor"
                         value="<?= old('jumlah_guru_honor', $st['jumlah_guru_honor'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
                         type="number" min="0" />
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TENAGA KEPENDIDIKAN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TENAGA KEPENDIDIKAN</label>
                     <input name="jumlah_tenaga_kependidikan"
                         value="<?= old('jumlah_tenaga_kependidikan', $st['jumlah_tenaga_kependidikan'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
                         type="number" min="0" />
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JUMLAH ROMBEL</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">JUMLAH ROMBEL</label>
                     <input name="jumlah_rombel"
                         value="<?= old('jumlah_rombel', $st['jumlah_rombel'] ?? 0) ?>"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"
@@ -451,7 +504,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
                             <div class="md:col-span-6">
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA PRESTASI</label>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA PRESTASI</label>
                                 <input name="prestasi[<?= $i ?>][nama_prestasi]"
                                     value="<?= esc($item['nama_prestasi'] ?? '') ?>"
                                     class="w-full bg-slate-50 <?= isset($errors["prestasi.{$i}.nama_prestasi"]) ? 'border-red-500 focus:ring-red-200' : 'border-border' ?> rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -462,7 +515,7 @@
                             </div>
 
                             <div class="md:col-span-3">
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TINGKAT</label>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TINGKAT</label>
                                 <select name="prestasi[<?= $i ?>][tingkat]" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                                     <?php $currTingkat = $item['tingkat'] ?? 'Sekolah'; ?>
                                     <?php foreach (['Sekolah', 'Kecamatan', 'Kabupaten', 'Provinsi', 'Nasional', 'Internasional'] as $t): ?>
@@ -472,7 +525,7 @@
                             </div>
 
                             <div class="md:col-span-3">
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENIS</label>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">JENIS</label>
                                 <select name="prestasi[<?= $i ?>][jenis]" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                                     <?php $currJenis = $item['jenis'] ?? 'Akademik'; ?>
                                     <?php foreach (['Akademik', 'Non-Akademik', 'Olahraga', 'Seni'] as $j): ?>
@@ -482,7 +535,7 @@
                             </div>
 
                             <div class="md:col-span-3">
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN</label>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN</label>
                                 <input name="prestasi[<?= $i ?>][tahun]"
                                     value="<?= esc($item['tahun'] ?? '') ?>"
                                     class="w-full bg-slate-50 <?= isset($errors["prestasi.{$i}.tahun"]) ? 'border-red-500 focus:ring-red-200' : 'border-border' ?> rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
@@ -493,7 +546,7 @@
                             </div>
 
                             <div class="md:col-span-7">
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KETERANGAN</label>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KETERANGAN</label>
                                 <textarea name="prestasi[<?= $i ?>][keterangan]"
                                     class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
                                     placeholder="Tambahkan detail prestasi..." rows="2"><?= esc($item['keterangan'] ?? '') ?></textarea>
@@ -844,32 +897,32 @@
         <div class="prestasi-item lg:col-span-4 flex flex-col gap-6 p-6 bg-white/50 rounded-2xl border border-slate-100 relative">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <div class="md:col-span-6">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA PRESTASI</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA PRESTASI</label>
                     <input name="prestasi[${i}][nama_prestasi]"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
                         placeholder="Masukkan nama prestasi" type="text">
                 </div>
                 <div class="md:col-span-3">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TINGKAT</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TINGKAT</label>
                     <select name="prestasi[${i}][tingkat]" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <option>Sekolah</option><option>Kecamatan</option><option>Kabupaten</option>
                         <option>Provinsi</option><option>Nasional</option><option>Internasional</option>
                     </select>
                 </div>
                 <div class="md:col-span-3">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENIS</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">JENIS</label>
                     <select name="prestasi[${i}][jenis]" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all">
                         <option>Akademik</option><option>Non-Akademik</option><option>Olahraga</option><option>Seni</option>
                     </select>
                 </div>
                 <div class="md:col-span-3">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN</label>
                     <input name="prestasi[${i}][tahun]"
                         class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all"
                         placeholder="Contoh: 2023" type="number">
                 </div>
                 <div class="md:col-span-7">
-                    <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KETERANGAN</label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KETERANGAN</label>
                     <textarea name="prestasi[${i}][keterangan]" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all" placeholder="Tambahkan detail prestasi..." rows="1"></textarea>
                 </div>
                 <div class="md:col-span-2 flex items-end justify-end">

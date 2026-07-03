@@ -155,7 +155,7 @@
                                         <option value="A" <?= old('akreditasi', $sekolah['akreditasi']) == 'A' ? 'selected' : '' ?>>A</option>
                                         <option value="B" <?= old('akreditasi', $sekolah['akreditasi']) == 'B' ? 'selected' : '' ?>>B</option>
                                         <option value="C" <?= old('akreditasi', $sekolah['akreditasi']) == 'C' ? 'selected' : '' ?>>C</option>
-                                        <option value="NA" <?= old('akreditasi', $sekolah['akreditasi']) == 'Belum Terakreditasi' ? 'selected' : '' ?>>Belum Terakreditasi</option>
+                                        <option value="Belum Terakreditasi" <?= old('akreditasi', $sekolah['akreditasi']) == 'Belum Terakreditasi' ? 'selected' : '' ?>>Belum Terakreditasi</option>
 
                                     </select>
 
@@ -294,6 +294,58 @@
                     </div> -->
                 </div>
             </div>
+
+            <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
+                <div class="flex items-center gap-3 mb-8">
+                    <h2 class="text-xl font-bold">Profil Sekolah</h2>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+
+                    <!-- Visi -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                            VISI
+                        </label>
+
+                        <textarea
+                            name="visi"
+                            rows="4"
+                            class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
+                focus:ring-2 focus:ring-primary/20 focus:bg-white
+                focus:border-primary transition-all"
+                            placeholder="Masukkan visi sekolah"><?= old('visi', esc($sekolah['visi'])) ?></textarea>
+
+                        <?php if (session('errors.visi')): ?>
+                            <p class="mt-1 text-xs text-red-500 font-medium">
+                                <?= session('errors.visi') ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- Misi -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
+                            MISI
+                        </label>
+
+                        <textarea
+                            name="misi"
+                            rows="7"
+                            class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
+                focus:ring-2 focus:ring-primary/20 focus:bg-white
+                focus:border-primary transition-all"
+                            placeholder="Masukkan misi sekolah"><?= old('misi', esc($sekolah['misi'])) ?></textarea>
+
+                        <?php if (session('errors.misi')): ?>
+                            <p class="mt-1 text-xs text-red-500 font-medium">
+                                <?= session('errors.misi') ?>
+                            </p>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            </section>
 
             <!-- Location Section -->
             <div id="lokasi" class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">

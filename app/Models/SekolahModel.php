@@ -25,6 +25,8 @@ class SekolahModel extends Model
         'telepon',
         'email',
         'website',
+        'visi',
+        'misi',
         'foto_utama',
         'kurikulum',
         'tahun_berdiri',

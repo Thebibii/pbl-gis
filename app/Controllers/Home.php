@@ -139,6 +139,8 @@ class Home extends BaseController
             telepon,
             email,
             website,
+            visi,
+            misi,
             kurikulum,
             luas_lahan,
             foto_utama,

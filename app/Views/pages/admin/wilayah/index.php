@@ -14,11 +14,11 @@
                     Kelola dan pantau sebaran <span class="font-bold text-primary">Kecamatan</span> di Kabupaten Tanah Datar.
                 </p>
             </div>
-            <button type="button" onclick="openAddModal()"
+            <!--  <button type="button" onclick="openAddModal()"
                 class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
                 <span class="material-symbols-outlined text-sm">add</span>
                 Tambah Data
-            </button>
+            </button> -->
         </header>
 
         <!-- Flash messages -->

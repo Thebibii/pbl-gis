@@ -9,6 +9,7 @@ use App\Models\SekolahModel;
 class SekolahController extends BaseController
 {
     protected SekolahModel $sekolahModel;
+    protected KecamatanModel $kecamatanModel;
 
     public function __construct()
     {
@@ -48,6 +49,7 @@ class SekolahController extends BaseController
 
         $kecamatan_list = $this->kecamatanModel
             ->select('id, nama_kecamatan, geojson_file, warna')
+            ->where('geojson_file IS NOT NULL')
             ->findAll();
 
         $kecamatan_geojson = [];
@@ -105,12 +107,14 @@ class SekolahController extends BaseController
         // Validasi
         $rules = [
             'nama_kepsek' => 'required|max_length[150]',
-            'akreditasi'  => 'permit_empty|in_list[A,B,C,NA]',
+            'akreditasi'  => 'permit_empty|in_list[A,B,C,Belum Terakreditasi]',
             'telepon'     => 'permit_empty|max_length[30]',
             'email'       => 'permit_empty|valid_email|max_length[100]',
             'website'     => 'permit_empty|valid_url_strict',
             'kurikulum'   => 'permit_empty|max_length[100]',
             'alamat'      => 'permit_empty',
+            'visi'      => 'permit_empty',
+            'misi'      => 'permit_empty',
             'latitude'    => 'permit_empty|decimal',
             'longitude'   => 'permit_empty|decimal',
             'foto_utama'  => 'permit_empty|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]',
@@ -135,6 +139,8 @@ class SekolahController extends BaseController
             'telepon'     => $this->request->getPost('telepon'),
             'email'       => $this->request->getPost('email'),
             'website'     => $this->request->getPost('website'),
+            'visi'     => $this->request->getPost('visi'),
+            'misi'     => $this->request->getPost('misi'),
             'kurikulum'   => $this->request->getPost('kurikulum'),
             'alamat'      => $this->request->getPost('alamat'),
             'latitude'    => $this->request->getPost('latitude'),

@@ -204,11 +204,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
+                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
                         <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
-                        <h3 class="text-[10px] font-bold text-primary mb-6 uppercase tracking-[0.2em]">Visi Utama</h3>
-                        <p class="text-2xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
-                            "Mewujudkan insan yang religius, berkarakter, unggul dalam prestasi, dan berwawasan lingkungan menuju persaingan global."
+                        <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Visi</h3>
+                        <p class="text-xl md:text-2xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
+                            "<?= esc($sekolah['visi'] ?? "Belum ada visi yang ditetapkan") ?>"
+                        </p>
+                    </div>
+                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
+                        <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
+                        <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Misi</h3>
+                        <p class="md:text-xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
+                            <?= nl2br(esc($sekolah['misi'] ?? "Belum ada misi yang ditetapkan")) ?>
                         </p>
                     </div>
                 </div>

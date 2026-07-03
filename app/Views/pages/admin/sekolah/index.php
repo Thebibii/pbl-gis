@@ -229,10 +229,10 @@
 
         const jenjangColor = {
             SD: 'bg-error/90 text-white',
-            SMP: 'bg-warning/90 text-forground',
+            SMP: 'bg-primary/90 text-white',
             TK: 'bg-purple-600/90 text-white',
         };
-        const statusColor = (s) => s.toLowerCase() === 'negeri' ? 'bg-primary text-white' : 'bg-secondary text-secondary-foreground';
+        const statusColor = (s) => s.toLowerCase() === 'negeri' ? 'bg-primary text-white' : 'bg-warning text-secondary-foreground';
 
         tbody.innerHTML = rows.map(s => `
         <tr class="hover:bg-primary/5 transition-colors group">

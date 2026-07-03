@@ -170,8 +170,8 @@
                                 <p class="text-base font-bold text-foreground"><?= esc($sekolah['npsn'] ?? '—') ?></p>
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">NSS</p>
-                                <!-- <p class="text-base font-bold text-foreground"><?= esc($sekolah['nss'] ?? '—') ?></p> -->
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH</p>
+                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['nama_kepsek'] ?? '—') ?></p>
                             </div>
                             <div>
                                 <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">AKREDITASI</p>
@@ -185,20 +185,35 @@
                                 <?php endif; ?>
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">TAHUN BERDIRI</p>
-                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['tahun_berdiri'] ?? '—') ?></p>
-                            </div>
-                            <div>
                                 <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KURIKULUM</p>
                                 <p class="text-base font-bold text-foreground"><?= esc($sekolah['kurikulum'] ?? '—') ?></p>
                             </div>
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH</p>
-                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['nama_kepsek'] ?? '—') ?></p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">JENJANG</p>
+                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['jenjang'] ?? '—') ?></p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">STATUS</p>
+                                <p class="text-base font-bold text-foreground"><?= esc($sekolah['status'] ?? '—') ?></p>
                             </div>
                         </div>
                     </div>
-
+                    <div class="space-y-8">
+                        <div class="p-6 md:p-10 bg-white/80 backdrop-blur-md border border-border/50 rounded-3xl relative overflow-hidden group shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+                            <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
+                            <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Visi</h3>
+                            <p class="text-xl md:text-2xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
+                                "<?= esc($sekolah['visi'] ?? "Belum ada visi yang ditetapkan") ?>"
+                            </p>
+                        </div>
+                        <div class="p-6 md:p-10 bg-white/80 backdrop-blur-md border border-border/50 rounded-3xl relative overflow-hidden group shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+                            <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
+                            <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Misi</h3>
+                            <p class="md:text-xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
+                                <?= nl2br(esc($sekolah['misi'] ?? "Belum ada misi yang ditetapkan")) ?>
+                            </p>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="space-y-8 lg:col-span-1">

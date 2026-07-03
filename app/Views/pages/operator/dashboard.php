@@ -16,7 +16,7 @@
                     Kelola data sekolah Anda dengan mudah.
                 </p>
             </div>
-            <div class="flex items-center gap-3">
+            <!-- <div class="flex items-center gap-3">
                 <div class="text-right">
                     <p class="text-sm font-bold text-foreground"><?= date('l, d F Y') ?></p>
                     <p class="text-xs text-muted-foreground"><?= date('H:i:s') ?> WIB</p>
@@ -24,7 +24,7 @@
                 <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <span class="material-symbols-outlined text-primary text-3xl">account_circle</span>
                 </div>
-            </div>
+            </div> -->
         </header>
 
         <!-- Stats Grid -->

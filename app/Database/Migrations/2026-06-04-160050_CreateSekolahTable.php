@@ -28,6 +28,8 @@ class CreateSekolahTable extends Migration
             'telepon'           => ['type' => 'VARCHAR', 'constraint' => 20, 'null' => true],
             'email'             => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'website'           => ['type' => 'VARCHAR', 'constraint' => 200, 'null' => true],
+            'visi'              => ['type' => 'TEXT', 'null' => true],
+            'misi'              => ['type' => 'TEXT', 'null' => true],
             'foto_utama'        => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
             'kurikulum'         => ['type' => 'VARCHAR', 'constraint' => 50, 'null' => true],
             'tahun_berdiri'     => ['type' => 'YEAR', 'null' => true],

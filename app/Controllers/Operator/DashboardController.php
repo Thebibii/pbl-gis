@@ -55,8 +55,6 @@ class DashboardController extends BaseController
             'foto_utama',
             'latitude',
             'longitude',
-            'tahun_berdiri',
-            'luas_lahan',
             'kurikulum',
         ];
 

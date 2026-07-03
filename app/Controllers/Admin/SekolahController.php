@@ -78,6 +78,7 @@ class SekolahController extends BaseController
     public function create()
     {
         $kecamatan = $this->kecamatanModel->select('id, nama_kecamatan, geojson_file')
+            ->where('geojson_file IS NOT NULL')
             ->orderBy('nama_kecamatan', 'ASC')
             ->findAll();
         $jenisFasilitas = $this->jenisFasilitasModel->findAll();
@@ -96,6 +97,8 @@ class SekolahController extends BaseController
             'jenjang'      => 'required|in_list[TK,SD,SMP]',
             'status'       => 'required|in_list[Negeri,Swasta]',
             'alamat'       => 'required',
+            'visi'   => 'permit_empty',
+            'misi'   => 'permit_empty',
             // 'luas_lahan'   => 'permit_empty',
             // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
             'latitude'     => 'required|decimal',
@@ -156,10 +159,13 @@ class SekolahController extends BaseController
 
         // Masukkan variabel $errors ke dalam fungsi validate
         if (!$this->validate($rules, $errors)) {
+            // dd($this->validator->getErrors());
+            // dd($this->request->getPost());
             return redirect()->back()
                 ->withInput()
                 ->with('errors', $this->validator->getErrors());
         }
+
         // ── 2. Validasi statistik (manual, kondisional) ───────────────────────
         $tahunAjaran   = trim($this->request->getPost('tahun_ajaran') ?? '');
         $adaStatistik  = $this->request->getPost('jumlah_siswa_l')
@@ -236,6 +242,8 @@ class SekolahController extends BaseController
             'telepon'       => $this->request->getPost('telepon') ?: null,
             'email'         => $this->request->getPost('email') ?: null,
             'website'       => $this->request->getPost('website') ?: null,
+            'visi'       => $this->request->getPost('visi') ?: null,
+            'misi'       => $this->request->getPost('misi') ?: null,
             // 'luas_lahan'       => $this->request->getPost('luas_lahan') ?: null,
             'is_active'     => $this->request->getPost('is_active') ? 1 : 0,
             'foto_utama'         => $fotoName,
@@ -364,6 +372,7 @@ class SekolahController extends BaseController
         // Daftar master kecamatan & jenis fasilitas (sama seperti create)
         $kecamatan = $this->kecamatanModel
             ->select('id, nama_kecamatan, geojson_file')
+            ->where('geojson_file IS NOT NULL')
             ->orderBy('nama_kecamatan', 'ASC')
             ->findAll();
 
@@ -399,6 +408,8 @@ class SekolahController extends BaseController
             'jenjang'       => 'required|in_list[TK,SD,SMP]',
             'status'        => 'required|in_list[Negeri,Swasta]',
             'alamat'        => 'required',
+            'visi'   => 'permit_empty',
+            'misi'   => 'permit_empty',
             // 'luas_lahan'    => 'required',
             // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
             'latitude'      => 'required|decimal',
@@ -458,6 +469,7 @@ class SekolahController extends BaseController
         ];
 
         if (!$this->validate($rules, $errors)) {
+            // dd($this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
                 ->with('errors', $this->validator->getErrors());
@@ -548,6 +560,8 @@ class SekolahController extends BaseController
             'email'         => $this->request->getPost('email') ?: null,
             'luas_lahan'         => $this->request->getPost('luas_lahan') ?: null,
             'website'       => $this->request->getPost('website') ?: null,
+            'visi'       => $this->request->getPost('visi') ?: null,
+            'misi'       => $this->request->getPost('misi') ?: null,
             'is_active'     => $this->request->getPost('is_active') ? 1 : 0,
             'foto_utama'          => $fotoName,
         ];
@@ -748,6 +762,8 @@ class SekolahController extends BaseController
                 'telepon'       => trim($row['telepon'] ?? '') ?: null,
                 'email'         => trim($row['email'] ?? '') ?: null,
                 'website'       => trim($row['website'] ?? '') ?: null,
+                'visi'       => trim($row['visi'] ?? '') ?: null,
+                'misi'       => trim($row['misi'] ?? '') ?: null,
                 'foto_utama'    => trim($row['foto_utama'] ?? '') ?: null,
                 'kurikulum'     => trim($row['kurikulum'] ?? '') ?: null,
                 'tahun_berdiri' => !empty($row['tahun_berdiri']) ? (int) $row['tahun_berdiri'] : null,

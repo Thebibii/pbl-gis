@@ -71,7 +71,11 @@ class DashboardController extends BaseController
         $stats['persen_negeri']  = $totalSekolah > 0 ? ($totalNegeri / $totalSekolah * 100) : 0;
 
         $sekolah_list   = $model->forPeta();
-        $kecamatan_list = $this->kecamatanModel->select('id, nama_kecamatan, geojson_file, warna')->findAll();
+        $kecamatan_list = $this->kecamatanModel
+            ->select('id, nama_kecamatan, geojson_file, warna')
+            ->where('geojson_file IS NOT NULL')
+            ->findAll();
+
 
         // ── Ambil GeoJSON kabupaten langsung di server ──────────────
         $wilayah_geojson = null;

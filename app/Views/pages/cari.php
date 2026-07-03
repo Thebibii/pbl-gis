@@ -121,8 +121,13 @@
                                 </div>
                             <?php endif; ?>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            <div class="absolute top-3 left-3 flex gap-2">
-                                <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest <?= $sekolah['status'] === 'Negeri' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground' ?>">
+                            <!-- <div class="absolute top-3 left-3 flex gap-2">
+                                <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest text-white badge-<?= $sekolah['jenjang'] ?>">
+                                    <?= esc($sekolah['jenjang']) ?>
+                                </span>
+                            </div> -->
+                            <div class="absolute top-3 right-3 flex gap-2">
+                                <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest <?= $sekolah['status'] === 'Negeri' ? 'bg-primary text-primary-foreground' : 'bg-warning text-secondary-foreground' ?>">
                                     <?= esc($sekolah['status']) ?>
                                 </span>
                             </div>
@@ -228,7 +233,7 @@
         function cardHtml(school) {
             const statusBadgeClass = school.status === 'Negeri' ?
                 'bg-primary text-primary-foreground' :
-                'bg-secondary text-secondary-foreground';
+                'bg-warning text-secondary-foreground';
 
             const akreditasiDotClass = school.akreditasi === 'A' ? 'bg-success' : 'bg-muted-foreground';
             const akreditasiLabel = school.akreditasi === 'Belum Terakreditasi' ? 'Baru' : school.akreditasi;
@@ -254,7 +259,7 @@
                     </div>
                 `}
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent  to-transparent"></div>
-                    <div class="absolute top-3 left-3 flex gap-2">
+                    <div class="absolute top-3 right-3 flex gap-2">
                         <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest ${statusBadgeClass}">${escapeHtml(school.status)}</span>
                     </div>
                     <div class="absolute bottom-3 right-3">

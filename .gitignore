@@ -6,6 +6,7 @@ vendor/
 node_modules/
 
 public/build/
+public/uploads/*
 
 # Folder Writable (Sisakan file .gitkeep agar struktur folder tetap terunggah)
 writable/cache/*
