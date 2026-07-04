@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -15,7 +15,7 @@
                 </p>
             </div>
             <a href="<?= url_to('admin.user.create') ?>"
-                class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform self-end w-fit whitespace-nowrap">
                 Tambah Pengguna
             </a>
         </header>
@@ -47,12 +47,12 @@
                 <table class="w-full table-fixed text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Status</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Email</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Status</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="table-body" class="divide-y divide-border">
@@ -74,12 +74,12 @@
                 <table class="w-full xl:table-fixed text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</th>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Status</th>
-                            <th class="px-4 sm:px-6 py-3 sm:py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Email</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Status</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="table-body" class="divide-y divide-border">
@@ -265,7 +265,7 @@
             ? `<a href="${DETAIL_SEKOLAH_URL}/${user.sekolah_slug}/detail" class="font-medium text-primary hover:underline block truncate" title="${escHtml(user.nama_sekolah)}">${escHtml(user.nama_sekolah)}</a>`
             : `<span class="text-slate-400">—</span>`}
     </td>
-    <td class="px-6 py-4">
+    <td class="px-6 py-4 whitespace-nowrap">
         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${grp.cls}">
             ${grp.label}
         </span>
@@ -278,14 +278,14 @@
     <td class="px-6 py-4 text-right">
         <div class="flex items-center justify-end gap-2">
             <a href="${EDIT_URL}/${user.id}/edit"
-                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-primary/10 hover:text-primary text-slate-600 text-xs font-bold transition-colors">
-                <span class="material-symbols-outlined text-base">edit</span>
-                Edit
+               class="inline-flex p-2 hover:bg-slate-200 rounded-lg text-foreground transition-all h-fit">
+                        <span class="material-symbols-outlined">edit</span>
+                
             </a>
             <button onclick="openDeleteModal(${user.id}, '${escJs(user.username ?? user.email)}')"
-                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 hover:text-rose-500 text-slate-600 text-xs font-bold transition-colors">
-                <span class="material-symbols-outlined text-base">delete</span>
-                Hapus
+                class="inline-flex p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all h-fit">
+                        <span class="material-symbols-outlined">delete</span>
+                
             </button>
         </div>
     </td>

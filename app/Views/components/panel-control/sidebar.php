@@ -22,7 +22,7 @@ $isOperator   = $user->inGroup('operator_sekolah');
 
             <div>
                 <h1 class="text-lg font-bold">
-                    SiGIS <span class="text-primary">Sekolah</span>
+                    GIS <span class="text-primary">Sekolah</span>
                 </h1>
 
                 <p class="text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -134,7 +134,7 @@ $isOperator   = $user->inGroup('operator_sekolah');
 
     <div class="p-6 border-t border-border">
         <a href="<?= url_to('logout') ?>"
-            class="bg-red-500 w-full text-white px-5 py-2 rounded-xl font-bold flex justify-center">
+            class="bg-red-500 w-full text-white px-5 py-2 rounded-xl text-sm font-bold flex justify-center">
             Keluar
         </a>
     </div>

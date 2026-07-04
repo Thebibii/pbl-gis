@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -15,8 +15,8 @@
                 </p>
             </div>
             <a href="<?= url_to('admin.sekolah.create') ?>"
-                class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
-                Tambah Data
+                class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform self-end w-fit whitespace-nowrap">
+                Tambah Sekolah
             </a>
         </header>
 
@@ -76,12 +76,12 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">NPSN</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama Sekolah</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Jenjang</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Status</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Akreditasi</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">NPSN</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Nama Sekolah</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Jenjang</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Status</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Akreditasi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground text-right">Aksi</th>
                         </tr>
                     </thead>
                     <tbody id="table-body" class="divide-y divide-border">
@@ -237,7 +237,7 @@
         tbody.innerHTML = rows.map(s => `
         <tr class="hover:bg-primary/5 transition-colors group">
             <td class="px-6 py-5 text-sm font-bold text-primary">${escHtml(s.npsn ?? '—')}</td>
-            <td class="px-6 py-5 w-fit">
+            <td class="px-6 py-5 w-fit whitespace-nowrap">
                 <div class="flex flex-col min-w-fit">
                     <span class="font-bold text-foreground text-sm min-w-full">${escHtml(s.nama_sekolah)}</span>
                     <span class="text-xs text-muted-foreground font-medium">${escHtml(s.alamat ?? '')}</span>
@@ -253,7 +253,7 @@
                     ${escHtml(s.status)}
                 </span>
             </td>
-            <td class="px-6 py-5">
+            <td class="px-6 py-5 whitespace-nowrap">
                 ${s.akreditasi
                     ? `<div class="flex items-center gap-1 text-${s.akreditasi}">
                            <span class="font-bold text-sm">${escHtml(s.akreditasi)}</span>
@@ -262,17 +262,17 @@
                 }
             </td>
             <td class="px-6 py-5">
-                <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+                <div class="flex items-center justify-end gap-2">
                     <a href="${DELETE_BASE}/${encodeURIComponent(s.slug)}/detail"
-                       class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all">
+                       class="inline-flex p-2 hover:bg-primary/10 rounded-lg text-primary transition-all h-fit">
                         <span class="material-symbols-outlined">visibility</span>
                     </a>
                     <a href="${DELETE_BASE}/${encodeURIComponent(s.slug)}/edit"
-                       class="p-2 hover:bg-slate-100 rounded-lg text-foreground transition-all">
+                       class="inline-flex p-2 hover:bg-slate-200 rounded-lg text-foreground transition-all h-fit">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
                     <button onclick="openDeleteModal('${escAttr(s.slug)}', '${escAttr(s.nama_sekolah)}')"
-                            class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all">
+                            class="inline-flex p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all h-fit">
                         <span class="material-symbols-outlined">delete</span>
                     </button>
                 </div>

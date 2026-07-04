@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/operator-sekolah') ?>
 
 <?= $this->section('content') ?>
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <!-- Page Header -->
@@ -40,12 +40,12 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-16 text-center">No</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama Prestasi</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-32">Tingkat</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-32">Jenis</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-24">Tahun</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-36 text-right">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-16 text-center">No</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Nama Prestasi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-32">Tingkat</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-32">Jenis</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-24">Tahun</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-36 text-right">Aksi</th>
                         </tr>
                     </thead>
 

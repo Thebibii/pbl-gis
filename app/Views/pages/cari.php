@@ -109,7 +109,7 @@
             <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <?php foreach ($initialData['data'] as $sekolah): ?>
                     <a href="<?= base_url('sekolah') ?>/<?= esc($sekolah['slug']) ?>" class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group block">
-                        <div class="relative h-44 overflow-hidden">
+                        <div class="relative aspect-video overflow-hidden">
                             <?php if (!empty($sekolah['foto_utama'])): ?>
                                 <img
                                     alt="<?= esc($sekolah['nama_sekolah']) ?>"
@@ -138,13 +138,15 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="p-5">
-                            <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors mb-1"><?= esc($sekolah['nama_sekolah']) ?></h3>
-                            <h3 class=" group-hover:text-primary transition-colors mb-2">NPSN <?= esc($sekolah['npsn']) ?></h3>
+                        <div class="p-5 flex flex-col gap-4 md:gap-2.5">
+                            <div class="flex flex-col gap-0.5">
+                                <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors"><?= esc($sekolah['nama_sekolah']) ?></h3>
+                                <h3 class=" group-hover:text-primary transition-colors">NPSN <?= esc($sekolah['npsn']) ?></h3>
+                            </div>
                             <div class="flex items-center gap-1.5 text-muted-foreground">
                                 <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                                 <span class="text-[13px] line-clamp-1">
-                                    <?= esc($sekolah['alamat']) ?><?= !empty($sekolah['nama_kecamatan']) ? ', Kec. ' . esc($sekolah['nama_kecamatan']) : '' ?>
+                                    <?= !empty($sekolah['alamat']) ? esc($sekolah['alamat']) . ', ' : '' ?><?= !empty($sekolah['nama_kecamatan']) ? 'Kec. ' . esc($sekolah['nama_kecamatan']) : '' ?>
                                 </span>
                             </div>
                         </div>
@@ -241,12 +243,13 @@
             const fotoSrc =
                 '<?= base_url('uploads/sekolah') ?>/' + encodeURIComponent(school.foto_utama);
 
-            const alamat = escapeHtml(school.alamat || '');
-            const kecamatan = school.nama_kecamatan ? ', Kec. ' + escapeHtml(school.nama_kecamatan) : '';
+            const alamat = school.alamat ? `${escapeHtml(school.alamat)}, ` : '';
+            const kecamatan = school.nama_kecamatan ? `Kec. ${escapeHtml(school.nama_kecamatan)}` : '';
+
 
             return `
             <a href="<?= base_url('sekolah') ?>/${encodeURIComponent(school.slug)}" class="school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group block">
-                <div class="relative h-44 overflow-hidden">
+                <div class="relative aspect-video overflow-hidden">
                  ${school.foto_utama ? `
                     <img
                         alt="${escapeHtml(school.nama_sekolah)}"
@@ -269,9 +272,11 @@
                         </span>
                     </div>
                 </div>
-                <div class="p-5">
-                    <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors mb-1">${escapeHtml(school.nama_sekolah)}</h3>
-                   <h3 class=" group-hover:text-primary transition-colors mb-2">NPSN ${escapeHtml(school.npsn)}</h3>
+                <div class="p-5 flex flex-col gap-4 md:gap-2.5">
+                    <div class="flex flex-col gap-0.5">
+                        <h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors">${escapeHtml(school.nama_sekolah)}</h3>
+                        <h3 class=" group-hover:text-primary transition-colors">NPSN ${escapeHtml(school.npsn)}</h3>
+                    </div>
                     <div class="flex items-center gap-1.5 text-muted-foreground ">
                         <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                         <span class="text-[13px] line-clamp-1">${alamat}${kecamatan}</span>

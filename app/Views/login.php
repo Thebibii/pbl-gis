@@ -9,7 +9,7 @@
                 Selamat Datang
             </h1>
             <p class="text-sm text-muted-foreground leading-relaxed">
-                Silakan masuk ke akun SiGIS Sekolah Anda untuk mengelola data geospasial.
+                Silakan masuk ke akun GIS Sekolah Anda untuk mengelola data geospasial.
             </p>
         </div>
 

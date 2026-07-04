@@ -106,7 +106,7 @@ class UserController extends BaseController
         $user = $this->userModel->findById($id);
 
         if (! $user) {
-            return redirect()->to(route_to('admin.user.index'))->with('error', 'Pengguna tidak ditemukan.');
+            return redirect()->to(route_to('admin.user'))->with('error', 'Pengguna tidak ditemukan.');
         }
 
         $groups = $user->getGroups();
@@ -123,7 +123,7 @@ class UserController extends BaseController
             if ($sekolah) {
                 helper('text');
                 // $slug         = url_title($sekolah['nama_sekolah'], '_', true);
-                $defaultEmail = 'op_' . $sekolah['npsn'] . '@sigis.local';
+                $defaultEmail = 'op_' . $sekolah['npsn'] . '@gissekolah.id';
             }
         }
 
@@ -142,16 +142,16 @@ class UserController extends BaseController
     public function update($id)
     {
         $user = $this->userModel->findById($id);
-
+        // dd($user, $id);
         if (! $user) {
-            return redirect()->to(route_to('admin.user.index'))->with('error', 'Pengguna tidak ditemukan.');
+            return redirect()->to(route_to('admin.user'))->with('error', 'Pengguna tidak ditemukan.');
         }
 
         $currentRole = $user->getGroups()[0] ?? null;
 
         // Operator sekolah tidak boleh diedit lewat method ini sama sekali
         if ($currentRole === 'operator_sekolah') {
-            return redirect()->to(route_to('admin.user.index'))
+            return redirect()->to(route_to('admin.user'))
                 ->with('error', 'Akun operator sekolah tidak dapat diedit langsung. Gunakan fitur reset akun.');
         }
 
@@ -174,7 +174,9 @@ class UserController extends BaseController
         // Update email (identity)
         $newEmail = $this->request->getPost('email');
         if ($newEmail !== $user->email) {
-            $user->setIdentity('email_password', $newEmail, $user->password ?? null, $user->id);
+            $user->email = $newEmail;
+            $this->userModel->save($user);
+
             // Alternatif aman jika method di atas tidak tersedia di versi Shield Anda:
             // gunakan $this->userModel->updateEmailIdentity($user, $newEmail);
         }
@@ -195,7 +197,7 @@ class UserController extends BaseController
             $user->addGroup($newRole);
         }
 
-        return redirect()->to(route_to('admin.user.index'))->with('success', 'Data pengguna berhasil diperbarui.');
+        return redirect()->to(route_to('admin.user'))->with('success', 'Data pengguna berhasil diperbarui.');
     }
 
     public function resetToDefault($id)
@@ -203,7 +205,7 @@ class UserController extends BaseController
         $user = $this->userModel->findById($id);
 
         if (! $user) {
-            return redirect()->to(route_to('admin.user.index'))->with('error', 'Pengguna tidak ditemukan.');
+            return redirect()->to(route_to('admin.user'))->with('error', 'Pengguna tidak ditemukan.');
         }
 
         $role = $user->getGroups()[0] ?? null;
@@ -219,21 +221,15 @@ class UserController extends BaseController
         }
 
         helper('text');
-        $slug         = url_title($sekolah['nama_sekolah'], '_', true);
-        $defaultEmail = 'op_' . $slug . '@sigis.local';
+        $slug         = url_title($sekolah['npsn'], '_', true);
+        $defaultEmail = 'op_' . $slug . '@gissekolah.id';
         $defaultPass  = $sekolah['npsn'];
 
         // Reset email
-        $user->setIdentity('email_password', $defaultEmail, $defaultPass, $user->id);
-        // Alternatif jika method di atas berbeda di versi Shield Anda:
-        // $this->userModel->updateEmailIdentity($user, $defaultEmail);
-
+        $user->email = $defaultEmail;
         // Reset password
         $user->password = $defaultPass;
         $this->userModel->save($user);
-
-        // Reset flag wajib update profil
-        $this->userModel->update($user->id, ['must_update_profile' => 1]);
 
         return redirect()->back()->with('success', 'Akun berhasil direset ke kredensial default.');
     }

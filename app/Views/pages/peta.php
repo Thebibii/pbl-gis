@@ -198,7 +198,7 @@
             zoomControl: false,
             preferCanvas: true,
             minZoom: 10,
-            maxZoom: 14
+            maxZoom: 18
         }).setView([-0.4555, 100.5771], 12);
 
         // Tile layers
@@ -296,7 +296,7 @@
         if (Object.keys(kecamatanLayers).length > 0) {
             map.fitBounds(boundsGroup.getBounds(), {
                 padding: [50, 50],
-                maxZoom: 14
+                maxZoom: 18
             });
 
             map.once('moveend', function() {
@@ -427,9 +427,12 @@
         function buildPopup(s) {
             const badgeClass = `badge-${escapeHtml(s.akreditasi)}`;
             const statusColor = s.status === 'NEGERI' ? 'bg-primary text-primary' : 'bg-secondary text-secondary-foreground';
+            const alamat = s.alamat ? `${escapeHtml(s.alamat)}, ` : '';
+            const kecamatan = s.nama_kecamatan ? `Kec. ${escapeHtml(s.nama_kecamatan)}` : '';
+
             return `
                 <div class="font-sans" style="font-family:'Plus Jakarta Sans',sans-serif; min-width:260px;">
-                    <div class="relative h-32 overflow-hidden">
+                    <div class="relative aspect-video overflow-hidden">
                      ${s.img ? `
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         src="${encodeURI(s.img)}" alt="${escapeHtml(s.nama || '')}">
@@ -452,8 +455,8 @@
                     <div class="p-4 flex flex-col gap-3">
                         <h3 class="font-bold text-[15px] text-slate-800">${escapeHtml(s.nama)}</h3>
                         <div class="flex items-center gap-1 text-muted-foreground">
-                            <span class="material-symbols-outlined text-[14px]! text-primary self-start">location_on</span>
-                            <span class="text-[12px] text-slate-500">${escapeHtml(s.alamat)}</span>
+                            <span class="material-symbols-outlined text-[18px]! text-primary self-start">location_on</span>
+                            <span class="text-[12px] text-slate-500">${alamat}${kecamatan}</span>
                         </div>
                         <div class="flex justify-center items-center pt-2.5 border-t border-dashed border-slate-200">
                             <a href="<?= site_url('sekolah') ?>/${encodeURIComponent(s.slug)}"
@@ -535,10 +538,13 @@
                 // const statusLabel = s.jenis === 'SD' ? 'badge-C text-primary-foreground' : 'badge-B text-foreground';
                 const statusLabel = `badge-${escapeHtml(s.jenis)} text-white`;
                 const card = document.createElement('div');
+                const alamat = s.alamat ? `${escapeHtml(s.alamat)}, ` : '';
+                const kecamatan = s.nama_kecamatan ? `Kec. ${escapeHtml(s.nama_kecamatan)}` : '';
+
                 card.id = `card-${s.id}`;
                 card.className = 'school-card school-card-vibrant bg-card text-card-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group transition-all';
                 card.innerHTML = `
-                <div class="relative h-32 overflow-hidden">
+                <div class="relative aspect-video overflow-hidden">
                 ${s.img ? `
                     <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         src="${encodeURI(s.img)}" alt="${escapeHtml(s.nama || '')}">
@@ -559,8 +565,8 @@
                 <div class="p-3 flex flex-col gap-2">
                     <h3 class="font-headline font-bold text-sm group-hover:text-primary transition-colors leading-snug">${escapeHtml(s.nama)}</h3>
                     <div class="flex items-center gap-1 text-muted-foreground">
-                        <span class="material-symbols-outlined text-[14px]! text-primary">location_on</span>
-                        <span class="text-[12px] truncate">${escapeHtml(s.alamat)}</span>
+                        <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
+                        <span class="text-[12px] truncate">${alamat}${kecamatan}</span>
                     </div>
                     <div class="flex justify-center items-center pt-2 border-t border-dashed border-border">
                         <button class="text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 group/btn">

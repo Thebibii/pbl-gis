@@ -36,7 +36,7 @@
     $isActive = (bool) ($sekolah['is_active'] ?? false);
     ?>
 
-    <section class="flex-1 overflow-y-auto p-8 space-y-8">
+    <section class="flex-1 overflow-y-auto p-6 pt-12 md:p-8 md:pt-12 space-y-8">
         <div class="max-w-7xl mx-auto space-y-8">
 
             <section class="relative h-[320px] rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] group">

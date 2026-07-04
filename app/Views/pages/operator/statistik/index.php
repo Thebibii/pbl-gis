@@ -1,7 +1,7 @@
 ﻿<?= $this->extend('layouts/operator-sekolah') ?>
 <?= $this->section('content') ?>
 
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <!-- Page Header -->

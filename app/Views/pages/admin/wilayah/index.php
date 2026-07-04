@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -76,13 +76,13 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground w-16 text-center">No</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Nama Kecamatan</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Kode</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Jumlah Sekolah</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">GeoJSON</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Warna</th>
-                            <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground text-right w-32">Aksi</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground w-16 text-center">No</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground whitespace-nowrap">Nama Kecamatan</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Kode</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground whitespace-nowrap">Jumlah Sekolah</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">GeoJSON</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Warna</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground text-right w-32">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-border">
@@ -97,7 +97,7 @@
                             <?php foreach ($rows as $item) : ?>
                                 <tr class="hover:bg-primary/5 transition-colors group">
                                     <td class="px-6 py-5 text-sm font-bold text-slate-500 text-center"><?= $no++ ?></td>
-                                    <td class="px-6 py-5">
+                                    <td class="px-6 py-5 whitespace-nowrap">
                                         <p class="font-bold text-foreground text-sm"><?= esc($item['nama_kecamatan']) ?></p>
                                     </td>
                                     <td class="px-6 py-5">
@@ -133,7 +133,7 @@
                                         <?php endif; ?>
                                     </td>
                                     <td class="px-6 py-5">
-                                        <div class="flex justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+                                        <div class="flex justify-end gap-2">
                                             <button type="button" onclick="openEditModal(this)"
                                                 data-id="<?= esc($item['id']) ?>"
                                                 data-nama="<?= esc($item['nama_kecamatan'], 'attr') ?>"
@@ -141,13 +141,13 @@
                                                 data-lat="<?= esc($item['latitude'] ?? '', 'attr') ?>"
                                                 data-lng="<?= esc($item['longitude'] ?? '', 'attr') ?>"
                                                 data-warna="<?= esc($item['warna'] ?? '', 'attr') ?>"
-                                                class="p-2 hover:bg-primary/10 rounded-lg text-primary transition-all">
+                                                class="inline-flex p-2 hover:bg-slate-200 rounded-lg text-foreground transition-all h-fit">
                                                 <span class="material-symbols-outlined">edit</span>
                                             </button>
                                             <button type="button" onclick="openDeleteModal(this)"
                                                 data-id="<?= esc($item['id']) ?>"
                                                 data-nama="<?= esc($item['nama_kecamatan'], 'attr') ?>"
-                                                class="p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all">
+                                                class="inline-flex h-fit p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all">
                                                 <span class="material-symbols-outlined">restart_alt</span>
                                             </button>
                                         </div>

@@ -1,11 +1,11 @@
 <!-- Header -->
-<header class="h-14 lg:h-16 bg-white/70 backdrop-blur-md border-b border-border lg:rounded-2xl px-4 sm:px-6 lg:px-8 py-3 lg:py-4 flex items-center justify-between lg:justify-end sticky top-0 lg:top-4 z-40">
+<header class="h-14 lg:h-16 bg-white/70 backdrop-blur-md border border-white/30 rounded-2xl px-4 sm:px-6 lg:px-8 mx-6 py-3 lg:py-4 flex items-center justify-between lg:justify-end sticky top-4 z-40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
 
     <!-- Tombol menu, hanya tampil di bawah breakpoint lg -->
     <button
         id="btn-sidebar-toggle"
         type="button"
-        class="lg:hidden p-2 text-muted-foreground hover:bg-secondary rounded-lg transition-colors"
+        class="lg:hidden flex items-center h-fit p-2 text-muted-foreground hover:bg-secondary rounded-lg transition-colors"
         aria-label="Buka menu">
         <span class="material-symbols-outlined">menu</span>
     </button>

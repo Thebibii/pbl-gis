@@ -81,10 +81,41 @@ class SekolahController extends BaseController
             ->where('geojson_file IS NOT NULL')
             ->orderBy('nama_kecamatan', 'ASC')
             ->findAll();
+
+        $kecamatan_list = $this->kecamatanModel
+            ->select('id, nama_kecamatan, geojson_file, warna')
+            ->where('geojson_file IS NOT NULL')
+            ->findAll();
+
+        $kecamatan_geojson = [];
+
+        foreach ($kecamatan_list as $kec) {
+
+            $path = FCPATH . $kec['geojson_file'];
+
+            if (!is_file($path)) {
+                continue;
+            }
+
+            $decoded = json_decode(file_get_contents($path), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                continue;
+            }
+
+            $kecamatan_geojson[] = [
+                'id'             => $kec['id'],
+                'nama_kecamatan' => $kec['nama_kecamatan'],
+                'warna'          => $kec['warna'],
+                'geojson'        => $decoded,
+            ];
+        }
+
         $jenisFasilitas = $this->jenisFasilitasModel->findAll();
         return view('pages/admin/sekolah/create', [
             'kecamatanList' =>  $kecamatan,
-            'jenisFasilitas' => $jenisFasilitas
+            'jenisFasilitas' => $jenisFasilitas,
+            'kecamatan_geojson' => $kecamatan_geojson,
         ]);
     }
 
@@ -254,14 +285,14 @@ class SekolahController extends BaseController
 
         $npsn        = $data['npsn'];
         $username    = 'op_' . $npsn;          // contoh: op_10308727
-        $email       = $username . '@sigis.local';
+        $email       = $username . '@gissekolah.id';
         $rawPassword = $npsn;
 
         // Safety net: pastikan username unik
         $suffix = 1;
         while ($this->userModel->where('username', $username)->first()) {
             $username = 'op_' . $npsn . '_' . $suffix;
-            $email    = $username . '@sigis.local';
+            $email    = $username . '@gissekolah.id';
             $suffix++;
         }
 
@@ -370,20 +401,45 @@ class SekolahController extends BaseController
             ->findAll();
 
         // Daftar master kecamatan & jenis fasilitas (sama seperti create)
-        $kecamatan = $this->kecamatanModel
-            ->select('id, nama_kecamatan, geojson_file')
+        $kecamatan_list = $this->kecamatanModel
+            ->select('id, nama_kecamatan, geojson_file, warna')
             ->where('geojson_file IS NOT NULL')
             ->orderBy('nama_kecamatan', 'ASC')
             ->findAll();
-
         $jenisFasilitas = $this->jenisFasilitasModel->findAll();
+
+
+        $kecamatan_geojson = [];
+
+        foreach ($kecamatan_list as $kec) {
+
+            $path = FCPATH . $kec['geojson_file'];
+
+            if (!is_file($path)) {
+                continue;
+            }
+
+            $decoded = json_decode(file_get_contents($path), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                continue;
+            }
+
+            $kecamatan_geojson[] = [
+                'id'             => $kec['id'],
+                'nama_kecamatan' => $kec['nama_kecamatan'],
+                'warna'          => $kec['warna'],
+                'geojson'        => $decoded,
+            ];
+        }
 
         return view('pages/admin/sekolah/edit', [
             'sekolah'       => $sekolah,
             'statistik'     => $statistik,
             'fasilitasMap'  => $fasilitasMap,
             'prestasiList'  => $prestasi,
-            'kecamatanList' => $kecamatan,
+            'kecamatanList' => $kecamatan_list,
+            'kecamatan_geojson' => $kecamatan_geojson,
             'jenisFasilitas' => $jenisFasilitas,
         ]);
     }
@@ -713,6 +769,8 @@ class SekolahController extends BaseController
 
     public function importStore()
     {
+        set_time_limit(300);
+
         $file = $this->request->getFile('csv_file');
 
         if (!$file || !$file->isValid()) {
@@ -726,7 +784,7 @@ class SekolahController extends BaseController
         $file->move(WRITEPATH . 'uploads/import');
         $path = WRITEPATH . 'uploads/import/' . $file->getName();
 
-        $csv = Reader::createFromPath($path, 'r');
+        $csv = Reader::from($path, 'r');
         $csv->setHeaderOffset(0);
 
         helper('text');
@@ -782,14 +840,14 @@ class SekolahController extends BaseController
             // --- Buat operator_sekolah ---
             $npsn        = $data['npsn'] ?? uniqid('op');
             $username    = 'op_' . $npsn;          // contoh: op_10308727
-            $email       = $username . '@sigis.local';
+            $email       = $username . '@gissekolah.id';
             $rawPassword = $npsn;
 
             // Safety net: pastikan username unik
             $suffix = 1;
             while ($this->userModel->where('username', $username)->first()) {
                 $username = 'op_' . $npsn . '_' . $suffix;
-                $email    = $username . '@sigis.local';
+                $email    = $username . '@gissekolah.id';
                 $suffix++;
             }
 

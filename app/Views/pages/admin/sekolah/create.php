@@ -1,16 +1,16 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 overflow-y-auto p-8 space-y-8">
-    <div class="flex justify-between items-end">
+<section class="flex-1 overflow-y-auto p-6 pt-12 md:p-8 md:pt-12 space-y-8">
+    <div class="flex flex-col md:flex-row justify-between gap-x-12 gap-y-4">
         <div>
             <h1 class="text-3xl font-extrabold text-foreground">Tambah Data Sekolah</h1>
             <p class="text-sm font-medium text-muted-foreground mt-1">Lengkapi formulir di bawah ini untuk menambahkan institusi baru ke sistem.</p>
         </div>
-        <div class="flex gap-3">
+        <div class="flex w-fit gap-3 items-center self-end">
             <button class="px-6 py-2.5 rounded-xl border border-border text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all">
                 Batal
             </button>
-            <button form="form-sekolah" type="submit" class="px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
+            <button form="form-sekolah" type="submit" class="inline-flex items-center w-fit whitespace-nowrap px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
                 Simpan Data
             </button>
         </div>
@@ -18,9 +18,8 @@
     <form id="form-sekolah" action="<?= url_to('admin.sekolah.store') ?>" method="POST" enctype="multipart/form-data" class="space-y-8">
         <?= csrf_field() ?>
         <!-- Form Header with Toggle -->
-        <div class="bg-white/80 backdrop-blur-md border border-white/30 p-6 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center">
+        <div class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-6 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] flex justify-between items-center">
             <div class="flex items-center gap-3">
-
                 <div>
                     <p class="text-xs font-bold uppercase tracking-widest text-muted-foreground opacity-60 leading-none mb-1">KONFIGURASI AWAL</p>
                     <h2 class="text-lg font-bold">Status Keaktifan Sekolah</h2>
@@ -35,11 +34,11 @@
             </div>
         </div>
         <!-- Section 1: Identitas Sekolah -->
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="identity">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="identity">
             <div class="flex items-center gap-3 mb-8">
                 <h2 class="text-xl font-bold">Identitas Sekolah</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                 <div class="lg:col-span-2">
                     <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">NAMA SEKOLAH <span class="text-red-500 text-xs">*</span></label>
                     <input name="nama_sekolah" value="<?= old('nama_sekolah') ?>" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all" placeholder="Masukkan nama resmi sekolah" type="text" />
@@ -128,39 +127,79 @@
                 <!-- Foto Sekolah -->
                 <div class="lg:col-span-2">
                     <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                        FOTO SEKOLAH <span class="text-red-500 text-xs">*</span>
+                        FOTO SEKOLAH <span class="text-red-500">*</span>
                     </label>
 
-                    <input name="foto"
+                    <!-- Hidden File Input -->
+                    <input
                         id="foto-input"
-                        class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
-                  focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary
-                  transition-all file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0
-                  file:text-xs file:font-semibold file:bg-primary/10 file:text-primary
-                  hover:file:bg-primary/20"
                         type="file"
+                        name="foto"
                         accept="image/*"
-                        required />
-                    <p class="mt-1 text-xs text-slate-400">Format: JPG, PNG, WEBP. Maks 2MB.</p>
+                        class="hidden">
+
+                    <!-- Preview -->
+                    <label
+                        for="foto-input"
+                        id="foto-preview-wrapper"
+                        class="group relative block w-full aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 cursor-pointer">
+
+                        <!-- Placeholder -->
+                        <div
+                            id="foto-placeholder"
+                            class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+
+                            <span class="material-symbols-outlined text-5xl text-slate-400">
+                                school
+                            </span>
+
+                        </div>
+
+                        <!-- Preview Image -->
+                        <img
+                            id="foto-preview-img"
+                            class="hidden w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            alt="Preview Foto">
+
+                        <!-- Overlay -->
+                        <div
+                            class="absolute inset-0 bg-black/0 group-hover:bg-black/45 transition-all duration-300 flex items-center justify-center">
+
+                            <div
+                                class="text-center text-white opacity-0 group-hover:opacity-100 transition duration-300">
+
+                                <span class="material-symbols-outlined text-5xl">
+                                    add_a_photo
+                                </span>
+
+                                <p class="mt-3 font-semibold">
+                                    Klik untuk memilih foto sekolah
+                                </p>
+
+                                <p class="mt-1 text-xs text-white/80">
+                                    JPG, PNG, WEBP • Maks. 2 MB
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </label>
+
+                    <p id="foto-selected-name" class="mt-3 text-sm text-slate-500">
+                        Belum ada foto yang dipilih.
+                    </p>
 
                     <?php if (session('errors.foto')): ?>
-                        <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.foto') ?></p>
+                        <p class="mt-2 text-xs font-medium text-red-500">
+                            <?= session('errors.foto') ?>
+                        </p>
                     <?php endif; ?>
-
-                    <!-- Live preview sebelum submit -->
-                    <div id="foto-preview-wrapper" class="hidden mt-3 flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                        <img id="foto-preview-img" src="" alt="Preview"
-                            class="w-20 h-16 object-cover rounded-lg border border-slate-200" />
-                        <div>
-                            <p class="text-xs font-semibold text-green-600">Foto dipilih</p>
-                            <p id="foto-preview-name" class="text-xs text-slate-400 mt-0.5"></p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
 
             <div class="flex items-center gap-3 mb-8">
                 <h2 class="text-xl font-bold">Profil Sekolah</h2>
@@ -197,7 +236,7 @@
         </section>
 
         <!-- Section 2: Lokasi & Kontak -->
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="location">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="location">
             <div class="flex items-center gap-3 mb-8">
 
                 <h2 class="text-xl font-bold">Lokasi &amp; Kontak</h2>
@@ -212,7 +251,7 @@
                 </div>
                 <div class="md:col-span-2 space-y-3">
                     <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
-                    <div class="relative w-full h-96 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
+                    <div class="relative w-full aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
                         <!-- Stylized Map Background (Grid Pattern) -->
                         <div class="absolute inset-0 z-0">
 
@@ -224,14 +263,22 @@
                             <div class="w-4 h-1 bg-black/10 rounded-full blur-[2px] mt-1"></div>
                         </div> -->
                         <!-- Map Overlay Info -->
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[999] cursor-pointer"
+                        <div
+                            class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[999] cursor-pointer"
                             id="btn-pinpoint">
-                            <p class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50
-              text-xs font-bold text-slate-600 flex items-center gap-2 transition-all
-              hover:bg-primary hover:text-white hover:border-primary select-none">
-                                <span class="material-symbols-outlined text-sm">ads_click</span>
+
+                            <p
+                                id="btn-pinpoint-label"
+                                class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary">
+
+                                <span class="material-symbols-outlined text-sm">
+                                    ads_click
+                                </span>
+
                                 KLIK UNTUK PIN POINT
+
                             </p>
+
                         </div>
                     </div>
                     <p class="text-xs font-medium text-slate-500 italic">Klik pada peta untuk menyesuaikan koordinat secara otomatis</p>
@@ -434,7 +481,7 @@
 
 
         </div>
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="achivment">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="achivment">
             <div class="flex items-center gap-3 mb-8">
                 <div class="w-10 h-10 rounded-xl bg-blue-50 text-primary flex items-center justify-center">
                     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
@@ -546,7 +593,7 @@
             zoomControl: false,
             preferCanvas: true,
             minZoom: 10,
-            maxZoom: 16
+            maxZoom: 18
         }).setView([-0.4555, 100.5771], 12);
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -554,66 +601,69 @@
         }).addTo(map);
 
         window.addEventListener('load', () => map.invalidateSize());
-        let kabupatenGeometries = []; // ← tambah ini
-        // GeoJSON border kabupaten
-        fetch("<?= base_url('id1305_tanah_datar.geojson') ?>")
-            .then(res => res.json())
-            .then(data => {
-                const wilayahLayer = L.geoJSON(data, {
-                    style: {
-                        color: '#2563eb',
-                        weight: 1.8,
-                        opacity: 0.9,
-                        fillColor: '#3b82f6',
-                        fillOpacity: 0.06
-                    },
-                    onEachFeature(feature, layer) {
-                        layer.on('mouseover', function() {
-                            this.setStyle({
-                                weight: 3,
-                                color: '#1d4ed8',
-                                fillOpacity: 0.15
-                            });
-                            this.bringToFront();
+
+        const kecamatanGeojson = <?= json_encode($kecamatan_geojson) ?>;
+
+        const kecamatanSelect = document.getElementById('kecamatan-select');
+
+        let marker = null;
+        let pinActive = false;
+        let activeLayer = null;
+
+        const polygonLayers = [];
+
+        const btnPin = document.getElementById('btn-pinpoint');
+        const btnPinLabel = document.getElementById('btn-pinpoint-label');
+
+        // ── Gambar semua polygon kecamatan langsung ke map ──────────────────────
+        kecamatanGeojson.forEach(kec => {
+
+            const layer = L.geoJSON(kec.geojson, {
+                style: {
+                    color: kec.warna,
+                    fillColor: kec.warna,
+                    fillOpacity: 0.12,
+                    weight: 2
+                },
+                onEachFeature(feature, l) {
+                    l.on('mouseover', function() {
+                        this.setStyle({
+                            weight: 3,
+                            fillOpacity: 0.2
                         });
-                        layer.on('mouseout', function() {
-                            wilayahLayer.resetStyle(this);
-                        });
-                    }
-                }).addTo(map);
-                map.fitBounds(wilayahLayer.getBounds(), {
-                    padding: [50, 50],
-                    maxZoom: 16
-                });
-                map.once('moveend', () => map.setMinZoom(map.getZoom()));
-                kabupatenGeometries = data.features.map(f => f.geometry);
+                        this.bringToFront();
+                    });
+                    l.on('mouseout', function() {
+                        // Jangan reset kalau ini layer yang lagi aktif (terpilih)
+                        if (this !== activeLayer) {
+                            this.setStyle(this.defaultStyle);
+                        }
+                    });
+                }
+            }).addTo(map);
+
+            layer.eachLayer(poly => {
+                poly.kecamatan_id = kec.id;
+                poly.defaultStyle = {
+                    color: kec.warna,
+                    fillColor: kec.warna,
+                    fillOpacity: 0.12,
+                    weight: 2
+                };
+                polygonLayers.push(poly);
             });
 
-        // ── Bangun lookup: { kecamatan_id → [array of geometries] } ──────────
-        // Ambil semua option dari select, fetch GeoJSON masing-masing
-        const kecamatanSelect = document.getElementById('kecamatan-select');
-        const options = [...kecamatanSelect.querySelectorAll('option[data-geojson]')];
-
-        // kecamatanIndex: [{ id, name, geometries: [geometry, ...] }]
-        let kecamatanIndex = [];
-
-        Promise.all(
-            options.map(opt =>
-                fetch(`<?= base_url() ?>${opt.dataset.geojson}`)
-                .then(r => r.json())
-                .then(geojson => ({
-                    id: opt.value,
-                    name: opt.dataset.name,
-                    // Kumpulkan semua geometry dari setiap feature (polygon desa)
-                    geometries: geojson.features.map(f => f.geometry)
-                }))
-                .catch(() => null) // skip jika file tidak ditemukan
-            )
-        ).then(results => {
-            kecamatanIndex = results.filter(Boolean);
         });
 
-        // ── Ray-casting point-in-polygon ──────────────────────────────────────
+        if (polygonLayers.length) {
+            map.fitBounds(L.featureGroup(polygonLayers).getBounds(), {
+                padding: [50, 50],
+                maxZoom: 16
+            });
+            map.once('moveend', () => map.setMinZoom(map.getZoom()));
+        }
+
+        // ── Ray-casting point-in-polygon ────────────────────────────────────────
         function pointInPolygon(point, geometry) {
             const rings = geometry.type === 'Polygon' ?
                 geometry.coordinates :
@@ -635,64 +685,124 @@
             return inside;
         }
 
-        function isInsideKabupaten(lat, lng) {
-            if (!kabupatenGeometries.length) return true; // belum dimuat, biarkan lewat
-            const point = [lng, lat];
-            return kabupatenGeometries.some(geom => pointInPolygon(point, geom));
-        }
-
+        // ── Deteksi kecamatan dari titik (menggantikan detectKecamatan + isInsideKabupaten) ──
         function detectKecamatan(lat, lng) {
-            if (!kecamatanIndex.length) return;
             const point = [lng, lat]; // GeoJSON: [lng, lat]
 
-            const found = kecamatanIndex.find(kec =>
-                kec.geometries.some(geom => pointInPolygon(point, geom))
-            );
+            let ditemukan = false;
 
-            if (found) {
-                kecamatanSelect.value = found.id; // set by id (foreign key)
-                // Visual feedback
-                kecamatanSelect.classList.add('!border-green-400', '!bg-green-50');
-                setTimeout(() => kecamatanSelect.classList.remove('!border-green-400', '!bg-green-50'), 1500);
-            } else {
+            polygonLayers.forEach(poly => {
+                if (ditemukan) return;
+
+                const geo = poly.toGeoJSON().geometry;
+
+                if (pointInPolygon(point, geo)) {
+                    ditemukan = true;
+
+                    kecamatanSelect.value = poly.kecamatan_id;
+
+                    if (activeLayer) {
+                        activeLayer.setStyle(activeLayer.defaultStyle);
+                    }
+
+                    poly.setStyle({
+                        weight: 4,
+                        fillOpacity: 0.35
+                    });
+                    activeLayer = poly;
+
+                    // Visual feedback pada select (tetap seperti punya kamu)
+                    kecamatanSelect.classList.add('!border-green-400', '!bg-green-50');
+                    setTimeout(() => kecamatanSelect.classList.remove('!border-green-400', '!bg-green-50'), 1500);
+                }
+            });
+
+            if (!ditemukan) {
                 kecamatanSelect.value = '';
+
+                if (activeLayer) {
+                    activeLayer.setStyle(activeLayer.defaultStyle);
+                    activeLayer = null;
+                }
             }
+
+            return ditemukan;
         }
 
         // ── Marker & mode pin ────────────────────────────────────────────────
         const pinIcon = L.divIcon({
-            className: '',
+            className: 'custom-pin',
+
             html: `
-            <div class="flex flex-col items-center" style="transform: translate(-50%, -100%);">
-                <span class="material-symbols-outlined text-red-500"
-                      style="font-size:3rem; font-variation-settings:'FILL' 1;
-                             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));">
-                    location_on
-                </span>
-                <div style="width:1rem; height:4px; background:rgba(0,0,0,0.1);
-                            border-radius:9999px; filter:blur(2px); margin-top:2px;"></div>
-            </div>`,
-            iconSize: [0, 0],
-            iconAnchor: [0, 0],
+        <div class="relative flex flex-col items-center">
+
+            <span
+                class="material-symbols-outlined text-red-500"
+                style="
+                    font-size:42px;
+                    font-variation-settings:'FILL' 1;
+                    line-height:1;
+                    filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));
+                ">
+                location_on
+            </span>
+
+            <div
+                class="absolute rounded-full"
+                style="
+                    width:14px;
+                    height:14px;
+                    bottom:-2px;
+                    background:rgba(0,0,0,.18);
+                    filter:blur(3px);
+                ">
+            </div>
+
+        </div>
+    `,
+
+            iconSize: [42, 42],
+            iconAnchor: [21, 42]
         });
 
-        let marker = null;
-        let pinActive = false;
-        const btnPinpoint = document.getElementById('btn-pinpoint');
+        // ── Update tampilan tombol pin ──────────────────────────────────────────
+        function updatePinButton() {
 
-        btnPinpoint.addEventListener('click', () => {
-            pinActive = !pinActive;
-            const p = btnPinpoint.querySelector('p');
             if (pinActive) {
-                p.classList.add('bg-primary', 'text-white', 'border-primary');
-                p.classList.remove('bg-white/90', 'text-slate-600', 'border-white/50');
-                map.getContainer().style.cursor = 'crosshair';
+
+                btnPinLabel.className =
+                    "bg-primary backdrop-blur-sm px-4 py-2 rounded-full shadow-lg shadow-primary/30 border border-primary text-[10px] font-bold text-white flex items-center gap-2 transition-all duration-300 scale-105";
+
+                btnPinLabel.innerHTML = `
+            <span class="material-symbols-outlined text-sm animate-pulse">
+                location_on
+            </span>
+            MODE PIN AKTIF
+        `;
+
             } else {
-                p.classList.remove('bg-primary', 'text-white', 'border-primary');
-                p.classList.add('bg-white/90', 'text-slate-600', 'border-white/50');
-                map.getContainer().style.cursor = '';
+
+                btnPinLabel.className =
+                    "bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary";
+
+                btnPinLabel.innerHTML = `
+            <span class="material-symbols-outlined text-sm">
+                ads_click
+            </span>
+            KLIK UNTUK PIN POINT
+        `;
+
             }
+
+        }
+
+        btnPin.addEventListener('click', () => {
+            pinActive = !pinActive;
+            map.getContainer().style.cursor = pinActive ? 'crosshair' : '';
+            updatePinButton();
         });
+
+        updatePinButton();
 
         map.on('click', function(e) {
             if (!pinActive) return;
@@ -701,16 +811,37 @@
                 lng
             } = e.latlng;
 
-            // ← cek batas kabupaten dulu
-            if (!isInsideKabupaten(lat, lng)) {
-                showToast('Lokasi di luar wilayah Kabupaten Tanah Datar', 'error');
-                return; // tolak, jangan lanjut
+            const ditemukan = detectKecamatan(lat, lng);
+
+            if (!ditemukan) {
+                document.getElementById('lat-input').value = '';
+                document.getElementById('lng-input').value = '';
+
+                if (marker) {
+                    map.removeLayer(marker);
+                    marker = null;
+                }
+
+                L.popup({
+                        closeButton: false,
+                        autoClose: true,
+                        closeOnClick: true,
+                        className: 'popup-warning'
+                    })
+                    .setLatLng(e.latlng)
+                    .setContent(`
+        <div style="text-align:center;min-width:180px;padding:12px;">
+            <b style="color:#dc2626;">⚠ Lokasi di luar wilayah</b><br>
+            <small>Silakan pilih lokasi di dalam batas kecamatan.</small>
+        </div>
+    `)
+                    .openOn(map);
+
+                return;
             }
 
             document.getElementById('lat-input').value = lat.toFixed(6);
             document.getElementById('lng-input').value = lng.toFixed(6);
-
-            detectKecamatan(lat, lng); // ← auto-detect dari DB index
 
             if (marker) {
                 marker.setLatLng(e.latlng);
@@ -721,10 +852,8 @@
             }
 
             pinActive = false;
-            const p = btnPinpoint.querySelector('p');
-            p.classList.remove('bg-primary', 'text-white', 'border-primary');
-            p.classList.add('bg-white/90', 'text-slate-600', 'border-white/50');
             map.getContainer().style.cursor = '';
+            updatePinButton();
         });
 
         // ── Input manual lat/lng ──────────────────────────────────────────────
@@ -733,13 +862,27 @@
             const lng = parseFloat(document.getElementById('lng-input').value);
             if (isNaN(lat) || isNaN(lng)) return;
 
-            // Validasi batas kabupaten
-            if (!isInsideKabupaten(lat, lng)) {
-                showToast('Koordinat di luar wilayah Kabupaten Tanah Datar', 'error');
+            const ditemukan = detectKecamatan(lat, lng);
+
+            if (!ditemukan) {
+                L.popup({
+                        closeButton: false,
+                        autoClose: true,
+                        closeOnClick: true,
+                        className: 'popup-warning'
+                    })
+                    .setLatLng([lat, lng])
+                    .setContent(`
+        <div style="text-align:center;min-width:180px;padding:12px;">
+            <b style="color:#dc2626;">⚠ Lokasi di luar wilayah</b><br>
+            <small>Silakan pilih lokasi di dalam batas kecamatan.</small>
+        </div>
+    `)
+                    .openOn(map);
+
                 return;
             }
 
-            // Update atau buat marker
             if (marker) {
                 marker.setLatLng([lat, lng]);
             } else {
@@ -748,49 +891,11 @@
                 }).addTo(map);
             }
 
-            // Pan peta ke lokasi baru
             map.setView([lat, lng], map.getZoom());
-
-            detectKecamatan(lat, lng);
         }
 
         document.getElementById('lat-input').addEventListener('change', tryDetectFromInputs);
         document.getElementById('lng-input').addEventListener('change', tryDetectFromInputs);
-
-        function showToast(message, type = 'error') {
-            const colors = {
-                error: 'bg-red-500',
-                success: 'bg-green-500',
-            };
-
-            const toast = document.createElement('div');
-            toast.className = `
-        fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999]
-        flex items-center gap-2 px-5 py-3 rounded-2xl shadow-xl
-        text-white text-sm font-semibold
-        transition-all duration-300 opacity-0 translate-y-2
-        ${colors[type]}
-    `;
-            toast.innerHTML = `
-        <span class="material-symbols-outlined text-base">
-            ${type === 'error' ? 'location_off' : 'check_circle'}
-        </span>
-        ${message}
-    `;
-
-            document.body.appendChild(toast);
-
-            // Animasi masuk
-            requestAnimationFrame(() => {
-                toast.classList.remove('opacity-0', 'translate-y-2');
-            });
-
-            // Animasi keluar setelah 3 detik
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                toast.addEventListener('transitionend', () => toast.remove());
-            }, 3000);
-        }
 
 
     });
@@ -874,17 +979,35 @@
     });
 
     // Preview foto sebelum submit
-    document.getElementById('foto-input').addEventListener('change', function() {
-        const file = this.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const wrapper = document.getElementById('foto-preview-wrapper');
-            document.getElementById('foto-preview-img').src = e.target.result;
-            document.getElementById('foto-preview-name').textContent = file.name;
-            wrapper.classList.remove('hidden');
+    const sekolahFotoInput = document.getElementById('foto-input');
+    const sekolahFotoPreview = document.getElementById('foto-preview-img');
+    const sekolahFotoPlaceholder = document.getElementById('foto-placeholder');
+    const sekolahFotoName = document.getElementById('foto-selected-name');
+
+    sekolahFotoInput.addEventListener('change', function() {
+
+        const selectedFoto = this.files[0];
+
+        if (!selectedFoto) {
+            return;
+        }
+
+        const sekolahFotoReader = new FileReader();
+
+        sekolahFotoReader.onload = function(e) {
+
+            sekolahFotoPreview.src = e.target.result;
+            sekolahFotoPreview.classList.remove('hidden');
+
+            sekolahFotoPlaceholder.classList.add('hidden');
+
+            sekolahFotoName.innerHTML =
+                `<span class="font-medium text-green-600">Foto dipilih:</span> ${selectedFoto.name}`;
+
         };
-        reader.readAsDataURL(file);
+
+        sekolahFotoReader.readAsDataURL(selectedFoto);
+
     });
 </script>
 

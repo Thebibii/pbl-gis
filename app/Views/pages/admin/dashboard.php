@@ -1,12 +1,12 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <!-- Hero Welcome Section -->
     <div class="relative rounded-2xl overflow-hidden bg-slate-900 p-10 flex flex-col justify-center min-h-[200px] shadow-lg shadow-slate-900/10">
         <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 0% 0%, #3B82F6 0%, transparent 50%), radial-gradient(circle at 100% 100%, #6366F1 0%, transparent 50%);"></div>
         <div class="relative z-10 space-y-3">
             <h2 class="text-2xl font-bold text-white tracking-tight">Selamat Datang, Admin!</h2>
-            <p class="text-slate-400 max-w-lg text-sm leading-relaxed">Panel kendali SiGIS Sekolah siap membantu Anda memantau distribusi pendidikan nasional secara real-time dan akurat.</p>
+            <p class="text-slate-400 max-w-lg text-sm leading-relaxed">Panel kendali GIS Sekolah siap membantu Anda memantau distribusi pendidikan nasional secara real-time dan akurat.</p>
         </div>
         <div class="absolute right-10 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
             <span class="material-symbols-outlined text-[160px]! text-white">public</span>

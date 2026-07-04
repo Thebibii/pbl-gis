@@ -7,7 +7,7 @@
                 <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">map</span>
             </div>
             <div>
-                <h1 class="text-lg font-bold tracking-tight leading-none text-foreground">SiGIS <span class="text-primary">Sekolah</span></h1>
+                <h1 class="text-lg font-bold tracking-tight leading-none text-foreground">GIS <span class="text-primary">Sekolah</span></h1>
                 <p class="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">Sistem Informasi Geografis</p>
             </div>
         </div>

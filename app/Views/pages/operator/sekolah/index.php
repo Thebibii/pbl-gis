@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/operator-sekolah') ?>
 <?= $this->section('content') ?>
 
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <!-- Page Header -->
@@ -295,7 +295,7 @@
                 </div>
             </div>
 
-            <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
+            <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="profile">
                 <div class="flex items-center gap-3 mb-8">
                     <h2 class="text-xl font-bold">Profil Sekolah</h2>
                 </div>
@@ -415,7 +415,7 @@
                         </div>
                         <div class="space-y-3 h-full min-h-[240px] flex flex-col">
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
-                            <div class="relative w-full h-96 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
+                            <div class="relative w-full aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
                                 <!-- Stylized Map Background (Grid Pattern) -->
                                 <div class="absolute inset-0 z-0">
                                     <div id="map" class="w-full h-full"></div>

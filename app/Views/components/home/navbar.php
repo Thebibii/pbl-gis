@@ -2,7 +2,7 @@
     <nav class="max-w-7xl mx-auto glass-effect rounded-2xl shadow-lg shadow-primary/5">
         <div class="flex justify-between items-center h-16 px-6">
             <div class="flex items-center gap-8">
-                <span class="text-xl font-headline font-extrabold tracking-tight text-primary">SiGIS<span class="text-foreground">Sekolah</span></span>
+                <span class="text-xl font-headline font-extrabold tracking-tight text-primary">GIS<span class="text-foreground">Sekolah</span></span>
                 <div class="hidden md:flex gap-8">
                     <a class="<?= isActiveRoute('home') ?> transition-colors text-xs uppercase tracking-wider" href="<?= url_to('home') ?>">Beranda</a>
                     <a class="<?= isActiveRoute('peta') ?> transition-colors text-xs uppercase tracking-wider" href="<?= url_to('peta') ?>">Peta</a>

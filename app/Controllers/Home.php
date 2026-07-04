@@ -17,9 +17,13 @@ class Home extends BaseController
     {
         $sekolahModel = new SekolahModel();
 
-        // Mengambil 6 data terbaru berdasarkan kolom 'created_at' atau 'id'
-        $data['sekolah'] = $sekolahModel->orderBy('created_at', 'DESC')->findAll(8);
+        // Mengambil 8 data terbaru beserta nama_kecamatan
+        $data['sekolah'] = $sekolahModel->select('sekolah.*, kecamatan.nama_kecamatan')
+            ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
+            ->orderBy('sekolah.created_at', 'DESC')
+            ->findAll(8);
 
+        // dd($data['sekolah']);
         // Mengirim data ke view 'welcome_message'
         return view('welcome_message', $data);
     }
@@ -71,12 +75,12 @@ class Home extends BaseController
                 'alamat'     => $s['alamat'],
                 'siswa'      => $siswa,
                 'guru'       => $guru,
+                'nama_kecamatan' => $s['nama_kecamatan'],
                 'img'        => $s['foto_utama']
                     ? base_url('uploads/sekolah/' . $s['foto_utama'])
                     : null,
             ];
         }, $sekolahModel->forPeta());
-
         return view('pages/peta', [
             'sekolahData'      => json_encode($sekolah, JSON_UNESCAPED_UNICODE),
             'kecamatanGeojson' => json_encode($kecamatan_geojson, JSON_UNESCAPED_UNICODE), // <- baru
@@ -144,7 +148,8 @@ class Home extends BaseController
             kurikulum,
             luas_lahan,
             foto_utama,
-            kecamatan.geojson_file
+            kecamatan.geojson_file,
+            kecamatan.nama_kecamatan
         ')
             ->join('nagari', 'nagari.id = sekolah.nagari_id', 'left')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')

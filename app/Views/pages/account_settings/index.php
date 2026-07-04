@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
 
-<section class="flex-1 p-8 space-y-8">
+<section class="flex-1 p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="max-w-7xl mx-auto space-y-8">
 
         <header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -164,7 +164,7 @@
                 <a href="<?= route_to('account.settings') ?>" class="px-8 py-3 rounded-xl text-sm font-bold text-secondary hover:bg-slate-100 transition-all active:scale-95">
                     Batal
                 </a>
-                <button type="submit" class="px-10 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 hover:shadow-primary/30 transition-all active:scale-95 flex items-center gap-2">
+                <button type="submit" class="h-fit whitespace-nowrap px-10 py-3 bg-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-blue-600 hover:shadow-primary/30 transition-all active:scale-95 flex items-center gap-2">
                     <span class="material-symbols-outlined text-[20px]">save</span> Simpan Perubahan
                 </button>
             </div>

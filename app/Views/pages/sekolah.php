@@ -1,84 +1,7 @@
 <?= $this->extend('layouts/main-home') ?>
 <?= $this->section('content') ?>
 <main class="pt-24">
-    <!-- Hero Section -->
-    <?php
-    $namaParts = explode(' ', $sekolah['nama_sekolah'], 3);
-    $baris1    = implode(' ', array_slice($namaParts, 0, 2));
-    $baris2    = $namaParts[2] ?? '';
-    $fotoUrl   = !empty($sekolah['foto_utama'])
-        ? base_url('uploads/sekolah/' . esc($sekolah['foto_utama']))
-        : null;
-    ?>
-    <section class="relative w-full overflow-hidden bg-card">
 
-        <!-- Hero Mobile: gambar full-bleed (aspect-video) jadi background, teks overlay di atasnya -->
-        <div class="md:hidden relative w-full aspect-video min-h-[340px] flex items-end overflow-hidden">
-            <?php if ($fotoUrl): ?>
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?= $fotoUrl ?>');"></div>
-            <?php else: ?>
-                <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-6xl! text-slate-400">school</span>
-                </div>
-            <?php endif; ?>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
-
-            <div class="relative z-10 w-full p-6 pb-8 space-y-5 text-white">
-                <h1 class="text-3xl font-heading font-extrabold leading-tight">
-                    <?= esc($baris1) ?> <br />
-                    <span class="text-white/90"><?= esc($baris2) ?></span>
-                </h1>
-                <div class="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-                    <div class="bg-white/15 p-2.5 rounded-lg flex shrink-0">
-                        <span class="material-symbols-outlined text-white text-xl!">location_on</span>
-                    </div>
-                    <p class="text-sm font-bold leading-snug"><?= esc($sekolah['alamat'] ?? "Informasi alamat belum tersedia") ?></p>
-                </div>
-                <button class="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-black/30 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
-                    <span class="material-symbols-outlined text-xl!">map</span>
-                    Lihat di Peta
-                </button>
-            </div>
-        </div>
-
-        <!-- Hero Desktop: split diagonal kiri-kanan -->
-        <div class="hidden md:flex md:flex-row items-stretch min-h-[600px]">
-            <div class="md:w-[55%] relative overflow-hidden mask-slanted-exclusive">
-                <?php if ($fotoUrl): ?>
-                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?= $fotoUrl ?>');"></div>
-                <?php else: ?>
-                    <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-8xl! text-slate-400">school</span>
-                    </div>
-                <?php endif; ?>
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
-            </div>
-            <div class="md:w-[45%] flex flex-col justify-center p-8 md:p-16 lg:p-24 relative z-10">
-                <div class="space-y-8">
-                    <div class="space-y-3">
-                        <h1 class="text-5xl md:text-6xl font-heading font-extrabold text-primary leading-tight">
-                            <?= esc($baris1) ?> <br />
-                            <span class="text-foreground"><?= esc($baris2) ?></span>
-                        </h1>
-                    </div>
-                    <div class="flex items-center gap-4 p-5 bg-muted/30 rounded-2xl max-w-sm border border-border/50">
-                        <div class="bg-primary/10 p-3 rounded-xl flex">
-                            <span class="material-symbols-outlined text-primary">location_on</span>
-                        </div>
-                        <div>
-                            <p class="text-base font-bold text-foreground"><?= esc($sekolah['alamat'] ?? "Informasi alamat belum tersedia") ?></p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 pt-4">
-                        <button class="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
-                            <span class="material-symbols-outlined text-xl!">map</span>
-                            Lihat di Peta
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <?php /*
     <!-- Stats Section -->
     <section class="max-w-7xl mx-auto px-6 py-20">
@@ -140,9 +63,82 @@
     </section>
     */ ?>
     <!-- Detailed Content -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-20" id="tab">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Section -->
+        <?php
+        $namaParts = explode(' ', trim($sekolah['nama_sekolah']), 5);
+
+        $baris1 = implode(' ', array_slice($namaParts, 0, 4));
+        $baris2 = $namaParts[4] ?? '';
+        $fotoUrl   = !empty($sekolah['foto_utama'])
+            ? base_url('uploads/sekolah/' . esc($sekolah['foto_utama']))
+            : null;
+        ?>
+        <section class="relative w-full overflow-hidden bg-card rounded-2xl">
+
+            <!-- AREA GAMBAR — aspect-video konsisten di semua ukuran layar -->
+            <div class="relative w-full aspect-video overflow-hidden">
+                <?php if ($fotoUrl): ?>
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?= $fotoUrl ?>');"></div>
+                <?php else: ?>
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-6xl! md:text-8xl! text-slate-400">school</span>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Overlay HANYA tampil di md ke atas -->
+                <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+                <div class="hidden md:flex absolute inset-0 flex-col justify-end p-8 lg:p-12 z-10">
+                    <div class="space-y-6">
+                        <h1 class="text-4xl lg:text-5xl font-heading font-extrabold leading-tight text-white">
+                            <?= esc($baris1) ?> <br />
+                            <span class="text-white/90"><?= esc($baris2) ?></span>
+                        </h1>
+                        <div class="flex justify-between">
+                            <div class="max-w-xl flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
+                                <div class="bg-white/15 px-2.5 py-2 rounded-lg flex shrink-0">
+                                    <span class="material-symbols-outlined text-white text-xl!">location_on</span>
+                                </div>
+                                <p class="text-sm font-bold leading-snug text-white">
+                                    <?= !empty($sekolah['alamat']) ? esc($sekolah['alamat']) . ', ' : '' ?>
+                                    <?= !empty($sekolah['nama_kecamatan']) ? "Kec. " . esc($sekolah['nama_kecamatan']) : '' ?>
+                                </p>
+                            </div>
+                            <button class="h-fit self-end bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-black/30 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
+                                <span class="material-symbols-outlined text-xl!">map</span>
+                                Lihat di Peta
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFO CARD — HANYA tampil di bawah md, di bawah gambar -->
+            <div class="md:hidden p-6 space-y-5">
+                <h1 class="text-2xl sm:text-3xl font-heading font-extrabold leading-tight text-foreground break-words">
+                    <?= esc($baris1) ?> <br />
+                    <span class="text-foreground/80"><?= esc($baris2) ?></span>
+                </h1>
+                <div class="flex items-start gap-3 p-4 bg-muted/30 rounded-xl border border-border/50">
+                    <div class="bg-primary/10 p-2.5 rounded-lg flex shrink-0">
+                        <span class="material-symbols-outlined text-primary text-xl!">location_on</span>
+                    </div>
+                    <p class="text-sm font-bold leading-snug text-foreground">
+                        <?= !empty($sekolah['alamat']) ? esc($sekolah['alamat']) . ', ' : '' ?>
+                        <?= !empty($sekolah['nama_kecamatan']) ? "Kec. " . esc($sekolah['nama_kecamatan']) : '' ?>
+                    </p>
+                </div>
+                <button class="w-full justify-center bg-primary text-primary-foreground px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-black/30 text-xs uppercase tracking-widest" onclick="switchTab('lokasi')">
+                    <span class="material-symbols-outlined text-xl!">map</span>
+                    Lihat di Peta
+                </button>
+            </div>
+        </section>
+    </section>
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 mb-20" id="tab">
+
         <div class="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8">
-            <div class="space-y-12 bg-card p-8 h-fit rounded-2xl">
+            <div class="space-y-12 bg-card p-6 md:p-8 h-fit rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
                 <!-- Tabs Navigation -->
                 <div class="flex flex-wrap gap-10 border-b border-border pb-px">
                     <button class="group relative pb-6" onclick="switchTab('profil')">
@@ -204,14 +200,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
+                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
                         <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
                         <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Visi</h3>
                         <p class="text-xl md:text-2xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
                             "<?= esc($sekolah['visi'] ?? "Belum ada visi yang ditetapkan") ?>"
                         </p>
                     </div>
-                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group">
+                    <div class="p-6 md:p-10 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden group shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
                         <span class="material-symbols-outlined text-[140px]! text-primary/5 absolute -right-4 -top-4 font-bold italic transition-colors group-hover:text-primary/10">format_quote</span>
                         <h3 class="text-sm font-bold text-primary mb-6 uppercase tracking-[0.2em]">Misi</h3>
                         <p class="md:text-xl italic font-medium leading-relaxed text-foreground relative z-10 max-w-3xl">
@@ -289,7 +285,7 @@
                 </div>
             </div>
             <!-- Sidebar -->
-            <aside class="space-y-12 bg-card p-8 h-fit rounded-2xl">
+            <aside class="space-y-12 bg-card p-6 md:p-8 h-fit rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
                 <!-- Contact Card -->
                 <div class="bg-primary text-primary-foreground p-10 rounded-[2rem] shadow-2xl shadow-primary/20 space-y-10 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20 blur-2xl"></div>
@@ -531,7 +527,7 @@
             .bindPopup(
                 `
                 <div class="font-sans" style="font-family:'Plus Jakarta Sans',sans-serif; min-width:260px;">
-                    <div class="relative h-32 overflow-hidden">
+                    <div class="relative aspect-video overflow-hidden">
                     <?php if (!empty($sekolah['foto_utama'])) : ?>
                         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             src="<?= base_url('uploads/sekolah/' . esc($sekolah['foto_utama'])) ?>" alt="<?= $sekolah['nama_sekolah'] ?? '' ?>">

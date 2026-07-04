@@ -7,7 +7,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div class="lg:col-span-7 space-y-6 sm:space-y-8 lg:space-y-10">
 
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-headline font-bold text-foreground leading-[1.1] tracking-tight">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-headline font-bold text-foreground leading-[1.1] tracking-tight">
                     Pemetaan <br />
                     <span class="text-primary relative inline-block">
                         Sekolah
@@ -118,9 +118,6 @@
 
                 <!-- Card 1 -->
                 <?php if (!empty($sekolah)): ?>
-                    <?php
-
-                    ?>
                     <?php foreach ($sekolah as $item):
                         // 1. Logika Warna Jenjang menggunakan match
                         $bgJenjang = match (strtoupper($item['jenjang'])) {
@@ -140,7 +137,7 @@
                         };
                     ?>
                         <div class="school-card-vibrant bg-card text-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
-                            <div class="relative h-44 overflow-hidden">
+                            <div class="relative aspect-video overflow-hidden">
                                 <?php if (!empty($s['foto_utama'])): ?>
                                     <!-- Gambar Sekolah Dinamis -->
                                     <img alt="<?= esc($item['nama_sekolah']) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?= base_url('uploads/sekolah') . '/' . esc($sekolah['foto_utama']) ?>" />
@@ -162,16 +159,16 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="p-5 flex flex-col gap-4 sm:gap-6">
+                            <div class="p-5 flex flex-col gap-4 md:gap-2.5">
                                 <div class="flex flex-col gap-0.5">
                                     <!-- Nama Sekolah Dinamis -->
                                     <h3 class="font-headline font-bold text-lg group-hover:text-primary transition-colors truncate"><?= esc($item['nama_sekolah']) ?></h3>
                                     <h3 class="group-hover:text-primary transition-colors">NPSN <?= esc($item['npsn']) ?></h3>
                                 </div>
                                 <div class="flex items-center gap-1.5 text-muted-foreground">
-                                    <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+                                    <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                                     <!-- Alamat Dinamis -->
-                                    <span class="text-[13px]"><?= esc($item['alamat']) ?></span>
+                                    <span class="text-[13px]"><?= !empty($item['alamat']) ? esc($item['alamat']) . ', ' : '' ?><?= !empty($item['nama_kecamatan']) ? 'Kec. ' . esc($item['nama_kecamatan']) : '' ?></span>
                                 </div>
                                 <div class="flex justify-center items-center pt-4 border-t border-dashed border-border">
 
@@ -198,7 +195,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl space-y-10 sm:space-y-12 lg:space-y-16">
             <div class="text-center space-y-3 sm:space-y-4">
                 <h2 class="text-2xl sm:text-3xl font-headline font-bold text-foreground">Pertanyaan Umum</h2>
-                <p class="text-muted-foreground">Segala hal yang perlu Anda ketahui tentang SiGIS Sekolah.</p>
+                <p class="text-muted-foreground">Segala hal yang perlu Anda ketahui tentang GIS Sekolah.</p>
             </div>
             <div class="space-y-3 sm:space-y-4">
                 <div class="accordion-item bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-all">

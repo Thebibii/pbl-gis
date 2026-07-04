@@ -1,17 +1,17 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 overflow-y-auto p-8 space-y-8">
-    <div class="flex justify-between items-end">
+<section class="flex-1 overflow-y-auto p-6 pt-12 md:p-8 md:pt-12 space-y-8">
+    <div class="flex flex-col md:flex-row justify-between gap-x-12 gap-y-4">
         <div>
             <h1 class="text-3xl font-extrabold text-foreground">Edit Pengguna</h1>
             <p class="text-sm font-medium text-muted-foreground mt-1">Perbarui informasi akun pengguna.</p>
         </div>
-        <div class="flex gap-3">
-            <a href="<?= url_to('admin.user') ?>" class="px-6 py-2.5 rounded-xl border border-border text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all">
+        <div class="flex w-fit gap-3 items-center self-end">
+            <a href="<?= url_to('admin.user') ?>" class="inline-flex items-center w-fit px-6 py-2.5 rounded-xl border border-border text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all">
                 Batal
             </a>
             <?php if ($role !== 'operator_sekolah'): ?>
-                <button form="form-user" type="submit" class="px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
+                <button form="form-user" type="submit" class="inline-flex items-center w-fit px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
                     Simpan Perubahan
                 </button>
             <?php endif; ?>
@@ -76,7 +76,8 @@
                     akan dikembalikan ke NPSN sekolah (<span class="font-mono"><?= esc($sekolah['npsn'] ?? '-') ?></span>).
                     Gunakan ini jika operator lupa kredensial.
                 </p>
-                <form action="<?= url_to('admin.user.resetDefault', $user->id) ?>" method="POST" onsubmit="return confirm('Yakin reset akun ini ke kredensial default? Email & password saat ini akan diganti.')">
+                <?= $user->id ?>
+                <form action="<?= url_to('admin.user.resetDefault', $user->id) ?>" method="POST">
                     <?= csrf_field() ?>
                     <button type="submit" class="px-6 py-2.5 rounded-xl border border-red-200 text-red-600 font-bold text-sm hover:bg-red-50 transition-all">
                         Reset ke Default
@@ -93,7 +94,7 @@
         <form id="form-user" action="<?= url_to('admin.user.update', $user->id) ?>" method="POST" class="space-y-8">
             <?= csrf_field() ?>
 
-            <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
+            <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
                 <div class="flex items-center gap-3 mb-8">
                     <h2 class="text-xl font-bold">Informasi Akun</h2>
                 </div>

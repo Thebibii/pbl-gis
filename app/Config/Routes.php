@@ -76,7 +76,7 @@ $routes->group('admin', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->post('user/store', 'Admin\UserController::store', ['as' => 'admin.user.store']);
     $routes->get('user/(:segment)/edit', 'Admin\UserController::edit/$1', ['as' => 'admin.user.edit']);
     $routes->post('user/(:segment)/update', 'Admin\\UserController::update/$1', ['as' => 'admin.user.update']);
-    $routes->post('user/(:segment)/reset-default', 'Admin\\UserController::resetToDefault', ['as' => 'admin.user.resetDefault']);
+    $routes->post('user/(:segment)/reset-default', 'Admin\\UserController::resetToDefault/$1', ['as' => 'admin.user.resetDefault']);
     $routes->post('user/(:segment)/delete', 'Admin\\UserController::delete/$1', ['as' => 'admin.user.delete']);
 
     // WILAYAH

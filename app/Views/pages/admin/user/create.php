@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/admin-dashboard') ?>
 <?= $this->section('content') ?>
-<section class="flex-1 overflow-y-auto p-8 space-y-8">
+<section class="flex-1 overflow-y-auto p-6 pt-12 md:p-8 md:pt-12 space-y-8">
     <div class="flex justify-between items-end">
         <div>
             <h1 class="text-3xl font-extrabold text-foreground">Tambah Pengguna</h1>
@@ -20,7 +20,7 @@
         <?= csrf_field() ?>
 
         <!-- Section: Informasi Akun -->
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="account-info">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="account-info">
             <div class="flex items-center gap-3 mb-8">
                 <h2 class="text-xl font-bold">Informasi Akun</h2>
             </div>
@@ -60,7 +60,7 @@
         </section>
 
         <!-- Section: Role & Akses -->
-        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-[2rem] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="role-info">
+        <section class="bg-white/80 backdrop-blur-md border border-white/30 p-4.5 md:p-8 rounded-2xl md:rounded-4xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]" id="role-info">
             <div class="flex items-center gap-3 mb-8">
                 <div>
                     <h2 class="text-xl font-bold">Role & Akses</h2>
