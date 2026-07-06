@@ -33,7 +33,7 @@
             </div>
             <div class="lg:col-span-5 relative hidden lg:block">
                 <div class="floating-3d relative">
-                    <div class="absolute -inset-10 bg-primary/5 blur-[100px] rounded-full"></div>
+                    <div class="absolute bg-primary/5 blur-[100px] rounded-full"></div>
                     <div class="relative glass-effect p-6 rounded-[40px] shadow-[0_32px_64px_-16px_rgba(var(--primary),0.2)] transform perspective-1000 rotate-y-12">
                         <img alt="Map Data Visualization" class="rounded-[28px] w-full object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhYntSYsYQw8N0VTDyIC69MTWDLfdcqgXGFKocJZl5RDg0CmHmHJ3LKneDJSqXg7L2kKnHwk62VrOia-QXGkOpxCXF7N1i5ZRJJa_mXQnVYET4lXpSaCoUVzva4BW81jxhgQeKr0FqxZkP1x__PCaML_Po0qgWGrKMQrBzhjxy87mOi62brgtGTT1Qp4Sn2yAy9Bvk-PlLWMiactHf8K9RuN2q93owBzOQd5TnDkN7U-uNKqRMBZrcLjn__0yqBWmZkPiRy6tjD5E" />
                         <!-- <div class="absolute -bottom-10 -left-12 glass-effect p-5 rounded-3xl shadow-2xl flex items-center gap-4">
@@ -143,7 +143,7 @@
                                     <img alt="<?= esc($item['nama_sekolah']) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?= base_url('uploads/sekolah') . '/' . esc($sekolah['foto_utama']) ?>" />
                                 <?php else: ?>
                                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                                        <span class="material-symbols-outlined text-4xl text-slate-400">school</span>
+                                        <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
                                     </div>
                                 <?php endif; ?>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

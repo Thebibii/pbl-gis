@@ -45,7 +45,6 @@ class DashboardController extends BaseController
         $akreditasi_rows = $db->table('sekolah')
             ->select('akreditasi, COUNT(*) as jumlah')
             ->where('is_active', 1)
-            ->where('deleted_at', null)
             ->groupBy('akreditasi')
             ->get()->getResultArray();
 

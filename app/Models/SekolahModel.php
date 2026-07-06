@@ -34,12 +34,11 @@ class SekolahModel extends Model
         'is_active',
     ];
 
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
     protected $beforeInsert = ['generateSlug'];
     protected $beforeUpdate = ['generateSlug'];
@@ -74,8 +73,7 @@ class SekolahModel extends Model
 
     public function getFiltered(string $search = '', string $jenjang = '', int $perPage = 10): array
     {
-        $builder = $this->select('id, npsn, nama_sekolah, slug, jenjang, status, akreditasi, alamat')
-            ->where('deleted_at', null);
+        $builder = $this->select('id, npsn, nama_sekolah, slug, jenjang, status, akreditasi, alamat');
 
         if ($search !== '') {
             $builder->groupStart()
@@ -109,8 +107,7 @@ class SekolahModel extends Model
                   sekolah.status, sekolah.akreditasi, sekolah.alamat, sekolah.foto_utama,
                   kecamatan.nama_kecamatan')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
-            ->where('sekolah.is_active', 1)
-            ->where('sekolah.deleted_at', null); // eksplisit agar countAllResults(false) ikut filter
+            ->where('sekolah.is_active', 1);
 
         if (!empty($filters['jenjang'])) {
             $builder->where('sekolah.jenjang', $filters['jenjang']);
@@ -128,6 +125,15 @@ class SekolahModel extends Model
                 $filters['akreditasi']
             );
             $builder->whereIn('sekolah.akreditasi', $akreditasi);
+        }
+
+        if (!empty($filters['search'])) {
+            $keyword = trim($filters['search']);
+            $builder->groupStart()
+                ->like('sekolah.nama_sekolah', $keyword)
+                ->orLike('sekolah.npsn', $keyword)
+                ->orLike('sekolah.alamat', $keyword)
+                ->groupEnd();
         }
 
         // Sorting

@@ -17,9 +17,6 @@
                 </p>
             </div>
             <div class="flex gap-3">
-                <button class="px-4 py-2 rounded-xl border border-border text-muted-foreground font-bold text-xs uppercase tracking-wider hover:bg-slate-50 transition-colors">
-                    BATAL
-                </button>
                 <button
                     type="submit"
                     form="form-sekolah" class="px-6 py-2 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2">
@@ -116,7 +113,7 @@
                                     value="<?= old('nama_kepsek', $sekolah['nama_kepsek']) ?>"
                                     placeholder="Masukkan nama lengkap kepala sekolah"
                                     required
-                                    class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                    class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                 <?php if (session('validation') && session('validation')->hasError('nama_kepsek')) : ?>
                                     <p class="text-sm text-red-500 mt-1">
@@ -149,7 +146,7 @@
                                     <select
                                         name="akreditasi"
                                         required
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                         <option value="">-- Pilih Akreditasi --</option>
                                         <option value="A" <?= old('akreditasi', $sekolah['akreditasi']) == 'A' ? 'selected' : '' ?>>A</option>
@@ -178,7 +175,7 @@
                                         value="<?= old('kurikulum', $sekolah['kurikulum']) ?>"
                                         placeholder="Contoh: Kurikulum Merdeka"
                                         required
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                     <?php if (session('validation') && session('validation')->hasError('kurikulum')) : ?>
                                         <p class="text-sm text-red-500">
@@ -219,7 +216,7 @@
                                         name="telepon"
                                         value="<?= old('telepon', $sekolah['telepon']) ?>"
                                         placeholder="Contoh: 0751-123456"
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                     <?php if (session('validation') && session('validation')->hasError('telepon')) : ?>
                                         <p class="text-sm text-red-500">
@@ -239,7 +236,7 @@
                                         name="email"
                                         value="<?= old('email', $sekolah['email']) ?>"
                                         placeholder="sekolah@email.com"
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                     <?php if (session('validation') && session('validation')->hasError('email')) : ?>
                                         <p class="text-sm text-red-500">
@@ -259,7 +256,7 @@
                                         name="website"
                                         value="<?= old('website', $sekolah['website']) ?>"
                                         placeholder="https://www.sekolah.sch.id"
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
                                     <?php if (session('validation') && session('validation')->hasError('website')) : ?>
                                         <p class="text-sm text-red-500">
@@ -286,7 +283,7 @@
                                     Luas Lahan (m²) <span class="text-red-500">*</span>
                                 </label>
                                 <div class="relative">
-                                    <input class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 pr-12 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all" placeholder="10000" required type="number" value="12000"/>
+                                    <input class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 pr-12 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all" placeholder="10000" required type="number" value="12000"/>
                                     <span class="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-medium">m²</span>
                                 </div>
                             </div>
@@ -312,8 +309,8 @@
                             name="visi"
                             rows="4"
                             class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
-                focus:ring-2 focus:ring-primary/20 focus:bg-white
-                focus:border-primary transition-all"
+                focus:ring-2 focus:ring-primary/50 focus:bg-white
+                focus:border-primary outline-none transition-all"
                             placeholder="Masukkan visi sekolah"><?= old('visi', esc($sekolah['visi'])) ?></textarea>
 
                         <?php if (session('errors.visi')): ?>
@@ -333,8 +330,8 @@
                             name="misi"
                             rows="7"
                             class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium
-                focus:ring-2 focus:ring-primary/20 focus:bg-white
-                focus:border-primary transition-all"
+                focus:ring-2 focus:ring-primary/50 focus:bg-white
+                focus:border-primary outline-none transition-all"
                             placeholder="Masukkan misi sekolah"><?= old('misi', esc($sekolah['misi'])) ?></textarea>
 
                         <?php if (session('errors.misi')): ?>
@@ -369,7 +366,7 @@
                                     rows="4"
                                     required
                                     placeholder="Jalan, RT/RW, Kelurahan, Kecamatan..."
-                                    class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all resize-none"><?= old('alamat', $sekolah['alamat']) ?></textarea>
+                                    class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all resize-none"><?= old('alamat', $sekolah['alamat']) ?></textarea>
 
                                 <?php if (session('validation') && session('validation')->hasError('alamat')) : ?>
                                     <p class="text-sm text-red-500">
@@ -390,7 +387,7 @@
                                         type="number"
                                         step="any"
                                         value="<?= old('latitude', $sekolah['latitude']) ?>"
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
                                 </div>
 
                                 <div class="space-y-2">
@@ -404,7 +401,7 @@
                                         type="number"
                                         step="any"
                                         value="<?= old('longitude', $sekolah['longitude']) ?>"
-                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all">
+                                        class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
                                 </div>
                             </div>
                             <input
@@ -415,7 +412,7 @@
                         </div>
                         <div class="space-y-3 h-full min-h-[240px] flex flex-col">
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
-                            <div class="relative w-full aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
+                            <div class="relative w-full aspect-square sm:aspect-video md:aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden flex items-center justify-center group cursor-pointer">
                                 <!-- Stylized Map Background (Grid Pattern) -->
                                 <div class="absolute inset-0 z-0">
                                     <div id="map" class="w-full h-full"></div>
@@ -427,7 +424,7 @@
 
                                     <p
                                         id="btn-pinpoint-label"
-                                        class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary">
+                                        class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary whitespace-nowrap">
 
                                         <span class="material-symbols-outlined text-sm">
                                             ads_click
@@ -651,7 +648,7 @@
             } else {
 
                 btnPinLabel.className =
-                    "bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary";
+                    "bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary whitespace-nowrap";
 
                 btnPinLabel.innerHTML = `
             <span class="material-symbols-outlined text-sm">

@@ -18,17 +18,6 @@
         </div>
     </div>
 
-    <?php if (session('success')): ?>
-        <div class="bg-green-50 border border-green-200 rounded-xl p-4 text-sm font-medium text-green-700">
-            <?= session('success') ?>
-        </div>
-    <?php endif; ?>
-    <?php if (session('error')): ?>
-        <div class="bg-red-50 border border-red-200 rounded-xl p-4 text-sm font-medium text-red-700">
-            <?= session('error') ?>
-        </div>
-    <?php endif; ?>
-
     <?php if ($role === 'operator_sekolah'): ?>
 
         <!-- ============================================= -->
@@ -76,7 +65,6 @@
                     akan dikembalikan ke NPSN sekolah (<span class="font-mono"><?= esc($sekolah['npsn'] ?? '-') ?></span>).
                     Gunakan ini jika operator lupa kredensial.
                 </p>
-                <?= $user->id ?>
                 <form action="<?= url_to('admin.user.resetDefault', $user->id) ?>" method="POST">
                     <?= csrf_field() ?>
                     <button type="submit" class="px-6 py-2.5 rounded-xl border border-red-200 text-red-600 font-bold text-sm hover:bg-red-50 transition-all">

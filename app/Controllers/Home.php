@@ -109,6 +109,7 @@ class Home extends BaseController
             'status'     => $json['status']     ?? [],
             'akreditasi' => $json['akreditasi'] ?? [],
             'sort'       => $json['sort']       ?? 'rekomendasi',
+            'search'     => trim((string) ($json['search'] ?? '')),
         ];
         $page = max(1, (int) ($json['page'] ?? 1));
 
@@ -159,7 +160,7 @@ class Home extends BaseController
             ->getRowArray();
 
         if (!$sekolah) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException("Sekolah tidak ditemukan.");
+            return $this->show404();
         }
 
         $sekolahId = $sekolah['id'];
@@ -212,7 +213,6 @@ class Home extends BaseController
       AND s.is_active = 1
       AND s.latitude IS NOT NULL
       AND s.longitude IS NOT NULL
-      AND s.deleted_at IS NULL
     ORDER BY jarak_km ASC
     LIMIT 3
 ", [$lat, $lng, $lat, $sekolahId])->getResultArray();
@@ -225,6 +225,18 @@ class Home extends BaseController
             'fasilitas' => $fasilitas,
             'prestasi'  => $prestasi,
             'sekolahTerdekat'  => $sekolahTerdekat, // tambah ini
+        ]);
+    }
+
+    private function show404()
+    {
+        return view('pages/sekolah', [
+            'slug'      => null,
+            'sekolah'   => [],
+            'statistik' => [],
+            'fasilitas' => [],
+            'prestasi'  => [],
+            'sekolahTerdekat'  => [], // tambah ini
         ]);
     }
 

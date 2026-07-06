@@ -33,6 +33,78 @@ class UserController extends BaseController
         ]);
     }
 
+    public function delete($id)
+    {
+
+        $users = $this->userModel;
+        $user  = $users->find($id);
+
+        // 1. Pastikan user ada
+        if (! $user) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User tidak ditemukan.',
+            ]);
+        }
+
+        // 2. Cegah user menghapus akun miliknya sendiri
+        if ((string) $id === (string) auth()->id()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Tidak bisa menghapus akun yang sedang login.',
+            ]);
+        }
+
+        // 3. Cegah menghapus superadmin terakhir
+        if (in_array('superadmin', $user->getGroups(), true)) {
+            $superadminCount = $users->whereIn('id', function ($builder) {
+                $builder->select('user_id')
+                    ->from('auth_groups_users')
+                    ->where('group', 'superadmin');
+            })->countAllResults();
+
+            if ($superadminCount <= 1) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Tidak bisa menghapus superadmin terakhir.',
+                ]);
+            }
+        }
+
+        // 4. Cegah delete operator_sekolah HANYA kalau sekolahnya masih AKTIF (belum soft-deleted)
+        if (in_array('operator_sekolah', $user->getGroups(), true) && ! empty($user->sekolah_id)) {
+            $otherOperatorCount = $users
+                ->where('sekolah_id', $user->sekolah_id)
+                ->where('id !=', $id)
+                ->countAllResults();
+
+            if ($otherOperatorCount === 0) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'User ini adalah satu-satunya operator untuk sekolah tersebut. Hapus sekolahnya terlebih dahulu.',
+                ]);
+            }
+        }
+
+        // 5. Eksekusi delete
+        try {
+            $users->delete($id);
+
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'User berhasil dihapus.',
+            ]);
+        } catch (\Throwable $e) {
+            log_message('error', '[UserController::delete] ' . $e->getMessage());
+
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Gagal menghapus user, coba lagi.',
+            ]);
+        }
+    }
+
+
     public function getData()
     {
         $search  = trim($this->request->getGet('search') ?? '');
@@ -105,7 +177,7 @@ class UserController extends BaseController
     {
         $user = $this->userModel->findById($id);
 
-        if (! $user) {
+        if (!$user) {
             return redirect()->to(route_to('admin.user'))->with('error', 'Pengguna tidak ditemukan.');
         }
 

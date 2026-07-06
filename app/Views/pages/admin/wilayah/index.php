@@ -21,32 +21,6 @@
             </button> -->
         </header>
 
-        <!-- Flash messages -->
-        <?php if (session()->getFlashdata('success')) : ?>
-            <div class="bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-bold px-4 py-3 rounded-xl flex items-center gap-2">
-                <span class="material-symbols-outlined">check_circle</span>
-                <?= esc(session()->getFlashdata('success')) ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (session()->getFlashdata('error')) : ?>
-            <div class="bg-rose-50 border border-rose-200 text-rose-700 text-sm font-bold px-4 py-3 rounded-xl flex items-center gap-2">
-                <span class="material-symbols-outlined">error</span>
-                <?= esc(session()->getFlashdata('error')) ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (session()->getFlashdata('errors')) : ?>
-            <div class="bg-rose-50 border border-rose-200 text-rose-700 text-sm font-bold px-4 py-3 rounded-xl space-y-1">
-                <p class="flex items-center gap-2"><span class="material-symbols-outlined">error</span> Validasi gagal:</p>
-                <ul class="list-disc list-inside pl-6 font-normal">
-                    <?php foreach (session()->getFlashdata('errors') as $err) : ?>
-                        <li><?= esc($err) ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
-
         <!-- Search (button only, server-side) -->
         <section class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
             <form method="get" action="<?= url_to('admin.wilayah') ?>" class="flex gap-3">

@@ -59,20 +59,27 @@ class SekolahController extends BaseController
 
     public function delete(string $slug)
     {
-        // Verifikasi method spoofing
-        // if ($this->request->getPost('_method') !== 'DELETE') {
-        //     return redirect()->to(route_to('admin.sekolah'));
-        // }
-
         $sekolah = $this->sekolahModel->where('slug', $slug)->first();
 
-        if (!$sekolah) {
-            return $this->response->setJSON(['success' => false, 'message' => 'Data tidak ditemukan.']);
+        if (! $sekolah) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Data tidak ditemukan.',
+            ]);
         }
 
+        // Hapus user yang terkait dengan sekolah
+        $this->userModel
+            ->where('sekolah_id', $sekolah['id'])
+            ->delete();
+
+        // Hapus sekolah
         $this->sekolahModel->delete($sekolah['id']);
 
-        return $this->response->setJSON(['success' => true, 'message' => 'Data berhasil dihapus.']);
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Data berhasil dihapus.',
+        ]);
     }
 
     public function create()
@@ -695,7 +702,6 @@ class SekolahController extends BaseController
             ->select('sekolah.*, kecamatan.nama_kecamatan')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
             ->where('sekolah.slug', $slug)
-            ->where('sekolah.deleted_at', null)
             ->first();
 
         // 404 jika tidak ditemukan

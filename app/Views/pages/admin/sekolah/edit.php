@@ -303,12 +303,10 @@
 
                 <div class="md:col-span-2 space-y-3">
                     <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
-                    <div class="relative w-full aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden">
+                    <div class="relative w-full aspect-square sm:aspect-video md:aspect-16/7 bg-slate-100 rounded-4xl border border-slate-200 overflow-hidden">
                         <div id="map" class="w-full h-full"></div>
                         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-[999] cursor-pointer" id="btn-pinpoint">
-                            <p id="btn-pinpoint-label" class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50
-                                      text-xs font-bold text-slate-600 flex items-center gap-2 transition-all
-                                      hover:bg-primary hover:text-white hover:border-primary select-none">
+                            <p id="btn-pinpoint-label" class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-xs font-bold text-slate-600 flex items-center gap-2 transition-all hover:bg-primary hover:text-white hover:border-primary select-none whitespace-nowrap">
                                 <span class="material-symbols-outlined text-sm">ads_click</span>
                                 KLIK UNTUK PIN POINT
                             </p>
@@ -832,7 +830,7 @@
             } else {
 
                 btnPinLabel.className =
-                    "bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary";
+                    "bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-white/50 text-[10px] font-bold text-slate-600 flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary whitespace-nowrap";
 
                 btnPinLabel.innerHTML = `
             <span class="material-symbols-outlined text-sm">

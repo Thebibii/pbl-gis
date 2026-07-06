@@ -29,7 +29,8 @@ class UserModel extends ShieldUserModel
             ->select('u.id, u.username, u.active, ui.secret AS email, g.group, s.nama_sekolah, s.slug AS sekolah_slug')
             ->join('auth_identities ui', "ui.user_id = u.id AND ui.type = 'email_password'", 'left')
             ->join('auth_groups_users g', 'g.user_id = u.id', 'left')
-            ->join('sekolah s', 's.id = u.sekolah_id', 'left');
+            ->join('sekolah s', 's.id = u.sekolah_id', 'left')
+            ->where('u.deleted_at', null);
 
         if ($search !== '') {
             $builder->groupStart()

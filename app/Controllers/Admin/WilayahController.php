@@ -30,7 +30,6 @@ class WilayahController extends BaseController
         return (int) $db->table('sekolah')
             ->where('kecamatan_id', $kecamatanId)
             ->where('is_active', 1)
-            ->where('deleted_at IS NULL')
             ->countAllResults();
     }
 

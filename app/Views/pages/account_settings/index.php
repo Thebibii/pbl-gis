@@ -17,26 +17,6 @@
             </div>
         </header>
 
-        <!-- ALERT SUCCESS -->
-        <?php if (session()->getFlashdata('success')): ?>
-            <div class="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-2xl flex items-center gap-3">
-                <span class="material-symbols-outlined text-green-600">check_circle</span>
-                <p class="text-sm font-medium"><?= session()->getFlashdata('success') ?></p>
-            </div>
-        <?php endif; ?>
-
-        <!-- ALERT ERROR -->
-        <?php if (session()->getFlashdata('errors')): ?>
-            <div class="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-2xl flex items-center gap-3">
-                <span class="material-symbols-outlined text-red-600">error</span>
-                <div>
-                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                        <p class="text-sm font-medium"><?= esc($error) ?></p>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        <?php endif; ?>
-
         <!-- FORM PENGATURAN -->
         <form action="<?= route_to('account.settings.update') ?>" method="post" class="space-y-8">
             <?= csrf_field() ?>

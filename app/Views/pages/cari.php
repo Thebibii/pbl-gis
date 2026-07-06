@@ -77,20 +77,29 @@
     <!-- Main Content Area -->
     <section class="p-4 sm:p-6 md:p-8 lg:p-12 col-span-1 lg:col-span-9">
         <!-- Header & Controls -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 lg:gap-8 mb-8 lg:mb-12">
+        <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-4 sm:gap-6 lg:gap-8 mb-8 lg:mb-12">
             <div>
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-headline font-bold text-foreground mb-3 tracking-tight">Eksplorasi <span class="text-primary">Sekolah</span></h1>
                 <p class="text-muted-foreground text-sm font-medium">
                     Menampilkan <span class="text-foreground font-bold" id="total-count"><?= (int) $initialData['total'] ?></span> institusi pendidikan terbaik di zona Anda.
                 </p>
             </div>
-            <div class="relative w-full sm:w-auto sm:min-w-[160px]">
-
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none ">sort</span>
-                <select id="sort-select" class="w-full appearance-none pl-10 pr-4 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
-                    <option value="rekomendasi">Rekomendasi</option>
-                    <option value="akreditasi">Akreditasi</option>
-                </select>
+            <div class="flex w-full md:w-fit flex-col sm:flex-row justify-end md:self-end gap-4">
+                <div class="relative w-auto sm:min-w-[320px]">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2  text-muted-foreground">search</span>
+                    <input
+                        id="search-input"
+                        type="text"
+                        placeholder="Cari sekolah..."
+                        class="w-full pl-10 pr-4 py-3 text-sm rounded-xl border border-primary/50 bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
+                </div>
+                <div class="relative w-full sm:w-auto sm:min-w-[160px]">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none ">sort</span>
+                    <select id="sort-select" class="w-full appearance-none pl-10 pr-4 py-3 bg-slate-100 border border-primary/50 rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/50">
+                        <option value="rekomendasi">Rekomendasi</option>
+                        <option value="akreditasi">Akreditasi</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -174,6 +183,7 @@
             jenjang: '',
             status: [],
             akreditasi: [],
+            search: '',
             sort: 'rekomendasi',
             page: <?= (int) $initialData['page'] ?>,
             totalPages: <?= (int) $initialData['total_pages'] ?>
@@ -194,7 +204,7 @@
         const filterBackdrop = document.getElementById('filter-backdrop');
         const filterOpenBtn = document.getElementById('filter-open-btn');
         const filterCloseBtn = document.getElementById('filter-panel-close');
-        const mqDesktop = window.matchMedia('(min-width: 1024px)'); // breakpoint lg Tailwind
+        const mqDesktop = window.matchMedia('(min-width: 1024px)');
 
         function openFilterPanel() {
             filterPanel.classList.remove('-translate-x-full');
@@ -366,6 +376,7 @@
                 jenjang: state.jenjang,
                 status: state.status,
                 akreditasi: state.akreditasi,
+                search: state.search,
                 sort: state.sort,
                 page: page
             };
@@ -499,11 +510,24 @@
             fetchData(1);
         });
 
+        const searchInput = document.getElementById('search-input');
+        let searchDebounceTimer = null;
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(() => {
+                state.search = searchInput.value.trim();
+                fetchData(1);
+            }, 400); // tunggu 400ms setelah user berhenti mengetik
+        });
+
         // --- Reset ---
         document.getElementById('reset-filters').addEventListener('click', () => {
             state.jenjang = '';
             state.status = [];
             state.akreditasi = [];
+            state.search = '';
+            searchInput.value = '';
             state.sort = 'rekomendasi';
             sortSelect.value = 'rekomendasi';
 

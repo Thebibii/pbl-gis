@@ -319,11 +319,55 @@
     </button>`;
 
         let pages = '';
-        for (let i = 1; i <= lastPage; i++) {
-            if (i === 1 || i === lastPage || (i >= cur - 1 && i <= cur + 1)) {
-                pages += `<button onclick="goTo(${i})" class="${i === cur ? active : normal}">${i}</button>`;
-            } else if (i === cur - 2 || i === cur + 2) {
-                pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+        if (lastPage <= 4) {
+            // Jika total halaman <= 4, tampilkan semua
+            for (let i = 1; i <= lastPage; i++) {
+                pages += `
+            <button onclick="goTo(${i})"
+                class="${i === cur ? active : normal}">
+                ${i}
+            </button>`;
+            }
+        } else if (cur <= 3) {
+            // Awal: 1 2 3 ... last
+            for (let i = 1; i <= 3; i++) {
+                pages += `
+            <button onclick="goTo(${i})"
+                class="${i === cur ? active : normal}">
+                ${i}
+            </button>`;
+            }
+
+            pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+            pages += `
+        <button onclick="goTo(${lastPage})"
+            class="${lastPage === cur ? active : normal}">
+            ${lastPage}
+        </button>`;
+        } else {
+            // Tengah & Akhir: 1 ... current last
+            pages += `
+        <button onclick="goTo(1)"
+            class="${cur === 1 ? active : normal}">
+            1
+        </button>`;
+
+            pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+            pages += `
+        <button onclick="goTo(${cur})"
+            class="${cur === cur ? active : normal}">
+            ${cur}
+        </button>`;
+
+            if (cur < lastPage) {
+                pages += `
+            <button onclick="goTo(${lastPage})"
+                class="${lastPage === cur ? active : normal}">
+                ${lastPage}
+            </button>`;
             }
         }
 
@@ -340,12 +384,24 @@
 
     // Buat list nomor halaman dengan ellipsis
     function buildPageList(current, last) {
-        if (last <= 7) return Array.from({
-            length: last
-        }, (_, i) => i + 1);
-        if (current <= 4) return [1, 2, 3, 4, 5, '...', last];
-        if (current >= last - 3) return [1, '...', last - 4, last - 3, last - 2, last - 1, last];
-        return [1, '...', current - 1, current, current + 1, '...', last];
+        if (last <= 4) {
+            return Array.from({
+                length: last
+            }, (_, i) => i + 1);
+        }
+
+        // Awal
+        if (current <= 2) {
+            return [1, 2, 3, '...', last];
+        }
+
+        // Akhir
+        if (current >= last - 1) {
+            return [1, '...', last - 2, last - 1, last];
+        }
+
+        // Tengah
+        return [1, '...', current, current + 1, '...', last];
     }
 
     // ── Delete modal ─────────────────────────────────────────────────
@@ -369,6 +425,7 @@
     });
 
     // Handle submit delete → AJAX, lalu refresh tabel
+    // Handle submit delete → AJAX, lalu refresh tabel
     document.getElementById('delete-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const form = this;
@@ -386,11 +443,12 @@
                 closeDeleteModal();
                 if (res.success) {
                     fetchData(currentPage);
+                    showAlert('success', res.message ?? 'Data berhasil dihapus.');
                 } else {
-                    alert(res.message ?? 'Gagal menghapus data.');
+                    showAlert('error', res.message ?? 'Gagal menghapus data.');
                 }
             })
-            .catch(() => alert('Terjadi kesalahan, coba lagi.'));
+            .catch(() => showAlert('error', 'Terjadi kesalahan, coba lagi.'));
     });
 
     // ── Helper XSS escape ────────────────────────────────────────────

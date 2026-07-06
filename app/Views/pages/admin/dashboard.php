@@ -194,6 +194,8 @@
         // ── Popup builder ──────────────────────────────────────────────
         function buildPopup(s) {
             const statusBg = s.status === 'Negeri' ? 'bg-primary text-primary' : 'bg-secondary text-secondary-foreground';
+            const alamat = s.alamat ? `${s.alamat}, ` : '';
+            const kecamatan = s.nama_kecamatan ? `Kec. ${s.nama_kecamatan}` : '';
             return `
         <div class="font-sans" style="font-family:'Plus Jakarta Sans',sans-serif; min-width:260px;">
             <div class="relative h-32 overflow-hidden">
@@ -215,7 +217,7 @@
                 <h3 class="font-bold text-[15px] mb-1 text-slate-800">${s.nama}</h3>
                 <div class="flex items-center gap-1 mb-3">
                     <span class="material-symbols-outlined text-[16px]! text-primary self-start">location_on</span>
-                    <span class="text-[12px] text-slate-500">${s.alamat}</span>
+                    <span class="text-[12px] text-slate-500">${alamat}${kecamatan}</span>
                 </div>
             </div>
         </div>`;
@@ -229,32 +231,41 @@
                 const icon = L.divIcon({
                     className: '',
                     html: `
-                        <div class="
-                        w-2.5 h-2.5
-                        badge-${s.jenis}
-                        rounded-full
-                        border-2 border-white
-                        shadow-md
-                        "></div>
-                        `,
+                <div class="
+                w-2.5 h-2.5
+                badge-${s.jenis}
+                rounded-full
+                border-2 border-white
+                shadow-md
+                "></div>
+                `,
                     iconSize: [10, 10],
                     iconAnchor: [5, 5],
                 });
-                L.marker([s.lat, s.lng], {
+
+                const marker = L.marker([s.lat, s.lng], {
                         icon
                     })
                     .addTo(markerGroup)
                     .bindPopup(buildPopup(s), {
                         maxWidth: 280,
+                        offset: L.point(0, 100),
                         minWidth: 260
                     });
+
+                marker.on('click', function() {
+                    map.panTo([s.lat, s.lng], {
+                        animate: true,
+                        duration: 0.5
+                    });
+                });
             });
         }
         buildMarkers();
 
         // ── Layer kecamatan ────────────────────────────────────────────
         function loadKecamatan() {
-            kecamatanGroup = L.layerGroup();
+            kecamatanGroup = L.featureGroup();
 
             const tooltip = L.tooltip({
                 sticky: true,
@@ -298,12 +309,6 @@
                         lyr.on('mouseout', function() {
                             layer.resetStyle(this);
                             map.removeLayer(tooltip);
-                        });
-                        lyr.on('click', function() {
-                            map.fitBounds(layer.getBounds(), {
-                                padding: [40, 40],
-                                maxZoom: 14
-                            });
                         });
                     }
                 });

@@ -12,7 +12,7 @@
     </button>
 
     <!-- Floating Side Panel / Drawer di mobile -->
-    <aside id="side-panel" class="fixed inset-y-0 left-0 z-99999 md:z-50 w-[85%] max-w-sm -translate-x-full transition-transform duration-300 ease-in-out pointer-events-none flex flex-col lg:translate-x-0 lg:z-40 lg:inset-y-auto lg:left-6 lg:top-24 lg:bottom-6 lg:w-1/3 xl:w-1/4 lg:max-w-none">
+    <aside id="side-panel" class="fixed inset-y-0 left-0 z-99999 w-[85%] max-w-sm -translate-x-full transition-transform duration-300 ease-in-out pointer-events-none flex flex-col lg:translate-x-0 lg:z-40 lg:inset-y-auto lg:left-6 lg:top-24 lg:bottom-6 lg:w-1/3 xl:w-1/4 lg:max-w-none">
         <div class="pointer-events-auto flex flex-col glass-effect shadow-2xl overflow-hidden border-none max-h-full h-full lg:h-auto lg:rounded-2xl">
 
             <!-- Header (selalu terlihat) -->
@@ -49,7 +49,7 @@
                             id="search-input"
                             type="text"
                             placeholder="Cari sekolah..."
-                            class="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-border bg-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all" />
+                            class="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-border bg-secondary/50 focus:outline-none  focus:border-primary transition-all" />
                     </div>
 
                     <!-- Filter Tabs -->
@@ -364,50 +364,11 @@
 
         renderKecamatanToggles();
 
-        // ─── GEOJSON WILAYAH ──────────────────────────────────────────────────────
-        <?php
-        /* fetch("<?= base_url('id1305_tanah_datar.geojson') ?>")
-            .then(res => res.json())
-            .then(data => {
-                const wilayahLayer = L.geoJSON(data, {
-                    style: {
-                        color: '#2563eb',
-                        weight: 1.8,
-                        opacity: 0.9,
-                        fillColor: '#3b82f6',
-                        fillOpacity: 0.06
-                    },
-                    onEachFeature(feature, layer) {
-                        layer.on('mouseover', function() {
-                            this.setStyle({
-                                weight: 3,
-                                color: '#1d4ed8',
-                                fillOpacity: 0.15
-                            });
-                            this.bringToFront();
-                        });
-                        layer.on('mouseout', function() {
-                            wilayahLayer.resetStyle(this);
-                        });
-                    }
-                }).addTo(map);
-                map.fitBounds(wilayahLayer.getBounds(), {
-                    padding: [50, 50],
-                    maxZoom: 14
-                });
-
-                map.once('moveend', function() {
-                    map.setMinZoom(map.getZoom());
-                });
-            })
-            .catch(err => console.error('GeoJSON gagal dimuat:', err)); */ ?>
-
         // ─── CUSTOM MARKER ICON FACTORY ───────────────────────────────────────────
         function createMarkerIcon(sekolah) {
             const isHighlighted = false;
             return L.divIcon({
                 className: '',
-                // html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,
                 html: `
                 <div class="
                 w-2.5 h-2.5

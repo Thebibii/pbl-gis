@@ -320,11 +320,55 @@
         </button>`;
 
         let pages = '';
-        for (let i = 1; i <= lastPage; i++) {
-            if (i === 1 || i === lastPage || (i >= cur - 1 && i <= cur + 1)) {
-                pages += `<button onclick="goTo(${i})" class="${i === cur ? active : normal}">${i}</button>`;
-            } else if (i === cur - 2 || i === cur + 2) {
-                pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+        if (lastPage <= 4) {
+            // Jika total halaman <= 4, tampilkan semua
+            for (let i = 1; i <= lastPage; i++) {
+                pages += `
+            <button onclick="goTo(${i})"
+                class="${i === cur ? active : normal}">
+                ${i}
+            </button>`;
+            }
+        } else if (cur <= 3) {
+            // Awal: 1 2 3 ... last
+            for (let i = 1; i <= 3; i++) {
+                pages += `
+            <button onclick="goTo(${i})"
+                class="${i === cur ? active : normal}">
+                ${i}
+            </button>`;
+            }
+
+            pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+            pages += `
+        <button onclick="goTo(${lastPage})"
+            class="${lastPage === cur ? active : normal}">
+            ${lastPage}
+        </button>`;
+        } else {
+            // Tengah & Akhir: 1 ... current last
+            pages += `
+        <button onclick="goTo(1)"
+            class="${cur === 1 ? active : normal}">
+            1
+        </button>`;
+
+            pages += `<span class="w-8 h-8 flex items-center justify-center text-sm text-slate-400">…</span>`;
+
+            pages += `
+        <button onclick="goTo(${cur})"
+            class="${cur === cur ? active : normal}">
+            ${cur}
+        </button>`;
+
+            if (cur < lastPage) {
+                pages += `
+            <button onclick="goTo(${lastPage})"
+                class="${lastPage === cur ? active : normal}">
+                ${lastPage}
+            </button>`;
             }
         }
 
@@ -414,6 +458,35 @@
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     }
+
+    // Handle submit delete → AJAX, bukan submit native
+    document.getElementById('delete-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(r => r.json())
+            .then(res => {
+                closeDeleteModal();
+                if (res.success) {
+                    fetchUsers(currentPage); // sesuaikan nama fungsi refresh tabel user kamu
+                    showAlert('success', res.message);
+                } else {
+                    showAlert('error', res.message);
+                }
+            })
+            .catch(() => {
+                closeDeleteModal();
+                showAlert('error', 'Terjadi kesalahan, coba lagi.');
+            });
+    });
 
     // Events
     document.getElementById('search-input').addEventListener('input', () => {
