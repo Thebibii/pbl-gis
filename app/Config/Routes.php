@@ -48,7 +48,7 @@ $routes->group('operator', ['filter' => 'group:operator_sekolah'], function ($ro
 });
 
 // ========== ADMIN SUPERADMIN ROUTES ==========
-$routes->group('admin', ['filter' => 'group:superadmin'], function ($routes) {
+$routes->group('admin', ['filter' => 'group:superadmin,operator_dinas'], function ($routes) {
     $routes->get('dashboard', 'Admin\DashboardController::index', ['as' => 'admin.dashboard']);
     $routes->get('sekolah', 'Admin\SekolahController::index', ['as' => 'admin.sekolah']);
     $routes->get('sekolah/data',         'Admin\SekolahController::getData', ['as' => 'admin.sekolah.data']);
@@ -80,8 +80,10 @@ $routes->group('admin', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->post('user/(:segment)/delete', 'Admin\\UserController::delete/$1', ['as' => 'admin.user.delete']);
 
     // WILAYAH
-    $routes->get('wilayah', 'Admin\WilayahController::index', ['as' => 'admin.wilayah']);
-    $routes->post('wilayah/store', 'Admin\WilayahController::store', ['as' => 'admin.wilayah.store']);
-    $routes->post('wilayah/(:segment)/delete', 'Admin\\WilayahController::delete/$1', ['as' => 'admin.wilayah.delete']);
-    $routes->post('wilayah/(:segment)/update', 'Admin\\WilayahController::update/$1', ['as' => 'admin.wilayah.update']);
+    $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
+        $routes->get('wilayah', 'Admin\WilayahController::index', ['as' => 'admin.wilayah']);
+        $routes->post('wilayah/store', 'Admin\WilayahController::store', ['as' => 'admin.wilayah.store']);
+        $routes->post('wilayah/(:segment)/delete', 'Admin\\WilayahController::delete/$1', ['as' => 'admin.wilayah.delete']);
+        $routes->post('wilayah/(:segment)/update', 'Admin\\WilayahController::update/$1', ['as' => 'admin.wilayah.update']);
+    });
 });

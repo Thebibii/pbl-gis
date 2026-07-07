@@ -14,10 +14,12 @@
                     Terdaftar total <span id="info-total" class="font-bold text-primary">—</span> akun pengguna dalam sistem.
                 </p>
             </div>
-            <a href="<?= url_to('admin.user.create') ?>"
-                class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform self-end w-fit whitespace-nowrap">
-                Tambah Pengguna
-            </a>
+            <?php if (auth()->user()->inGroup('superadmin')): ?>
+                <a href="<?= url_to('admin.user.create') ?>"
+                    class="flex text-sm items-center gap-2 px-6 py-2 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-transform self-end w-fit whitespace-nowrap">
+                    Tambah Pengguna
+                </a>
+            <?php endif; ?>
         </header>
 
         <section class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
@@ -33,7 +35,9 @@
                     <select id="filter-group"
                         class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
                         <option value="">Semua Grup</option>
-                        <option value="superadmin">Super Admin</option>
+                        <?php if (auth()->user()->inGroup('superadmin')): ?>
+                            <option value="superadmin">Super Admin</option>
+                        <?php endif; ?>
                         <option value="operator_dinas">Operator Dinas</option>
                         <option value="operator_sekolah">Operator Sekolah</option>
                     </select>
@@ -71,11 +75,11 @@
         </div> -->
         <div class="bg-white/80 backdrop-blur-md border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full xl:table-fixed text-left border-collapse">
+                <table class="w-full  text-left border-collapse">
                     <thead class="bg-slate-50/50 border-b border-border">
                         <tr>
                             <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Nama</th>
-                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Email</th>
+                            <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground whitespace-nowrap w-fit">Email</th>
                             <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Sekolah</th>
                             <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Grup</th>
                             <th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Status</th>
@@ -132,7 +136,7 @@
 <script>
     const BASE_URL = '<?= base_url('admin/user/data') ?>';
     const DETAIL_SEKOLAH_URL = '<?= base_url('admin/sekolah/') ?>';
-
+    const IS_SUPERADMIN = <?= auth()->user()->inGroup('superadmin') ? 'true' : 'false' ?>;
     const EDIT_URL = '<?= base_url('admin/user') ?>';
     const DELETE_URL = '<?= base_url('admin/user') ?>';
     const INITIAL_DATA = <?= json_encode($initialData) ?>;
@@ -213,6 +217,8 @@
     function renderTable({
         data
     }) {
+        // console.log(data);
+        data = data.filter(u => u.group !== 'superadmin');
 
         const tbody = document.getElementById('table-body');
 
@@ -252,9 +258,9 @@
             </span>
         </div>
     </td>
-    <td class="px-6 py-4 text-sm text-muted-foreground">
+    <td class="px-6 py-4 text-sm text-muted-foreground whitespace-nowrap w-fit">
         <span
-            class="block truncate cursor-pointer hover:text-primary transition-colors"
+            class="cursor-pointer hover:text-primary transition-colors"
             title="Klik untuk salin: ${escHtml(user.email)}"
             onclick="copyToClipboard('${escJs(user.email)}', this)">
             ${escHtml(user.email)}
@@ -280,13 +286,14 @@
             <a href="${EDIT_URL}/${user.id}/edit"
                class="inline-flex p-2 hover:bg-slate-200 rounded-lg text-foreground transition-all h-fit">
                         <span class="material-symbols-outlined">edit</span>
-                
             </a>
+             ${IS_SUPERADMIN ? `
             <button onclick="openDeleteModal(${user.id}, '${escJs(user.username ?? user.email)}')"
                 class="inline-flex p-2 hover:bg-rose-50 rounded-lg text-rose-600 transition-all h-fit">
                         <span class="material-symbols-outlined">delete</span>
                 
             </button>
+             ` : ''}
         </div>
     </td>
 </tr>`;

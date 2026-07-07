@@ -57,7 +57,7 @@ class AuthController extends BaseController
     private function redirectBasedOnRole()
     {
         $user = auth()->user();
-        
+
         if (!$user) {
             return redirect()->to('/login');
         }
@@ -65,10 +65,9 @@ class AuthController extends BaseController
         // Cek role
         if ($user->inGroup('operator_sekolah')) {
             return redirect()->to('/operator/dashboard');
-        } elseif ($user->inGroup('superadmin') || $user->inGroup('admin')) {
+        } elseif ($user->inGroup('superadmin') || $user->inGroup('operator_dinas')) {
             return redirect()->to('/admin/dashboard');
         } else {
-            // Default untuk role lain
             return redirect()->to('/');
         }
     }
