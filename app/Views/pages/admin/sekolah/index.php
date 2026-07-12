@@ -60,6 +60,26 @@
                     </select>
                     <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
                 </div>
+                <div class="relative min-w-[160px]">
+                    <select id="filter-status"
+                        class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
+                        <option value="">Semua Status</option>
+                        <option value="Negeri">Negeri</option>
+                        <option value="Swasta">Swasta</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+                </div>
+                <div class="relative min-w-[160px]">
+                    <select id="filter-akreditasi"
+                        class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
+                        <option value="">Semua Akreditasi</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="Belum Terakreditasi">Belum Terakreditasi</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+                </div>
 
                 <button onclick="document.getElementById('modal-import').classList.remove('hidden')"
                     class="flex items-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-medium transition-colors whitespace-nowrap">
@@ -181,10 +201,14 @@
         currentPage = page;
         const search = document.getElementById('search-input').value.trim();
         const jenjang = document.getElementById('filter-jenjang').value;
+        const status = document.getElementById('filter-status').value;
+        const akreditasi = document.getElementById('filter-akreditasi').value;
 
         const params = new URLSearchParams({
             search,
             jenjang,
+            status,
+            akreditasi,
             page
         });
 
@@ -467,6 +491,8 @@
     });
 
     document.getElementById('filter-jenjang').addEventListener('change', () => fetchData(1));
+    document.getElementById('filter-status').addEventListener('change', () => fetchData(1));
+    document.getElementById('filter-akreditasi').addEventListener('change', () => fetchData(1));
 
     // Load awal
     // fetchData(1);

@@ -41,7 +41,7 @@ class SekolahController extends BaseController
     public function index()
     {
         $perPage = 10;
-        $result  = $this->sekolahModel->getFiltered('', '', $perPage);
+        $result  = $this->sekolahModel->getFiltered('', '', '', '', $perPage);
 
         return view('pages/admin/sekolah/index', [
             'initialData' => [
@@ -752,14 +752,16 @@ class SekolahController extends BaseController
     {
         // Hapus blok isAJAX() ini, tidak perlu
 
-        $search  = trim($this->request->getGet('search') ?? '');
-        $jenjang = trim($this->request->getGet('jenjang') ?? '');
-        $page    = (int) ($this->request->getGet('page') ?? 1);
-        $perPage = 10;
+        $search     = trim($this->request->getGet('search') ?? '');
+        $jenjang    = trim($this->request->getGet('jenjang') ?? '');
+        $status     = trim($this->request->getGet('status') ?? '');
+        $akreditasi = trim($this->request->getGet('akreditasi') ?? '');
+        $page       = (int) ($this->request->getGet('page') ?? 1);
+        $perPage    = 10;
 
         $_GET['page'] = $page;
 
-        $result = $this->sekolahModel->getFiltered($search, $jenjang, $perPage);
+        $result = $this->sekolahModel->getFiltered($search, $jenjang, $status, $akreditasi, $perPage);
         return $this->response
             ->setContentType('application/json')
             ->setJSON([

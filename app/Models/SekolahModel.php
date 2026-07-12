@@ -71,7 +71,7 @@ class SekolahModel extends Model
             ->findAll();
     }
 
-    public function getFiltered(string $search = '', string $jenjang = '', int $perPage = 10): array
+    public function getFiltered(string $search = '', string $jenjang = '', string $status = '', string $akreditasi = '', int $perPage = 10): array
     {
         $builder = $this->select('id, npsn, nama_sekolah, slug, jenjang, status, akreditasi, alamat');
 
@@ -84,6 +84,14 @@ class SekolahModel extends Model
 
         if ($jenjang !== '') {
             $builder->where('jenjang', $jenjang);
+        }
+
+        if ($status !== '') {
+            $builder->where('status', $status);
+        }
+
+        if ($akreditasi !== '') {
+            $builder->where('akreditasi', $akreditasi);
         }
 
         $total = $builder->countAllResults(false); // false = jangan reset query
