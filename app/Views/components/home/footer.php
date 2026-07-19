@@ -31,7 +31,7 @@
             </div> -->
         </div>
         <div class="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-[12px] text-muted-foreground">© 2024 GIS Sekolah - Inisiatif Geospasial Pendidikan Nasional Terbuka.</p>
+            <p class="text-[12px] text-muted-foreground">© 2026 GIS Sekolah</p>
             <div class="flex gap-6">
                 <a class="text-muted-foreground hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]!">public</span></a>
                 <a class="text-muted-foreground hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]!">share</span></a>
