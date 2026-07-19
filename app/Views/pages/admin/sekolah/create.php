@@ -7,9 +7,9 @@
             <p class="text-sm font-medium text-muted-foreground mt-1">Lengkapi formulir di bawah ini untuk menambahkan institusi baru ke sistem.</p>
         </div>
         <div class="flex w-fit gap-3 items-center self-end">
-            <button class="px-6 py-2.5 rounded-xl border border-border text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all">
+            <a href="<?= url_to('admin.sekolah') ?>" class="px-6 py-2.5 rounded-xl border border-border text-slate-600 font-bold text-sm hover:bg-slate-50 transition-all">
                 Batal
-            </button>
+            </a>
             <button form="form-sekolah" type="submit" class="inline-flex items-center w-fit whitespace-nowrap px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
                 Simpan Data
             </button>
