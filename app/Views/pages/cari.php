@@ -136,7 +136,7 @@
                                 </span>
                             </div> -->
                             <div class="absolute top-3 right-3 flex gap-2">
-                                <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest <?= $sekolah['status'] === 'Negeri' ? 'bg-primary text-primary-foreground' : 'bg-red-600 text-white' ?>">
+                                <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest <?= $sekolah['status'] === 'Negeri' ? 'bg-primary text-primary-foreground' : 'bg-warning text-secondary-foreground' ?>">
                                     <?= esc($sekolah['status']) ?>
                                 </span>
                             </div>
@@ -153,7 +153,7 @@
                                 <h3 class=" group-hover:text-primary transition-colors">NPSN <?= esc($sekolah['npsn']) ?></h3>
                             </div>
                             <div class="flex items-center gap-1.5 text-muted-foreground">
-                                <span class="material-symbols-outlined text-[18px]! text-primary">school</span>
+                                <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                                 <span class="text-[13px] line-clamp-1">
                                     <?= !empty($sekolah['alamat']) ? esc($sekolah['alamat']) . ', ' : '' ?><?= !empty($sekolah['nama_kecamatan']) ? 'Kec. ' . esc($sekolah['nama_kecamatan']) : '' ?>
                                 </span>
@@ -288,7 +288,7 @@
                         <h3 class=" group-hover:text-primary transition-colors">NPSN ${escapeHtml(school.npsn)}</h3>
                     </div>
                     <div class="flex items-center gap-1.5 text-muted-foreground ">
-                        <span class="material-symbols-outlined text-[18px]! text-primary">school</span>
+                        <span class="material-symbols-outlined text-[18px]! text-primary">location_on</span>
                         <span class="text-[13px] line-clamp-1">${alamat}${kecamatan}</span>
                     </div>
                 </div>
