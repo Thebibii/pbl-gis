@@ -484,6 +484,13 @@
                 map.zoomOut();
             });
 
+            document.getElementById('btn-layers').addEventListener('click', () => {
+                const next = activeLayer === 'light' ? 'satellite' : 'light';
+                map.removeLayer(tileLayers[activeLayer]);
+                tileLayers[next].addTo(map);
+                activeLayer = next;
+            });
+
             setTimeout(() => map.invalidateSize(), 100);
 
             fetch("<?= base_url($sekolah['geojson_file']) ?>")
