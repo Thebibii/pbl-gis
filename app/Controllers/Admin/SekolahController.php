@@ -131,7 +131,7 @@ class SekolahController extends BaseController
         $rules = [
             'nama_sekolah' => 'required|min_length[3]|max_length[255]|is_unique[sekolah.nama_sekolah]', // ← Diperbarui
             'npsn'         => 'required|exact_length[8]|is_unique[sekolah.npsn]',
-            'nama_kepsek'  => 'required|min_length[5]|max_length[100]',
+            'nama_kepsek'  => 'permit_empty|max_length[100]',
             'jenjang'      => 'required|in_list[TK,SD,SMP]',
             'status'       => 'required|in_list[Negeri,Swasta]',
             'alamat'       => 'required',
@@ -156,11 +156,6 @@ class SekolahController extends BaseController
                 'required'     => 'NPSN wajib diisi.',
                 'exact_length' => 'NPSN harus berukuran tepat 8 karakter.',
                 'is_unique'    => 'NPSN sudah terdaftar di sistem.',
-            ],
-            'nama_kepsek' => [
-                'required'   => 'Nama Kepala sekolah wajib diisi.',
-                'min_length' => 'Nama Kepala sekolah minimal harus 5 karakter.',
-                'max_length' => 'Nama Kepala sekolah maksimal 100 karakter.',
             ],
             'jenjang' => [
                 'required' => 'Jenjang sekolah wajib dipilih.',
@@ -471,7 +466,7 @@ class SekolahController extends BaseController
             'nama_sekolah'  => "required|min_length[3]|max_length[255]|is_unique[sekolah.nama_sekolah,id,{$sekolahId}]",
             // is_unique dikecualikan untuk record sekolah itu sendiri
             'npsn'          => "required|exact_length[8]|is_unique[sekolah.npsn,id,{$sekolahId}]",
-            'nama_kepsek'  => 'required|min_length[5]|max_length[100]',
+            'nama_kepsek'  => 'permit_empty|max_length[100]',
             'jenjang'       => 'required|in_list[TK,SD,SMP]',
             'status'        => 'required|in_list[Negeri,Swasta]',
             'alamat'        => 'required',
@@ -496,11 +491,6 @@ class SekolahController extends BaseController
                 'required'     => 'NPSN wajib diisi.',
                 'exact_length' => 'NPSN harus berukuran tepat 8 karakter.',
                 'is_unique'    => 'NPSN sudah terdaftar di sistem.',
-            ],
-            'nama_kepsek' => [
-                'required'   => 'Nama Kepala sekolah wajib diisi.',
-                'min_length' => 'Nama Kepala sekolah minimal harus 5 karakter.',
-                'max_length' => 'Nama Kepala sekolah maksimal 100 karakter.',
             ],
             'jenjang' => [
                 'required' => 'Jenjang sekolah wajib dipilih.',
