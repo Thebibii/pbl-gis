@@ -123,7 +123,8 @@ class SekolahController extends BaseController
         if (!$this->validate($rules)) {
             return redirect()->back()
                 ->withInput()
-                ->with('validation', $this->validator);
+                ->with('validation', $this->validator)
+                ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
         $sekolah = $this->sekolahModel->find($user->sekolah_id);

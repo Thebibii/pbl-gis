@@ -253,7 +253,7 @@
             <span
                 class="text-sm font-semibold text-foreground truncate max-w-[160px] cursor-pointer hover:text-primary transition-colors"
                 title="Klik untuk salin: ${escHtml(user.username ?? '—')}"
-                onclick="copyToClipboard('${escJs(user.username ?? '')}', this)">
+                onclick="copyToClipboard('${escJs(user.username ?? '')}', this, 'Username berhasil disalin!')">
                 ${escHtml(user.username ?? '—')}
             </span>
         </div>
@@ -262,7 +262,7 @@
         <span
             class="cursor-pointer hover:text-primary transition-colors"
             title="Klik untuk salin: ${escHtml(user.email)}"
-            onclick="copyToClipboard('${escJs(user.email)}', this)">
+            onclick="copyToClipboard('${escJs(user.email)}', this, 'Email berhasil disalin!')">
             ${escHtml(user.email)}
         </span>
     </td>
@@ -406,25 +406,25 @@
             .replace(/\n/g, '\\n');
     }
 
-    function copyToClipboard(text, el) {
+    function copyToClipboard(text, el, message = 'Berhasil disalin!') {
         if (!text) return;
 
         const doCopy = () => {
             navigator.clipboard.writeText(text).then(() => {
-                showCopyFeedback(el);
+                showCopyFeedback(el, message);
             }).catch(() => {
-                fallbackCopy(text, el);
+                fallbackCopy(text, el, message);
             });
         };
 
         if (navigator.clipboard && window.isSecureContext) {
             doCopy();
         } else {
-            fallbackCopy(text, el);
+            fallbackCopy(text, el, message);
         }
     }
 
-    function fallbackCopy(text, el) {
+    function fallbackCopy(text, el, message) {
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.style.position = 'fixed';
@@ -433,15 +433,16 @@
         ta.select();
         try {
             document.execCommand('copy');
-            showCopyFeedback(el);
+            showCopyFeedback(el, message);
         } catch (err) {
             console.error('Gagal menyalin:', err);
         }
         document.body.removeChild(ta);
     }
 
-    function showCopyFeedback(el) {
+    function showCopyFeedback(el, message) {
         if (!el) return;
+        showAlert('success', message);
         const originalTitle = el.getAttribute('title');
         el.setAttribute('title', 'Disalin!');
         el.classList.add('text-emerald-500');

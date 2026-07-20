@@ -201,7 +201,8 @@ class SekolahController extends BaseController
             // dd($this->request->getPost());
             return redirect()->back()
                 ->withInput()
-                ->with('errors', $this->validator->getErrors());
+                ->with('errors', $this->validator->getErrors())
+                ->with('error', 'Data gagal disimpan. Periksa kembali form Anda.');
         }
 
         // ── 2. Validasi statistik (manual, kondisional) ───────────────────────
@@ -216,13 +217,15 @@ class SekolahController extends BaseController
         // Jika ada angka statistik diisi tapi tahun_ajaran kosong → tolak
         if ($adaStatistik && $tahunAjaran === '') {
             return redirect()->back()->withInput()
-                ->with('errors', ['tahun_ajaran' => 'Tahun ajaran wajib diisi jika data statistik dimasukkan.']);
+                ->with('errors', ['tahun_ajaran' => 'Tahun ajaran wajib diisi jika data statistik dimasukkan.'])
+                ->with('error', 'Data gagal disimpan. Periksa kembali form Anda.');
         }
 
         // Validasi format tahun_ajaran jika diisi (harus "YYYY/YYYY", max 9 char)
         if ($tahunAjaran !== '' && !preg_match('/^\d{4}\/\d{4}$/', $tahunAjaran)) {
             return redirect()->back()->withInput()
-                ->with('errors', ['tahun_ajaran' => 'Format tahun ajaran tidak valid. Gunakan format: 2024/2025']);
+                ->with('errors', ['tahun_ajaran' => 'Format tahun ajaran tidak valid. Gunakan format: 2024/2025'])
+                ->with('error', 'Data gagal disimpan. Periksa kembali form Anda.');
         }
 
         // ── 3. Validasi prestasi (manual, per-row kondisional) ────────────────
@@ -256,7 +259,8 @@ class SekolahController extends BaseController
 
         if (!empty($prestasiErrors)) {
             return redirect()->back()->withInput()
-                ->with('errors', $prestasiErrors);
+                ->with('errors', $prestasiErrors)
+                ->with('error', 'Data gagal disimpan. Periksa kembali form Anda.');
         }
 
         // --- Upload foto ---
@@ -535,7 +539,8 @@ class SekolahController extends BaseController
             // dd($this->validator->getErrors());
             return redirect()->back()
                 ->withInput()
-                ->with('errors', $this->validator->getErrors());
+                ->with('errors', $this->validator->getErrors())
+                ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
         // ── 2. Validasi statistik (sama persis dengan store) ─────────────────────
@@ -549,12 +554,14 @@ class SekolahController extends BaseController
 
         if ($adaStatistik && $tahunAjaran === '') {
             return redirect()->back()->withInput()
-                ->with('errors', ['tahun_ajaran' => 'Tahun ajaran wajib diisi jika data statistik dimasukkan.']);
+                ->with('errors', ['tahun_ajaran' => 'Tahun ajaran wajib diisi jika data statistik dimasukkan.'])
+                ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
         if ($tahunAjaran !== '' && !preg_match('/^\d{4}\/\d{4}$/', $tahunAjaran)) {
             return redirect()->back()->withInput()
-                ->with('errors', ['tahun_ajaran' => 'Format tahun ajaran tidak valid. Gunakan format: 2024/2025']);
+                ->with('errors', ['tahun_ajaran' => 'Format tahun ajaran tidak valid. Gunakan format: 2024/2025'])
+                ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
         // ── 3. Validasi prestasi (sama persis dengan store) ───────────────────────
@@ -585,7 +592,8 @@ class SekolahController extends BaseController
 
         if (!empty($prestasiErrors)) {
             return redirect()->back()->withInput()
-                ->with('errors', $prestasiErrors);
+                ->with('errors', $prestasiErrors)
+                ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
         // ── 4. Handle upload foto ─────────────────────────────────────────────────
