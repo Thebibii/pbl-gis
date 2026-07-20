@@ -104,7 +104,19 @@ class SekolahController extends BaseController
                 ->with('error', 'Akses ditolak!');
         }
 
-        // Validasi
+        // Load sekolah untuk conditional validation
+        $sekolah = $this->sekolahModel->find($user->sekolah_id);
+
+        if (!$sekolah) {
+            return redirect()->back()
+                ->with('error', 'Data sekolah tidak ditemukan.');
+        }
+
+        // Foto: wajib jika belum ada foto, opsional jika sudah ada
+        $fotoRule = !empty($sekolah['foto_utama'])
+            ? 'permit_empty|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]'
+            : 'uploaded[foto_utama]|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]';
+
         $rules = [
             'nama_kepsek' => 'required|max_length[150]',
             'akreditasi'  => 'permit_empty|in_list[A,B,C,Belum Terakreditasi]',
@@ -117,21 +129,22 @@ class SekolahController extends BaseController
             'misi'      => 'permit_empty',
             'latitude'    => 'permit_empty|decimal',
             'longitude'   => 'permit_empty|decimal',
-            'foto_utama'  => 'permit_empty|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]',
+            'foto_utama'  => $fotoRule,
         ];
 
-        if (!$this->validate($rules)) {
+        $errors = [
+            'foto_utama' => [
+                'uploaded' => 'Foto sekolah wajib diunggah.',
+                'is_image' => 'File harus berupa gambar (PNG, JPG, WEBP).',
+                'max_size' => 'Ukuran foto maksimal 2MB.',
+            ],
+        ];
+
+        if (!$this->validate($rules, $errors)) {
             return redirect()->back()
                 ->withInput()
                 ->with('validation', $this->validator)
                 ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
-        }
-
-        $sekolah = $this->sekolahModel->find($user->sekolah_id);
-
-        if (!$sekolah) {
-            return redirect()->back()
-                ->with('error', 'Data sekolah tidak ditemukan.');
         }
 
         $data = [

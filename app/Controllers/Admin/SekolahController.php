@@ -461,6 +461,11 @@ class SekolahController extends BaseController
 
         $sekolahId = $sekolah['id'];
 
+        // Foto: wajib jika belum ada foto, opsional jika sudah ada
+        $fotoRule = !empty($sekolah['foto_utama'])
+            ? 'permit_empty|uploaded[foto]|is_image[foto]|max_size[foto,2048]'
+            : 'uploaded[foto]|is_image[foto]|max_size[foto,2048]';
+
         // ── 1. Validasi field utama ───────────────────────────────────────────────
         $rules = [
             'nama_sekolah'  => "required|min_length[3]|max_length[255]|is_unique[sekolah.nama_sekolah,id,{$sekolahId}]",
@@ -476,8 +481,8 @@ class SekolahController extends BaseController
             // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
             'latitude'      => 'required|decimal',
             'longitude'     => 'required|decimal',
-            // Foto opsional saat update (hanya divalidasi jika ada file baru)
-            'foto'          => 'permit_empty|uploaded[foto]|is_image[foto]|max_size[foto,2048]',
+            // Foto: wajib jika belum ada foto, opsional jika sudah ada
+            'foto'          => $fotoRule,
         ];
 
         $errors = [
@@ -520,6 +525,7 @@ class SekolahController extends BaseController
             //     'less_than_equal_to' => 'Tahun berdiri harus kurang dari atau sama dengan tahun saat ini.',
             // ],
             'foto' => [
+                'uploaded' => 'Foto sekolah wajib diunggah.',
                 'is_image' => 'File harus berupa gambar (jpg, png, gif, webp).',
                 'max_size' => 'Ukuran foto maksimal 2MB.',
             ],
