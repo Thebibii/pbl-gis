@@ -13,7 +13,11 @@
 
             <div class="flex items-center gap-3">
                 <?php if (auth()->loggedIn()): ?>
-                    <a href="<?= url_to('admin.dashboard') ?>" class="hidden md:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
+                    <?php
+                    $user = auth()->user();
+                    $dashboardRoute = $user->inGroup('operator_sekolah') ? 'operator.dashboard' : 'admin.dashboard';
+                    ?>
+                    <a href="<?= url_to($dashboardRoute) ?>" class="hidden md:flex bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold hover:opacity-90 transition-all items-center gap-2 shadow-lg shadow-primary/20">
                         <span class="text-xs uppercase tracking-wider">Dashboard</span>
                     </a>
                 <?php else: ?>
@@ -42,7 +46,11 @@
             <!-- <a class="<?= isActiveRoute('bandingkan') ?> transition-colors text-xs uppercase tracking-wider py-2" href="<?= url_to('bandingkan') ?>">Bandingkan</a> -->
 
             <?php if (auth()->loggedIn()): ?>
-                <a href="<?= url_to('admin.dashboard') ?>" class="md:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
+                <?php
+                $user = auth()->user();
+                $dashboardRoute = $user->inGroup('operator_sekolah') ? 'operator.dashboard' : 'admin.dashboard';
+                ?>
+                <a href="<?= url_to($dashboardRoute) ?>" class="md:hidden bg-primary text-primary-foreground px-5 py-2 rounded-xl font-bold text-center mt-2">
                     <span class="text-xs uppercase tracking-wider">Dashboard</span>
                 </a>
             <?php else: ?>

@@ -15,7 +15,7 @@ $isOperatorDinas = $user->inGroup('operator_dinas');
 
     <!-- Brand -->
     <div class="p-6">
-        <a href="<?= url_to('admin.dashboard') ?>">
+        <a href="<?= url_to($isOperator ? 'operator.dashboard' : 'admin.dashboard') ?>">
             <div class="flex items-center gap-2.5">
                 <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
                     <span class="material-symbols-outlined text-white text-2xl"
