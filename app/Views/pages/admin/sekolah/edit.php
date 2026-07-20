@@ -153,7 +153,7 @@
                 <!-- Foto Sekolah -->
                 <div class="lg:col-span-2">
                     <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
-                        FOTO SEKOLAH
+                        FOTO SEKOLAH <?php if (empty($sekolah['foto_utama'])): ?><span class="text-red-500">*</span><?php endif; ?>
                     </label>
 
                     <!-- Hidden File Input -->

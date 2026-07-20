@@ -208,7 +208,7 @@
                                 <!-- Telepon -->
                                 <div class="space-y-2">
                                     <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                        Telepon <span class="text-red-500">*</span>
+                                        Telepon
                                     </label>
 
                                     <input
@@ -228,7 +228,7 @@
                                 <!-- Email -->
                                 <div class="space-y-2">
                                     <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                        Email <span class="text-red-500">*</span>
+                                        Email
                                     </label>
 
                                     <input
@@ -448,6 +448,7 @@
                     <h3 class="text-lg font-bold text-foreground flex items-center gap-2">
                         <span class="material-symbols-outlined text-primary">image</span>
                         Media Visual
+                        <?php if (empty($sekolah['foto_utama'])): ?><span class="text-red-500 text-sm font-normal">*</span><?php endif; ?>
                     </h3>
                 </div>
 

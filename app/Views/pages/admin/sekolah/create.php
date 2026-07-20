@@ -54,7 +54,7 @@
                     <?php endif; ?>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH <span class="text-red-500 text-xs">*</span></label>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">KEPALA SEKOLAH</label>
                     <input name="nama_kepsek" value="<?= old('nama_kepsek') ?>" class="w-full bg-slate-50 border-border rounded-xl p-3 text-sm font-medium focus:ring-2 focus:ring-primary/20 focus:bg-white focus:border-primary transition-all" placeholder="Contoh: Budiono Siregar" type="text" />
                     <?php if (session('errors.nama_kepsek')): ?>
                         <p class="mt-1 text-xs text-red-500 font-medium"><?= session('errors.nama_kepsek') ?></p>
