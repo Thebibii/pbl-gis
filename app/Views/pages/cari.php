@@ -96,8 +96,11 @@
                 <div class="relative w-full sm:w-auto sm:min-w-[160px]">
                     <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none ">sort</span>
                     <select id="sort-select" class="w-full appearance-none pl-10 pr-4 py-3 bg-slate-100 border border-primary/50 rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/50">
-                        <option value="rekomendasi">Rekomendasi</option>
-                        <option value="akreditasi">Akreditasi</option>
+                        <option value="">Terbaru</option>
+                        <option value="nama_asc">Nama A-Z</option>
+                        <option value="nama_desc">Nama Z-A</option>
+                        <option value="akreditasi_asc">Akreditasi A-Baru</option>
+                        <option value="akreditasi_desc">Akreditasi Baru-A</option>
                     </select>
                 </div>
             </div>
@@ -141,7 +144,7 @@
                                 </span>
                             </div>
                             <div class="absolute bottom-3 right-3">
-                                <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg <?= $sekolah['akreditasi'] === 'A' ? 'bg-success' : 'bg-muted-foreground' ?>">
+                                <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg badge-<?= $sekolah['akreditasi'] ?>">
                                     <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
                                     <?= $sekolah['akreditasi'] === 'Belum Terakreditasi' ? 'Baru' : esc($sekolah['akreditasi']) ?>
                                 </span>
@@ -184,7 +187,7 @@
             status: [],
             akreditasi: [],
             search: '',
-            sort: 'rekomendasi',
+            sort: '',
             page: <?= (int) $initialData['page'] ?>,
             totalPages: <?= (int) $initialData['total_pages'] ?>
         };
@@ -247,7 +250,7 @@
                 'bg-primary text-primary-foreground' :
                 'bg-warning text-secondary-foreground';
 
-            const akreditasiDotClass = school.akreditasi === 'A' ? 'bg-success' : 'bg-muted-foreground';
+            // const akreditasiDotClass = school.akreditasi === 'A' ? 'bg-success' : 'bg-muted-foreground';
             const akreditasiLabel = school.akreditasi === 'Belum Terakreditasi' ? 'Baru' : school.akreditasi;
 
             const fotoSrc =
@@ -276,7 +279,7 @@
                         <span class="text-[9px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest ${statusBadgeClass}">${escapeHtml(school.status)}</span>
                     </div>
                     <div class="absolute bottom-3 right-3">
-                        <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg ${akreditasiDotClass}">
+                        <span class="text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg badge-${school.akreditasi}">
                             <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
                             ${escapeHtml(akreditasiLabel)}
                         </span>
@@ -528,8 +531,8 @@
             state.akreditasi = [];
             state.search = '';
             searchInput.value = '';
-            state.sort = 'rekomendasi';
-            sortSelect.value = 'rekomendasi';
+            state.sort = '';
+            sortSelect.value = '';
 
             jenjangGroup.querySelectorAll('.jenjang-btn').forEach(b => {
                 const isActive = b.dataset.value === '';

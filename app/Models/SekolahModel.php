@@ -68,6 +68,7 @@ class SekolahModel extends Model
             ->join('statistik_sekolah', 'statistik_sekolah.sekolah_id = sekolah.id', 'left')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
             ->where('sekolah.is_active', 1)
+            ->orderBy('sekolah.created_at', 'DESC')
             ->findAll();
     }
 
@@ -93,6 +94,8 @@ class SekolahModel extends Model
         if ($akreditasi !== '') {
             $builder->where('akreditasi', $akreditasi);
         }
+
+        $builder->orderBy('created_at', 'DESC');
 
         $total = $builder->countAllResults(false); // false = jangan reset query
 
@@ -145,12 +148,25 @@ class SekolahModel extends Model
         }
 
         // Sorting
-        $sort = $filters['sort'] ?? 'rekomendasi';
-        if ($sort === 'akreditasi') {
-            // FIELD() — CI4 mendeteksi '(' dan tidak escape
-            $builder->orderBy("FIELD(sekolah.akreditasi,'A','B','C','Belum Terakreditasi')");
-        } else {
-            $builder->orderBy('sekolah.nama_sekolah', 'ASC');
+        $sort = $filters['sort'] ?? '';
+        switch ($sort) {
+            case 'nama_asc':
+                $builder->orderBy('sekolah.nama_sekolah', 'ASC');
+                break;
+            case 'nama_desc':
+                $builder->orderBy('sekolah.nama_sekolah', 'DESC');
+                break;
+            case 'akreditasi_asc':
+                $builder->orderBy("FIELD(sekolah.akreditasi,'A','B','C','Belum Terakreditasi')");
+                $builder->orderBy('sekolah.created_at', 'DESC');
+                break;
+            case 'akreditasi_desc':
+                $builder->orderBy("FIELD(sekolah.akreditasi,'Belum Terakreditasi','C','B','A')");
+                $builder->orderBy('sekolah.created_at', 'DESC');
+                break;
+            default: // '' (terbaru)
+                $builder->orderBy('sekolah.created_at', 'DESC');
+                break;
         }
 
         $total  = $builder->countAllResults(false); // false = jangan reset WHERE/JOIN
