@@ -29,9 +29,9 @@ $routes->post('login', 'AuthController::loginAction');
 $routes->get('logout', 'AuthController::logout');
 
 // ========== ADMIN ROUTES ==========
-$routes->group('admin', ['filter' => 'session'], function ($routes) {
-    $routes->get('dashboard', 'Admin\DashboardController::index', ['as' => 'admin.dashboard']);
-});
+// $routes->group('admin', ['filter' => 'session'], function ($routes) {
+//     $routes->get('dashboard', 'Admin\DashboardController::index', ['as' => 'admin.dashboard']);
+// });
 
 // ========== OPERATOR ROUTES ==========
 $routes->group('operator', ['filter' => 'group:operator_sekolah'], function ($routes) {
