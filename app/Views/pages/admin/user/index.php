@@ -31,18 +31,18 @@
                         placeholder="Cari berdasarkan nama atau email..."
                         type="text" />
                 </div>
+                <?php if (auth()->user()->inGroup('superadmin')): ?>
                 <div class="relative min-w-[180px]">
                     <select id="filter-group"
                         class="w-full appearance-none pl-4 pr-10 py-3 bg-slate-100 border-none rounded-xl text-sm font-medium outline-none focus:ring-2 focus:ring-primary/20">
                         <option value="">Semua Grup</option>
-                        <?php if (auth()->user()->inGroup('superadmin')): ?>
-                            <option value="superadmin">Super Admin</option>
-                        <?php endif; ?>
+                        <option value="superadmin">Super Admin</option>
                         <option value="operator_dinas">Operator Dinas</option>
                         <option value="operator_sekolah">Operator Sekolah</option>
                     </select>
                     <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
                 </div>
+                <?php endif; ?>
             </div>
         </section>
 
@@ -218,8 +218,6 @@
         data
     }) {
         // console.log(data);
-        data = data.filter(u => u.group !== 'superadmin');
-
         const tbody = document.getElementById('table-body');
 
         if (!data.length) {
@@ -504,7 +502,7 @@
             fetchData();
         }, 350);
     });
-    document.getElementById('filter-group').addEventListener('change', () => {
+    document.getElementById('filter-group')?.addEventListener('change', () => {
         currentPage = 1;
         fetchData();
     });

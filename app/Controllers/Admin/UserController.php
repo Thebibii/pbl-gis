@@ -19,8 +19,9 @@ class UserController extends BaseController
 
     public function index()
     {
-        $perPage = 10;
-        $result  = $this->userModel->getFiltered('', '', $perPage);
+        $perPage          = 10;
+        $currentUserGroup = auth()->user()->getGroups()[0] ?? null;
+        $result           = $this->userModel->getFiltered('', '', $perPage, $currentUserGroup);
 
         return view('pages/admin/user/index', [
             'initialData' => [
@@ -107,14 +108,15 @@ class UserController extends BaseController
 
     public function getData()
     {
-        $search  = trim($this->request->getGet('search') ?? '');
-        $group   = trim($this->request->getGet('group') ?? '');
-        $page    = (int) ($this->request->getGet('page') ?? 1);
-        $perPage = 10;
+        $search           = trim($this->request->getGet('search') ?? '');
+        $group            = trim($this->request->getGet('group') ?? '');
+        $page             = (int) ($this->request->getGet('page') ?? 1);
+        $perPage          = 10;
+        $currentUserGroup = auth()->user()->getGroups()[0] ?? null;
 
         $_GET['page'] = $page;
 
-        $result = $this->userModel->getFiltered($search, $group, $perPage);
+        $result = $this->userModel->getFiltered($search, $group, $perPage, $currentUserGroup);
         return $this->response
             ->setContentType('application/json')
             ->setJSON([
@@ -199,7 +201,10 @@ class UserController extends BaseController
             }
         }
 
-        $mustUpdate = (bool) ($user->must_update_profile ?? 1);
+        $mustUpdate = false;
+        if ($sekolah) {
+            $mustUpdate = ($user->email === $defaultEmail);
+        }
 
         return view('pages/admin/user/edit', [
             'user'         => $user,

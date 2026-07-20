@@ -21,7 +21,7 @@ class UserModel extends ShieldUserModel
         'sekolah_id',
     ];
 
-    public function getFiltered(string $search = '', string $group = '', int $perPage = 10): array
+    public function getFiltered(string $search = '', string $group = '', int $perPage = 10, ?string $currentUserGroup = null): array
     {
         $db = \Config\Database::connect();
 
@@ -31,6 +31,10 @@ class UserModel extends ShieldUserModel
             ->join('auth_groups_users g', 'g.user_id = u.id', 'left')
             ->join('sekolah s', 's.id = u.sekolah_id', 'left')
             ->where('u.deleted_at', null);
+
+        if ($currentUserGroup === 'operator_dinas') {
+            $builder->where('g.group', 'operator_sekolah');
+        }
 
         if ($search !== '') {
             $builder->groupStart()
