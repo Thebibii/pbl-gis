@@ -833,9 +833,19 @@ class SekolahController extends BaseController
         helper('text');
 
         $inserted = 0;
+        $updated  = 0;
         $skipped  = 0;
+        $rowErrors = [];
 
-        foreach ($csv->getRecords() as $row) {
+        // Cache kecamatan IDs yang valid
+        $validKecamatanIds = [];
+        $allKecamatan = $this->kecamatanModel->findAll();
+        foreach ($allKecamatan as $kec) {
+            $validKecamatanIds[$kec['id']] = true;
+        }
+
+        foreach ($csv->getRecords() as $index => $row) {
+            $lineNumber = $index + 2;
             $namaSekolah = trim($row['nama_sekolah'] ?? '');
 
             if (empty($namaSekolah)) {
@@ -843,28 +853,94 @@ class SekolahController extends BaseController
                 continue;
             }
 
-            $slug = !empty(trim($row['slug'] ?? ''))
-                ? trim($row['slug'])
-                : url_title($namaSekolah, '-', true);
+            // ── Validasi koordinat ──────────────────────────────────────────
+            $latitude  = trim($row['latitude'] ?? '');
+            $longitude = trim($row['longitude'] ?? '');
+            $skipRow   = false;
+
+            if ($latitude !== '') {
+                if (!is_numeric($latitude)) {
+                    $rowErrors[] = "Baris {$lineNumber}: Latitude bukan angka valid.";
+                    $skipRow = true;
+                } else {
+                    $latFloat = (float) $latitude;
+                    if ($latFloat < -90 || $latFloat > 90) {
+                        $rowErrors[] = "Baris {$lineNumber}: Latitude di luar range (-90 s/d 90).";
+                        $skipRow = true;
+                    }
+                }
+            }
+
+            if ($longitude !== '') {
+                if (!is_numeric($longitude)) {
+                    $rowErrors[] = "Baris {$lineNumber}: Longitude bukan angka valid.";
+                    $skipRow = true;
+                } else {
+                    $lngFloat = (float) $longitude;
+                    if ($lngFloat < -180 || $lngFloat > 180) {
+                        $rowErrors[] = "Baris {$lineNumber}: Longitude di luar range (-180 s/d 180).";
+                        $skipRow = true;
+                    }
+                }
+            }
+
+            if ($skipRow) {
+                $skipped++;
+                continue;
+            }
+
+            // ── Validasi kecamatan_id ───────────────────────────────────────
+            $kecamatanId = !empty($row['kecamatan_id']) ? (int) $row['kecamatan_id'] : null;
+            if ($kecamatanId !== null && !isset($validKecamatanIds[$kecamatanId])) {
+                $rowErrors[] = "Baris {$lineNumber}: Kecamatan ID {$kecamatanId} tidak ditemukan.";
+                $skipped++;
+                continue;
+            }
+
+            // ── Cek duplikat NPSN ───────────────────────────────────────────
+            $npsn = trim($row['npsn'] ?? '');
+            $existingSekolah = null;
+
+            if ($npsn !== '') {
+                $existingSekolah = $this->sekolahModel->where('npsn', $npsn)->first();
+            }
+
+            // ── Generate slug ───────────────────────────────────────────────
+            if ($existingSekolah) {
+                // Update: pakai slug lama, jangan diubah
+                $slug = $existingSekolah['slug'];
+            } else {
+                // Insert: generate slug unik
+                $slug = !empty(trim($row['slug'] ?? ''))
+                    ? trim($row['slug'])
+                    : url_title($namaSekolah, '-', true);
+
+                $originalSlug = $slug;
+                $slugSuffix = 1;
+                while ($this->sekolahModel->where('slug', $slug)->first()) {
+                    $slug = $originalSlug . '-' . $slugSuffix;
+                    $slugSuffix++;
+                }
+            }
 
             $data = [
-                'npsn'          => trim($row['npsn'] ?? '') ?: null,
+                'npsn'          => $npsn ?: null,
                 'nama_sekolah'  => $namaSekolah,
                 'slug'          => $slug,
                 'jenjang'       => trim($row['jenjang'] ?? '') ?: null,
                 'status'        => trim($row['status'] ?? '') ?: null,
                 'akreditasi'    => trim($row['akreditasi'] ?? '') ?: null,
-                'kecamatan_id'  => !empty($row['kecamatan_id']) ? (int) $row['kecamatan_id'] : null,
+                'kecamatan_id'  => $kecamatanId,
                 'nagari_id'     => !empty($row['nagari_id'])    ? (int) $row['nagari_id']    : null,
                 'alamat'        => trim($row['alamat'] ?? '') ?: null,
-                'latitude'      => trim($row['latitude'] ?? '') ?: null,
-                'longitude'     => trim($row['longitude'] ?? '') ?: null,
+                'latitude'      => $latitude ?: null,
+                'longitude'     => $longitude ?: null,
                 'nama_kepsek'   => trim($row['nama_kepsek'] ?? '') ?: null,
                 'telepon'       => trim($row['telepon'] ?? '') ?: null,
                 'email'         => trim($row['email'] ?? '') ?: null,
                 'website'       => trim($row['website'] ?? '') ?: null,
-                'visi'       => trim($row['visi'] ?? '') ?: null,
-                'misi'       => trim($row['misi'] ?? '') ?: null,
+                'visi'          => trim($row['visi'] ?? '') ?: null,
+                'misi'          => trim($row['misi'] ?? '') ?: null,
                 'foto_utama'    => trim($row['foto_utama'] ?? '') ?: null,
                 'kurikulum'     => trim($row['kurikulum'] ?? '') ?: null,
                 'tahun_berdiri' => !empty($row['tahun_berdiri']) ? (int) $row['tahun_berdiri'] : null,
@@ -872,53 +948,89 @@ class SekolahController extends BaseController
                 'is_active'     => isset($row['is_active']) && $row['is_active'] !== '' ? (int) $row['is_active'] : 1,
             ];
 
-            // Insert sekolah — dapat ID-nya
-            $sekolahId = $this->sekolahModel->insert($data, true);
+            try {
+                if ($existingSekolah) {
+                    // ── UPDATE data existing ────────────────────────────────
+                    // Jangan ubah npsn & slug milik data lama
+                    unset($data['npsn'], $data['slug']);
 
-            if (!$sekolahId) {
+                    $this->sekolahModel->update($existingSekolah['id'], $data);
+                    $updated++;
+                } else {
+                    // ── INSERT sekolah baru ─────────────────────────────────
+                    $sekolahId = $this->sekolahModel->insert($data, true);
+
+                    if (!$sekolahId) {
+                        $rowErrors[] = "Baris {$lineNumber}: Gagal insert sekolah (unknown error).";
+                        $skipped++;
+                        continue;
+                    }
+
+                    // --- Buat operator_sekolah ---
+                    $npsnUser    = $data['npsn'] ?? uniqid('op');
+                    $username    = 'op_' . $npsnUser;
+                    $email       = $username . '@gissekolah.id';
+                    $rawPassword = $npsnUser;
+
+                    $suffix = 1;
+                    while ($this->userModel->where('username', $username)->first()) {
+                        $username = 'op_' . $npsnUser . '_' . $suffix;
+                        $email    = $username . '@gissekolah.id';
+                        $suffix++;
+                    }
+
+                    $userEntity = new User([
+                        'username'   => $username,
+                        'email'      => $email,
+                        'password'   => $rawPassword,
+                        'sekolah_id' => $sekolahId,
+                    ]);
+
+                    $this->userModel->save($userEntity);
+                    $newUser = $this->userModel->findById($this->userModel->getInsertID());
+
+                    if ($newUser) {
+                        $newUser->addGroup('operator_sekolah');
+                        $newUser->activate();
+                    }
+
+                    $inserted++;
+                }
+            } catch (\Exception $e) {
+                $rowErrors[] = "Baris {$lineNumber}: " . $e->getMessage();
                 $skipped++;
-                continue;
             }
-
-            // --- Buat operator_sekolah ---
-            $npsn        = $data['npsn'] ?? uniqid('op');
-            $username    = 'op_' . $npsn;          // contoh: op_10308727
-            $email       = $username . '@gissekolah.id';
-            $rawPassword = $npsn;
-
-            // Safety net: pastikan username unik
-            $suffix = 1;
-            while ($this->userModel->where('username', $username)->first()) {
-                $username = 'op_' . $npsn . '_' . $suffix;
-                $email    = $username . '@gissekolah.id';
-                $suffix++;
-            }
-
-            $userEntity = new User([
-                'username'   => $username,
-                'email'      => $email,
-                'password'   => $rawPassword,
-                'sekolah_id' => $sekolahId,
-            ]);
-
-            $this->userModel->save($userEntity);
-            $newUser = $this->userModel->findById($this->userModel->getInsertID());
-
-            $newUser->addGroup('operator_sekolah');
-            $newUser->activate();
-
-            $inserted++;
         }
 
         unlink($path);
 
-        if ($inserted === 0) {
-            return redirect()->back()->with('error', 'Tidak ada data valid untuk diimport.');
+        if ($inserted === 0 && $updated === 0) {
+            $errorMsg = 'Tidak ada data valid untuk diimport.';
+            if (!empty($rowErrors)) {
+                $errorMsg .= '<br>' . implode('<br>', array_slice($rowErrors, 0, 20));
+                if (count($rowErrors) > 20) {
+                    $errorMsg .= '<br>... dan ' . (count($rowErrors) - 20) . ' error lainnya.';
+                }
+            }
+            return redirect()->back()->with('error', $errorMsg);
         }
 
-        $msg = "Berhasil import {$inserted} sekolah beserta akun operator.";
+        $parts = [];
+        if ($inserted > 0) {
+            $parts[] = "{$inserted} sekolah baru";
+        }
+        if ($updated > 0) {
+            $parts[] = "{$updated} data diperbarui";
+        }
+        $msg = 'Berhasil import: ' . implode(', ', $parts) . '.';
         if ($skipped > 0) {
             $msg .= " {$skipped} baris dilewati.";
+        }
+        if (!empty($rowErrors)) {
+            $msg .= '<br><br>Detail error:<br>' . implode('<br>', array_slice($rowErrors, 0, 20));
+            if (count($rowErrors) > 20) {
+                $msg .= '<br>... dan ' . (count($rowErrors) - 20) . ' error lainnya.';
+            }
         }
 
         return redirect()->route('admin.sekolah')->with('success', $msg);
