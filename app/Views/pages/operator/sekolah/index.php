@@ -828,7 +828,6 @@
                 // Reset input
                 latInput.value = "";
                 lngInput.value = "";
-                kecamatanInput.value = "";
 
                 // Hapus marker jika ada
                 if (marker) {
@@ -901,11 +900,30 @@
 
                 latInput.value = "";
                 lngInput.value = "";
-                kecamatanInput.value = "";
 
             }
 
         }
+
+        document.getElementById('form-sekolah').addEventListener('submit', function(e) {
+            const lat = parseFloat(latInput.value);
+            const lng = parseFloat(lngInput.value);
+
+            if (!isNaN(lat) && !isNaN(lng)) {
+                const ditemukan = detectKecamatan(lat, lng);
+                if (!ditemukan) {
+                    e.preventDefault();
+                    latInput.value = '';
+                    lngInput.value = '';
+                    if (marker) {
+                        map.removeLayer(marker);
+                        marker = null;
+                    }
+                    map.setView([-0.500193, 100.722908], 12);
+                    showAlert('error', 'Lokasi sekolah berada di luar wilayah kecamatan. Silakan perbaiki koordinat terlebih dahulu.');
+                }
+            }
+        });
 
     });
 </script>

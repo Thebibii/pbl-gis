@@ -983,6 +983,27 @@
             sekolahFotoReader.readAsDataURL(selectedFoto);
 
         });
+
+        document.getElementById('form-sekolah').addEventListener('submit', function(e) {
+            const lat = parseFloat(document.getElementById('lat-input').value);
+            const lng = parseFloat(document.getElementById('lng-input').value);
+
+            if (!isNaN(lat) && !isNaN(lng)) {
+                const ditemukan = detectKecamatan(lat, lng);
+                if (!ditemukan) {
+                    e.preventDefault();
+                    document.getElementById('lat-input').value = '';
+                    document.getElementById('lng-input').value = '';
+                    if (marker) {
+                        map.removeLayer(marker);
+                        marker = null;
+                    }
+                    map.setView([-0.500193, 100.722908], 12);
+                    showAlert('error', 'Lokasi sekolah berada di luar wilayah kecamatan. Silakan perbaiki koordinat terlebih dahulu.');
+                }
+            }
+        });
+
     });
 </script>
 

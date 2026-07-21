@@ -1035,4 +1035,72 @@ class SekolahController extends BaseController
 
         return redirect()->route('admin.sekolah')->with('success', $msg);
     }
+
+    private function isPointInKecamatan(float $lat, float $lng, int $kecamatanId): bool
+    {
+        $kecamatan = $this->kecamatanModel->find($kecamatanId);
+
+        if (!$kecamatan || empty($kecamatan['geojson_file'])) {
+            return true;
+        }
+
+        $path = FCPATH . $kecamatan['geojson_file'];
+
+        if (!is_file($path)) {
+            return true;
+        }
+
+        $geojson = json_decode(file_get_contents($path), true);
+
+        if (!$geojson || $geojson['type'] !== 'FeatureCollection') {
+            return true;
+        }
+
+        $point = [$lng, $lat];
+
+        foreach ($geojson['features'] as $feature) {
+            if ($this->pointInPolygon($point, $feature['geometry'])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function pointInPolygon(array $point, array $geometry): bool
+    {
+        $rings = [];
+
+        if ($geometry['type'] === 'Polygon') {
+            $rings = $geometry['coordinates'];
+        } elseif ($geometry['type'] === 'MultiPolygon') {
+            foreach ($geometry['coordinates'] as $poly) {
+                $rings = array_merge($rings, $poly);
+            }
+        } else {
+            return false;
+        }
+
+        $inside = false;
+        [$x, $y] = $point;
+
+        foreach ($rings as $ring) {
+            $j = count($ring) - 1;
+            for ($i = 0; $i < count($ring); $i++) {
+                [$xi, $yi] = $ring[$i];
+                [$xj, $yj] = $ring[$j];
+
+                $intersect = (($yi > $y) !== ($yj > $y))
+                    && ($x < ($xj - $xi) * ($y - $yi) / ($yj - $yi) + $xi);
+
+                if ($intersect) {
+                    $inside = !$inside;
+                }
+
+                $j = $i;
+            }
+        }
+
+        return $inside;
+    }
 }
