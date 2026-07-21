@@ -115,9 +115,9 @@
                                     required
                                     class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
-                                <?php if (session('validation') && session('validation')->hasError('nama_kepsek')) : ?>
+                                <?php if (session('errors.nama_kepsek')) : ?>
                                     <p class="text-sm text-red-500 mt-1">
-                                        <?= session('validation')->getError('nama_kepsek') ?>
+                                        <?= session('errors.nama_kepsek') ?>
                                     </p>
                                 <?php endif; ?>
 
@@ -156,9 +156,9 @@
 
                                     </select>
 
-                                    <?php if (session('validation') && session('validation')->hasError('akreditasi')) : ?>
+                                    <?php if (session('errors.akreditasi')) : ?>
                                         <p class="text-sm text-red-500">
-                                            <?= session('validation')->getError('akreditasi') ?>
+                                            <?= session('errors.akreditasi') ?>
                                         </p>
                                     <?php endif; ?>
                                 </div>
@@ -177,9 +177,9 @@
                                         required
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
-                                    <?php if (session('validation') && session('validation')->hasError('kurikulum')) : ?>
+                                    <?php if (session('errors.kurikulum')) : ?>
                                         <p class="text-sm text-red-500">
-                                            <?= session('validation')->getError('kurikulum') ?>
+                                            <?= session('errors.kurikulum') ?>
                                         </p>
                                     <?php endif; ?>
                                 </div>
@@ -218,9 +218,9 @@
                                         placeholder="Contoh: 0751-123456"
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
-                                    <?php if (session('validation') && session('validation')->hasError('telepon')) : ?>
+                                    <?php if (session('errors.telepon')) : ?>
                                         <p class="text-sm text-red-500">
-                                            <?= session('validation')->getError('telepon') ?>
+                                            <?= session('errors.telepon') ?>
                                         </p>
                                     <?php endif; ?>
                                 </div>
@@ -238,9 +238,9 @@
                                         placeholder="sekolah@email.com"
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
-                                    <?php if (session('validation') && session('validation')->hasError('email')) : ?>
+                                    <?php if (session('errors.email')) : ?>
                                         <p class="text-sm text-red-500">
-                                            <?= session('validation')->getError('email') ?>
+                                            <?= session('errors.email') ?>
                                         </p>
                                     <?php endif; ?>
                                 </div>
@@ -258,9 +258,9 @@
                                         placeholder="https://www.sekolah.sch.id"
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
 
-                                    <?php if (session('validation') && session('validation')->hasError('website')) : ?>
+                                    <?php if (session('errors.website')) : ?>
                                         <p class="text-sm text-red-500">
-                                            <?= session('validation')->getError('website') ?>
+                                            <?= session('errors.website') ?>
                                         </p>
                                     <?php endif; ?>
                                 </div>
@@ -368,9 +368,9 @@
                                     placeholder="Jalan, RT/RW, Kelurahan, Kecamatan..."
                                     class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all resize-none"><?= old('alamat', $sekolah['alamat']) ?></textarea>
 
-                                <?php if (session('validation') && session('validation')->hasError('alamat')) : ?>
+                                <?php if (session('errors.alamat')) : ?>
                                     <p class="text-sm text-red-500">
-                                        <?= session('validation')->getError('alamat') ?>
+                                        <?= session('errors.alamat') ?>
                                     </p>
                                 <?php endif; ?>
                             </div>
@@ -388,6 +388,10 @@
                                         step="any"
                                         value="<?= old('latitude', $sekolah['latitude']) ?>"
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
+
+                                    <?php if (session('errors.latitude')) : ?>
+                                        <p class="text-sm text-red-500"><?= session('errors.latitude') ?></p>
+                                    <?php endif; ?>
                                 </div>
 
                                 <div class="space-y-2">
@@ -402,6 +406,10 @@
                                         step="any"
                                         value="<?= old('longitude', $sekolah['longitude']) ?>"
                                         class="w-full bg-slate-100 border-none rounded-xl px-4 py-3 text-sm font-medium text-foreground focus:ring-2 focus:ring-primary/50 focus:bg-white outline-none transition-all">
+
+                                    <?php if (session('errors.longitude')) : ?>
+                                        <p class="text-sm text-red-500"><?= session('errors.longitude') ?></p>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <input
@@ -540,10 +548,10 @@
 
                     </label>
 
-                    <?php if (session('validation') && session('validation')->hasError('foto_utama')) : ?>
+                    <?php if (session('errors.foto_utama')) : ?>
 
                         <p class="text-red-500 text-sm mt-3">
-                            <?= session('validation')->getError('foto_utama') ?>
+                            <?= session('errors.foto_utama') ?>
                         </p>
 
                     <?php endif; ?>
@@ -904,6 +912,55 @@
             }
 
         }
+
+        // ==========================
+        // DETEKSI SAAT INPUT MANUAL
+        // ==========================
+
+        function tryDetectFromInputs() {
+            const lat = parseFloat(latInput.value);
+            const lng = parseFloat(lngInput.value);
+            if (isNaN(lat) || isNaN(lng)) return;
+
+            const ditemukan = detectKecamatan(lat, lng);
+
+            if (!ditemukan) {
+                if (marker) {
+                    map.removeLayer(marker);
+                    marker = null;
+                }
+
+                L.popup({
+                        closeButton: false,
+                        autoClose: true,
+                        closeOnClick: true,
+                        className: 'popup-warning'
+                    })
+                    .setLatLng([lat, lng])
+                    .setContent(`
+        <div style="text-align:center;min-width:180px;padding:12px;">
+            <b style="color:#dc2626;">⚠ Lokasi di luar wilayah</b><br>
+            <small>Silakan pilih lokasi di dalam batas kecamatan.</small>
+        </div>
+    `)
+                    .openOn(map);
+
+                return;
+            }
+
+            if (marker) {
+                marker.setLatLng([lat, lng]);
+            } else {
+                marker = L.marker([lat, lng], {
+                    icon: pinIcon
+                }).addTo(map);
+            }
+
+            map.setView([lat, lng], map.getZoom());
+        }
+
+        latInput.addEventListener('change', tryDetectFromInputs);
+        lngInput.addEventListener('change', tryDetectFromInputs);
 
         document.getElementById('form-sekolah').addEventListener('submit', function(e) {
             const lat = parseFloat(latInput.value);

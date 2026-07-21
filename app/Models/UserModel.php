@@ -40,6 +40,7 @@ class UserModel extends ShieldUserModel
             $builder->groupStart()
                 ->like('u.username', $search)
                 ->orLike('ui.secret', $search)
+                ->orLike('s.nama_sekolah', $search)
                 ->groupEnd();
         }
 

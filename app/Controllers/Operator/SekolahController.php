@@ -114,7 +114,7 @@ class SekolahController extends BaseController
 
         // Foto: wajib jika belum ada foto, opsional jika sudah ada
         $fotoRule = !empty($sekolah['foto_utama'])
-            ? 'permit_empty|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]'
+            ? 'permit_empty|uploaded[foto_utama]|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]'
             : 'uploaded[foto_utama]|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]';
 
         $rules = [
@@ -127,8 +127,8 @@ class SekolahController extends BaseController
             'alamat'       => 'permit_empty',
             'visi'         => 'permit_empty',
             'misi'         => 'permit_empty',
-            'latitude'     => 'permit_empty|decimal|greater_than[-90]|less_than[90]',
-            'longitude'    => 'permit_empty|decimal|greater_than[-180]|less_than[180]',
+            'latitude'     => 'required|decimal|greater_than[-90]|less_than[90]',
+            'longitude'    => 'required|decimal|greater_than[-180]|less_than[180]',
             'kecamatan_id' => 'required',
             'foto_utama'   => $fotoRule,
         ];
@@ -137,14 +137,27 @@ class SekolahController extends BaseController
             'foto_utama' => [
                 'uploaded' => 'Foto sekolah wajib diunggah.',
                 'is_image' => 'File harus berupa gambar (PNG, JPG, WEBP).',
+                'mime_in'  => 'File harus berupa gambar dengan format PNG, JPG, atau WEBP.',
                 'max_size' => 'Ukuran foto maksimal 2MB.',
+            ],
+            'latitude' => [
+                'required'     => 'Latitude wajib diisi.',
+                'decimal'      => 'Latitude harus berupa angka desimal.',
+                'greater_than' => 'Latitude harus lebih besar dari -90.',
+                'less_than'    => 'Latitude harus kurang dari 90.',
+            ],
+            'longitude' => [
+                'required'     => 'Longitude wajib diisi.',
+                'decimal'      => 'Longitude harus berupa angka desimal.',
+                'greater_than' => 'Longitude harus lebih besar dari -180.',
+                'less_than'    => 'Longitude harus kurang dari 180.',
             ],
         ];
 
         if (!$this->validate($rules, $errors)) {
             return redirect()->back()
                 ->withInput()
-                ->with('validation', $this->validator)
+                ->with('errors', $this->validator->getErrors())
                 ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 

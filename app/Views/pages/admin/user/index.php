@@ -28,7 +28,7 @@
                     <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
                     <input id="search-input"
                         class="w-full pl-12 pr-4 py-3 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white outline-none transition-all"
-                        placeholder="Cari berdasarkan nama atau email..."
+                        placeholder="Cari berdasarkan nama, email, atau sekolah..."
                         type="text" />
                 </div>
                 <?php if (auth()->user()->inGroup('superadmin')): ?>
