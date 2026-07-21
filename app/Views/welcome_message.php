@@ -138,9 +138,9 @@
                     ?>
                         <div class="school-card-vibrant bg-card text-foreground rounded-2xl overflow-hidden border border-border/50 cursor-pointer group">
                             <div class="relative aspect-video overflow-hidden">
-                                <?php if (!empty($s['foto_utama'])): ?>
+                                <?php if (!empty($item['foto_utama'])): ?>
                                     <!-- Gambar Sekolah Dinamis -->
-                                    <img alt="<?= esc($item['nama_sekolah']) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?= base_url('uploads/sekolah') . '/' . esc($sekolah['foto_utama']) ?>" />
+                                    <img alt="<?= esc($item['nama_sekolah']) ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="<?= base_url('uploads/sekolah') . '/' . esc($item['foto_utama']) ?>" />
                                 <?php else: ?>
                                     <div class="w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
                                         <span class="material-symbols-outlined text-4xl! text-slate-400">school</span>
