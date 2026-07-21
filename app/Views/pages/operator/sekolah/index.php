@@ -417,6 +417,19 @@
                                 id="kecamatan_id"
                                 name="kecamatan_id"
                                 value="<?= old('kecamatan_id', $sekolah['kecamatan_id']) ?>">
+
+                            <div class="col-span-2 space-y-2">
+                                <label class="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                                    Kecamatan
+                                </label>
+                                <input
+                                    type="text"
+                                    id="kecamatan_display"
+                                    readonly
+                                    value="<?= old('kecamatan_name', $kecamatanName ?? '') ?>"
+                                    class="w-full bg-slate-50 border border-border rounded-xl px-4 py-3 text-sm font-medium text-slate-500 cursor-not-allowed focus:ring-0 outline-none"
+                                    placeholder="Deteksi otomatis dari koordinat">
+                            </div>
                         </div>
                         <div class="space-y-3 h-full min-h-[240px] flex flex-col">
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-2">PENENTUAN LOKASI (MAP)</label>
@@ -577,6 +590,12 @@
         const latInput = document.getElementById('lat-input');
         const lngInput = document.getElementById('lng-input');
         const kecamatanInput = document.getElementById('kecamatan_id');
+        const kecamatanDisplay = document.getElementById('kecamatan_display');
+
+        const namaKecamatanById = {};
+        kecamatanGeojson.forEach(k => {
+            namaKecamatanById[k.id] = k.nama_kecamatan;
+        });
 
         const btnPin = document.getElementById('btn-pinpoint');
         const btnPinLabel = document.getElementById('btn-pinpoint-label');
@@ -768,6 +787,7 @@
                     ditemukan = true;
 
                     kecamatanInput.value = poly.kecamatan_id;
+                    kecamatanDisplay.value = namaKecamatanById[poly.kecamatan_id] || '';
 
                     if (activeLayer) {
                         activeLayer.setStyle(activeLayer.defaultStyle);
@@ -787,6 +807,7 @@
             if (!ditemukan) {
 
                 kecamatanInput.value = "";
+                kecamatanDisplay.value = "";
 
                 if (activeLayer) {
 
@@ -906,8 +927,20 @@
 
             } else {
 
-                latInput.value = "";
-                lngInput.value = "";
+                L.popup({
+                        closeButton: false,
+                        autoClose: true,
+                        closeOnClick: true,
+                        className: 'popup-warning'
+                    })
+                    .setLatLng([lat, lng])
+                    .setContent(`
+        <div style="text-align:center;min-width:180px;padding:12px;">
+            <b style="color:#dc2626;">⚠ Lokasi di luar wilayah</b><br>
+            <small>Koordinat tidak sesuai kecamatan mana pun.</small>
+        </div>
+    `)
+                    .openOn(map);
 
             }
 

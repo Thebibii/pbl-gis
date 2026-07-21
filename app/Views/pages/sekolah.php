@@ -115,7 +115,7 @@
                                 <span class="text-white/90"><?= esc($baris2) ?></span>
                             </h1>
                             <div class="flex justify-between">
-                                <div class="max-w-xl flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
+                                <div class="max-w-md flex items-start gap-4 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
                                     <div class="bg-white/15 px-2.5 py-2 rounded-lg flex shrink-0">
                                         <span class="material-symbols-outlined text-white text-xl!">location_on</span>
                                     </div>
@@ -496,48 +496,48 @@
             setTimeout(() => map.invalidateSize(), 100);
 
             <?php if (!empty($sekolah['geojson_file'])): ?>
-            fetch("<?= base_url($sekolah['geojson_file']) ?>")
-                .then(res => res.json())
-                .then(data => {
-                    const wilayahLayer = L.geoJSON(data, {
-                        style: {
-                            color: '#2563eb',
-                            weight: 1.8,
-                            opacity: 0.9,
-                            fillColor: '#3b82f6',
-                            fillOpacity: 0.06
-                        },
-                        onEachFeature(feature, layer) {
-                            layer.on('mouseover', function() {
-                                this.setStyle({
-                                    weight: 3,
-                                    color: '#1d4ed8',
-                                    fillOpacity: 0.15
+                fetch("<?= base_url($sekolah['geojson_file']) ?>")
+                    .then(res => res.json())
+                    .then(data => {
+                        const wilayahLayer = L.geoJSON(data, {
+                            style: {
+                                color: '#2563eb',
+                                weight: 1.8,
+                                opacity: 0.9,
+                                fillColor: '#3b82f6',
+                                fillOpacity: 0.06
+                            },
+                            onEachFeature(feature, layer) {
+                                layer.on('mouseover', function() {
+                                    this.setStyle({
+                                        weight: 3,
+                                        color: '#1d4ed8',
+                                        fillOpacity: 0.15
+                                    });
+                                    this.bringToFront();
                                 });
-                                this.bringToFront();
-                            });
-                            layer.on('mouseout', function() {
-                                wilayahLayer.resetStyle(this);
-                            });
-                        }
-                    }).addTo(map);
+                                layer.on('mouseout', function() {
+                                    wilayahLayer.resetStyle(this);
+                                });
+                            }
+                        }).addTo(map);
 
-                    setTimeout(() => {
-                        map.invalidateSize();
-                        map.fitBounds(wilayahLayer.getBounds(), {
-                            padding: [40, 40],
-                            maxZoom: 13
-                        });
-
-                        map.once('moveend', function() {
-                            map.setMinZoom(map.getZoom());
-                            map.setView([lat, lng], map.getZoom(), {
-                                animate: false
+                        setTimeout(() => {
+                            map.invalidateSize();
+                            map.fitBounds(wilayahLayer.getBounds(), {
+                                padding: [40, 40],
+                                maxZoom: 13
                             });
-                        });
-                    }, 150);
-                })
-                .catch(err => console.error('GeoJSON gagal dimuat:', err));
+
+                            map.once('moveend', function() {
+                                map.setMinZoom(map.getZoom());
+                                map.setView([lat, lng], map.getZoom(), {
+                                    animate: false
+                                });
+                            });
+                        }, 150);
+                    })
+                    .catch(err => console.error('GeoJSON gagal dimuat:', err));
             <?php endif; ?>
 
             // ── Marker pin ────────────────────────────────────────────────────────────

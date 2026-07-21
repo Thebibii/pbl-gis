@@ -78,11 +78,21 @@ class SekolahController extends BaseController
 
 
 
+        // Cari nama kecamatan untuk display
+        $kecamatanName = '';
+        foreach ($kecamatan_list as $kec) {
+            if ((string) $kec['id'] === (string) $sekolah['kecamatan_id']) {
+                $kecamatanName = $kec['nama_kecamatan'];
+                break;
+            }
+        }
+
         $data = [
             'title'    => 'Data Sekolah',
             'user'     => $user,
             'sekolah'  => $sekolah,
             'kecamatan_geojson' => $kecamatan_geojson,
+            'kecamatanName' => $kecamatanName,
             'validation' => \Config\Services::validation(),
         ];
 
@@ -171,8 +181,9 @@ class SekolahController extends BaseController
             'misi'     => $this->request->getPost('misi'),
             'kurikulum'   => $this->request->getPost('kurikulum'),
             'alamat'      => $this->request->getPost('alamat'),
-            'latitude'    => $this->request->getPost('latitude'),
-            'longitude'   => $this->request->getPost('longitude'),
+            'latitude'     => $this->request->getPost('latitude'),
+            'longitude'    => $this->request->getPost('longitude'),
+            'kecamatan_id' => $this->request->getPost('kecamatan_id'),
         ];
 
         // Upload foto jika ada
