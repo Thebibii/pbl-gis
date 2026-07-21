@@ -68,6 +68,8 @@ class SekolahModel extends Model
             ->join('statistik_sekolah', 'statistik_sekolah.sekolah_id = sekolah.id', 'left')
             ->join('kecamatan', 'kecamatan.id = sekolah.kecamatan_id', 'left')
             ->where('sekolah.is_active', 1)
+            ->where('sekolah.latitude IS NOT NULL')
+            ->where('sekolah.longitude IS NOT NULL')
             ->orderBy('sekolah.created_at', 'DESC')
             ->findAll();
     }

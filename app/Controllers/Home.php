@@ -32,7 +32,10 @@ class Home extends BaseController
     public function peta(): string
     {
         $sekolahModel = new \App\Models\SekolahModel();
-        $kecamatan_list = $this->kecamatanModel->select('id, nama_kecamatan, geojson_file, warna')->findAll();
+        $kecamatan_list = $this->kecamatanModel
+            ->select('id, nama_kecamatan, geojson_file, warna')
+            ->where('geojson_file IS NOT NULL')
+            ->findAll();
 
         $kecamatan_geojson = []; // <- inisialisasi, sebelumnya tidak ada
 
@@ -59,10 +62,11 @@ class Home extends BaseController
             ];
         }
 
-        $total_sekolah = $sekolahModel->countAllResults(false);
+        $sekolahList = $sekolahModel->forPeta();
+        $total_sekolah = count($sekolahList);
         $sekolah = array_map(function ($s) {
-            $siswa = $s['jumlah_siswa_l'] + $s['jumlah_siswa_p'];
-            $guru = $s['jumlah_guru_tetap'] + $s['jumlah_guru_honor'];
+            $siswa = ($s['jumlah_siswa_l'] ?? 0) + ($s['jumlah_siswa_p'] ?? 0);
+            $guru  = ($s['jumlah_guru_tetap'] ?? 0) + ($s['jumlah_guru_honor'] ?? 0);
             return [
                 'id'         => $s['id'],
                 'nama'       => $s['nama_sekolah'],
@@ -70,8 +74,8 @@ class Home extends BaseController
                 'jenis'      => $s['jenjang'],
                 'status'     => strtoupper($s['status']),
                 'akreditasi' => $s['akreditasi'],
-                'lat'        => (float) $s['latitude'],
-                'lng'        => (float) $s['longitude'],
+                'lat'        => $s['latitude'] !== null ? (float) $s['latitude'] : 0,
+                'lng'        => $s['longitude'] !== null ? (float) $s['longitude'] : 0,
                 'alamat'     => $s['alamat'],
                 'siswa'      => $siswa,
                 'guru'       => $guru,
@@ -80,7 +84,7 @@ class Home extends BaseController
                     ? base_url('uploads/sekolah/' . $s['foto_utama'])
                     : null,
             ];
-        }, $sekolahModel->forPeta());
+        }, $sekolahList);
         return view('pages/peta', [
             'sekolahData'      => json_encode($sekolah, JSON_UNESCAPED_UNICODE),
             'kecamatanGeojson' => json_encode($kecamatan_geojson, JSON_UNESCAPED_UNICODE), // <- baru
@@ -188,8 +192,14 @@ class Home extends BaseController
             ->getResultArray();
         // dd($sekolah);
         // 5. Sekolah terdekat (3 terdekat berdasarkan jarak Haversine)
-        $lat = $sekolah['latitude'];
-        $lng = $sekolah['longitude'];
+        $lat = $sekolah['latitude'] ?? null;
+        $lng = $sekolah['longitude'] ?? null;
+
+        // Fallback jika koordinat null — fallback ke koordinat pusat kabupaten
+        if ($lat === null || $lng === null) {
+            $lat = -0.4555;
+            $lng = 100.5771;
+        }
 
         $sekolahTerdekat = $db->query("
     SELECT

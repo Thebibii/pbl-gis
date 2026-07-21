@@ -139,8 +139,9 @@ class SekolahController extends BaseController
             'misi'   => 'permit_empty',
             // 'luas_lahan'   => 'permit_empty',
             // 'tahun_berdiri' => 'permit_empty|numeric|greater_than[1900]|less_than_equal_to[2100]',
-            'latitude'     => 'required|decimal',
-            'longitude'    => 'required|decimal',
+            'latitude'     => 'required|decimal|greater_than[-90]|less_than[90]',
+            'longitude'    => 'required|decimal|greater_than[-180]|less_than[180]',
+            'kecamatan_id' => 'required|is_not_unique[kecamatan.id]',
             'foto'         => 'uploaded[foto]|is_image[foto]|max_size[foto,2048]',
         ];
 
@@ -171,10 +172,14 @@ class SekolahController extends BaseController
             'latitude' => [
                 'required' => 'Latitude wajib diisi.',
                 'decimal'  => 'Format latitude harus berupa angka desimal.',
+                'greater_than' => 'Latitude harus lebih besar dari -90.',
+                'less_than'    => 'Latitude harus kurang dari 90.',
             ],
             'longitude' => [
                 'required' => 'Longitude wajib diisi.',
                 'decimal'  => 'Format longitude harus berupa angka desimal.',
+                'greater_than' => 'Longitude harus lebih besar dari -180.',
+                'less_than'    => 'Longitude harus kurang dari 180.',
             ],
             /* 'tahun_berdiri' => [
                 'numeric'           => 'Tahun berdiri harus berupa angka.',
@@ -256,6 +261,17 @@ class SekolahController extends BaseController
             return redirect()->back()->withInput()
                 ->with('errors', $prestasiErrors)
                 ->with('error', 'Data gagal disimpan. Periksa kembali form Anda.');
+        }
+
+        // ── 4. Validasi point-in-polygon ──────────────────────────────────────
+        $lat = $this->request->getPost('latitude');
+        $lng = $this->request->getPost('longitude');
+        $kecId = $this->request->getPost('kecamatan_id');
+
+        if (!$this->isPointInKecamatan($lat, $lng, $kecId)) {
+            return redirect()->back()->withInput()
+                ->with('errors', ['latitude' => 'Koordinat tidak berada di dalam wilayah kecamatan yang dipilih.'])
+                ->with('error', 'Data gagal disimpan. Koordinat tidak sesuai dengan kecamatan.');
         }
 
         // --- Upload foto ---
@@ -511,10 +527,14 @@ class SekolahController extends BaseController
             'latitude' => [
                 'required' => 'Latitude wajib diisi.',
                 'decimal'  => 'Format latitude harus berupa angka desimal.',
+                'greater_than' => 'Latitude harus lebih besar dari -90.',
+                'less_than'    => 'Latitude harus kurang dari 90.',
             ],
             'longitude' => [
                 'required' => 'Longitude wajib diisi.',
                 'decimal'  => 'Format longitude harus berupa angka desimal.',
+                'greater_than' => 'Longitude harus lebih besar dari -180.',
+                'less_than'    => 'Longitude harus kurang dari 180.',
             ],
             // 'luas_lahan' => [
             //     'required' => 'Luas lahan wajib diisi.',
@@ -592,7 +612,18 @@ class SekolahController extends BaseController
                 ->with('error', 'Data gagal diperbarui. Periksa kembali form Anda.');
         }
 
-        // ── 4. Handle upload foto ─────────────────────────────────────────────────
+        // ── 4. Validasi point-in-polygon ──────────────────────────────────────
+        $lat  = $this->request->getPost('latitude');
+        $lng  = $this->request->getPost('longitude');
+        $kecId = $this->request->getPost('kecamatan_id');
+
+        if (!$this->isPointInKecamatan($lat, $lng, $kecId)) {
+            return redirect()->back()->withInput()
+                ->with('errors', ['latitude' => 'Koordinat tidak berada di dalam wilayah kecamatan yang dipilih.'])
+                ->with('error', 'Data gagal diperbarui. Koordinat tidak sesuai dengan kecamatan.');
+        }
+
+        // ── 5. Handle upload foto ─────────────────────────────────────────────────
         $fotoName = $sekolah['foto_utama']; // default: tetap pakai foto lama
         $fotoFile = $this->request->getFile('foto');
         if ($fotoFile && $fotoFile->isValid() && !$fotoFile->hasMoved()) {
