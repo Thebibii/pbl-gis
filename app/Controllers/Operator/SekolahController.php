@@ -118,18 +118,19 @@ class SekolahController extends BaseController
             : 'uploaded[foto_utama]|is_image[foto_utama]|mime_in[foto_utama,image/png,image/jpeg,image/jpg,image/webp]|max_size[foto_utama,2048]';
 
         $rules = [
-            'nama_kepsek' => 'required|max_length[150]',
-            'akreditasi'  => 'permit_empty|in_list[A,B,C,Belum Terakreditasi]',
-            'telepon'     => 'permit_empty|max_length[30]',
-            'email'       => 'permit_empty|valid_email|max_length[100]',
-            'website'     => 'permit_empty|valid_url_strict',
-            'kurikulum'   => 'permit_empty|max_length[100]',
-            'alamat'      => 'permit_empty',
-            'visi'      => 'permit_empty',
-            'misi'      => 'permit_empty',
-            'latitude'    => 'permit_empty|decimal',
-            'longitude'   => 'permit_empty|decimal',
-            'foto_utama'  => $fotoRule,
+            'nama_kepsek'  => 'required|max_length[150]',
+            'akreditasi'   => 'permit_empty|in_list[A,B,C,Belum Terakreditasi]',
+            'telepon'      => 'permit_empty|max_length[30]',
+            'email'        => 'permit_empty|valid_email|max_length[100]',
+            'website'      => 'permit_empty|valid_url_strict',
+            'kurikulum'    => 'permit_empty|max_length[100]',
+            'alamat'       => 'permit_empty',
+            'visi'         => 'permit_empty',
+            'misi'         => 'permit_empty',
+            'latitude'     => 'permit_empty|decimal|greater_than[-90]|less_than[90]',
+            'longitude'    => 'permit_empty|decimal|greater_than[-180]|less_than[180]',
+            'kecamatan_id' => 'required',
+            'foto_utama'   => $fotoRule,
         ];
 
         $errors = [

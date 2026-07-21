@@ -458,12 +458,14 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            var lat = <?= ($sekolah['latitude'] ?? '-0.4555') ?>;
+            var lng = <?= ($sekolah['longitude'] ?? '100.5771') ?>;
             map = L.map('map', {
                 zoomControl: false,
                 preferCanvas: true,
                 minZoom: 10,
                 maxZoom: 18
-            }).setView([<?= $sekolah['latitude'] ?>, <?= $sekolah['longitude'] ?>], 12);
+            }).setView([lat, lng], 12);
             // Tile layers
             const tileLayers = {
                 light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -493,6 +495,7 @@
 
             setTimeout(() => map.invalidateSize(), 100);
 
+            <?php if (!empty($sekolah['geojson_file'])): ?>
             fetch("<?= base_url($sekolah['geojson_file']) ?>")
                 .then(res => res.json())
                 .then(data => {
@@ -526,16 +529,16 @@
                             maxZoom: 13
                         });
 
-                        // Kunci zoom out tidak bisa melewati hasil fitBounds
                         map.once('moveend', function() {
-                            map.setMinZoom(map.getZoom()); // kunci zoom out di level ini
-                            map.setView([<?= $sekolah['latitude'] ?>, <?= $sekolah['longitude'] ?>], map.getZoom(), {
+                            map.setMinZoom(map.getZoom());
+                            map.setView([lat, lng], map.getZoom(), {
                                 animate: false
                             });
                         });
                     }, 150);
                 })
                 .catch(err => console.error('GeoJSON gagal dimuat:', err));
+            <?php endif; ?>
 
             // ── Marker pin ────────────────────────────────────────────────────────────
             const pinIcon = L.divIcon({
@@ -551,7 +554,7 @@
                 iconAnchor: [0, 0],
             });
 
-            const marker = L.marker([<?= $sekolah['latitude'] ?>, <?= $sekolah['longitude'] ?>], {
+            const marker = L.marker([lat, lng], {
                     icon: pinIcon
                 })
                 .bindPopup(

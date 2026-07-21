@@ -96,14 +96,22 @@ class WilayahController extends BaseController
         $rules = [
             'kecamatan_id' => 'required|is_natural_no_zero',
             'geojson_file' => 'permit_empty|max_length[255]',
-            'latitude'     => 'permit_empty|decimal',
-            'longitude'    => 'permit_empty|decimal',
+            'latitude'     => 'permit_empty|decimal|greater_than[-90]|less_than[90]',
+            'longitude'    => 'permit_empty|decimal|greater_than[-180]|less_than[180]',
         ];
 
         $messages = [
             'kecamatan_id' => [
                 'required'           => 'Kecamatan wajib dipilih.',
                 'is_natural_no_zero' => 'Pilihan kecamatan tidak valid.',
+            ],
+            'latitude' => [
+                'greater_than' => 'Latitude harus lebih besar dari -90.',
+                'less_than'    => 'Latitude harus kurang dari 90.',
+            ],
+            'longitude' => [
+                'greater_than' => 'Longitude harus lebih besar dari -180.',
+                'less_than'    => 'Longitude harus kurang dari 180.',
             ],
         ];
 
@@ -114,6 +122,18 @@ class WilayahController extends BaseController
                 ->with('open_modal', 'add');
         }
 
+        // Validasi file GeoJSON benar-benar ada
+        $geojsonFile = $this->request->getPost('geojson_file') ?: null;
+        if ($geojsonFile !== null) {
+            $fullPath = FCPATH . $geojsonFile;
+            if (!is_file($fullPath)) {
+                return redirect()->back()
+                    ->withInput()
+                    ->with('errors', ['geojson_file' => "File GeoJSON '{$geojsonFile}' tidak ditemukan di server."])
+                    ->with('open_modal', 'add');
+            }
+        }
+
         $id  = (int) $this->request->getPost('kecamatan_id');
         $row = $this->kecamatanModel->find($id);
 
@@ -122,7 +142,7 @@ class WilayahController extends BaseController
         }
 
         $this->kecamatanModel->update($id, [
-            'geojson_file' => $this->request->getPost('geojson_file') ?: null,
+            'geojson_file' => $geojsonFile,
             'latitude'     => $this->request->getPost('latitude')     ?: null,
             'longitude'    => $this->request->getPost('longitude')    ?: null,
             'warna'        => $this->request->getPost('warna')        ?: null,
@@ -142,8 +162,8 @@ class WilayahController extends BaseController
 
         $rules = [
             'geojson_file' => 'permit_empty|max_length[255]',
-            'latitude'     => 'permit_empty|decimal',
-            'longitude'    => 'permit_empty|decimal',
+            'latitude'     => 'permit_empty|decimal|greater_than[-90]|less_than[90]',
+            'longitude'    => 'permit_empty|decimal|greater_than[-180]|less_than[180]',
         ];
 
         if (!$this->validate($rules)) {
@@ -154,8 +174,21 @@ class WilayahController extends BaseController
                 ->with('open_id', $id);
         }
 
+        // Validasi file GeoJSON benar-benar ada
+        $geojsonFile = $this->request->getPost('geojson_file') ?: null;
+        if ($geojsonFile !== null) {
+            $fullPath = FCPATH . $geojsonFile;
+            if (!is_file($fullPath)) {
+                return redirect()->back()
+                    ->withInput()
+                    ->with('errors', ['geojson_file' => "File GeoJSON '{$geojsonFile}' tidak ditemukan di server."])
+                    ->with('open_modal', 'edit')
+                    ->with('open_id', $id);
+            }
+        }
+
         $this->kecamatanModel->update($id, [
-            'geojson_file' => $this->request->getPost('geojson_file') ?: null,
+            'geojson_file' => $geojsonFile,
             'latitude'     => $this->request->getPost('latitude')     ?: null,
             'longitude'    => $this->request->getPost('longitude')    ?: null,
             'warna'        => $this->request->getPost('warna')        ?: null,
