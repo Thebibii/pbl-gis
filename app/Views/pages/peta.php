@@ -84,8 +84,8 @@
             <div id="map" class="w-full h-full"></div>
         </div>
 
-        <!-- Map Controls -->
-        <div class="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 flex flex-col items-end gap-3 z-10">
+        <!-- Map Controls - Top: Zoom & Layer -->
+        <div class="absolute right-4 lg:right-8 top-24 flex flex-col items-end gap-3 z-10">
             <div class="flex flex-col w-fit glass-effect rounded-2xl shadow-2xl overflow-hidden">
                 <button data-map-action="zoom-in" class="w-12 h-12 flex items-center justify-center text-primary hover:bg-accent transition-colors border-b border-border/50" title="Zoom in">
                     <span class="material-symbols-outlined">add</span>
@@ -94,13 +94,13 @@
                     <span class="material-symbols-outlined">remove</span>
                 </button>
             </div>
-            <!-- <button id="btn-locate" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Lokasi saya">
-                <span class="material-symbols-outlined">my_location</span>
-            </button> -->
             <button id="btn-layers" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Ganti layer peta">
                 <span class="material-symbols-outlined">layers</span>
             </button>
+        </div>
 
+        <!-- Map Controls - Bottom: Legenda & Kecamatan -->
+        <div class="absolute right-4 lg:right-8 bottom-8 flex flex-col items-end gap-3 z-10">
             <!-- Legenda & Kecamatan disembunyikan di mobile, fokus ke peta + panel -->
             <div class="hidden lg:flex lg:w-full w-fit lg:min-w-70 py-3 px-3.5 space-y-1 flex-col glass-effect rounded-2xl shadow-xl text-primary">
                 <h1 class="font-bold text-foreground text-sm">Legenda</h1>
@@ -128,41 +128,7 @@
             </div>
         </div>
 
-        <!-- Bottom Stats Bar (disembunyikan di mobile) -->
-        <div class="hidden lg:block absolute bottom-8 right-16 w-full max-w-4xl px-6 pointer-events-none z-50">
-            <div class="pointer-events-auto glass-effect rounded-2xl shadow-2xl px-10 h-20 border-none flex items-center justify-between">
-                <div class="flex items-center gap-10">
-                    <div class="flex flex-col gap-1">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Total Sekolah</p>
-                        <div class="flex items-baseline gap-1">
-                            <span id="stat-total" class="text-2xl font-stat font-bold text-primary">0</span>
-                            <span class="text-[10px] text-success font-bold">+12%</span>
-                        </div>
-                    </div>
-                    <div class="w-[1px] h-10 bg-border"></div>
-                    <div class="flex flex-col gap-1">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Akreditasi A</p>
-                        <div class="flex items-baseline gap-1">
-                            <span id="stat-akred-a" class="text-2xl font-stat font-bold text-foreground">0</span>
-                            <span class="text-[10px] text-muted-foreground font-medium">UNIT</span>
-                        </div>
-                    </div>
-                    <div class="w-[1px] h-10 bg-border"></div>
-                    <div class="flex flex-col gap-1">
-                        <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-widest">Butuh Perhatian</p>
-                        <div class="flex items-baseline gap-1">
-                            <span id="stat-perhatian" class="text-2xl font-stat font-bold text-destructive">0</span>
-                            <span class="text-[10px] text-destructive font-bold flex items-center gap-0.5">
-                                <span class="material-symbols-outlined text-[12px]!">warning</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <button class="bg-primary/10 text-primary h-12 w-12 rounded-xl hover:bg-primary/20 transition-all flex items-center justify-center shadow-sm" title="Analisis data">
-                    <span class="material-symbols-outlined font-bold">insights</span>
-                </button>
-            </div>
-        </div>
+
     </section>
 </main>
 
@@ -173,6 +139,51 @@
     .school-card.active {
         border-color: hsl(221 83% 53%);
     }
+
+    /* Slower spiderfy animation */
+    .leaflet-cluster-anim .leaflet-marker-icon,
+    .leaflet-cluster-anim .leaflet-marker-shadow {
+        transition: transform 0.6s ease-out, opacity 0.6s ease-in !important;
+    }
+
+    .leaflet-cluster-spider-leg {
+        transition: stroke-dashoffset 0.6s ease-out, stroke-opacity 0.6s ease-in !important;
+    }
+
+    /* ─── CUSTOM CLUSTER ICON ─────────────────────────────────────────── */
+    .custom-cluster-icon {
+        position: relative;
+        width: 44px;
+        height: 44px;
+    }
+
+    .custom-cluster-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-cluster-inner {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .custom-cluster-count {
+        font: 700 12px/1 "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+    }
 </style>
 
 <script>
@@ -181,6 +192,13 @@
         // ─── DATA SEKOLAH (Ganti dengan data dari controller nanti) ──────────────
         // Format: { id, nama, jenis, status, akreditasi, lat, lng, alamat, siswa, guru, img }
         const sekolahData = <?= json_encode(json_decode($sekolahData), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
+
+        // ─── WARNA PER JENJANG (sinkron dengan CSS badge-TK/SD/SMP) ───────────────
+        const jenjangColors = {
+            TK: '#9333EA',
+            SD: '#EF4444',
+            SMP: '#3B82F6'
+        };
 
         // ─── HTML ESCAPE HELPER (mencegah XSS dari data sekolah/kecamatan) ────────
         function escapeHtml(value) {
@@ -198,7 +216,8 @@
             zoomControl: false,
             preferCanvas: true,
             minZoom: 10,
-            maxZoom: 18
+            maxZoom: 18,
+            zoomDuration: 0.6,
         }).setView([-0.4555, 100.5771], 12);
 
         // Tile layers
@@ -212,6 +231,63 @@
         };
         let activeLayer = 'light';
         tileLayers.light.addTo(map);
+
+        // ─── MARKER CLUSTER GROUP ──────────────────────────────────────────────────
+        const markerCluster = L.markerClusterGroup({
+            maxClusterRadius: 140,
+            spiderfyOnMaxZoom: true,
+            showCoverageOnHover: false,
+            zoomToBoundsOnClick: true,
+            disableClusteringAtZoom: 16,
+            iconCreateFunction: function(cluster) {
+                const markers = cluster.getAllChildMarkers();
+                const counts = {
+                    TK: 0,
+                    SD: 0,
+                    SMP: 0
+                };
+                let total = 0;
+
+                markers.forEach(m => {
+                    const jenis = m.jenis;
+                    if (jenis && counts.hasOwnProperty(jenis)) {
+                        counts[jenis]++;
+                        total++;
+                    }
+                });
+
+                // Build conic-gradient
+                let gradientParts = [];
+                let currentDeg = 0;
+
+                ['TK', 'SD', 'SMP'].forEach(jenis => {
+                    if (counts[jenis] > 0) {
+                        const angle = (counts[jenis] / total) * 360;
+                        gradientParts.push(`${jenjangColors[jenis]} ${currentDeg}deg ${currentDeg + angle}deg`);
+                        currentDeg += angle;
+                    }
+                });
+
+                const gradient = gradientParts.length > 0 ?
+                    `conic-gradient(${gradientParts.join(', ')})` :
+                    '#ccc';
+
+                return L.divIcon({
+                    className: '',
+                    html: `
+                        <div class="custom-cluster-icon">
+                            <div class="custom-cluster-ring" style="background:${gradient}"></div>
+                            <div class="custom-cluster-inner">
+                                <span class="custom-cluster-count">${total}</span>
+                            </div>
+                        </div>
+                    `,
+                    iconSize: [44, 44],
+                    iconAnchor: [22, 22]
+                });
+            }
+        });
+        markerCluster.addTo(map);
 
         window.addEventListener('load', () => map.invalidateSize());
 
@@ -298,10 +374,6 @@
                 padding: [50, 50],
                 maxZoom: 18
             });
-
-            map.once('moveend', function() {
-                map.setMinZoom(map.getZoom());
-            });
         } else {
             log_message; // (hapus baris ini, hanya placeholder) — kalau kosong, minZoom biarkan default
         }
@@ -366,20 +438,19 @@
 
         // ─── CUSTOM MARKER ICON FACTORY ───────────────────────────────────────────
         function createMarkerIcon(sekolah) {
-            const isHighlighted = false;
             return L.divIcon({
                 className: '',
                 html: `
                 <div class="
-                w-2.5 h-2.5
+                w-3.5 h-3.5
                 badge-${escapeHtml(sekolah.jenis)}
                 rounded-full
                 border-2 border-white
                 shadow-md
             "></div>
                 `,
-                iconSize: [10, 10],
-                iconAnchor: [5, 5],
+                iconSize: [14, 14],
+                iconAnchor: [7, 7],
                 popupAnchor: [0, -36]
             });
         }
@@ -435,8 +506,7 @@
         let activeCardId = null;
 
         function addMarkers(list) {
-            // Clear existing
-            Object.values(markerMap).forEach(m => map.removeLayer(m));
+            markerCluster.clearLayers();
             Object.keys(markerMap).forEach(k => delete markerMap[k]);
 
             list.forEach(s => {
@@ -445,18 +515,15 @@
                     })
                     .bindPopup(buildPopup(s), {
                         maxWidth: 300,
-                        offset: L.point(0, 100), // tidak ada offset sama sekali
+                        offset: L.point(0, 100),
                         autoPan: false
-                        // className:
-                    })
-                    .addTo(map);
+                    });
+
+                marker.jenis = s.jenis;
+                marker.addTo(markerCluster);
 
                 marker.on('click', () => {
                     highlightCard(s.id);
-                    map.panTo([s.lat, s.lng], {
-                        animate: true,
-                        duration: 0.5
-                    });
                 });
 
                 markerMap[s.id] = marker;
@@ -540,11 +607,9 @@
                 card.addEventListener('click', () => {
                     const marker = markerMap[s.id];
                     if (marker) {
-                        map.panTo([s.lat, s.lng], {
-                            animate: true,
-                            duration: 0.6
+                        markerCluster.zoomToShowLayer(marker, () => {
+                            marker.openPopup();
                         });
-                        setTimeout(() => marker.openPopup(), 400);
                     }
                     highlightCard(s.id);
                     closeMobilePanel();
@@ -552,13 +617,6 @@
 
                 container.appendChild(card);
             });
-        }
-
-        // ─── STATS UPDATE ─────────────────────────────────────────────────────────
-        function updateStats(list) {
-            document.getElementById('stat-total').textContent = list.length.toLocaleString();
-            document.getElementById('stat-akred-a').textContent = list.filter(s => s.akreditasi === 'A').length;
-            document.getElementById('stat-perhatian').textContent = list.filter(s => s.akreditasi === 'C').length;
         }
 
         // ─── FILTER & SEARCH LOGIC ───────────────────────────────────────────────
@@ -580,7 +638,6 @@
             const filtered = getFiltered();
             renderCards(filtered);
             addMarkers(filtered);
-            updateStats(filtered);
         }
 
         // Filter tabs
