@@ -97,6 +97,9 @@
             <button id="btn-layers" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Ganti layer peta">
                 <span class="material-symbols-outlined">layers</span>
             </button>
+            <button id="btn-locate" class="w-12 h-12 glass-effect rounded-2xl shadow-2xl flex items-center justify-center text-primary hover:bg-accent transition-colors" title="Lokasi saya">
+                <span class="material-symbols-outlined">my_location</span>
+            </button>
         </div>
 
         <!-- Map Controls - Bottom: Legenda & Kecamatan -->
@@ -184,6 +187,50 @@
         font: 700 12px/1 "Plus Jakarta Sans", sans-serif;
         color: #1e293b;
     }
+
+    /* ─── USER LOCATION MARKER ────────────────────────────────────────── */
+    .user-location-marker {
+        width: 28px;
+        height: 28px;
+        background: #3b82f6;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .user-location-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 28px;
+        height: 28px;
+        margin: -14px 0 0 -14px;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.25);
+        animation: user-loc-pulse 2s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    .leaflet-routing-container {
+        display: none !important;
+    }
+
+    @keyframes user-loc-pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+
+        50% {
+            transform: scale(2.2);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
 </style>
 
 <script>
@@ -215,7 +262,7 @@
         const map = L.map('map', {
             zoomControl: false,
             preferCanvas: true,
-            minZoom: 10,
+            minZoom: 8,
             maxZoom: 18,
             zoomDuration: 0.6,
         }).setView([-0.4555, 100.5771], 12);
@@ -234,7 +281,7 @@
 
         // ─── MARKER CLUSTER GROUP ──────────────────────────────────────────────────
         const markerCluster = L.markerClusterGroup({
-            maxClusterRadius: 140,
+            maxClusterRadius: 40,
             spiderfyOnMaxZoom: true,
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
@@ -288,6 +335,100 @@
             }
         });
         markerCluster.addTo(map);
+
+        // ─── USER LOCATION STATE ────────────────────────────────────────────────
+        let userMarker = null; // L.marker instance — single source of truth
+
+        // Restore dari localStorage saat halaman dimuat
+        (function restoreFromStorage() {
+            const saved = localStorage.getItem('userLocation');
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (Date.now() - data.timestamp > 86400000) {
+                    localStorage.removeItem('userLocation');
+                    return;
+                }
+                updateUserMarker({
+                    coords: {
+                        latitude: data.lat,
+                        longitude: data.lng,
+                        accuracy: data.accuracy
+                    }
+                });
+            } catch (e) {}
+        })();
+
+        function panToUserLocation() {
+            if (userMarker) {
+                map.setView(userMarker.getLatLng(), 16, {
+                    animate: true,
+                    duration: 0.5
+                });
+            }
+        }
+
+        function updateUserMarker(pos) {
+            const latlng = [pos.coords.latitude, pos.coords.longitude];
+
+            if (userMarker) {
+                userMarker.setLatLng(latlng);
+            } else {
+                userMarker = L.marker(latlng, {
+                    icon: L.divIcon({
+                        className: '',
+                        html: '<div class="user-location-marker"><div class="user-location-pulse"></div></div>',
+                        iconSize: [28, 28],
+                        iconAnchor: [14, 14]
+                    }),
+                    zIndexOffset: 10000
+                }).addTo(map);
+
+                userMarker.on('click', panToUserLocation);
+            }
+        }
+
+        function getUserLocation(callback) {
+            if (!('geolocation' in navigator)) {
+                showAlert('error', 'Geolocation tidak didukung oleh browser Anda.');
+                return;
+            }
+
+            showAlert('info', 'Mengambil lokasi Anda...');
+
+            navigator.geolocation.getCurrentPosition(
+                function(pos) {
+                    updateUserMarker(pos);
+
+                    localStorage.setItem('userLocation', JSON.stringify({
+                        lat: pos.coords.latitude,
+                        lng: pos.coords.longitude,
+                        accuracy: pos.coords.accuracy,
+                        timestamp: Date.now()
+                    }));
+
+                    if (typeof callback === 'function') callback(pos);
+                },
+                function(err) {
+                    switch (err.code) {
+                        case err.PERMISSION_DENIED:
+                            showAlert('error', 'Izin lokasi ditolak. Silakan izinkan akses lokasi di pengaturan browser.');
+                            break;
+                        case err.POSITION_UNAVAILABLE:
+                            showAlert('error', 'Lokasi tidak tersedia. Coba lagi nanti.');
+                            break;
+                        case err.TIMEOUT:
+                            showAlert('error', 'Waktu permintaan lokasi habis. Coba lagi.');
+                            break;
+                        default:
+                            showAlert('error', 'Gagal mendapatkan lokasi.');
+                    }
+                }, {
+                    enableHighAccuracy: true,
+                    timeout: 10000
+                }
+            );
+        }
 
         window.addEventListener('load', () => map.invalidateSize());
 
@@ -490,7 +631,12 @@
                             <span class="material-symbols-outlined text-[18px]! text-primary self-start">location_on</span>
                             <span class="text-[12px] text-slate-500">${alamat}${kecamatan}</span>
                         </div>
-                        <div class="flex justify-center items-center pt-2.5 border-t border-dashed border-slate-200">
+                        <div class="flex justify-center items-center gap-3 pt-2.5 border-t border-dashed border-slate-200">
+                            <button class="btn-rute text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 group/btn cursor-pointer"
+                                    data-lat="${s.lat}" data-lng="${s.lng}">
+                                <span class="material-symbols-outlined text-[16px]!">directions</span>
+                                RUTE
+                            </button>
                             <a href="<?= site_url('sekolah') ?>/${encodeURIComponent(s.slug)}"
                             class="text-primary hover:opacity-80 text-xs font-bold flex items-center gap-1 no-underline group/btn">
                                 DETAIL SEKOLAH
@@ -524,6 +670,10 @@
 
                 marker.on('click', () => {
                     highlightCard(s.id);
+                    map.panTo([s.lat, s.lng], {
+                        animate: true,
+                        duration: 0.5
+                    });
                 });
 
                 markerMap[s.id] = marker;
@@ -607,9 +757,11 @@
                 card.addEventListener('click', () => {
                     const marker = markerMap[s.id];
                     if (marker) {
-                        markerCluster.zoomToShowLayer(marker, () => {
-                            marker.openPopup();
+                        map.setView([s.lat, s.lng], 15, {
+                            animate: true,
+                            duration: 0.6
                         });
+                        markerCluster.zoomToShowLayer(marker, () => marker.openPopup());
                     }
                     highlightCard(s.id);
                     closeMobilePanel();
@@ -668,23 +820,61 @@
         document.querySelector('[data-map-action="zoom-in"]').addEventListener('click', () => map.zoomIn());
         document.querySelector('[data-map-action="zoom-out"]').addEventListener('click', () => map.zoomOut());
 
-        // Locate me
-        /* document.getElementById('btn-locate').addEventListener('click', () => {
-            map.locate({
-                setView: true,
-                maxZoom: 15
+        // ─── LOKASI SAYA ──────────────────────────────────────────────────────
+        document.getElementById('btn-locate').addEventListener('click', function() {
+            getUserLocation(function() {
+                map.setView(userMarker.getLatLng(), 16, {
+                    animate: true,
+                    duration: 0.5
+                });
             });
         });
-        map.on('locationfound', e => {
-            L.circleMarker(e.latlng, {
-                radius: 8,
-                color: '#2563eb',
-                fillColor: '#3b82f6',
-                fillOpacity: 0.7,
-                weight: 2
-            }).addTo(map).bindPopup('Lokasi Anda').openPopup();
+
+        // ─── RUTE MENUJU SEKOLAH (event delegation) ────────────────────────────
+        let routeControl = null;
+
+        function openRoute(destLat, destLng) {
+            if (!userMarker) {
+                showAlert('info', 'Ambil lokasi Anda dulu...');
+                getUserLocation(function() {
+                    openRoute(destLat, destLng);
+                });
+                return;
+            }
+            if (routeControl) {
+                map.removeControl(routeControl);
+            }
+            routeControl = L.Routing.control({
+                plan: L.Routing.plan([
+                    userMarker.getLatLng(),
+                    L.latLng(destLat, destLng)
+                ], {
+                    createMarker: function() {
+                        return false;
+                    }
+                }),
+                addWaypoints: false,
+                draggableWaypoints: false,
+                routeWhileDragging: false,
+                fitSelectedRoutes: true,
+                showAlternatives: false,
+                lineOptions: {
+                    styles: [{
+                        color: '#3B82F6',
+                        weight: 4,
+                        opacity: 0.8
+                    }]
+                }
+            }).addTo(map);
+        }
+
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.btn-rute');
+            if (!btn) return;
+            const lat = parseFloat(btn.dataset.lat);
+            const lng = parseFloat(btn.dataset.lng);
+            openRoute(lat, lng);
         });
-        map.on('locationerror', () => alert('Lokasi tidak dapat ditemukan.')); */
 
         // Layer switcher
         document.getElementById('btn-layers').addEventListener('click', () => {
